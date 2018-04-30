@@ -81,16 +81,22 @@
 
 	\textbf{Proposed by:} Steven Lowes (with Magnus Bordewich)
 	
-	\textbf{Subjects:} AI Search, Sound and Music Computing, Human-Computer Interaction, Wearable Tech
+	\textbf{Subjects:}
+	\begin{itemize}
+		\item AI Search
+		\item Sound and Music Computing
+		\item Human-Computer Interaction
+		\item Wearable Tech
+	\end{itemize}
 
-	Sound and music can cause intense emotional reaction in listeners \citep{arousingMusic}, but the action of storing music in a playlist can easily distract the listener and ruin the experience. In addition to this, each listener may respond differently to the same song \citep{musicDifferences}.
+	Sound and music can cause intense emotional reaction in listeners \citep{arousingMusic}, but the action of storing music in a playlist can easily distract the listener and ruin the experience. In addition to this, each listener may respond differently to the same song based on context, past experiences, and psychology \citep{musicDifferences}.
 	
 	Physiological arousal (PA) is the state of the brain and sympathetic nervous system being `awake', or highly active, often due to intense emotion or emotional stress. When a song causes a listener to get `pumped up', it is accompanied by an increase in the user's PA \citep{pumpedUp}. This can be measured using galvanic skin response (GSR) sensors, which measure a change in PA \citep{GSR}. These are commonly used in lie detectors and are available very cheaply \citep{gsrSensor}.
 	
-	We can model the problem of finding a song which causes increased PA as a problem of AI search. Each song can be modelled as state, and the cost of transition is dependent on whether the new song is more or less physiologically arousing than the one prior.
+	We can model the problem of finding a song which causes increased PA as an AI search problem. Each song can be modelled as state, and the cost of transition is dependent on whether the new song is more or less physiologically arousing than the one prior.
 	
-	The main difficulty in this project is how to perform a robust search with very limited data. It will take the full length of each song to determine the listener's EDA change, and the task cannot be easily parallelised due to the need for a human listener, and the fact that each listener may respond differently to each song \citep{musicDifferences}.
-	
+	The main difficulty in this project is how to perform a robust search with very limited data. It will take the full length of each song to determine the listener's EDA change, and the task cannot be easily parallelised due to the need for a human listener, and the fact that each listener may respond differently to each song.
+	\newpage
 	Once this system is working reliably, we will develop it into a wearable device such that it can used portably. This system has applications for the general consumer, in addition to potential uses in a music therapy setting \citep{musicTherapy}. Further research in the area could move to using more complex sensors, such as EEG headsets, rather than GSR sensors, or alternatively generating physiologically arousing music from scratch.
 	
 	\textbf{Anticipated Outcomes:} Development of a system for automatic generation of playlists of physiologically arousing songs and miniaturisation of the system into a wearable device.
