@@ -66,35 +66,34 @@
 	\appto\NAT@close{\egroup}}
 \makeatother
 
+\pagenumbering{gobble}
+
+\tolerance=1 %don't use hyphens
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
 
 \begin{document}
 	\begin{center}
-		\Huge \textbf{AI Search for Psychologically Arousing Songs}
+		\Huge \textbf{AI Search for Physiologically Arousing Songs}
 	\end{center}
 
 	\textbf{Proposed by:} Steven Lowes (with Magnus Bordewich)
 	
-	\textbf{Subjects:}
-	\begin{itemize}
-		\item AI Search
-		\item Sound and Music Computing
-		\item Human-Computer Interaction
-		\item Wearable Tech
-	\end{itemize}
+	\textbf{Subjects:} AI Search, Sound and Music Computing, Human-Computer Interaction, Wearable Tech
 
-	Sound and music can cause intense emotional reaction in listeners, but the action of storing music in a playlist can easily distract the listener and ruin the experience.
+	Sound and music can cause intense emotional reaction in listeners \citep{arousingMusic}, but the action of storing music in a playlist can easily distract the listener and ruin the experience. In addition to this, each listener may respond differently to the same song \citep{musicDifferences}.
 	
-	Psychological arousal is the state of the brain and sympathetic nervous system being `awake', or highly active, often due to intense emotion or emotional stress. This can be measured using galvanic skin response sensors, which measure a change in psychological arousal. These are commonly used in lie detectors and are available very cheaply.
+	Physiological arousal (PA) is the state of the brain and sympathetic nervous system being `awake', or highly active, often due to intense emotion or emotional stress. When a song causes a listener to get `pumped up', it is accompanied by an increase in the user's PA \citep{pumpedUp}. This can be measured using galvanic skin response (GSR) sensors, which measure a change in PA \citep{GSR}. These are commonly used in lie detectors and are available very cheaply \citep{gsrSensor}.
 	
-	We can model the problem of finding a song which causes increased psychological arousal as a problem of AI search. Each song is represented by a state, and a positive transition indicates that the new state is more psychologically arousing than the last. We can use the Spotify API to download statistics about songs, and find songs that are similar to each other.
+	We can model the problem of finding a song which causes increased PA as a problem of AI search. Each song can be modelled as state, and the cost of transition is dependent on whether the new song is more or less physiologically arousing than the one prior.
 	
-	The main difficulty in performing the AI search is the time taken to generate edge costs. The listener must listen to the entire song before we can know whether to transition or not. This means that we must use a very efficient AI search method which results in very few transitions.
+	The main difficulty in this project is how to perform a robust search with very limited data. It will take the full length of each song to determine the listener's EDA change, and the task cannot be easily parallelised due to the need for a human listener, and the fact that each listener may respond differently to each song \citep{musicDifferences}.
 	
-	Once this system is working reliably, we will develop the system into a wearable device such that it can used portably. We will also explore the commercial viability of such a device.
+	Once this system is working reliably, we will develop it into a wearable device such that it can used portably. This system has applications for the general consumer, in addition to potential uses in a music therapy setting \citep{musicTherapy}. Further research in the area could move to using more complex sensors, such as EEG headsets, rather than GSR sensors, or alternatively generating physiologically arousing music from scratch.
 	
-	This system has applications for the general consumer, in addition to potential uses in a music therapy setting. Further research in the area could move to using more complex sensors, such as EEG headsets, rather than GSR sensors.
-	
-	\textbf{Anticipated Outcomes:} Development of a system for automatic generation of playlists of psychologically arousing songs and miniaturisation of the system into a wearable device. \cite{test}
+	\textbf{Anticipated Outcomes:} Development of a system for automatic generation of playlists of physiologically arousing songs and miniaturisation of the system into a wearable device.
 	
 	\bibliography{document}
 \end{document}
