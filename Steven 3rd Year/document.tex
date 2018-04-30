@@ -1,0 +1,100 @@
+\documentclass[a4paper,12pt]{article}
+
+\bibliographystyle{apacite}
+
+\usepackage[natbibapa, sectionbib, notocbib]{apacite}%Citations
+
+%packages to load last
+\usepackage[hyphens, spaces]{url}%allow URLS
+\usepackage{varioref}%Automatic page references
+\usepackage[colorlinks, allcolors=blue, breaklinks]{hyperref}%Automatic reference links
+\usepackage[all]{hypcap}
+\usepackage[capitalise]{cleveref}%Automatic reference typing
+\usepackage{etoolbox} %lets us do all that funky stuff later on
+\usepackage{regexpatch}
+
+\setlength\parindent{0in} %indent and add lines between paras
+\setlength{\parskip}{0.5\baselineskip}%
+
+\makeatletter
+\xpatchcmd{\@@cite}{\def\BCA##1##2{{\@BAstyle ##1}}}{\def\BCA##1##2{{\@BAstyle ##2}}}{}{}
+
+% count citations
+\pretocmd{\NAT@citex}{%
+	\let\NAT@hyper@\NAT@hyper@citex
+	\def\NAT@postnote{#2}%
+	\setcounter{NAT@total@cites}{0}%
+	\setcounter{NAT@count@cites}{0}%
+	\forcsvlist{\stepcounter{NAT@total@cites}\@gobble}{#3}}{}{}
+\newcounter{NAT@total@cites}
+\newcounter{NAT@count@cites}
+\def\NAT@postnote{}
+
+% include postnote and \citet closing bracket in hyperlink
+\def\NAT@hyper@citex#1{%
+	\stepcounter{NAT@count@cites}%
+	\hyper@natlinkstart{\@citeb\@extra@b@citeb}#1%
+	\ifnumequal{\value{NAT@count@cites}}{\value{NAT@total@cites}}
+	{\if*\NAT@postnote*\else\NAT@cmt\NAT@postnote\global\def\NAT@postnote{}\fi}{}%
+	\ifNAT@swa\else\if\relax\NAT@date\relax
+	\else\NAT@@close\global\let\NAT@nm\@empty\fi\fi% avoid compact citations
+	\hyper@natlinkend}
+\renewcommand\hyper@natlinkbreak[2]{#1}
+
+% avoid extraneous postnotes, closing brackets
+\patchcmd{\NAT@citex}
+{\ifNAT@swa\else\if*#2*\else\NAT@cmt#2\fi
+	\if\relax\NAT@date\relax\else\NAT@@close\fi\fi}{}{}{}
+\patchcmd{\NAT@citex}
+{\if\relax\NAT@date\relax\NAT@def@citea\else\NAT@def@citea@close\fi}
+{\if\relax\NAT@date\relax\NAT@def@citea\else\NAT@def@citea@space\fi}{}{}
+\patchcmd{\NAT@cite}{\if*#3*}{\if*\NAT@postnote*}{}{}
+
+% all punctuation black
+\AtBeginDocument{%
+	\preto\NAT@sep{\textcolor{black}\bgroup}%
+	\appto\NAT@sep{\egroup}%
+	\preto\NAT@aysep{\textcolor{black}\bgroup}%
+	\appto\NAT@aysep{\egroup}%
+	\preto\NAT@yrsep{\textcolor{black}\bgroup}%
+	\appto\NAT@yrsep{\egroup}%
+	\preto\NAT@cmt{\textcolor{black}\bgroup}%
+	\appto\NAT@cmt{\egroup}%
+	\preto\NAT@open{\textcolor{black}\bgroup}%
+	\appto\NAT@open{\egroup}%
+	\preto\NAT@close{\textcolor{black}\bgroup}%
+	\appto\NAT@close{\egroup}}
+\makeatother
+
+
+\begin{document}
+	\begin{center}
+		\Huge \textbf{AI Search for Psychologically Arousing Songs}
+	\end{center}
+
+	\textbf{Proposed by:} Steven Lowes (with Magnus Bordewich)
+	
+	\textbf{Subjects:}
+	\begin{itemize}
+		\item AI Search
+		\item Sound and Music Computing
+		\item Human-Computer Interaction
+		\item Wearable Tech
+	\end{itemize}
+
+	Sound and music can cause intense emotional reaction in listeners, but the action of storing music in a playlist can easily distract the listener and ruin the experience.
+	
+	Psychological arousal is the state of the brain and sympathetic nervous system being `awake', or highly active, often due to intense emotion or emotional stress. This can be measured using galvanic skin response sensors, which measure a change in psychological arousal. These are commonly used in lie detectors and are available very cheaply.
+	
+	We can model the problem of finding a song which causes increased psychological arousal as a problem of AI search. Each song is represented by a state, and a positive transition indicates that the new state is more psychologically arousing than the last. We can use the Spotify API to download statistics about songs, and find songs that are similar to each other.
+	
+	The main difficulty in performing the AI search is the time taken to generate edge costs. The listener must listen to the entire song before we can know whether to transition or not. This means that we must use a very efficient AI search method which results in very few transitions.
+	
+	Once this system is working reliably, we will develop the system into a wearable device such that it can used portably. We will also explore the commercial viability of such a device.
+	
+	This system has applications for the general consumer, in addition to potential uses in a music therapy setting. Further research in the area could move to using more complex sensors, such as EEG headsets, rather than GSR sensors.
+	
+	\textbf{Anticipated Outcomes:} Development of a system for automatic generation of playlists of psychologically arousing songs and miniaturisation of the system into a wearable device. \cite{test}
+	
+	\bibliography{document}
+\end{document}

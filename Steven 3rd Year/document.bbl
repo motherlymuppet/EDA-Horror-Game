@@ -1,0 +1,16 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+\APACcitebtitle {test}}{%
+\APACcitebtitle {test}}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+test}
+\APACinsertmetastar {%
+test}%
+\APACrefbtitle {test.} {test.}
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
