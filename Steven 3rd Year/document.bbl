@@ -69,9 +69,11 @@ Pelletier, C\BPBI L.%
 \newblock
 \APACrefYearMonthDay{2004}{10}{}.
 \newblock
-\APACrefbtitle {The Effect of Music on Decreasing Arousal Due to Stress: A
-  Meta-Analysis} {The effect of music on decreasing arousal due to stress: A
-  meta-analysis}\ (\BVOL~41).
+{\BBOQ}\APACrefatitle {The Effect of Music on Decreasing Arousal Due to Stress:
+  A Meta-Analysis} {The effect of music on decreasing arousal due to stress: A
+  meta-analysis}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Music Therapy}{41}{}{192-214}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -153,6 +155,31 @@ gsrSensor}%
 \newblock
 \begin{APACrefURL}
   [{2018-04-30}]\url{https://www.seeedstudio.com/Grove-GSR-sensor-p-1614.html}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{\bibcorporate{Spotify}}%
+}{%
+{\bibcorporate{Spotify}}%
+}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+audioFeatures}
+\APACinsertmetastar {%
+audioFeatures}%
+\begin{APACrefauthors}%
+{\bibcorporate{Spotify}}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+\APACrefbtitle {Get Audio Features for Several Tracks.} {Get audio features for
+  several tracks.}
+\newblock
+\begin{APACrefURL}
+  [{2018-05-02}]\url{https://beta.developer.spotify.com/documentation/web-api/reference/tracks/get-several-audio-features/}
   \end{APACrefURL}
 \PrintBackRefs{\CurrentBib}
 
