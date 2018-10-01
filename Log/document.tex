@@ -1,0 +1,81 @@
+\documentclass{article}
+
+\usepackage{tabu}
+\usepackage{hyperref}
+
+\title{{\Huge 3\textsuperscript{rd} Year Project Log Book}}
+\author{Steven Lowes}
+\date{Last Updated \textbf{\today}}
+
+\setlength\parindent{0in} %indent and add lines between paras
+\setlength{\parskip}{\baselineskip}%
+
+\begin{document}
+	\maketitle
+	
+	\newpage
+	
+	\tableofcontents
+	
+	\newpage
+	
+	\section{Pre-Log}
+	Brief overview of what had been done before this log began:
+	
+	Started off wanting to generate music with EEG headset to invoke emotions using machine learning. Asked around with PhD students, they didn't really think it was possible. I emailed Toby about doing that project with him, and he passed me off to Magnus. I emailed Magnus and after a bit of back and forth we decided to simplify our input by just using GSR instead of EEG and by using pre-made songs on Spotify.
+	
+	\section{2018-06-29}
+	I met with Magnus, having created a first draft of my Project Plan. We discussed ethics forms, equipment purchase, and the experimental design of the project. We agreed that a first stage of the project should involve manually selecting songs and playing them to listeners, measuring their GSR, and asking them to rate the songs in some way.
+	
+	This would allow us to demonstrate a correlation and at least show that GSR is measuring something worthwhile and is not just random noise.
+	
+	The ethics forms look relatively simple, and will just require me to think about the format of the experiments, and how to maintain anonymity. The anonymity is pretty easy, as the only thing that needs to published is GSR data, which is not PII (I think, I will double check that people don't have a personally identifiable fingerprint in their GSR data).
+	
+	I need to conduct a literature review before designing this experiment, and should probably experiment on myself before designing the experiment procedure and submitting for ethics.
+	
+	I was also told that I needed to keep a logbook. Here it is!
+	
+	As for equipment purchases, there's a budget of \pounds100. Magnus suggested getting multiple sensors, which I will definitely try to do. There is the issue of how I will read the GPIO pins into the PC, which would be helpful for the second stage of experimentation, but not necessary for the first. In fact, it might be easier to just use the raspberry pi as a standalone computer and have all the heavy lifting done on a separate computer / in the cloud and use a web api. I will look into that.
+	
+	\section{2018-06-30}
+	I'm looking into equipment purchasing. There are no cheap GSR sensors that read directly into the PC. They are \~\pounds200 instead of \pounds10.
+	
+	In the end I went for this:
+	
+	\begin{tabu}{XXX}
+		\textbf{Item}&\textbf{Price}&\textbf{Quantity}\\
+		Raspberry Pi Zero WH&\pounds12&2\\
+		\hyperlink{https://brownsestablishment.co.uk/Page_i1675597}{Grove GSR Sensor}&\pounds10&2\\
+		\hyperlink{https://www.amazon.co.uk/Adapter-Upgraded-VicTsing-Gold-Plated-Converter-Black-1080p-Audio/dp/B016I34422/}{Audio breakout}&\pounds8&2\\
+		\hyperlink{https://www.amazon.co.uk/Rankie-Adapter-smartphone-tablets-connection-black/dp/B00YOX4JU6/}{OTG Adapter * 3}&\pounds4&1\\
+	\end{tabu}
+
+	Edit - No i didn't. Full email transcript to Magnus:
+	
+	\begin{quote}
+	Hi Magnus,
+	
+	The GSR sensor is available from various places but most seem a bit sketchy - it's also available from mouser, so i've used a link to that one. I can find it from other stores if that poses a problem.
+	
+	I looked into using a raspberry pi, but the lack of analog inputs will pose a problem for reading from the sensor. I've figured out how to use serial over usb to communicate with the arduino so that shouldn't be an issue - I can run the majority of the code on a laptop and just have the arduino constantly send the sensor readings over the serial connection.
+	
+	If possible, I would like 2 sensors so that I can experiment on two participants at once - or in case one of the sensors breaks for whatever reason. I'd still only need 1 arduino.
+	
+	In summary, this is the equipment request:
+	
+	1x \hyperlink{https://www.mouser.co.uk/ProductDetail/Seeed-Studio/110990210?qs=sGAEpiMZZMvxSQPygxWTpU\%252buE\%2fLKoESoNY3o\%252bR6\%2feGg=}{Jumper Wires}
+	
+	2x \hyperlink{https://www.mouser.co.uk/ProductDetail/Seeed-Studio/101020052?qs=\%2fha2pyFaduglX1VjfWhqo3FSmM\%252bgGP5Nj9\%2f\%2fuNr2Jy3k41ptw01cgA\%3d\%3d}{GSR Sensor}
+	
+	1x \hyperlink{http://uk.farnell.com/arduino/a000073/arduino-uno-smd-dev-kit/dp/2285200}{Arduino Uno}
+	
+	Thanks,
+	Steven
+	\end{quote}
+
+	That equipment has been ordered.
+
+	\section{2018-10-01}
+	I'm working on my Lit Review today. I have emailed Magnus and got an extension until this Friday (5th) Due to my internship sucking up so much of my time. I've got the Lit Review brief off duo and am reading Karl's lit review too, for ideas.
+		
+\end{document}

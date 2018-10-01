@@ -1,0 +1,47 @@
+\documentclass{article}
+
+\title{AI Search for Physiologically Arousing Music}
+\author{Steven Lowes}
+\date{5th October, 2018}
+
+\begin{document}
+	\maketitle
+	
+	\section{Introduction}
+	
+	\section{Problem Background}
+	The aim of this project is to search a large space of songs, attempting to find the songs that increase GSR in the listener. It must do that while testing very few songs, as each test means the listener must spend 3-5 minutes listening to a song. 
+	
+	\section{Terms}
+	\textbf{GSR}: Galvanic Skin Response, a measure of the subconscious sweating in the hands, which correlates to the sympathetic nervous system being excited.
+	
+	
+	\section{Proposed Method}
+	\begin{itemize}
+		\item Spotify API can give you a song as a 14-dimensional vector.
+		\item We therefore have a 14-dimensional space, full of points, where each point represents a song
+		\item We can map a fitness landscape over that space, where each point's fitness is determined by playing the song to a listener and measuring their change in GSR.
+		\item AI search techniques will determine which point in the space to check next.
+		\item Since it is rare that the point chosen in the space will match up to a song's point, we need to do nearest-neighbour search for the closest song.
+		\item The AI Search will repeatedly choose points to test, trying to maximise the Fitness Function.
+	\end{itemize}
+	
+	\section{Themes}
+	\subsection{Approximate Search}
+	Most AI Search problems are impractical to get an optimal solution because they have exponential time complexity. This problem has a linear time complexity in the number of songs, but our issue is that even that is too long. We want an approximate solution in far less than O(n) time.
+	
+	\subsection{AI Search}
+	AI search is used to intelligently search a space of options to find the one that maximises or minimises some fitness function. 
+	
+	\subsection{Music as Vectors}
+	Echonest analyses music and turns it into vectors
+	
+	Spotify bought them, it's now part of their API
+	
+	\subsection{Galvanic Skin Response}
+	
+	
+	\subsection{Nearest Neighbour Search}
+	The AI search algorithm will just output a point in the space it wants to explore next. That point probably won't line up with an actual song. We need to find the song that is nearest to a point in a 14-dimensional space, and we need to do it quickly. We might just be able to do a linear search, as there aren't that many songs in our set, around 1 million songs. If this proves to be a slow point, we can use space partitioning, or even an approximation method such as Greedy search in proximity neighborhood graphs.
+	
+\end{document}

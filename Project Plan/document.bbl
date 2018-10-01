@@ -1,0 +1,186 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Francesca R. Dillman~Carpentier%
+}{%
+Francesca R. Dillman~Carpentier%
+}{%
+{\protect \APACyear {2007}}%
+}]{%
+pumpedUp}
+\APACinsertmetastar {%
+pumpedUp}%
+\begin{APACrefauthors}%
+Francesca R. Dillman~Carpentier, R\BPBI F\BPBI P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2007}{12}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Effects of Music on Physiological Arousal: Explorations
+  into Tempo and Genre} {Effects of music on physiological arousal:
+  Explorations into tempo and genre}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Media Psychology}{10}{}{339-363}.
+\newblock
+\begin{APACrefURL}
+  [{2018-04-30}]\url{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.854.1170&rep=rep1&type=pdf}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{\bibcorporate{IMOTIONS}}%
+}{%
+{\bibcorporate{IMOTIONS}}%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+GSR}
+\APACinsertmetastar {%
+GSR}%
+\begin{APACrefauthors}%
+{\bibcorporate{IMOTIONS}}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{5}{}.
+\newblock
+\APACrefbtitle {What is GSR (galvanic skin response) and how does it work?}
+  {What is gsr (galvanic skin response) and how does it work?}
+\newblock
+\begin{APACrefURL} [{2018-04-30}]\url{https://imotions.com/blog/gsr/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Pelletier%
+}{%
+Pelletier%
+}{%
+{\protect \APACyear {2004}}%
+}]{%
+musicTherapy}
+\APACinsertmetastar {%
+musicTherapy}%
+\begin{APACrefauthors}%
+Pelletier, C\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2004}{10}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The Effect of Music on Decreasing Arousal Due to Stress:
+  A Meta-Analysis} {The effect of music on decreasing arousal due to stress: A
+  meta-analysis}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Music Therapy}{41}{}{192-214}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Rickard%
+}{%
+Rickard%
+}{%
+{\protect \APACyear {2004}}%
+}]{%
+arousingMusic}
+\APACinsertmetastar {%
+arousingMusic}%
+\begin{APACrefauthors}%
+Rickard, N\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2004}{10}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Intense emotional responses to music: a test of the
+  physiological arousal hypothesis} {Intense emotional responses to music: a
+  test of the physiological arousal hypothesis}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychology of Music}{32}{}{371-388}.
+\newblock
+\begin{APACrefURL}
+  [{2018-04-30}]\url{http://journals.sagepub.com/doi/pdf/10.1177/0305735604046096}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Sandra~Garrido%
+}{%
+Sandra~Garrido%
+}{%
+{\protect \APACyear {2011}}%
+}]{%
+musicDifferences}
+\APACinsertmetastar {%
+musicDifferences}%
+\begin{APACrefauthors}%
+Sandra~Garrido, E\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{2}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Individual Differences in the Enjoyment of Negative
+  Emotion in Music: A Literature Review and Experiment} {Individual differences
+  in the enjoyment of negative emotion in music: A literature review and
+  experiment}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Music Perception: An Interdisciplinary
+  Journal}{28}{}{279-296}.
+\newblock
+\begin{APACrefURL}
+  [{2018-04-30}]\url{http://mp.ucpress.edu/content/ucpmp/28/3/279.full.pdf}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{\bibcorporate{seeed}}%
+}{%
+{\bibcorporate{seeed}}%
+}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+gsrSensor}
+\APACinsertmetastar {%
+gsrSensor}%
+\begin{APACrefauthors}%
+{\bibcorporate{seeed}}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+\APACrefbtitle {Grove - GSR sensor.} {Grove - gsr sensor.}
+\newblock
+\begin{APACrefURL}
+  [{2018-04-30}]\url{https://www.seeedstudio.com/Grove-GSR-sensor-p-1614.html}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{\bibcorporate{Spotify}}%
+}{%
+{\bibcorporate{Spotify}}%
+}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+audioFeatures}
+\APACinsertmetastar {%
+audioFeatures}%
+\begin{APACrefauthors}%
+{\bibcorporate{Spotify}}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+\APACrefbtitle {Get Audio Features for Several Tracks.} {Get audio features for
+  several tracks.}
+\newblock
+\begin{APACrefURL}
+  [{2018-05-02}]\url{https://beta.developer.spotify.com/documentation/web-api/reference/tracks/get-several-audio-features/}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
