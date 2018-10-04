@@ -1,18 +1,30 @@
 \documentclass{article}
 
+\bibliographystyle{ieeetr}
 \title{AI Search for Relaxing Music with Skin Conductance}
 \author{Steven Lowes}
 \date{5th October, 2018}
+
+\setlength\parindent{0in} %indent and add lines between paras
+\setlength{\parskip}{0.5\baselineskip}%
+
+
+%packages to load last
+\usepackage[hyphens, spaces]{url}%allow URLS
+\usepackage{varioref}%Automatic page references
+\usepackage[colorlinks, allcolors=blue, breaklinks]{hyperref}%Automatic reference links
+\usepackage[all]{hypcap}
+\usepackage[capitalise]{cleveref}%Automatic reference typing
 
 \begin{document}
 	\maketitle
 	
 	\section{Background}
-	Music has the power to cause intense emotions in the listener \cite{}, and the power to utterly relax them \cite{}. Its power in manipulating emotions has led to widespread use in therapy, a field known as musical therapy \cite{}.
+	Music has the power to cause intense emotions in the listener \cite{agostino_how_2008}, and the power to completely relax them \cite{elliott_relaxing_2011}. Its power in manipulating emotions has led to widespread use in therapy, a field known as musical therapy \cite{american_music_therapy_association_definition_nodate}.
 	
-	The songs used in musical therapy are usually created specifically for that purpose, based on a general understanding of what causes a song to be relaxing \cite{}. This neglects the fact that people often have different preferences in music, and react differently to the same songs \cite{}.
+	The music used in music therapy is chosen specifically for the individual patient, respecting the fact that listeners have different responses to the same music \cite{american_music_therapy_association_definition_nodate}. Research into song selection for music therapy is based on manual extrapolation from listeners self-reporting which elements of the music they find relaxing.
 	
-	We can improve on this by implementing a system that dynamically searches for songs that an individual finds relaxing. To measure how relaxed the listener is, we can use the Galvanic Skin Response, also known as Skin Conductance, which measures the activity in the sympathetic nervous system \cite{}. When a person is relaxed, there is very little activity in the sympathetic nervous system, and when they are experiencing intense emotion, positive or negative, the sympathetic nervous system is very stressed and active, which causes subconscious sweating \cite{}. We can measure this by testing the skin's conductance. When the skin is highly conductive, we know the listener is sweating more, and therefore experiencing more intense emotion \cite{}.
+	We aim to replace the need for a music therapy professional by implementing a system that dynamically searches for songs that an individual finds relaxing. To measure how relaxed the listener is, we can use the Galvanic Skin Response, also known as Electrodermal Activity.
 	
 	\section{Proposed Solution}
 	Using the Spotify API, we can represent a song as a 14-dimensional vector which describes its important qualities, including \emph{danceability}, \emph{energy}, and \emph{key} \cite{spotify_get_nodate, jehan_analyzer_nodate}. We have a database of approximately 500,000 of the most popular songs on Spotify, and the ability to search them based on their vector representations.
@@ -40,39 +52,41 @@
 	\begin{itemize}
 		\item We know that two solutions which are similar have similar fitness, so we can reduce the number of invocations required by performing clustering analysis.
 		\item We have essentially unlimited computation power for anything that does not involve a human listener. Even complex solution analysis will run quickly with only 500,000 solutions to test.
-		\item We may be able to play only some of a song to test its fitness. This would speed up execution.
+		\item We may be able to play only some of a song to test its fitness. This would speed up execution. The Spotify API can provide 30-second previews of songs \cite{spotify_get_nodate-1}, which usually align with the chorus of the song.
 	\end{itemize}
 
 	\section{Literature Survey}
 	
 	\subsection{Music as Vectors}
-	Spotify API allows us to convert songs to vectors. Echo nest has more documentation on this.
+	Spotify API allows us to convert songs to vectors \cite{spotify_get_nodate}. Echo nest has more documentation on this \cite{jehan_analyzer_nodate}.
 	
-	Other work that has done clustering analysis has found that the clusters mostly match up with what we expect (genres), so that suggests that one of our assumptions (similar vectors = similar songs = similar fitness) is true.
-	
-	\subsection{Clustering}
-	Clustering is not really a concern. Our search space is quite small for a computer, only 500,000 solutions, so we can run some clustering that is quite slow and it should still finish quickly. Also the database is static between search runs, we don't need to be able to run this on arbitrary solution sets, so we can calculate the clustering in advance and cache it.
-	
-	\subsection{Fitness Landscape}
-	Fitness landscapess are...
-	We can use them here...
-	Used for visualisation of data, which would allow us to compare preferences between two listeners
-	
-	\subsection{Baynesian \& Surrogate Techniques}
-	Construct a model of what we expect the fitness landscape to look like
-	Use that to guide the search
-	Computationally expensive
-	Computation is essentially free for us
-	We want to do the tradeoff of using computation to save on fitness function invocations
+	Other work that has done clustering analysis has found that the clusters mostly match up with what we expect (genres), so that suggests that one of our assumptions (similar vectors = similar songs = similar fitness) is true \cite{santos_discovering_2017, noauthor_coachellar_nodate}.
 	
 	\subsection{Skin Conductance}
+	Skin Conductance will be measured via a Grove GSR Sensor \cite{seeedstudio_grove_nodate}, which can be read via an arduino into a PC. The GSR sensor the activity in the sympathetic nervous system. When a person is relaxed, there is very little activity in the sympathetic nervous system, and when they are experiencing intense emotion, positive or negative, the sympathetic nervous system is very stressed and active, which causes subconscious sweating. We can measure this by testing the skin's conductance. When the skin is highly conductive, we know the listener is sweating more, and therefore experiencing more intense emotion \cite{farnsworth_what_2018}. The same sensors are used in detection of stress by polygraph systems \cite{tuckett_detection_1986}.
 	
-	\subsection{Nearest Neighbour Search}
+	\subsection{Fitness Landscape}
+	Fitness Landscapes are a method of visualising the fitness of a solution, which can be used when there is some notion of dimensional nearness of two solutions \cite{reidys_combinatorial_2002}. In our case, we can use the vector values of a solution as its dimensional position. A working solution to our problem will also produce a system which can output a fitness landscape for an individual, showing which songs they find relaxing and which songs they find stressful. These fitness landscapes could be used for further research, and comparison between individuals.
 	
 	\subsection{Global Optimization Search}
-	We need something that converges very fast.
-	It's unrealistic to expect to converge onto the global maxima in only 100 function invocations
+	Our fitness function consists of playing a song to a listener and measuring their change in Skin Conductance. This means that each invocation of the fitness function takes on the order of minutes to complete. The fitness function cannot be calculated in parallel, due to the need for a human listener, and we cannot use multiple human listeners due to the differences in individual preference that we are testing.
 	
-	\bibliography{document.bib}
+	Multiple state-of-the-art AI Search techniques were considered, but all were deemed to be too time-complex for our use case. These included Tabu Search, Hill Climbing, Simulated Annealing, Genetic Algorithms, Newton's Algorithm \cite{chandel_searching_2014}, and the Bee Algorithm \cite{pham_bee_nodate}.
+	
+	It is clear that we need to reduce the time complexity of our search, even at the cost of a very non-optimal solution. A StackExchange user lead me to research into the solving of \emph{Expensive Black-Box Optimisation Problems} (EBOPs) \cite{stackexchange_search_2018}.
+	
+	These EBOP-solving algorithms use methods such as \emph{clustering} and \emph{surrogates} to reduce the number of times we need to invoke the expensive fitness function \cite{boukouvala_derivative-free_2014, jones_efficient_nodate, dong_surrogate-based_2018}.
+	
+	\subsection{Clustering}
+	Clustering can be used to reduce the number of function invocations needed in our search \cite{boukouvala_derivative-free_2014, wang_time_2017}. Clustering our solutions means that we can reduce the number of solutions without reducing the amount of diversity in the set of solutions.
+	
+	Clustering is computationally resource-intensive. However, we are not concerned about reducing the amount of computation done, as the time cost of listening to songs (fitness function invocations) is far higher than the time cost of any clustering algorithm will be.
+	
+	\subsection{Bayesian \& Surrogate Techniques}
+	These techniques work by constructing a model of what we expect the fitness landscape to be, and iteratively updating the predicted landscape each time more data becomes available, after a fitness function invocation \cite{mockus_optimization_nodate, dong_surrogate-based_2018}. By maintaining a model of the predicted fitness landscape, we can test solutions that are predicted to be the best. This allows us to stop our search early, once we have found that the predicted fitness is often matching the actual fitness. This saves us from having to do an exhaustive search, while maintaining that the best solution found is probably the best solution globally \cite{boukouvala_derivative-free_2014}.
+	
+	These techniques are computationally expensive, but we are not concerned with computational costs due to our relatively small set of solutions. The time taken for computation of predicted fitness landscapes should never outweigh the time taken for the subject to listen to the music.
+	
+	\bibliography{document}
 	
 \end{document}
