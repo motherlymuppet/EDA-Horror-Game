@@ -1,47 +1,78 @@
 \documentclass{article}
 
-\title{AI Search for Physiologically Arousing Music}
+\title{AI Search for Relaxing Music with Skin Conductance}
 \author{Steven Lowes}
 \date{5th October, 2018}
 
 \begin{document}
 	\maketitle
 	
-	\section{Introduction}
+	\section{Background}
+	Music has the power to cause intense emotions in the listener \cite{}, and the power to utterly relax them \cite{}. Its power in manipulating emotions has led to widespread use in therapy, a field known as musical therapy \cite{}.
 	
-	\section{Problem Background}
-	The aim of this project is to search a large space of songs, attempting to find the songs that increase GSR in the listener. It must do that while testing very few songs, as each test means the listener must spend 3-5 minutes listening to a song. 
+	The songs used in musical therapy are usually created specifically for that purpose, based on a general understanding of what causes a song to be relaxing \cite{}. This neglects the fact that people often have different preferences in music, and react differently to the same songs \cite{}.
 	
-	\section{Terms}
-	\textbf{GSR}: Galvanic Skin Response, a measure of the subconscious sweating in the hands, which correlates to the sympathetic nervous system being excited.
+	We can improve on this by implementing a system that dynamically searches for songs that an individual finds relaxing. To measure how relaxed the listener is, we can use the Galvanic Skin Response, also known as Skin Conductance, which measures the activity in the sympathetic nervous system \cite{}. When a person is relaxed, there is very little activity in the sympathetic nervous system, and when they are experiencing intense emotion, positive or negative, the sympathetic nervous system is very stressed and active, which causes subconscious sweating \cite{}. We can measure this by testing the skin's conductance. When the skin is highly conductive, we know the listener is sweating more, and therefore experiencing more intense emotion \cite{}.
 	
+	\section{Proposed Solution}
+	Using the Spotify API, we can represent a song as a 14-dimensional vector which describes its important qualities, including \emph{danceability}, \emph{energy}, and \emph{key} \cite{spotify_get_nodate, jehan_analyzer_nodate}. We have a database of approximately 500,000 of the most popular songs on Spotify, and the ability to search them based on their vector representations.
 	
-	\section{Proposed Method}
+	We model the problem as a Global Optimization Problem. The set of solutions are the 500,000 songs in the database. To determine the fitness of any solution, we play it to a listener, and measure the change in Skin Conductance. A good solution should lower the listener's skin conductance.
+	
+	\subsection{Assumptions}
+	The following assumptions have been made and will need to be tested and confirmed before the solution can be implemented:
+	
 	\begin{itemize}
-		\item Spotify API can give you a song as a 14-dimensional vector.
-		\item We therefore have a 14-dimensional space, full of points, where each point represents a song
-		\item We can map a fitness landscape over that space, where each point's fitness is determined by playing the song to a listener and measuring their change in GSR.
-		\item AI search techniques will determine which point in the space to check next.
-		\item Since it is rare that the point chosen in the space will match up to a song's point, we need to do nearest-neighbour search for the closest song.
-		\item The AI Search will repeatedly choose points to test, trying to maximise the Fitness Function.
+		\item The fitness of one solution is roughly the same when it is tested twice (there is little error in the fitness function)
+		\item Solutions which have similar vectors usually have similar fitness
+		\item A song with high fitness correlates with the listener self-reporting as feeling relaxed
 	\end{itemize}
+
+	\subsection{Areas of Concern}
+	\begin{itemize}
+		\item Testing the fitness of one solution will require listening to an entire song. This means each invocation of the fitness function will take approximately 3 minutes.
+		\item This results in an upper bound of 100 invocations of the fitness function per search, equivalent to 5 hours of music listening.
+		\item Since we want to demonstrate differences in preference between listeners, we cannot run the fitness function in parallel with multiple listeners.
+	\end{itemize}
+
+	There are some mitigating factors, which reduce the chance that these areas of concern will prevent the solution from working:
 	
-	\section{Themes}
-	\subsection{Approximate Search}
-	Most AI Search problems are impractical to get an optimal solution because they have exponential time complexity. This problem has a linear time complexity in the number of songs, but our issue is that even that is too long. We want an approximate solution in far less than O(n) time.
-	
-	\subsection{AI Search}
-	AI search is used to intelligently search a space of options to find the one that maximises or minimises some fitness function. 
+	\begin{itemize}
+		\item We know that two solutions which are similar have similar fitness, so we can reduce the number of invocations required by performing clustering analysis.
+		\item We have essentially unlimited computation power for anything that does not involve a human listener. Even complex solution analysis will run quickly with only 500,000 solutions to test.
+		\item We may be able to play only some of a song to test its fitness. This would speed up execution.
+	\end{itemize}
+
+	\section{Literature Survey}
 	
 	\subsection{Music as Vectors}
-	Echonest analyses music and turns it into vectors
+	Spotify API allows us to convert songs to vectors. Echo nest has more documentation on this.
 	
-	Spotify bought them, it's now part of their API
+	Other work that has done clustering analysis has found that the clusters mostly match up with what we expect (genres), so that suggests that one of our assumptions (similar vectors = similar songs = similar fitness) is true.
 	
-	\subsection{Galvanic Skin Response}
+	\subsection{Clustering}
+	Clustering is not really a concern. Our search space is quite small for a computer, only 500,000 solutions, so we can run some clustering that is quite slow and it should still finish quickly. Also the database is static between search runs, we don't need to be able to run this on arbitrary solution sets, so we can calculate the clustering in advance and cache it.
 	
+	\subsection{Fitness Landscape}
+	Fitness landscapess are...
+	We can use them here...
+	Used for visualisation of data, which would allow us to compare preferences between two listeners
+	
+	\subsection{Baynesian \& Surrogate Techniques}
+	Construct a model of what we expect the fitness landscape to look like
+	Use that to guide the search
+	Computationally expensive
+	Computation is essentially free for us
+	We want to do the tradeoff of using computation to save on fitness function invocations
+	
+	\subsection{Skin Conductance}
 	
 	\subsection{Nearest Neighbour Search}
-	The AI search algorithm will just output a point in the space it wants to explore next. That point probably won't line up with an actual song. We need to find the song that is nearest to a point in a 14-dimensional space, and we need to do it quickly. We might just be able to do a linear search, as there aren't that many songs in our set, around 1 million songs. If this proves to be a slow point, we can use space partitioning, or even an approximation method such as Greedy search in proximity neighborhood graphs.
+	
+	\subsection{Global Optimization Search}
+	We need something that converges very fast.
+	It's unrealistic to expect to converge onto the global maxima in only 100 function invocations
+	
+	\bibliography{document.bib}
 	
 \end{document}
