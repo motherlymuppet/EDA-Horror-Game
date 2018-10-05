@@ -1,7 +1,10 @@
 \documentclass{article}
 
-\bibliographystyle{ieeetr}
-\title{AI Search for Relaxing Music with Skin Conductance}
+\bibliographystyle{style}
+
+\usepackage{multicol}
+
+\title{AI Search for Relaxing Music with Electrodermal Activity}
 \author{Steven Lowes}
 \date{5th October, 2018}
 
@@ -22,14 +25,21 @@
 	\section{Background}
 	Music has the power to cause intense emotions in the listener \cite{agostino_how_2008}, and the power to completely relax them \cite{elliott_relaxing_2011}. Its power in manipulating emotions has led to widespread use in therapy, a field known as musical therapy \cite{american_music_therapy_association_definition_nodate}.
 	
-	The music used in music therapy is chosen specifically for the individual patient, respecting the fact that listeners have different responses to the same music \cite{american_music_therapy_association_definition_nodate}. Research into song selection for music therapy is based on manual extrapolation from listeners self-reporting which elements of the music they find relaxing.
+	The music used in music therapy is chosen specifically for the individual patient, respecting the fact that listeners have different responses to the same music \cite{american_music_therapy_association_definition_nodate}. This research aims to replace the need for a music therapy professional by implementing a system that dynamically searches for songs that relax an individual. To measure how relaxed the listener is, we can use an EDA sensor.
 	
-	We aim to replace the need for a music therapy professional by implementing a system that dynamically searches for songs that an individual finds relaxing. To measure how relaxed the listener is, we can use the Galvanic Skin Response, also known as Electrodermal Activity.
+	\section{Terminology}
+	\begin{itemize}
+		\item \textbf{EDA} --- \emph{Electrodermal Activity}, also known as \emph{Skin Conductance} or \emph{Galvanic Skin Response}, is a measure of the subconscious sweating in the hands. It is caused by, and proportional to, stress in the sympathetic nervous system, which indicates intense emotion \cite{farnsworth_what_2018, boucsein_electrodermal_2012}.
+		\item \textbf{Optimization Problem} --- A problem where the goal is to find the solution $x$ from some set of valid solutions $X$ which maximises/minimises some \emph{Fitness Function} $f$ \cite{boyd_convex_2004}. Our problem of finding the most relaxing song is an optimization problem.
+		\item \textbf{Cluster Analysis} --- Also known as \emph{Clustering}, is the process of dividing a large set into multiple smaller sets that share some property \cite{estivill-castro_why_2002}. We will talk specifically about \emph{hard k-means clustering}, a computation that groups a set of objects based on their distance from the mean of the cluster \cite{kanungo_efficient_2002}.
+		\item \textbf{Surrogate} --- A \emph{Surrogate Function} is a function which approximates a more complex function while being much more convenient to run \cite{mairal_optimization_2013}.
+		\item \textbf{EBOP} --- An \emph{Expensive Black Box Optimization Problem} is an optimization problem where each call to the fitness function is \emph{expensive} (in our case slow) and where we cannot use domain knowledge to guide the search \cite{jones_efficient_1998}. These problems are common in Engineering.
+	\end{itemize}
 	
 	\section{Proposed Solution}
-	Using the Spotify API, we can represent a song as a 14-dimensional vector which describes its important qualities, including \emph{danceability}, \emph{energy}, and \emph{key} \cite{spotify_get_nodate, jehan_analyzer_nodate}. We have a database of approximately 500,000 of the most popular songs on Spotify, and the ability to search them based on their vector representations.
+	Using the Spotify API, we can represent songs as a 14-dimensional vectors which describe their important qualities, including \emph{danceability}, \emph{energy}, and \emph{key} \cite{spotify_get_nodate, jehan_analyzer_nodate}. We have a database of approximately 500,000 songs on Spotify, and the ability to search them based on their vector representations.
 	
-	We model the problem as a Global Optimization Problem. The set of solutions are the 500,000 songs in the database. To determine the fitness of any solution, we play it to a listener, and measure the change in Skin Conductance. A good solution should lower the listener's skin conductance.
+	We model the problem as a Global Optimization Problem. The set of solutions are the 500,000 songs in the database. To determine the fitness of any solution, we play it to a listener, and measure the change in EDA. A good solution should lower the listener's EDA.
 	
 	\subsection{Assumptions}
 	The following assumptions have been made and will need to be tested and confirmed before the solution can be implemented:
@@ -37,21 +47,17 @@
 	\begin{itemize}
 		\item The fitness of one solution is roughly the same when it is tested twice (there is little error in the fitness function)
 		\item Solutions which have similar vectors usually have similar fitness
-		\item A song with high fitness correlates with the listener self-reporting as feeling relaxed
+		\item A song which reduces EDA in the listener correlates with the listener self-reporting feeling relaxed
 	\end{itemize}
 
 	\subsection{Areas of Concern}
-	\begin{itemize}
-		\item Testing the fitness of one solution will require listening to an entire song. This means each invocation of the fitness function will take approximately 3 minutes.
-		\item This results in an upper bound of 100 invocations of the fitness function per search, equivalent to 5 hours of music listening.
-		\item Since we want to demonstrate differences in preference between listeners, we cannot run the fitness function in parallel with multiple listeners.
-	\end{itemize}
+	Testing the fitness of one solution will require listening to an entire song. This means each invocation of the fitness function will take approximately 3 minutes. This results in an upper bound of 100 calls to  the fitness function per search, equivalent to 5 hours of music listening. Since we want to represent differences in preference between listeners, we cannot run the fitness function in parallel with multiple listeners.
 
-	There are some mitigating factors, which reduce the chance that these areas of concern will prevent the solution from working:
+	There are some mitigating factors, which reduce the chance that time constraints will make this solution unviable:
 	
 	\begin{itemize}
 		\item We know that two solutions which are similar have similar fitness, so we can reduce the number of invocations required by performing clustering analysis.
-		\item We have essentially unlimited computation power for anything that does not involve a human listener. Even complex solution analysis will run quickly with only 500,000 solutions to test.
+		\item We have essentially unlimited computation power for anything that does not involve a human listener. Even computationally complex analysis will run quickly with only 500,000 solutions to test.
 		\item We may be able to play only some of a song to test its fitness. This would speed up execution. The Spotify API can provide 30-second previews of songs \cite{spotify_get_nodate-1}, which usually align with the chorus of the song.
 	\end{itemize}
 
@@ -60,33 +66,33 @@
 	\subsection{Music as Vectors}
 	Spotify API allows us to convert songs to vectors \cite{spotify_get_nodate}. Echo nest has more documentation on this \cite{jehan_analyzer_nodate}.
 	
-	Other work that has done clustering analysis has found that the clusters mostly match up with what we expect (genres), so that suggests that one of our assumptions (similar vectors = similar songs = similar fitness) is true \cite{santos_discovering_2017, noauthor_coachellar_nodate}.
+	Other work that has done clustering analysis has found that the clusters mostly match up with what we expect (genres), so that suggests that one of our assumptions (similar vectors = similar songs = similar fitness) is true \cite{santos_discovering_2017, rcharlie_analytics_coachellar_2017}.
 	
-	\subsection{Skin Conductance}
-	Skin Conductance will be measured via a Grove GSR Sensor \cite{seeedstudio_grove_nodate}, which can be read via an arduino into a PC. The GSR sensor the activity in the sympathetic nervous system. When a person is relaxed, there is very little activity in the sympathetic nervous system, and when they are experiencing intense emotion, positive or negative, the sympathetic nervous system is very stressed and active, which causes subconscious sweating. We can measure this by testing the skin's conductance. When the skin is highly conductive, we know the listener is sweating more, and therefore experiencing more intense emotion \cite{farnsworth_what_2018}. The same sensors are used in detection of stress by polygraph systems \cite{tuckett_detection_1986}.
-	
-	\subsection{Fitness Landscape}
-	Fitness Landscapes are a method of visualising the fitness of a solution, which can be used when there is some notion of dimensional nearness of two solutions \cite{reidys_combinatorial_2002}. In our case, we can use the vector values of a solution as its dimensional position. A working solution to our problem will also produce a system which can output a fitness landscape for an individual, showing which songs they find relaxing and which songs they find stressful. These fitness landscapes could be used for further research, and comparison between individuals.
+	\subsection{Electrodermal Activity}
+	EDA will be measured with a Grove GSR Sensor \cite{seeedstudio_grove_nodate}, which can be read into a PC via an arduino. Similar sensors are used for detection of stress by polygraph (lie-detector) systems \cite{tuckett_detection_1986}. Listening to music has been shown to cause an increase in EDA \cite{rickard_intense_2004, dillman-capentier_effects_2007, thoma_effect_2013}.
 	
 	\subsection{Global Optimization Search}
-	Our fitness function consists of playing a song to a listener and measuring their change in Skin Conductance. This means that each invocation of the fitness function takes on the order of minutes to complete. The fitness function cannot be calculated in parallel, due to the need for a human listener, and we cannot use multiple human listeners due to the differences in individual preference that we are testing.
+	Our fitness function consists of playing a song to a listener and measuring their change in EDA. This means that each invocation of the fitness function takes approximately 3 minutes. The fitness function cannot be calculated in parallel, due to the need for a human listener, and we cannot use multiple human listeners due to the differences in individual preference that we are testing.
 	
-	Multiple state-of-the-art AI Search techniques were considered, but all were deemed to be too time-complex for our use case. These included Tabu Search, Hill Climbing, Simulated Annealing, Genetic Algorithms, Newton's Algorithm \cite{chandel_searching_2014}, and the Bee Algorithm \cite{pham_bee_nodate}.
+	Multiple state-of-the-art AI Search techniques were considered, but all were deemed to be too time-complex for our use case. These included Tabu Search, Hill Climbing, Simulated Annealing, Genetic Algorithms, Newton's Algorithm, and the Bee fAlgorithm \cite{chandel_searching_2014, pham_bee_2005}.
 	
-	It is clear that we need to reduce the time complexity of our search, even at the cost of a very non-optimal solution. A StackExchange user lead me to research into the solving of \emph{Expensive Black-Box Optimisation Problems} (EBOPs) \cite{stackexchange_search_2018}.
+	It is clear that we need to reduce the time complexity of our search, even at the cost of a very non-optimal solution. A StackExchange user lead me to research into the solving of EBOPs \cite{stackexchange_search_2018}.
 	
-	These EBOP-solving algorithms use methods such as \emph{clustering} and \emph{surrogates} to reduce the number of times we need to invoke the expensive fitness function \cite{boukouvala_derivative-free_2014, jones_efficient_nodate, dong_surrogate-based_2018}.
+	These EBOP-solving algorithms use methods such as \emph{clustering} and \emph{surrogates} to reduce the number of times we need to invoke the expensive fitness function \cite{boukouvala_derivative-free_2014, jones_efficient_1998, dong_surrogate-based_2018}.
 	
 	\subsection{Clustering}
 	Clustering can be used to reduce the number of function invocations needed in our search \cite{boukouvala_derivative-free_2014, wang_time_2017}. Clustering our solutions means that we can reduce the number of solutions without reducing the amount of diversity in the set of solutions.
 	
-	Clustering is computationally resource-intensive. However, we are not concerned about reducing the amount of computation done, as the time cost of listening to songs (fitness function invocations) is far higher than the time cost of any clustering algorithm will be.
+	Clustering is computationally resource-intensive. However, we are not concerned about reducing the amount of computation done, as the cost of listening to songs (fitness function invocations) is far higher than the cost of clustering.
 	
 	\subsection{Bayesian \& Surrogate Techniques}
-	These techniques work by constructing a model of what we expect the fitness landscape to be, and iteratively updating the predicted landscape each time more data becomes available, after a fitness function invocation \cite{mockus_optimization_nodate, dong_surrogate-based_2018}. By maintaining a model of the predicted fitness landscape, we can test solutions that are predicted to be the best. This allows us to stop our search early, once we have found that the predicted fitness is often matching the actual fitness. This saves us from having to do an exhaustive search, while maintaining that the best solution found is probably the best solution globally \cite{boukouvala_derivative-free_2014}.
+	These techniques work by constructing a surrogate model of what we predict the fitness function to be, and iteratively improve on that surrogate each time more data becomes available \cite{mockus_optimization_nodate, dong_surrogate-based_2018}. By maintaining a surrogate of the fitness function, we can perform a search on the surrogate and test only the solutions that are predicted to be globally optimal. This technique reduces the number of calls to the fitness function by maximising the impact of the tested solutions, at the cost of having to construct a new surrogate and perform a global search on the surrogate after each call to the real fitness function \cite{boukouvala_derivative-free_2014}.
 	
-	These techniques are computationally expensive, but we are not concerned with computational costs due to our relatively small set of solutions. The time taken for computation of predicted fitness landscapes should never outweigh the time taken for the subject to listen to the music.
-	
-	\bibliography{document}
+	\newpage
+	\begin{footnotesize}
+		\begin{multicols}{2}
+			\bibliography{document}
+		\end{multicols}
+	\end{footnotesize}
 	
 \end{document}

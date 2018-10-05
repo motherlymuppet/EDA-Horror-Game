@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.1)  4 OCT 2018 23:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.1)  5 OCT 2018 01:24
 entering extended mode
 **./document.tex
 (document.tex
@@ -21,13 +21,62 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
+Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
+\c@tracingmulticols=\count87
+\mult@box=\box26
+\multicol@leftmargin=\dimen103
+\c@unbalance=\count88
+\c@collectmore=\count89
+\doublecol@number=\count90
+\multicoltolerance=\count91
+\multicolpretolerance=\count92
+\full@width=\dimen104
+\page@free=\dimen105
+\premulticols=\dimen106
+\postmulticols=\dimen107
+\multicolsep=\skip43
+\multicolbaselineskip=\skip44
+\partial@page=\box27
+\last@line=\box28
+\maxbalancingoverflow=\dimen108
+\mult@rightbox=\box29
+\mult@grightbox=\box30
+\mult@gfirstbox=\box31
+\mult@firstbox=\box32
+\@tempa=\box33
+\@tempa=\box34
+\@tempa=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\c@columnbadness=\count93
+\c@finalcolumnbadness=\count94
+\last@try=\dimen109
+\multicolovershoot=\dimen110
+\multicolundershoot=\dimen111
+\mult@nat@firstbox=\box50
+\colbreak@box=\box51
+\mc@col@check@num=\count95
+)
 (C:\Users\Amie\AppData\Roaming\MiKTeX\2.9\tex\latex\url\url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\varioref.sty"
 Package: varioref 2016/02/16 v1.5c package for extended references (FMi)
-\c@vrcnt=\count87
+\c@vrcnt=\count96
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
 Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
@@ -89,14 +138,14 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
-\@linkdim=\dimen103
-\Hy@linkcounter=\count88
-\Hy@pagecounter=\count89
+\@linkdim=\dimen112
+\Hy@linkcounter=\count97
+\Hy@pagecounter=\count98
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
 File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
 )
-\Hy@SavedSpaceFactor=\count90
+\Hy@SavedSpaceFactor=\count99
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -110,12 +159,12 @@ Package hyperref Info: Plain pages OFF on input line 4524.
 Package hyperref Info: Backreferencing OFF on input line 4529.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4762.
-\c@Hy@tempcnt=\count91
+\c@Hy@tempcnt=\count100
 LaTeX Info: Redefining \url on input line 5115.
-\XeTeXLinkMargin=\dimen104
-\Fld@menulength=\count92
-\Field@Width=\dimen105
-\Fld@charsize=\dimen106
+\XeTeXLinkMargin=\dimen113
+\Fld@menulength=\count101
+\Field@Width=\dimen114
+\Fld@charsize=\dimen115
 Package hyperref Info: Hyper figures OFF on input line 6369.
 Package hyperref Info: Link nesting OFF on input line 6374.
 Package hyperref Info: Hyper index ON on input line 6377.
@@ -125,23 +174,23 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6394.
 Package hyperref Info: PDF/A mode OFF on input line 6399.
 LaTeX Info: Redefining \ref on input line 6439.
 LaTeX Info: Redefining \pageref on input line 6443.
-\Hy@abspage=\count93
-\c@Item=\count94
-\c@Hfootnote=\count95
+\Hy@abspage=\count102
+\c@Item=\count103
+\c@Hfootnote=\count104
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
 File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
-\Fld@listcount=\count96
-\c@bookmark@seq@number=\count97
+\Fld@listcount=\count105
+\c@bookmark@seq@number=\count106
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
-\Hy@SectionHShift=\skip43
+\Hy@SectionHShift=\skip45
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\hypcap.sty"
 Package: hypcap 2016/05/16 v1.12 Adjusting the anchors of captions (HO)
@@ -174,21 +223,21 @@ Package cleveref Info: always capitalise cross-reference names on input line 78
 (document.aux)
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-\AtBeginShipoutBox=\box26
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+\AtBeginShipoutBox=\box52
  ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
 
@@ -202,89 +251,250 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 
 (C:\Users\Amie\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count98
-\scratchdimen=\dimen107
-\scratchbox=\box27
-\nofMPsegments=\count99
-\nofMParguments=\count100
+\scratchcounter=\count107
+\scratchdimen=\dimen116
+\scratchbox=\box53
+\nofMPsegments=\count108
+\nofMParguments=\count109
 \everyMPshowfont=\toks15
-\MPscratchCnt=\count101
-\MPscratchDim=\dimen108
-\MPnumerator=\count102
-\makeMPintoPDFobject=\count103
+\MPscratchCnt=\count110
+\MPscratchDim=\dimen117
+\MPnumerator=\count111
+\makeMPintoPDFobject=\count112
 \everyMPtoPDFconversion=\toks16
 )))
-Package hyperref Info: Link coloring ON on input line 19.
+Package hyperref Info: Link coloring ON on input line 22.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count104
+\c@section@level=\count113
 LaTeX Info: Redefining \Ref on input line 515.
 )
-LaTeX Info: Redefining \ref on input line 19.
-LaTeX Info: Redefining \pageref on input line 19.
-LaTeX Info: Redefining \nameref on input line 19.
+LaTeX Info: Redefining \ref on input line 22.
+LaTeX Info: Redefining \pageref on input line 22.
+LaTeX Info: Redefining \nameref on input line 22.
 
 (document.out) (document.out)
 \@outlinefile=\write3
 \openout3 = `document.out'.
 
-LaTeX Info: Redefining \Ref on input line 19.
+LaTeX Info: Redefining \Ref on input line 22.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 21.
+(Font)              <12> on input line 24.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 21.
+(Font)              <8> on input line 24.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 21.
- [1
+(Font)              <6> on input line 24.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 32.
 
-{C:/Users/Amie/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 38.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 38.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 32.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 33.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 33.
+ [1
 
-[2] [3] (document.bbl [4]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ì in font cmr10!
-Missing character: There is no √ in font cmr10!
-Missing character: There is no § in font cmr10!
-Missing character: There is no ƒ in font cmr10!
-Missing character: There is no ç in font cmr10!
+{C:/Users/Amie/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3] [4] 
+(document.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 7--12
+\OT1/cmr/m/n/8 URL [][]$\OT1/cmtt/m/n/8 http : / / dx . doi . org / 10 . 1017 /
+
+ []
+
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 17.
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--53
+\OT1/cmr/m/n/8 URL [][]$\OT1/cmtt/m/n/8 http : / / dx . doi . org / 10 . 1080 /
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--62
+\OT1/cmr/m/n/8 URL [][]$\OT1/cmtt/m/n/8 http : / / dx . doi . org / 10 . 1007 /
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--76
+\OT1/cmr/m/n/8 URL [][]$\OT1/cmtt/m/n/8 http : / / dx . doi . org / 10 . 1145 /
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--87
+\OT1/cmr/m/n/8 URL [][]$\OT1/cmtt/m/n/8 http : / / docs . echonest . com . s3 -
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--87
+\OT1/cmtt/m/n/8 website -[] us -[] east -[] 1 . amazonaws . com /
+ []
+
+
+Underfull \hbox (badness 6510) in paragraph at lines 94--101
+\OT1/cmr/m/n/8 clus-ter-ing al-go-rithm: anal-y-sis and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--101
+\OT1/cmr/m/n/8 URL [][]$\OT1/cmtt/m/n/8 http : / / dx . doi . org / 10 . 1109 /
+
+ []
+
+Missing character: There is no ƒ in font cmti8!
+Missing character: There is no ç in font cmti8!
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--111
+\OT1/cmtt/m/n/8 com / questions / 20410 / maximizing -[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--111
+\OT1/cmtt/m/n/8 slow -[] multi -[] parameter -[] function ?
+ []
+
+Missing character: There is no ‚ in font cmr8!
+Missing character: There is no Ä in font cmr8!
+Missing character: There is no ì in font cmr8!
+
+Underfull \hbox (badness 5133) in paragraph at lines 113--119
+\OT1/cmr/m/n/8 URL [][]$\OT1/cmtt/m/n/8 https : / / www . researchgate . net /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 113--119
+\OT1/cmtt/m/n/8 publication / 260985621 _ The _ Bees _
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--132
+\OT1/cmr/m/n/8 URL [][]$\OT1/cmtt/m/n/8 http : / / dx . doi . org / 10 . 1177 /
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 134--138
+\OT1/cmr/m/n/8 URL [][]$\OT1/cmtt/m/n/8 https : / / towardsdatascience .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--138
+\OT1/cmtt/m/n/8 com / discovering -[] similarities -[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--138
+\OT1/cmtt/m/n/8 across -[] my -[] spotify -[] music -[] using -[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--138
+\OT1/cmtt/m/n/8 data -[] clustering -[] and -[] visualization -[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--143
+\OT1/cmr/m/n/8 URL [][]$\OT1/cmtt/m/n/8 https : / / www . seeedstudio . com /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--148
+\OT1/cmtt/m/n/8 documentation / web -[] api / reference /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 150--154
+\OT1/cmtt/m/n/8 documentation / web -[] api / reference /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--160
+\OT1/cmr/m/n/8 URL [][]$\OT1/cmtt/m/n/8 https : / / cs . stackexchange .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--160
+\OT1/cmtt/m/n/8 com / questions / 98088 / optimization -[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--160
+\OT1/cmtt/m/n/8 problem -[] when -[] calculating -[] fitness -[]
+ []
+
+Missing character: There is no √ in font cmti8!
+Missing character: There is no ∂ in font cmti8!
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--168
+\OT1/cmr/m/n/8 URL [][]$\OT1/cmtt/m/n/8 http : / / dx . doi . org / 10 . 1371 /
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--177
+\OT1/cmr/m/n/8 Mas-ter's the-sis, West-ern Michi-gan
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--177
+\OT1/cmr/m/n/8 URL [][]$\OT1/cmtt/m/n/8 http : / / search . proquest .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--177
+\OT1/cmtt/m/n/8 com / docview / 303542127 / citation /
+ []
+
+Missing character: There is no √ in font cmti8!
+Missing character: There is no § in font cmti8!
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--187
+\OT1/cmr/m/n/8 URL [][]$\OT1/cmtt/m/n/8 http : / / dx . doi . org / 10 . 1145 /
+
+ []
+
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 92.
- [5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 92.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 98.
+ [6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 98.
  (document.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 92.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 92.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 98.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 98.
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 4D7F26C3081E8D449B8F94B44636B492;700.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 92.
+(rerunfilecheck)             Checksum: BDE13CD01D16EE632E34CD461E8F7F0E;686.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 98.
  ) 
 Here is how much of TeX's memory you used:
- 6709 strings out of 493305
- 113506 string characters out of 3138878
- 211363 words of memory out of 3000000
- 10214 multiletter control sequences out of 15000+200000
- 7933 words of font info for 28 fonts, out of 3000000 for 9000
+ 6850 strings out of 493305
+ 115702 string characters out of 3138878
+ 229970 words of memory out of 3000000
+ 10341 multiletter control sequences out of 15000+200000
+ 8761 words of font info for 31 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,6n,28p,806b,435s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmti10.pfb>
-Output written on document.pdf (5 pages, 117114 bytes).
+ 28i,6n,28p,758b,584s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on document.pdf (6 pages, 217004 bytes).
 PDF statistics:
- 152 PDF objects out of 1000 (max. 8388607)
- 38 named destinations out of 1000 (max. 500000)
+ 250 PDF objects out of 1000 (max. 8388607)
+ 46 named destinations out of 1000 (max. 500000)
  89 words of extra memory for PDF output out of 10000 (max. 10000000)
 

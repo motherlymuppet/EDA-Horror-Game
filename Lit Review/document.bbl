@@ -1,89 +1,188 @@
 \begin{thebibliography}{10}
+\newcommand{\enquote}[1]{`#1'}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
 
 \bibitem{agostino_how_2008}
-P.~V. Agostino, G.~Peryer, and W.~H. Meck, ``How music fills our emotions and
-  helps us keep time,'' {\em Behavioral and Brain Sciences}, vol.~31,
-  pp.~575--576, Oct. 2008.
-
-\bibitem{elliott_relaxing_2011}
-D.~Elliott, R.~Polman, and R.~McGregor, ``Relaxing {Music} for {Anxiety}
-  {Control},'' {\em Journal of Music Therapy}, vol.~48, pp.~264--288, Oct.
-  2011.
+\emph{Agostino, P.V.}, \emph{Peryer, G.}, and \emph{Meck, W.H.}, 2008;
+  \enquote{How music fills our emotions and helps us keep time}.
+\newblock Behavioral and Brain Sciences, vol.~31(5):pp. 575--576.
+\newblock ISSN 1469-1825, 0140-525X
+\newline\urlprefix\url{http://dx.doi.org/10.1017/S0140525X0800530X}
 
 \bibitem{american_music_therapy_association_definition_nodate}
-{American Music Therapy Association}, ``Definition and {Quotes} about {Music}
-  {Therapy} {\textbar} {Definition} and {Quotes} about {Music} {Therapy}
-  {\textbar} {American} {Music} {Therapy} {Association} ({AMTA}).''
+\emph{{American Music Therapy Association}}.
+\newblock \enquote{Definition and {Quotes} about {Music} {Therapy} {\textbar}
+  {Definition} and {Quotes} about {Music} {Therapy} {\textbar} {American}
+  {Music} {Therapy} {Association} ({AMTA})}
+\newline\urlprefix\url{https://www.musictherapy.org/}
 
-\bibitem{spotify_get_nodate}
-{Spotify}, ``Get {Audio} {Features} for {Several} {Tracks} {\textbar} {Spotify}
-  for {Developers}.''
-
-\bibitem{jehan_analyzer_nodate}
-T.~Jehan and D.~DesRoches, ``Analyzer {Documentation}.''
-
-\bibitem{spotify_get_nodate-1}
-{Spotify}, ``Get a {Track} {\textbar} {Spotify} for {Developers}.''
-
-\bibitem{santos_discovering_2017}
-J.~D.~D. Santos, ``Discovering similarities across my {Spotify} music using
-  data, clustering and visualization,'' Oct. 2017.
-
-\bibitem{noauthor_coachellar_nodate}
-``{CoachellaR} - {A} {Cluster} {Analysis} {\textbar} {RCharlie} {Analytics}.''
-
-\bibitem{seeedstudio_grove_nodate}
-{SeeedStudio}, ``Grove - {GSR} sensor - {Sensor} - {Seeed} {Studio}.''
-
-\bibitem{farnsworth_what_2018}
-B.~Farnsworth, ``What is {GSR} (galvanic skin response) and how does it
-  work?,'' July 2018.
-
-\bibitem{tuckett_detection_1986}
-D.~M. TUCKETT, ``Detection of {Deception} in the {Laboratory} as a {Function}
-  of {Motivation} and {Set} {Size} (polygraph {Tests}, {Skin} {Conductance},
-  {Lie} {Detector}, {Guilty} {Knowledge} {Test}),'' Master's thesis, Western
-  Michigan University, United States -- Michigan, 1986.
-
-\bibitem{reidys_combinatorial_2002}
-C.~M. Reidys and P.~F. Stadler, ``Combinatorial {Landscapes},'' {\em SIAM
-  Review}, vol.~44, pp.~3--54, Jan. 2002.
-
-\bibitem{chandel_searching_2014}
-A.~Chandel and M.~Sood, ``Searching and {Optimization} {Techniques} in
-  {Artificial} {Intelligence}: {A} {Comparative} {Study} \& {Complexity}
-  {Analysis},'' vol.~3, no.~3, p.~6, 2014.
-
-\bibitem{pham_bee_nodate}
-D.~T. Pham, A.~Ghanbarzadeh, E.~Koc, S.~Otri, S.~Rahim, and M.~Zaidi, ``Bee
-  {Algorithm} – {A} {Novel} {Approach} to {Function} {Optimisation},'' p.~41.
-
-\bibitem{stackexchange_search_2018}
-{StackExchange}, ``search algorithms - {Optimization} {Problem} when
-  calculating fitness is expensive,'' Oct. 2018.
+\bibitem{boucsein_electrodermal_2012}
+\emph{Boucsein, W.}, Electrodermal {Activity},  (Springer Science \& Business
+  Media2012).
+\newblock ISBN 978-1-4614-1126-0.
+\newblock Google-Books-ID: 6N6rnOEZEEoC
 
 \bibitem{boukouvala_derivative-free_2014}
-F.~Boukouvala and M.~G. Ierapetritou, ``Derivative-free optimization for
-  expensive constrained problems using a novel expected improvement objective
-  function,'' {\em AIChE Journal}, vol.~60, pp.~2462--2474, July 2014.
+\emph{Boukouvala, F.} and \emph{Ierapetritou, M.G.}, 2014;
+  \enquote{Derivative-free optimization for expensive constrained problems
+  using a novel expected improvement objective function}.
+\newblock AIChE Journal, vol.~60(7):pp. 2462--2474.
+\newblock ISSN 1547-5905
+\newline\urlprefix\url{http://dx.doi.org/10.1002/aic.14442}
 
-\bibitem{jones_efficient_nodate}
-D.~R. Jones and M.~Schonlau, ``Efficient {Global} {Optimization} of {Expensive}
-  {Black}-{Box} {Functions},'' p.~38.
+\bibitem{boyd_convex_2004}
+\emph{Boyd, S.P.} and \emph{Vandenberghe, L.}, Convex optimization,  (Cambridge
+  University Press, Cambridge, UK ; New York2004).
+\newblock ISBN 978-0-521-83378-3
+
+\bibitem{chandel_searching_2014}
+\emph{Chandel, A.} and \emph{Sood, M.}, 2014; \enquote{Searching and
+  {Optimization} {Techniques} in {Artificial} {Intelligence}: {A} {Comparative}
+  {Study} \& {Complexity} {Analysis}}.
+\newblock International Journal of Advanced Research in Computer Engineering \&
+  Technology, vol.~3(3):p.~6
+
+\bibitem{dillman-capentier_effects_2007}
+\emph{Dillman-Capentier, F.} and \emph{Potter, R.F.}, 2007; \enquote{Effects of
+  {Music} on {Physiological} {Arousal}: {Explorations} into {Tempo} and
+  {Genre}}.
+\newblock Media Psychology, vol.~10(3):pp. 339--363.
+\newblock ISSN 1521-3269
+\newline\urlprefix\url{http://dx.doi.org/10.1080/15213260701533045}
 
 \bibitem{dong_surrogate-based_2018}
-H.~Dong, B.~Song, P.~Wang, and Z.~Dong, ``Surrogate-based optimization with
-  clustering-based space exploration for expensive multimodal problems,'' {\em
-  Structural and Multidisciplinary Optimization}, vol.~57, pp.~1553--1577, Apr.
-  2018.
+\emph{Dong, H.}, \emph{Song, B.}, \emph{Wang, P.}, and \emph{Dong, Z.}, 2018;
+  \enquote{Surrogate-based optimization with clustering-based space exploration
+  for expensive multimodal problems}.
+\newblock Structural and Multidisciplinary Optimization, vol.~57(4):pp.
+  1553--1577.
+\newblock ISSN 1615-147X, 1615-1488
+\newline\urlprefix\url{http://dx.doi.org/10.1007/s00158-017-1826-x}
 
-\bibitem{wang_time_2017}
-H.~Wang, B.~van Stein, M.~Emmerich, and T.~Bäck, ``Time complexity reduction
-  in efficient global optimization using cluster kriging,'' in {\em Proceedings
-  of the {Genetic} and {Evolutionary} {Computation} {Conference} on - {GECCO}
-  '17}, (Berlin, Germany), pp.~889--896, ACM Press, 2017.
+\bibitem{elliott_relaxing_2011}
+\emph{Elliott, D.}, \emph{Polman, R.}, and \emph{McGregor, R.}, 2011;
+  \enquote{Relaxing {Music} for {Anxiety} {Control}}.
+\newblock Journal of Music Therapy, vol.~48(3):pp. 264--288.
+\newblock ISSN 0022-2917
+\newline\urlprefix\url{http://dx.doi.org/10.1093/jmt/48.3.264}
+
+\bibitem{estivill-castro_why_2002}
+\emph{Estivill-Castro, V.}, 2002; \enquote{Why {So} {Many} {Clustering}
+  {Algorithms}: {A} {Position} {Paper}}.
+\newblock SIGKDD Explor. Newsl., vol.~4(1):pp. 65--75.
+\newblock ISSN 1931-0145
+\newline\urlprefix\url{http://dx.doi.org/10.1145/568574.568575}
+
+\bibitem{farnsworth_what_2018}
+\emph{Farnsworth, B.}, 2018.
+\newblock \enquote{What is {GSR} (galvanic skin response) and how does it
+  work?}
+\newline\urlprefix\url{https://imotions.com/blog/gsr/}
+
+\bibitem{jehan_analyzer_nodate}
+\emph{Jehan, T.} and \emph{DesRoches, D.}
+\newblock \enquote{Analyzer {Documentation}}
+\newline\urlprefix\url{http://docs.echonest.com.s3-website-us-east-1.amazonaws.com/_static/AnalyzeDocumentation.pdf}
+
+\bibitem{jones_efficient_1998}
+\emph{Jones, D.R.} and \emph{Schonlau, M.}, 1998; \enquote{Efficient {Global}
+  {Optimization} of {Expensive} {Black}-{Box} {Functions}}.
+\newblock Journal of Global Optimization, vol.~13:p.~38
+
+\bibitem{kanungo_efficient_2002}
+\emph{Kanungo, T.}, \emph{Mount, D.M.}, \emph{Netanyahu, N.S.}, \emph{Piatko,
+  C.D.}, \emph{Silverman, R.}, and \emph{Wu, A.Y.}, 2002; \enquote{An efficient
+  k-means clustering algorithm: analysis and implementation}.
+\newblock IEEE Transactions on Pattern Analysis and Machine Intelligence,
+  vol.~24(7):pp. 881--892.
+\newblock ISSN 0162-8828
+\newline\urlprefix\url{http://dx.doi.org/10.1109/TPAMI.2002.1017616}
+
+\bibitem{mairal_optimization_2013}
+\emph{Mairal, J.}, \enquote{Optimization with {First}-{Order} {Surrogate}
+  {Functions}}.
+\newblock vol.~28, p.~9,  (Atlanta, Georgia, USA2013)
 
 \bibitem{mockus_optimization_nodate}
-Močkus, ``optimization - {Maximizing} slow multi-parameter function.''
+\emph{Močkus}.
+\newblock \enquote{optimization - {Maximizing} slow multi-parameter function}
+\newline\urlprefix\url{https://scicomp.stackexchange.com/questions/20410/maximizing-slow-multi-parameter-function?noredirect=1&lq=1}
+
+\bibitem{pham_bee_2005}
+\emph{Pham, D.T.}, \emph{Ghanbarzadeh, A.}, \emph{Koc, E.}, \emph{Otri, S.},
+  \emph{Rahim, S.}, and \emph{Zaidi, M.}, 2005; \enquote{Bee {Algorithm} –
+  {A} {Novel} {Approach} to {Function} {Optimisation}}.
+\newblock Technical {Note} MEC 0501, Cardiff University, The Manufacturing
+  Engineering Centre
+\newline\urlprefix\url{https://www.researchgate.net/publication/260985621_The_Bees_Algorithm_Technical_Note}
+
+\bibitem{rcharlie_analytics_coachellar_2017}
+\emph{{RCharlie Analytics}}, 2017.
+\newblock \enquote{{CoachellaR} - {A} {Cluster} {Analysis} {\textbar}
+  {RCharlie} {Analytics}}
+\newline\urlprefix\url{https://www.rcharlie.com/post/coachellar/}
+
+\bibitem{rickard_intense_2004}
+\emph{Rickard, N.S.}, 2004; \enquote{Intense emotional responses to music: a
+  test of the physiological arousal hypothesis}.
+\newblock Psychology of Music, vol.~32(4):pp. 371--388.
+\newblock ISSN 0305-7356, 1741-3087
+\newline\urlprefix\url{http://dx.doi.org/10.1177/0305735604046096}
+
+\bibitem{santos_discovering_2017}
+\emph{Santos, J.D.D.}, 2017.
+\newblock \enquote{Discovering similarities across my {Spotify} music using
+  data, clustering and visualization}
+\newline\urlprefix\url{https://towardsdatascience.com/discovering-similarities-across-my-spotify-music-using-data-clustering-and-visualization-52b58e6f547b}
+
+\bibitem{seeedstudio_grove_nodate}
+\emph{{SeeedStudio}}.
+\newblock \enquote{Grove - {GSR} sensor - {Sensor} - {Seeed} {Studio}}
+\newline\urlprefix\url{https://www.seeedstudio.com/Grove-GSR-sensor-p-1614.html}
+
+\bibitem{spotify_get_nodate-1}
+\emph{{Spotify}}.
+\newblock \enquote{Get a {Track} {\textbar} {Spotify} for {Developers}}
+\newline\urlprefix\url{https://developer.spotify.com/documentation/web-api/reference/tracks/get-track/}
+
+\bibitem{spotify_get_nodate}
+\emph{{Spotify}}.
+\newblock \enquote{Get {Audio} {Features} for {Several} {Tracks} {\textbar}
+  {Spotify} for {Developers}}
+\newline\urlprefix\url{https://developer.spotify.com/documentation/web-api/reference/tracks/get-several-audio-features/}
+
+\bibitem{stackexchange_search_2018}
+\emph{{StackExchange}}, 2018.
+\newblock \enquote{search algorithms - {Optimization} {Problem} when
+  calculating fitness is expensive}
+\newline\urlprefix\url{https://cs.stackexchange.com/questions/98088/optimization-problem-when-calculating-fitness-is-expensive}
+
+\bibitem{thoma_effect_2013}
+\emph{Thoma, M.V.}, \emph{Marca, R.L.}, \emph{Brönnimann, R.}, \emph{Finkel,
+  L.}, \emph{Ehlert, U.}, and \emph{Nater, U.M.}, 2013; \enquote{The {Effect}
+  of {Music} on the {Human} {Stress} {Response}}.
+\newblock PLOS ONE, vol.~8(8):p. e70156.
+\newblock ISSN 1932-6203
+\newline\urlprefix\url{http://dx.doi.org/10.1371/journal.pone.0070156}
+
+\bibitem{tuckett_detection_1986}
+\emph{TUCKETT, D.M.}, 1986; \enquote{Detection of {Deception} in the
+  {Laboratory} as a {Function} of {Motivation} and {Set} {Size} (polygraph
+  {Tests}, {Skin} {Conductance}, {Lie} {Detector}, {Guilty} {Knowledge}
+  {Test})}.
+\newblock Master's thesis, Western Michigan University, United States --
+  Michigan
+\newline\urlprefix\url{http://search.proquest.com/docview/303542127/citation/E0F5A5F546F34A23PQ/1}
+
+\bibitem{wang_time_2017}
+\emph{Wang, H.}, \emph{van Stein, B.}, \emph{Emmerich, M.}, and \emph{Bäck,
+  T.}, \enquote{Time complexity reduction in efficient global optimization
+  using cluster kriging}.
+\newblock In \enquote{Proceedings of the {Genetic} and {Evolutionary}
+  {Computation} {Conference} on - {GECCO} '17}, pp. 889--896,  (ACM Press,
+  Berlin, Germany2017).
+\newblock ISBN 978-1-4503-4920-8
+\newline\urlprefix\url{http://dx.doi.org/10.1145/3071178.3071321}
 
 \end{thebibliography}

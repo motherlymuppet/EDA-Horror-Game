@@ -1,9 +1,14 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: document.aux
-The style file: ieeetr.bst
+The style file: style.bst
 Database file #1: document.bib
-Warning--empty journal in chandel_searching_2014
-Warning--empty journal in pham_bee_nodate
-Warning--empty year in pham_bee_nodate
-Warning--empty journal in jones_efficient_nodate
-Warning--empty year in jones_efficient_nodate
-(There were 5 warnings)
+Warning--I didn't find a database entry for "jones_efficient_nodate"
+You can't pop an empty literal stack for entry boucsein_electrodermal_2012
+while executing---line 1539 of file style.bst
+You can't pop an empty literal stack for entry boyd_convex_2004
+while executing---line 1539 of file style.bst
+Warning--empty booktitle in mairal_optimization_2013
+You can't pop an empty literal stack for entry mairal_optimization_2013
+while executing---line 1539 of file style.bst
+You can't pop an empty literal stack for entry wang_time_2017
+while executing---line 1539 of file style.bst
+(There were 4 error messages)
