@@ -1,14 +1,11 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: document.aux
-The style file: style.bst
+The style file: ieeetran.bst
 Database file #1: document.bib
-Warning--I didn't find a database entry for "jones_efficient_nodate"
-You can't pop an empty literal stack for entry boucsein_electrodermal_2012
-while executing---line 1539 of file style.bst
-You can't pop an empty literal stack for entry boyd_convex_2004
-while executing---line 1539 of file style.bst
+Warning--I didn't find a database entry for "jehan_analyzer_nodate"
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 Warning--empty booktitle in mairal_optimization_2013
-You can't pop an empty literal stack for entry mairal_optimization_2013
-while executing---line 1539 of file style.bst
-You can't pop an empty literal stack for entry wang_time_2017
-while executing---line 1539 of file style.bst
-(There were 4 error messages)
+
+Done.
+(There were 2 warnings)
