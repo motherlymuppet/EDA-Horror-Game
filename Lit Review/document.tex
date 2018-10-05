@@ -37,7 +37,7 @@
 	\end{itemize}
 	
 	\section{Proposed Solution}
-	Using the Spotify API, we can represent songs as a 14-dimensional vectors which describe their important qualities, including \emph{danceability}, \emph{energy}, and \emph{key} \cite{spotify_get_nodate, jehan_analyzer_nodate}. We have a database of approximately 500,000 songs on Spotify, and the ability to search them based on their vector representations.
+	Using the Spotify API, we can represent songs as a 14-dimensional vectors which describe their important qualities, including \emph{danceability}, \emph{energy}, and \emph{musical key} \cite{spotify_get_nodate, jehan_analyzer_nodate}. We have a database of approximately 500,000 songs on Spotify, and the ability to search them based on their vector representations.
 	
 	We model the problem as a Global Optimization Problem. The set of solutions are the 500,000 songs in the database. To determine the fitness of any solution, we play it to a listener, and measure the change in EDA. A good solution should lower the listener's EDA.
 	
@@ -64,9 +64,9 @@
 	\section{Literature Survey}
 	
 	\subsection{Music as Vectors}
-	Spotify API allows us to convert songs to vectors \cite{spotify_get_nodate}. Echo nest has more documentation on this \cite{jehan_analyzer_nodate}.
+	The Spotify API allows us to convert songs to vectors \cite{spotify_get_nodate}. The Echo Nest documentation gives more details on what each of the qualities used in the vector represents. Since we are optimizing without using any domain knowledge, this information is mostly irrelevant for us. The qualities of a song are determined using `machine listening techniques' guided by music experts \cite{jehan_analyzer_nodate}.
 	
-	Other work that has done clustering analysis has found that the clusters mostly match up with what we expect (genres), so that suggests that one of our assumptions (similar vectors = similar songs = similar fitness) is true \cite{santos_discovering_2017, rcharlie_analytics_coachellar_2017}.
+	Other work that has done clustering analysis has found that the clusters mostly match up with what we expect (genres), which suggests one of our assumptions (similar vectors = similar songs = similar fitness) is true \cite{santos_discovering_2017, rcharlie_analytics_coachellar_2017}.
 	
 	\subsection{Electrodermal Activity}
 	EDA will be measured with a Grove GSR Sensor \cite{seeedstudio_grove_nodate}, which can be read into a PC via an arduino. Similar sensors are used for detection of stress by polygraph (lie-detector) systems \cite{tuckett_detection_1986}. Listening to music has been shown to cause an increase in EDA \cite{rickard_intense_2004, dillman-capentier_effects_2007, thoma_effect_2013}.
@@ -74,7 +74,7 @@
 	\subsection{Global Optimization Search}
 	Our fitness function consists of playing a song to a listener and measuring their change in EDA. This means that each invocation of the fitness function takes approximately 3 minutes. The fitness function cannot be calculated in parallel, due to the need for a human listener, and we cannot use multiple human listeners due to the differences in individual preference that we are testing.
 	
-	Multiple state-of-the-art AI Search techniques were considered, but all were deemed to be too time-complex for our use case. These included Tabu Search, Hill Climbing, Simulated Annealing, Genetic Algorithms, Newton's Algorithm, and the Bee fAlgorithm \cite{chandel_searching_2014, pham_bee_2005}.
+	Multiple state-of-the-art AI Search techniques were considered, but all were deemed to be too time-complex for our use case. These included Tabu Search, Hill Climbing, Simulated Annealing, Genetic Algorithms, Newton's Algorithm, and the Bee Algorithm \cite{chandel_searching_2014, pham_bee_2005}.
 	
 	It is clear that we need to reduce the time complexity of our search, even at the cost of a very non-optimal solution. A StackExchange user lead me to research into the solving of EBOPs \cite{stackexchange_search_2018}.
 	
@@ -87,6 +87,9 @@
 	
 	\subsection{Bayesian \& Surrogate Techniques}
 	These techniques work by constructing a surrogate model of what we predict the fitness function to be, and iteratively improve on that surrogate each time more data becomes available \cite{mockus_optimization_nodate, dong_surrogate-based_2018}. By maintaining a surrogate of the fitness function, we can perform a search on the surrogate and test only the solutions that are predicted to be globally optimal. This technique reduces the number of calls to the fitness function by maximising the impact of the tested solutions, at the cost of having to construct a new surrogate and perform a global search on the surrogate after each call to the real fitness function \cite{boukouvala_derivative-free_2014}.
+	
+	\section{Conclusion}
+	We aim to use Electrodermal Activity to determine how relaxed a listener is. The data from the EDA sensor can be used to guide an Optimization search across a space of 500,000 songs to find the most relaxing song. To calculate a song's fitness, we must play the song to a listener, which can take many minutes. This means the search is categorised as an Expensive black-box Optimization Problem. Techniques such as Cluster Analysis and Surrogate Functions can be used to minimise the number of calls to the expensive fitness function in our search at the cost of additional computational complexity.
 	
 	\newpage
 	\begin{footnotesize}
