@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.23)  5 OCT 2018 14:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.23)  5 OCT 2018 14:16
 entering extended mode
 **./document.tex
 (document.tex
@@ -358,15 +358,10 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 34.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 34.
+ [1
 
-
-LaTeX Warning: Citation `jehan_analyzer_nodate' on page 1 undefined on input li
-ne 41.
-
-[1
-
-{C:/Users/Steven/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-[3] [4]
+{C:/Users/Steven/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3] [4
+]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: <default>
@@ -529,17 +524,13 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 121.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 121.
 Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: 8372A6465A84D14F7D579C20B57BB773;733.
-
-
-LaTeX Warning: There were undefined references.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 121.
  ) 
 Here is how much of TeX's memory you used:
- 7157 strings out of 493323
- 116824 string characters out of 3139063
+ 7156 strings out of 493323
+ 116801 string characters out of 3139063
  264466 words of memory out of 3000000
- 10624 multiletter control sequences out of 15000+200000
+ 10623 multiletter control sequences out of 15000+200000
  8593 words of font info for 30 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  28i,6n,28p,758b,439s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -553,9 +544,9 @@ msfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/P
 rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb>
-Output written on document.pdf (5 pages, 204643 bytes).
+Output written on document.pdf (5 pages, 204606 bytes).
 PDF statistics:
- 233 PDF objects out of 1000 (max. 8388607)
+ 234 PDF objects out of 1000 (max. 8388607)
  47 named destinations out of 1000 (max. 500000)
  97 words of extra memory for PDF output out of 10000 (max. 10000000)
 

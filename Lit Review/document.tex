@@ -38,7 +38,7 @@
 	\end{itemize}
 	
 	\section{Proposed Solution}
-	Using the Spotify API, we can represent songs as a 12-dimensional vectors which describe their important qualities, including \emph{danceability}, \emph{energy}, and \emph{musical key} \cite{spotify_get_nodate, jehan_analyzer_nodate}. We have a database of approximately 500,000 songs on Spotify, and the ability to search them based on their vector representations.
+	Using the Spotify API, we can represent songs as a 12-dimensional vectors which describe their important qualities, including \emph{danceability}, \emph{energy}, and \emph{musical key} \cite{spotify_get_nodate, jehan_analyzer_2014}. We have a database of approximately 500,000 songs on Spotify, and the ability to search them based on their vector representations.
 	
 	We model the problem as a Global Optimization Problem. The set of solutions are the 500,000 songs in the database. To determine the fitness of any solution, we play it to a listener, and measure the change in EDA. A good solution should lower the listener's EDA.
 	
@@ -107,7 +107,7 @@
 	These techniques work by constructing a surrogate model of what we predict the fitness function to be, and iteratively improve on that surrogate each time more data becomes available \cite{mockus_optimization_nodate, dong_surrogate-based_2018}. By maintaining a surrogate of the fitness function, we can perform a search on the surrogate and test only the solutions that are predicted to be globally optimal. This technique reduces the number of calls to the fitness function by maximising the impact of the tested solutions, at the cost of having to construct a new surrogate and perform a global search on the surrogate after each call to the real fitness function \cite{boukouvala_derivative-free_2014}.
 	
 	\section{Conclusion}
-	We aim to use Electrodermal Activity to determine how relaxed a listener is. The data from the EDA sensor can be used to guide an Optimization search across a space of 500,000 songs to find the most relaxing song. To calculate a song's fitness, we must play the song to a listener, which can take many minutes. This means the search is categorised as an Expensive black-box Optimization Problem. Techniques such as Cluster Analysis and Surrogate Functions can be used to minimise the number of calls to the expensive fitness function in our search at the cost of additional computation.
+	We aim to use Electrodermal Activity to determine how relaxed a listener is. The data from the EDA sensor can be used to guide an Optimization search across a space of 500,000 songs to find the most relaxing song. To calculate a song's fitness, we must play the song to a listener, which can take many minutes. This means the search is categorised as an Expensive black-box Optimization Problem. Techniques such as Cluster Analysis and Surrogate Functions can be used to minimise the number of calls to the expensive fitness function in our search at the cost of additional computationz.
 	
 	\newgeometry{top=1in,left=0.5in,right=0.5in,bottom=1in}
 	\newpage
