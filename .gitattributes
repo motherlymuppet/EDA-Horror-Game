@@ -1,2 +1,10 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+spotify-ripper/*.txt
+*.aux
+*.log
+*.sty
+*.out
+*.pdf
+*.gz
+*.toc
