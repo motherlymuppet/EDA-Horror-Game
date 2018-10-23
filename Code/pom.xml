@@ -10,6 +10,8 @@
 
     <properties>
         <kotlin.version>1.2.71</kotlin.version>
+        <maven.compiler.source>1.11</maven.compiler.source>
+        <maven.compiler.target>1.11</maven.compiler.target>
     </properties>
 
     <repositories>
@@ -21,6 +23,11 @@
     </repositories>
 
     <dependencies>
+        <dependency>
+            <groupId>de.vandermeer</groupId>
+            <artifactId>asciitable</artifactId>
+            <version>0.3.2</version>
+        </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib-jdk8</artifactId>
@@ -45,7 +52,7 @@
         <dependency>
             <groupId>se.michaelthelin.spotify</groupId>
             <artifactId>spotify-web-api-java</artifactId>
-            <version>2.0.1</version>
+            <version>2.1.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.github.axet/TarsosDSP -->
         <dependency>
@@ -53,8 +60,11 @@
             <artifactId>TarsosDSP</artifactId>
             <version>2.4-1</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>11-ea+19</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -81,6 +91,7 @@
                 </executions>
                 <configuration>
                     <jvmTarget>1.8</jvmTarget>
+                    <experimentalCoroutines>enable</experimentalCoroutines>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,11 +1,11 @@
-package org.stevenlowes.tools.scraper.rippers
+package org.stevenlowes.project.spotifyAPI.scrapers
 
 import com.neovisionaries.i18n.CountryCode
 import com.wrapper.spotify.exceptions.detailed.NotFoundException
 import com.wrapper.spotify.model_objects.specification.Paging
 import com.wrapper.spotify.model_objects.specification.Track
-import org.stevenlowes.tools.scraper.Spotify
-import org.stevenlowes.tools.scraper.SpotifyAuth
+import org.stevenlowes.project.spotifyAPI.Spotify
+import org.stevenlowes.project.spotifyAPI.SpotifyAuth
 import java.io.FileWriter
 import java.util.concurrent.ExecutionException
 
@@ -57,8 +57,7 @@ class IdRipper {
                         }
                     }
                             .flatten()
-                            .map { it.id }
-                            .filterNotNull()
+                            .mapNotNull { getString(it) }
                             .forEach {id ->
                                 if (!dataSet.contains(id)) {
                                     dataSet.add(id)
@@ -70,6 +69,8 @@ class IdRipper {
                 }
             }
         }
+
+        private fun getString(track: Track?): String? = track?.id
     }
 }
 

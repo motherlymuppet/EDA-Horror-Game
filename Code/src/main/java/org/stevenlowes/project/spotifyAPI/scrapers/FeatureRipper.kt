@@ -1,8 +1,8 @@
-package org.stevenlowes.tools.scraper.rippers
+package org.stevenlowes.project.spotifyAPI.scrapers
 
 import com.wrapper.spotify.model_objects.specification.AudioFeatures
-import org.stevenlowes.tools.scraper.Spotify
-import org.stevenlowes.tools.scraper.SpotifyAuth
+import org.stevenlowes.project.spotifyAPI.Spotify
+import org.stevenlowes.project.spotifyAPI.SpotifyAuth
 import java.io.BufferedReader
 import java.io.FileReader
 import java.io.FileWriter
@@ -27,21 +27,21 @@ class FeatureRipper {
                     val limit = 100
                     val idPageSequence = buildSequence {
                         var done = false
-                        while(!done){
+                        while (!done) {
                             val ids = mutableListOf<String>()
-                            while(ids.size < limit){
+                            while (ids.size < limit) {
                                 if (retryIds.isNotEmpty()) {
-                                    if(retryIds.size > 100){
+                                    if (retryIds.size > 100) {
                                         ids.addAll(retryIds.take(100))
                                     }
-                                    else{
+                                    else {
                                         ids.addAll(retryIds)
                                     }
                                     retryIds.removeAll(ids)
                                 }
                                 else {
                                     val id = fileIdSequence.firstOrNull()
-                                    if(id == null){
+                                    if (id == null) {
                                         done = true
                                         break
                                     }
@@ -64,7 +64,7 @@ class FeatureRipper {
                         val futures = (1..simulataneousPages).mapNotNull {
                             //For each page
                             val ids = idPageSequence.firstOrNull()
-                            if(ids == null){
+                            if (ids == null) {
                                 return@mapNotNull null
                             }
                             else {
@@ -90,13 +90,8 @@ class FeatureRipper {
                             }
                         }
                                 .flatten()
-                                .filterNotNull()
-                                .forEach { features ->
-                                    val line = getLine(features)
-                                    if(line != null){
-                                        fileWriter.write(line)
-                                    }
-                                }
+                                .mapNotNull { getFeatureString(it) }
+                                .forEach(fileWriter::write)
 
                         Thread.sleep(5000)
                     }
@@ -105,7 +100,8 @@ class FeatureRipper {
         }
 
 
-        fun getLine(features: AudioFeatures): String? {
+        fun getFeatureString(features: AudioFeatures?): String? {
+            features ?: return null
             val id = features.id ?: return null
             val danceability = features.danceability ?: return null
             val energy = features.energy ?: return null

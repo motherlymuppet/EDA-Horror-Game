@@ -1,11 +1,13 @@
-package org.stevenlowes.tools.scraper.rippers
+package org.stevenlowes.project.spotifyAPI.scrapers
 
 import com.wrapper.spotify.exceptions.detailed.BadGatewayException
 import com.wrapper.spotify.exceptions.detailed.NotFoundException
 import com.wrapper.spotify.exceptions.detailed.TooManyRequestsException
 import com.wrapper.spotify.model_objects.miscellaneous.AudioAnalysis
-import org.stevenlowes.tools.scraper.Spotify
-import org.stevenlowes.tools.scraper.SpotifyAuth
+import com.wrapper.spotify.model_objects.specification.AudioFeatures
+import org.stevenlowes.project.spotifyAPI.AnalysedTrack
+import org.stevenlowes.project.spotifyAPI.Spotify
+import org.stevenlowes.project.spotifyAPI.SpotifyAuth
 import java.io.*
 import java.util.concurrent.ExecutionException
 
@@ -68,7 +70,15 @@ class AnalysisRipper {
             }
         }
 
-        fun getLine(featureString: String, analysis: AudioAnalysis): String? {
+        fun getAnalysisString(track: AnalysedTrack) = getAnalysisString(track.features, track.analysis)
+
+        fun getAnalysisString(features: AudioFeatures, analysis: AudioAnalysis): String {
+            val featureString = FeatureRipper.getFeatureString(features) ?: throw IllegalArgumentException("Feature String was null")
+            val analysisString = AnalysisRipper.getAnalysisString(featureString, analysis) ?: throw IllegalArgumentException("Analysis String was null")
+            return analysisString
+        }
+
+        fun getAnalysisString(featureString: String, analysis: AudioAnalysis): String? {
             @Suppress("UNNECESSARY_SAFE_CALL")
             analysis?.track ?: return null
 
@@ -192,7 +202,7 @@ class Runner(private val doneCount: Incrementer,
                         }
                     }
                     .forEach { (featureString, analysis) ->
-                        val line = AnalysisRipper.getLine(featureString, analysis)
+                        val line = AnalysisRipper.getAnalysisString(featureString, analysis)
                         if (line != null) {
                             analysisFile.write(line)
                             doneCount.inc()

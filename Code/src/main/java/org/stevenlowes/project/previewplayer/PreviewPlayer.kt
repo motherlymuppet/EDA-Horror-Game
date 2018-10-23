@@ -1,7 +1,5 @@
 package org.stevenlowes.project.previewplayer
 
-import javafx.scene.media.Media
-import javafx.scene.media.MediaPlayer
 import java.io.File
 import java.io.FileOutputStream
 import java.net.URL
@@ -20,9 +18,10 @@ class PreviewPlayer{
         }
 
         fun play(){
-            val media = Media(File(name).toURI().toString())
-            val player = MediaPlayer(media)
-            player.play()
+            //val media = Media(File(name).toURI().toString())
+            //val player = MediaPlayer(media)
+            //player.play()
+            //TODO
         }
     }
 }

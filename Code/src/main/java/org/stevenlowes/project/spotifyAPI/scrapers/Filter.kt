@@ -1,4 +1,4 @@
-package org.stevenlowes.tools.scraper.rippers
+package org.stevenlowes.project.spotifyAPI.scrapers
 
 import java.io.BufferedReader
 import java.io.FileReader
@@ -37,7 +37,7 @@ class Filter {
                             return@filter false
                         }
 
-                        if (values[11] >= 2 * 60 * 1000) { //Duration
+                        if (values[11] <= 2 * 60 * 1000) { //Duration
                             return@filter false
                         }
 
