@@ -1,5 +1,6 @@
 package org.stevenlowes.project.spotifyAPI
 
+import com.wrapper.spotify.model_objects.specification.Paging
 import org.jetbrains.annotations.Contract
 
 class Util{

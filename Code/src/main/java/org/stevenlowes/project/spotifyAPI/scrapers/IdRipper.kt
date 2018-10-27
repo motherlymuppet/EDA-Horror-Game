@@ -13,7 +13,7 @@ class IdRipper {
     companion object {
         fun runRipper(){
             ('a'..'z').forEach { firstChar ->
-                SpotifyAuth.manualAuth("AQAOuwxSwwmBLmFFYOx4VLURaes8e2lRdscJWLKnkvT8A5lkM95YVzIKFWayqIylXmr7m3iqdx_ND1aruS41U7wEH33S8wLSUElHllT16Ot8s_P_63WaivO9TgEybcizN3F9fg")
+                SpotifyAuth.refreshAuth()
                 ('a'..'z').forEach { secondChar ->
                     val searchTerm = firstChar.toString() + secondChar.toString()
                     println(searchTerm)

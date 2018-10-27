@@ -14,11 +14,32 @@ class SpotifyAuth {
 
         private var authorised = false
 
+        init {
+            val api = Spotify.api
+            api.refreshToken = "AQAWfv5b1CtSHj7cIgzJlP_j366ekYg5hIDGg-nJsmZb0BfUcrbP6BYiJS4iCEft0GsreSDBq5twWmVGWpp23i-idf5n4kqY0gAc6O5JHowbvfIjys3-u3qHt_04DmdZxkLcpA"
+        }
+
         private fun printAuthURI() {
             val authURI = Spotify.api.authorizationCodeUri().show_dialog(true).scope(
-                    listOf("user-read-playback-state",
+                    listOf("playlist-read-private",
+                           "playlist-modify-public",
+                           "playlist-modify-private",
+                           "playlist-read-collaborative",
+                           "user-read-private",
+                           "user-read-birthdate",
+                           "user-read-email",
+                           "user-read-playback-state",
+                           "user-read-currently-playing",
                            "user-modify-playback-state",
-                           "user-read-currently-playing").joinToString()).build().execute()
+                           "app-remote-control",
+                           "streaming",
+                           "user-follow-modify",
+                           "user-follow-read",
+                           "user-top-read",
+                           "user-read-recently-played",
+                           "user-library-read",
+                           "user-library-modify"
+                          ).joinToString()).build().execute()
 
             println(authURI)
         }

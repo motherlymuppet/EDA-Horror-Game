@@ -10,8 +10,8 @@
 
     <properties>
         <kotlin.version>1.2.71</kotlin.version>
-        <maven.compiler.source>1.11</maven.compiler.source>
-        <maven.compiler.target>1.11</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <repositories>
@@ -19,6 +19,10 @@
             <id>homer-core</id>
             <name>homer-core</name>
             <url>https://nexus.arcsmed.at/content/repositories/homer.core/</url>
+        </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
         </repository>
     </repositories>
 
@@ -65,6 +69,16 @@
             <artifactId>javafx-controls</artifactId>
             <version>11-ea+19</version>
         </dependency>
+        <dependency>
+            <groupId>no.tornado</groupId>
+            <artifactId>tornadofx</artifactId>
+            <version>1.7.17</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.motherlymuppet</groupId>
+            <artifactId>LifxCommander_v1.0</artifactId>
+            <version>c4d626788c</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -92,6 +106,33 @@
                 <configuration>
                     <jvmTarget>1.8</jvmTarget>
                     <experimentalCoroutines>enable</experimentalCoroutines>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <!-- put your configurations here -->
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>org.stevenlowes.project.spotifyAPI.scrapers.AnalysisRipperKt</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>

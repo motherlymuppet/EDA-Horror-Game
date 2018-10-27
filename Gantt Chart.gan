@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2018-08-01" view-index="0" gantt-divider-location="555" resource-divider-location="300" version="2.8.9" locale="en_GB">
+    <description/>
+    <view zooming-state="default:8" id="gantt-chart">
+        <field id="tpd3" name="Name" width="238" order="0"/>
+        <field id="tpd4" name="Begin date" width="113" order="1"/>
+        <field id="tpd5" name="End date" width="112" order="2"/>
+        <field id="tpd6" name="Duration" width="88" order="3"/>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Name" width="210" order="0"/>
+        <field id="1" name="Default role" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars base-id="uk.england">
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="0"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+        <date year="" month="1" date="1" type="HOLIDAY"><![CDATA[New Year's Day]]></date>
+        <date year="" month="12" date="25" type="HOLIDAY"><![CDATA[Christmas Day]]></date>
+        <date year="" month="12" date="26" type="HOLIDAY"><![CDATA[Boxing Day]]></date>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="4" name="Create Vector Representation of Songs" color="#8cb6ce" meeting="false" start="2018-10-01" duration="25" complete="80" thirdDate="2018-10-26" thirdDate-constraint="0" expand="true">
+            <depend id="5" type="2" difference="0" hardness="Rubber"/>
+            <depend id="47" type="2" difference="0" hardness="Rubber"/>
+            <depend id="230" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="0" name="Read GSR Data" color="#8cb6ce" meeting="false" start="2018-10-10" duration="7" complete="100" thirdDate="2018-10-26" thirdDate-constraint="0" expand="true">
+            <depend id="11" type="2" difference="0" hardness="Rubber"/>
+            <depend id="348" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="1" name="Ethics Approval" color="#8cb6ce" meeting="false" start="2018-10-17" duration="4" complete="100" thirdDate="2018-10-26" thirdDate-constraint="0" expand="true">
+            <depend id="80" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="11" name="Data Output" color="#8cb6ce" meeting="false" start="2018-10-27" duration="2" complete="0" thirdDate="2018-10-26" thirdDate-constraint="0" expand="true">
+            <depend id="12" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="12" name="Data Viewer" color="#8cb6ce" meeting="false" start="2018-10-30" duration="3" complete="0" thirdDate="2018-10-26" thirdDate-constraint="0" expand="true">
+            <depend id="80" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="80" name="Initial Testing" color="#8cb6ce" meeting="false" start="2018-11-02" duration="5" complete="0" thirdDate="2018-10-01" thirdDate-constraint="0" expand="true">
+            <depend id="85" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="85" name="Create Fitness Function" color="#8cb6ce" meeting="false" start="2018-11-08" duration="4" complete="0" thirdDate="2018-10-01" thirdDate-constraint="0" expand="true">
+            <depend id="6" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="5" name="Implement Global Optimisation" color="#8cb6ce" meeting="false" start="2018-11-10" duration="2" complete="0" thirdDate="2018-10-26" thirdDate-constraint="0" expand="true">
+            <depend id="6" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="6" name="Add GSR Fitness to Optimisation Algo" color="#8cb6ce" meeting="false" start="2018-11-13" duration="1" complete="0" thirdDate="2018-10-26" thirdDate-constraint="0" expand="true">
+            <depend id="7" type="2" difference="0" hardness="Rubber"/>
+            <depend id="8" type="2" difference="0" hardness="Rubber"/>
+            <depend id="9" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="9" name="Implement EBOP Techniques" color="#8cb6ce" meeting="false" start="2018-11-14" duration="25" complete="0" thirdDate="2018-10-26" thirdDate-constraint="0" expand="true">
+            <depend id="8" type="2" difference="0" hardness="Strong"/>
+            <depend id="75" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="8" name="Fully Automate Algorithm" color="#8cb6ce" meeting="false" start="2018-12-13" duration="3" complete="0" thirdDate="2018-10-26" thirdDate-constraint="0" expand="true">
+            <depend id="7" type="2" difference="0" hardness="Strong"/>
+            <depend id="41" type="2" difference="0" hardness="Rubber"/>
+            <depend id="75" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="7" name="Create Intuitive User Interface" color="#8cb6ce" meeting="false" start="2018-12-17" duration="10" complete="0" thirdDate="2018-10-26" thirdDate-constraint="0" expand="true">
+            <depend id="75" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="75" name="Main Testing" color="#8cb6ce" meeting="false" start="2018-12-31" duration="14" complete="0" thirdDate="2018-10-01" thirdDate-constraint="0" expand="true">
+            <depend id="10" type="2" difference="0" hardness="Strong"/>
+            <depend id="47" type="2" difference="0" hardness="Rubber"/>
+        </task>
+        <task id="10" name="Store &amp; Reuse User Profile" color="#8cb6ce" meeting="false" start="2019-01-17" duration="3" complete="0" thirdDate="2018-10-26" thirdDate-constraint="0" expand="true">
+            <depend id="348" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="348" name="Profile Reuse Testing" color="#8cb6ce" meeting="false" start="2019-01-21" duration="3" complete="0" thirdDate="2018-09-01" thirdDate-constraint="0" expand="true">
+            <depend id="47" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="47" name="Data Analysis Compare Listeners" color="#8cb6ce" meeting="false" start="2019-01-24" duration="7" complete="0" thirdDate="2018-10-26" thirdDate-constraint="0" expand="true">
+            <depend id="41" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="41" name="Create Wearable" color="#8cb6ce" meeting="false" start="2019-02-01" duration="14" complete="0" thirdDate="2018-10-26" thirdDate-constraint="0" expand="true">
+            <depend id="230" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="230" name="Wearable Testing" color="#8cb6ce" meeting="false" start="2019-02-18" duration="4" complete="0" thirdDate="2018-10-01" thirdDate-constraint="0" expand="true">
+            <depend id="285" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="285" name="Write Up" color="#8cb6ce" meeting="false" start="2019-02-22" duration="30" complete="0" thirdDate="2018-12-10" thirdDate-constraint="0" expand="true"/>
+    </tasks>
+    <resources>
+        <resource id="0" name="Steven" function="Default:1" contacts="" phone=""/>
+    </resources>
+    <allocations>
+        <allocation task-id="9" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="0" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="1" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="4" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="6" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="10" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="7" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="11" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="8" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="12" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="41" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="75" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="230" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>

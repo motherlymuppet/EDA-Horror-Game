@@ -2,7 +2,10 @@ package org.stevenlowes.project.spotifyAPI.scrapers
 
 import org.jetbrains.annotations.Contract
 import org.stevenlowes.project.spotifyAPI.Util.Companion.readString
-import java.io.*
+import java.io.BufferedReader
+import java.io.FileReader
+import java.io.FileWriter
+import java.io.Reader
 import java.math.BigDecimal
 import java.math.MathContext
 
@@ -50,6 +53,19 @@ class StdDevCalculator {
                   MathContext.DECIMAL128)
         }
     }
+}
+
+fun BigDecimal.sqrt(context: MathContext): BigDecimal {
+    val two = BigDecimal("2")
+    var x0 = BigDecimal.ZERO
+    var x1 = BigDecimal(Math.sqrt(toDouble()))
+    while (x0 != x1) {
+        x0 = x1
+        x1 = divide(x0, context)
+        x1 = x1.add(x0)
+        x1 = x1.divide(two, context)
+    }
+    return x1
 }
 
 fun main(args: Array<String>) {

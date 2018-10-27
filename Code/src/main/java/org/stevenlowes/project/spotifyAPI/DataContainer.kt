@@ -37,7 +37,7 @@ class DataContainer {
                 3f, //AverageSegmentDurationSecs
                 0f, //Timbre1
                 1f, //Timbre2
-                .5f, //Timbre3
+                .75f, //Timbre3
                 1f, //Timbre4
                 .5f, //Timbre5
                 .5f, //Timbre6
@@ -85,14 +85,15 @@ class DataContainer {
     /**
      * Returns the id of the song nearest to the point specified by the vector `to`
      */
-    fun nearest(to: FloatArray, bannedIds: List<String> = listOf()) =
-            ids.asSequence()
-                    .zip(data.asSequence())
-                    .filter { (id, _) -> id !in bannedIds }
-                    .map { (id, array) -> id to distance(array, to) }
-                    .filter { (_, distance) -> distance != 0f } //Prevent returning an identical song (this can be removed once we are actually using this TODO
-                    .minBy { (_, distance) -> distance }!!
-                    .first
+    fun nearest(to: FloatArray, bannedIds: List<String> = listOf()): Pair<String, Float> {
+        val toWithImportance = applyImportance(to)
+        return ids.asSequence()
+                .zip(data.asSequence())
+                .filter { (id, _) -> id !in bannedIds }
+                .map { (id, array) -> id to distance(array, toWithImportance) }
+                .filter { (_, distance) -> distance != 0f } //Prevent returning an identical song (this can be removed once we are actually using this TODO
+                .minBy { (_, distance) -> distance }!!
+    }
 }
 
 fun distance(a1: FloatArray, a2: FloatArray): Float {
@@ -118,20 +119,22 @@ fun maxDistance(a1: FloatArray, a2: FloatArray) = a1.zip(a2).asSequence()
 
 
 fun main(args: Array<String>) {
-    SpotifyAuth.manualAuth("AQAOuwxSwwmBLmFFYOx4VLURaes8e2lRdscJWLKnkvT8A5lkM95YVzIKFWayqIylXmr7m3iqdx_ND1aruS41U7wEH33S8wLSUElHllT16Ot8s_P_63WaivO9TgEybcizN3F9fg")
+    SpotifyAuth.refreshAuth()
 
     val data = DataContainer()
 
     val scanner = Scanner(System.`in`)
     while(true){
-        SpotifyAuth.manualAuth("AQAOuwxSwwmBLmFFYOx4VLURaes8e2lRdscJWLKnkvT8A5lkM95YVzIKFWayqIylXmr7m3iqdx_ND1aruS41U7wEH33S8wLSUElHllT16Ot8s_P_63WaivO9TgEybcizN3F9fg")
+        SpotifyAuth.refreshAuth()
 
         val playing = Spotify.getAnalysedTrack(Spotify.currentlyPlaying().id)
-        val playingArray = DataContainer.applyImportance(ManualUse.translate(playing))
+        val playingArray = ManualUse.translate(playing)
+
+        val withImportance = DataContainer.applyImportance(playingArray)
 
         val bannedIds = listOf<String>()
 
-        val nearestId = data.nearest(playingArray, bannedIds)
+        val (nearestId, distance) = data.nearest(playingArray, bannedIds)
         val nearestArray = data.data[data.ids.indexOf(nearestId)]
 
         val names = listOf(
@@ -166,16 +169,16 @@ fun main(args: Array<String>) {
         println("Original Preview: ${playing.track.previewUrl}")
         println("Nearest Preview: ${Spotify.api.getTrack(nearestId).build().execute().previewUrl}")
         println()
-        println("Original: https://open.spotify.com/track/${playing.id}")
-        println("Nearest: https://open.spotify.com/track/$nearestId")
+        println("Original: https://open.spotify.com/trackProperty/${playing.id}")
+        println("Nearest: https://open.spotify.com/trackProperty/$nearestId")
         println()
-        println("Distance: ${distance(playingArray, nearestArray)}")
+        println("Distance: $distance")
         println()
 
         val table = AsciiTable()
         table.renderer.cwc = CWC_LongestLine()
         table.addRow("Value", "Searched", "Found", "Difference")
-        names.zip(playingArray.zip(nearestArray)).forEachIndexed { index, (name, pair) ->
+        names.zip(withImportance.zip(nearestArray)).forEachIndexed { index, (name, pair) ->
             val importance = DataContainer.importance[index]
             if(importance != 0f){
                 val (searched, found) = pair

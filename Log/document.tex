@@ -110,7 +110,7 @@
 			\begin{itemize}
 				\item \textbf{Identical} Key (C Major)
 				\item \textbf{Identical} Time Signature (3/4)
-				\item \textbf{Within 15\%} Danceability, Energy, Valence
+				\item \textbf{Within 15\%} Danceability, Energy,
 			\end{itemize}
 			
 			\item If I use the api to download a subset of all spotify songs' data, I can use the advanced analysis endpoint which will allow me to create vectors that more closely represent the song. (Timbre)
@@ -127,12 +127,20 @@
 	\end{itemize}
 
 	\section{2018-10-22}
-	Had another meeting with Magnus. Need to do a project plan
+	Had another meeting with Magnus. Need to do a project plan. Ethics is approved.
 	
 	Spent most of my time working on representing songs as vectors. It's got waaay better now. In albums where the songs are designed to follow on from each other, it will often pick the song before/after the one we search for. That's awesome! I haven't seen anything that's glaringly wrong so far.
 	
-	Currently using a 500k song dataset, but slowly downloading the full 25m song dataset. That script is running on my server at home but will take about a month to complete fully. Thanksfully I can pull a partial dataset at any point and use it.
+	Currently using a 500k song dataset, but slowly downloading the full 25m song dataset. That script is running on my server at home but will take about a month to complete fully. Thankfully I can pull a partial dataset at any point and use it.
 	
 	I'm doing an open mic night in 3 days about my diss, so I need something to present. I want to get data saving done before then, and start capturing some data.
+	
+	\section{2018-10-25}
+	Music as vectors is still coming along nicely. After changing the vectors to be a vector of z-scores, it improved a lot. I think i'm happy with it for now, even though it's nowhere near perfect. The song database download is chugging along and will take another 3 weeks or so.
+	
+	My diss talk is today, and I don't have much to present in terms of a demo, which is sad. It's mostly a theoretical talk and background. Slides are available here: \url{https://docs.google.com/presentation/d/1VicKOVZO1Z2ydYGs1vnxBoXv69i877GCZx32zt7ANLA/edit?usp=sharing}
+	
+	I haven't done much of what Magnus asked, but I'm going to get the project plan done, and get some charts to show him. I need an easy way to export chart data and then re-load it so it can be viewed. For now I think i'll just have to mess around for a bit and get some screenshots and annotate them.
+	
 		
 \end{document}

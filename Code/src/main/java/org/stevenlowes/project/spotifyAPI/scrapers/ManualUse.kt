@@ -2,12 +2,17 @@ package org.stevenlowes.project.spotifyAPI.scrapers
 
 import org.jetbrains.annotations.Contract
 import org.stevenlowes.project.spotifyAPI.AnalysedTrack
+import org.stevenlowes.project.spotifyAPI.Spotify
 import org.stevenlowes.project.spotifyAPI.Util.Companion.readString
 import java.io.BufferedReader
 import java.io.FileReader
 
 class ManualUse {
     companion object {
+        fun translate(id: String): FloatArray{
+            return translate(Spotify.getAnalysedTrack(id))
+        }
+
         fun translate(track: AnalysedTrack): FloatArray {
             return translateTracks(sequenceOf(track)).first()
         }

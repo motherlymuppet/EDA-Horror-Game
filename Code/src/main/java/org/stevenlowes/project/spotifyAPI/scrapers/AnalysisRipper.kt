@@ -5,6 +5,7 @@ import com.wrapper.spotify.exceptions.detailed.NotFoundException
 import com.wrapper.spotify.exceptions.detailed.TooManyRequestsException
 import com.wrapper.spotify.model_objects.miscellaneous.AudioAnalysis
 import com.wrapper.spotify.model_objects.specification.AudioFeatures
+import org.apache.http.NoHttpResponseException
 import org.stevenlowes.project.spotifyAPI.AnalysedTrack
 import org.stevenlowes.project.spotifyAPI.Spotify
 import org.stevenlowes.project.spotifyAPI.SpotifyAuth
@@ -157,62 +158,68 @@ class Runner(private val doneCount: Incrementer,
     override fun run() {
         var done = false
         while (!done) {
-            var sleep = false
+            try {
+                var sleep = false
 
-            SpotifyAuth.manualAuth("AQAOuwxSwwmBLmFFYOx4VLURaes8e2lRdscJWLKnkvT8A5lkM95YVzIKFWayqIylXmr7m3iqdx_ND1aruS41U7wEH33S8wLSUElHllT16Ot8s_P_63WaivO9TgEybcizN3F9fg")
-            val futures = (1..simultaneousPages).mapNotNull {
-                //For each page
-                val featureString = featureStringSequence.firstOrNull()
-                if (featureString == null) {
-                    done = true
-                    return@mapNotNull null
+                SpotifyAuth.refreshAuth()
+                val futures = (1..simultaneousPages).mapNotNull {
+                    //For each page
+                    val featureString = featureStringSequence.firstOrNull()
+                    if (featureString == null) {
+                        done = true
+                        return@mapNotNull null
+                    }
+                    else {
+                        val id = featureString.id()
+                        return@mapNotNull featureString to Spotify.api.getAudioAnalysisForTrack(id).build().executeAsync<AudioAnalysis>()
+                    }
                 }
-                else {
-                    val id = featureString.id()
-                    return@mapNotNull featureString to Spotify.api.getAudioAnalysisForTrack(id).build().executeAsync<AudioAnalysis>()
-                }
-            }
 
-            futures
-                    .asSequence()
-                    .mapNotNull { (featureString, future) ->
-                        try {
-                            return@mapNotNull featureString to future.get()
-                        }
-                        catch (e: ExecutionException) {
-                            val cause = e.cause
-                            when (cause) {
-                                is BadGatewayException, is NotFoundException -> {
-                                    analysisFile.write("${featureString.id()} error\n")
-                                    println("Ignoring ${featureString.id()} due to bad gateway exception / analysis not available")
-                                    return@mapNotNull null
-                                }
-                                is TooManyRequestsException -> {
-                                    //println("API Limit")
-                                    featureStringSequence.retry(featureString)
-                                    sleep = true
-                                    return@mapNotNull null
-                                }
-                                else -> {
-                                    e.printStackTrace()
-                                    featureStringSequence.retry(featureString)
-                                    return@mapNotNull null
+                futures
+                        .asSequence()
+                        .mapNotNull { (featureString, future) ->
+                            try {
+                                return@mapNotNull featureString to future.get()
+                            }
+                            catch (e: ExecutionException) {
+                                val cause = e.cause
+                                when (cause) {
+                                    is BadGatewayException, is NotFoundException -> {
+                                        analysisFile.write("${featureString.id()} error\n")
+                                        println("Ignoring ${featureString.id()} due to bad gateway exception / analysis not available")
+                                        return@mapNotNull null
+                                    }
+                                    is TooManyRequestsException -> {
+                                        //println("API Limit")
+                                        featureStringSequence.retry(featureString)
+                                        sleep = true
+                                        return@mapNotNull null
+                                    }
+                                    else -> {
+                                        e.printStackTrace()
+                                        featureStringSequence.retry(featureString)
+                                        return@mapNotNull null
+                                    }
                                 }
                             }
                         }
-                    }
-                    .forEach { (featureString, analysis) ->
-                        val line = AnalysisRipper.getAnalysisString(featureString, analysis)
-                        if (line != null) {
-                            analysisFile.write(line)
-                            doneCount.inc()
+                        .forEach { (featureString, analysis) ->
+                            val line = AnalysisRipper.getAnalysisString(featureString, analysis)
+                            if (line != null) {
+                                analysisFile.write(line)
+                                doneCount.inc()
+                            }
                         }
-                    }
-            doneCount.print()
+                doneCount.print()
 
-            if (sleep) {
-                sleep = false
-                Thread.sleep(1000)
+                if (sleep) {
+                    sleep = false
+                    Thread.sleep(1000)
+                }
+            }
+            catch(e: NoHttpResponseException){
+                //Internet Broken
+                Thread.sleep(60*1000)
             }
         }
     }
