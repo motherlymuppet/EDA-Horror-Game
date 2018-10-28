@@ -10,7 +10,7 @@ import org.stevenlowes.project.spotifyAPI.AnalysedTrack
 import org.stevenlowes.project.spotifyAPI.Spotify
 import tornadofx.*
 
-class FoundSongFragment: View("Found Song") {
+class FoundSongFragment: Fragment("Found Song") {
     val trackProperty = SimpleObjectProperty<AnalysedTrack>()
     val distanceProperty = SimpleFloatProperty()
 

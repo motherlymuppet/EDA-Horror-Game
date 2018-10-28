@@ -18,7 +18,7 @@ class Spotify {
                 .setClientSecret(SpotifyAuth.clientSecret)
                 .setRedirectUri(SpotifyAuth.redirectUri).build()
 
-        fun play(id: String, onFinish: () -> Unit) {
+        fun play(id: String, onFinish: () -> Unit = {}) {
             val playlist = api.getPlaylist(playlistId).build().execute()
 
             api.addTracksToPlaylist(playlistId, arrayOf("spotify:track:$id")).build().execute()
@@ -45,7 +45,7 @@ class Spotify {
             }
 
             val now = System.currentTimeMillis()
-            val sleepFor = now - endPlayTime
+            val sleepFor = endPlayTime - now
 
             timer.schedule(task, sleepFor)
         }

@@ -1,5 +1,7 @@
 package org.stevenlowes.project.gui.songnearness
 
+import javafx.beans.binding.BooleanExpression
+import javafx.beans.property.SimpleBooleanProperty
 import javafx.geometry.Pos
 import org.stevenlowes.project.gui.MainMenu
 import org.stevenlowes.project.spotifyAPI.DataContainer
@@ -16,6 +18,11 @@ class SongNearnessView : View("Song Nearness") {
             dataContainer = it
             createRealRoot()
         }
+
+        disableSave()
+        disableRefresh()
+        disableCreate()
+        disableDelete()
     }
 
     private fun consumeId(id: String) {
@@ -35,27 +42,21 @@ class SongNearnessView : View("Song Nearness") {
         }
     }
 
-    override fun onDock() {
-        currentWindow?.sizeToScene()
-    }
-
-    override val root = borderpane {
-        center = label {
+    override val root = vbox {
+        label {
             text = "Please wait for the data container to be initialised"
             alignment = Pos.CENTER
-        }
-        bottom = button {
-            text = "Back"
-            action { replaceWith(MainMenu::class) }
         }
     }
 
     private fun createRealRoot() {
         with(root){
             clear()
-            top = SongSelectionFragment { consumeId(it) }.root
-            center = foundSongFragment.root
-            currentWindow?.sizeToScene()
+
+            add(workspace.backButton)
+
+            add(SongSelectionFragment { consumeId(it) })
+            add(foundSongFragment)
         }
     }
 }

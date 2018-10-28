@@ -7,14 +7,25 @@ import javafx.scene.SceneAntialiasing
 import javafx.scene.SnapshotParameters
 import javafx.scene.chart.XYChart
 import javafx.scene.paint.Color
+import javafx.stage.FileChooser
+import org.stevenlowes.project.gui.Styles
 import org.stevenlowes.project.gui.chart.GsrChart
+import org.stevenlowes.project.png.Png
 import tornadofx.*
 import java.io.File
-import javax.imageio.ImageIO
+import java.nio.file.Path
 
-class DataScreenshot private constructor(series: ObservableList<XYChart.Data<Number, Number>>): View() {
+class DataScreenshot private constructor(series: ObservableList<XYChart.Data<Number, Number>>) : View() {
+    private val chart = GsrChart(series)
+
+    init {
+        chart.data.first().node.style {
+            strokeWidth = Dimension(10.0, Dimension.LinearUnits.px)
+        }
+    }
+
     override val root = stackpane {
-        add(GsrChart(series))
+        add(chart)
     }
 
     companion object {
@@ -27,7 +38,7 @@ class DataScreenshot private constructor(series: ObservableList<XYChart.Data<Num
             snapshotParams.isDepthBuffer = true
         }
 
-        fun screenshot(path: String, series: ObservableList<XYChart.Data<Number, Number>>){
+        fun screenshot(path: String, series: ObservableList<XYChart.Data<Number, Number>>) {
             val view = DataScreenshot(series)
             val chart = view.root
             Scene(chart, WIDTH, HEIGHT, true, SceneAntialiasing.BALANCED)
@@ -35,16 +46,25 @@ class DataScreenshot private constructor(series: ObservableList<XYChart.Data<Num
             val tempImage = chart.snapshot(snapshotParams, null)
             val image = SwingFXUtils.fromFXImage(tempImage, null)
 
-            val file = File(path)
-            ImageIO.write(image, "png", file)
+            val text: String = series.asSequence().map {
+                "${it.xValue},${it.yValue}"
+            }.joinToString("\n")
+
+            runAsync {
+                Png.write(path, image, text)
+            }
         }
 
-        fun screenshot(series: ObservableList<XYChart.Data<Number, Number>>){
-            val view = PathEntryView()
-            view.openModal(block = true)
-            val name = view.name.get()
-            if(!name.isNullOrBlank()){
-                screenshot("$name.png", series)
+        fun screenshot(series: ObservableList<XYChart.Data<Number, Number>>) {
+            val file = chooseFile("Save Location",
+                                  listOf(FileChooser.ExtensionFilter("Png Images", "*.png")).toTypedArray(),
+                                  FileChooserMode.Save
+                                 ) {
+                initialDirectory = File(System.getProperty("user.dir"))
+            }.firstOrNull()
+
+            if (file != null) {
+                screenshot(file.absolutePath, series)
             }
         }
     }

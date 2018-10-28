@@ -1,0 +1,21 @@
+Code/analysedData.txt
+Code/.idea/
+Code/target/
+Data/Test/
+*.aux
+*.log
+*.out
+.synctex.gz
+*.bbl
+Project Plan 2/
+Code/processedData.txt
+Code/preview.mp3
+Ethics/Consent.pdf
+Code/stdDevConfig.txt
+Code/filteredData.txt
+Code/featuredData.txt
+Code/data.txt
+Code/rxtxSerial.dll
+Code/dependency-reduced-pom.xml
+Code/Code.iml
+Ethics/Consent.synctex.gz
