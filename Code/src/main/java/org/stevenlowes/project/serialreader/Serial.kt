@@ -9,8 +9,8 @@ import java.io.Closeable
 import java.io.InputStreamReader
 import java.io.OutputStream
 
-class Serial(comPort: Int, private val consumer: (Int) -> Unit) : SerialPortEventListener, Closeable {
-    private val portName = "COM$comPort"
+class Serial(portId: CommPortIdentifier, private val consumer: (Int) -> Unit) : SerialPortEventListener, Closeable {
+    constructor(portName: String, consumer: (Int) -> Unit): this(CommPortIdentifier.getPortIdentifier(portName), consumer)
 
     private val serialPort: SerialPort
 
@@ -25,7 +25,6 @@ class Serial(comPort: Int, private val consumer: (Int) -> Unit) : SerialPortEven
     }
 
     init {
-        val portId = CommPortIdentifier.getPortIdentifier(portName) ?: throw IllegalArgumentException("Port not found")
         serialPort = portId.open(this.javaClass.name, timeOut) as SerialPort
         serialPort.setSerialPortParams(baudRate, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE)
         input = BufferedReader(InputStreamReader(serialPort.inputStream))

@@ -1,26 +1,22 @@
 package org.stevenlowes.project.gui.datacollection
 
+import gnu.io.CommPortIdentifier
 import javafx.animation.AnimationTimer
 import javafx.scene.chart.XYChart
 import org.stevenlowes.project.gui.chart.GsrChart
 import org.stevenlowes.project.gui.datascreenshot.DataScreenshot
+import org.stevenlowes.project.gui.util.ListInput
 import org.stevenlowes.project.serialreader.Serial
 import tornadofx.*
 
 class DataCollectionView : View("Data Collection") {
-    private val comPort = 4
     private val chart = GsrChart()
     private val buffer = mutableListOf<XYChart.Data<Number, Number>>()
     private var pause = false
+    private var serial: Serial? = null
 
     init {
         prepareTimeline()
-
-        Serial(comPort) { port ->
-            runAsync {
-                buffer(System.currentTimeMillis(), port)
-            }
-        }
 
         whenDeleted {
             chart.series.clear()
@@ -35,6 +31,24 @@ class DataCollectionView : View("Data Collection") {
 
         disableCreate()
         disableRefresh()
+
+        whenDocked {
+            if(serial == null){
+                val ports = CommPortIdentifier.getPortIdentifiers().asSequence().map { it as CommPortIdentifier }.toList()
+                val port = ListInput(ports, CommPortIdentifier::getName).getInput()
+
+                if(port == null){
+                    workspace.navigateBack()
+                }
+                else {
+                    serial = Serial(port) { reading ->
+                        runAsync {
+                            buffer(System.currentTimeMillis(), reading)
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private fun buffer(time: Long, serialValue: Int) {

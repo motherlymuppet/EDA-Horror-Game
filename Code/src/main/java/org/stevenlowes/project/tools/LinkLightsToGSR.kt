@@ -1,4 +1,4 @@
-package org.stevenlowes.project
+package org.stevenlowes.project.tools
 
 import org.stevenlowes.project.serialreader.Serial
 import org.stevenlowes.project.spotifyAPI.Spotify
@@ -20,7 +20,7 @@ fun main(args: Array<String>){
 
 fun main(args: Array<String>){
     var last: Int? = null
-    Serial(4) {reading ->
+    Serial("COM4") {reading ->
         last = reading
     }
 

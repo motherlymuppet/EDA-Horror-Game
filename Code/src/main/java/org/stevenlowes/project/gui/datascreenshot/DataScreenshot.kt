@@ -8,7 +8,6 @@ import javafx.scene.SnapshotParameters
 import javafx.scene.chart.XYChart
 import javafx.scene.paint.Color
 import javafx.stage.FileChooser
-import org.stevenlowes.project.gui.Styles
 import org.stevenlowes.project.gui.chart.GsrChart
 import org.stevenlowes.project.png.Png
 import tornadofx.*
