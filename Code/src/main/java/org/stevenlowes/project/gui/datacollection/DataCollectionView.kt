@@ -5,7 +5,7 @@ import javafx.animation.AnimationTimer
 import javafx.scene.chart.XYChart
 import org.stevenlowes.project.gui.chart.GsrChart
 import org.stevenlowes.project.gui.datascreenshot.DataScreenshot
-import org.stevenlowes.project.gui.util.ListInput
+import org.stevenlowes.project.gui.inputmodals.ListInput
 import org.stevenlowes.project.serialreader.Serial
 import tornadofx.*
 
@@ -35,15 +35,30 @@ class DataCollectionView : View("Data Collection") {
         whenDocked {
             if(serial == null){
                 val ports = CommPortIdentifier.getPortIdentifiers().asSequence().map { it as CommPortIdentifier }.toList()
-                val port = ListInput(ports, CommPortIdentifier::getName).getInput()
+                if(ports.isEmpty()){
+                    dialog {
+                        text = "No Devices Found"
 
-                if(port == null){
-                    workspace.navigateBack()
+                        button {
+                            text = "Ok"
+                            action {
+                                workspace.navigateBack()
+                                close()
+                            }
+                        }
+                    }?.show()
                 }
-                else {
-                    serial = Serial(port) { reading ->
-                        runAsync {
-                            buffer(System.currentTimeMillis(), reading)
+                else{
+                    val port = ListInput(ports, CommPortIdentifier::getName).getInput()
+
+                    if(port == null){
+                        workspace.navigateBack()
+                    }
+                    else {
+                        serial = Serial(port) { reading ->
+                            runAsync {
+                                buffer(System.currentTimeMillis(), reading)
+                            }
                         }
                     }
                 }
