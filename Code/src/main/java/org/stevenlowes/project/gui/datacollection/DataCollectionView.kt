@@ -4,15 +4,16 @@ import gnu.io.CommPortIdentifier
 import javafx.animation.AnimationTimer
 import javafx.scene.chart.XYChart
 import org.stevenlowes.project.gui.chart.GsrChart
+import org.stevenlowes.project.gui.dataexplorer.DataExplorerView
 import org.stevenlowes.project.gui.datascreenshot.DataScreenshot
 import org.stevenlowes.project.gui.inputmodals.ListInput
 import org.stevenlowes.project.serialreader.Serial
 import tornadofx.*
+import java.util.concurrent.ConcurrentLinkedQueue
 
 class DataCollectionView : View("Data Collection") {
     private val chart = GsrChart()
-    private val buffer = mutableListOf<XYChart.Data<Number, Number>>()
-    private var pause = false
+    private val buffer = ConcurrentLinkedQueue<XYChart.Data<Number, Number>>()
     private var serial: Serial? = null
 
     init {
@@ -24,9 +25,8 @@ class DataCollectionView : View("Data Collection") {
         }
 
         whenSaved {
-            pause = true
-            DataScreenshot.screenshot(chart.series)
-            pause = false
+            workspace.dock(DataExplorerView(chart.series.map { it.xValue.toLong() to it.yValue.toDouble()}))
+            closeSerial()
         }
 
         disableCreate()
@@ -66,15 +66,32 @@ class DataCollectionView : View("Data Collection") {
         }
     }
 
+    private fun closeSerial(){
+        runAsync {
+            serial?.close()
+            serial = null
+            buffer.clear()
+            chart.series.clear()
+        }
+    }
+
+    override fun onNavigateBack(): Boolean {
+        closeSerial()
+        return true
+    }
+
+    override fun onNavigateForward(): Boolean {
+        closeSerial()
+        return true
+    }
+
     private fun buffer(time: Long, serialValue: Int) {
         buffer.add(XYChart.Data(time, serialValue))
     }
 
     private fun emptyBuffer() {
-        if (!pause) {
-            chart.series.addAll(buffer.filter { it.yValue.toDouble() > 1.0 })
-            buffer.clear()
-        }
+        chart.series.addAll(buffer.filter { it.yValue.toDouble() > 1.0 })
+        buffer.clear()
     }
 
     private fun prepareTimeline() {

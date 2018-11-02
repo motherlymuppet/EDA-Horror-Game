@@ -3,14 +3,14 @@ package org.stevenlowes.project.gui.inputmodals
 import javafx.beans.property.SimpleStringProperty
 import tornadofx.*
 
-class TextInput : Fragment() {
+class TextInput(dialogText: String) : Fragment() {
     val binding = SimpleStringProperty()
 
     override val root = stackpane {
         form {
             fieldset {
                 field {
-                    text = "Enter COM Port Name"
+                    text = dialogText
                     textfield {
                         bind(binding)
                     }
@@ -40,5 +40,15 @@ class TextInput : Fragment() {
     fun getInput(): String? {
         openModal(block = true)
         return binding.get()
+    }
+
+    fun getInputBlankIsNull(): String? {
+        val input = getInput() ?: ""
+        return if(input.isBlank()){
+            null
+        }
+        else{
+            input
+        }
     }
 }

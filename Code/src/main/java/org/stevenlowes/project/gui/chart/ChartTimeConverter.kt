@@ -9,10 +9,17 @@ class ChartTimeConverter(private val zoneOffset: ZoneOffset): StringConverter<Nu
     val formatter = DateTimeFormatter.ISO_DATE_TIME
 
     override fun toString(millis: Number): String {
-        val seconds = millis.toLong() / 1000
-        val dateTime = LocalDateTime.ofEpochSecond(seconds, 0, zoneOffset)
-        return dateTime.toString()
+        return toTime(millis).toString()
     }
+
+    fun toTime(millis: Number): LocalDateTime{
+        val millis = millis.toLong()
+        val seconds = millis / 1000
+        val dateTime = LocalDateTime.ofEpochSecond(seconds, ((millis % 1000) * 1000 * 1000).toInt(), zoneOffset)
+        return dateTime
+    }
+
+    fun fromTime(time: LocalDateTime) = (time.toEpochSecond(zoneOffset) * 1000) + (time.nano / (1000 * 1000))
 
     override fun fromString(dateTimeString: String?): Number {
         if (dateTimeString == null) {

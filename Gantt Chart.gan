@@ -53,10 +53,10 @@
             <depend id="12" type="2" difference="0" hardness="Strong"/>
             <depend id="47" type="2" difference="0" hardness="Rubber"/>
         </task>
-        <task id="12" name="Data Viewer" color="#8cb6ce" meeting="false" start="2018-10-30" duration="3" complete="0" thirdDate="2018-10-26" thirdDate-constraint="0" expand="true">
+        <task id="12" name="Data Explorer" color="#8cb6ce" meeting="false" start="2018-10-30" duration="3" complete="0" thirdDate="2018-10-26" thirdDate-constraint="0" expand="true">
             <depend id="80" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="80" name="Initial Testing" color="#8cb6ce" meeting="false" start="2018-11-02" duration="5" complete="0" thirdDate="2018-10-01" thirdDate-constraint="0" expand="true">
+        <task id="80" name="Initial Testing" color="#8cb6ce" meeting="false" start="2018-11-02" duration="5" complete="20" thirdDate="2018-10-01" thirdDate-constraint="0" expand="true">
             <depend id="85" type="2" difference="0" hardness="Strong"/>
         </task>
         <task id="85" name="Create Fitness Function" color="#8cb6ce" meeting="false" start="2018-11-08" duration="4" complete="0" thirdDate="2018-10-01" thirdDate-constraint="0" expand="true">

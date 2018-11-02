@@ -44,8 +44,8 @@ class Png {
             val imageReader = ImageIO.getImageReadersByFormatName("png").next()
 
             val file = File(path)
-            file.outputStream().use { fos ->
-                imageReader.setInput(ImageIO.createImageInputStream(fos), true)
+            file.inputStream().use { fis ->
+                imageReader.setInput(ImageIO.createImageInputStream(fis), true)
 
                 // read metadata of first image
                 val metadata = imageReader.getImageMetadata(0)

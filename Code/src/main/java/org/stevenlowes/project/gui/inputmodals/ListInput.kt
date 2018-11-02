@@ -11,7 +11,7 @@ class ListInput<T : Any>(values: List<T>, stringConverter: (T) -> String = Any?:
         form {
             fieldset {
                 field {
-                    text = "Enter COM Port Name"
+                    text = "Select an Option"
                     combobox(binding, values) {
                         placeholder = label {
                             text = "Select an Option"
