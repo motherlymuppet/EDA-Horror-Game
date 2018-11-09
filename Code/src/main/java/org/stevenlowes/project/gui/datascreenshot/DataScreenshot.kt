@@ -12,6 +12,7 @@ import javafx.scene.SnapshotParameters
 import javafx.scene.chart.XYChart
 import javafx.scene.paint.Color
 import javafx.stage.FileChooser
+import org.stevenlowes.project.gui.chart.DataLabel
 import org.stevenlowes.project.gui.chart.GsrChart
 import org.stevenlowes.project.gui.dataexplorer.DataExplorerView
 import org.stevenlowes.project.gui.dataexplorer.converters.DataPointConverter
@@ -39,7 +40,7 @@ class DataScreenshot {
                        chartTitle: String,
                        chartDescription: String,
                        chartConverters: List<DataPointConverter>,
-
+                       labels: List<DataLabel>,
                        path: String? = null) {
             val file =
                     if (path == null) {
@@ -56,14 +57,15 @@ class DataScreenshot {
                         File(path)
                     } ?: return
 
-            doScreenshot(file, series, chartTitle, chartDescription, chartConverters)
+            doScreenshot(file, series, chartTitle, chartDescription, chartConverters, labels)
         }
 
         private fun doScreenshot(file: File,
                                  rawData: List<Pair<Long, Double>>,
                                  chartTitle: String,
                                  chartDescription: String,
-                                 chartConverters: List<DataPointConverter>) {
+                                 chartConverters: List<DataPointConverter>,
+                                 labels: List<DataLabel>) {
             val data = DataExplorerView.applyConverters(rawData, chartConverters)
             val chart = GsrChart(series = FXCollections.observableArrayList(
                     data.map { (time, value) -> XYChart.Data(time as Number, value as Number) }))
@@ -94,6 +96,14 @@ class DataScreenshot {
                 rawDataJson.add(datapointJson)
             }
             rootJson.add("Data", rawDataJson)
+
+            val labelsJson = JsonArray()
+            labels.forEach {label ->
+                val labelJson = JsonObject()
+                labelJson.addProperty("Millis", label.x)
+                labelJson.addProperty("Text", label.text)
+            }
+            rootJson.add("Labels", labelsJson)
 
             val convertersJson = JsonArray()
             chartConverters.forEach {
@@ -138,7 +148,15 @@ class DataScreenshot {
                 time to reading
             }
 
-            return DataExplorerView(rawData, chartTitle, chartDescription, dataPointConverters)
+            val labelArray = json["Labels"].asJsonArray
+            val labels = labelArray.map {
+                it as JsonObject
+                val time = it["Millis"].asLong
+                val text = it["Text"].asString
+                DataLabel(text, time)
+            }
+
+            return DataExplorerView(rawData, chartTitle, chartDescription, dataPointConverters, labels)
         }
     }
 }

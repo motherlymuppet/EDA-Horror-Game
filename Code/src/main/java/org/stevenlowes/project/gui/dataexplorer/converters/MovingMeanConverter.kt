@@ -3,7 +3,7 @@ package org.stevenlowes.project.gui.dataexplorer.converters
 import com.google.gson.JsonObject
 import java.lang.Math.max
 
-class MovingAverageConverter(private val millis: Long) : DataPointConverter() {
+class MovingMeanConverter(private val millis: Long) : DataPointConverter() {
     val values = mutableListOf<Pair<Long, Double>>()
 
     override fun clear() {
@@ -55,13 +55,13 @@ class MovingAverageConverter(private val millis: Long) : DataPointConverter() {
         }.sum()
 
         val duration = values.last().first - max(showFrom, values.first().first)
-        val average = sum / duration
+        val mean = sum / duration
 
-        if(average == Double.NEGATIVE_INFINITY){
+        if(mean == Double.NEGATIVE_INFINITY){
             println("Error")
         }
 
-        return pair.first to average
+        return pair.first to mean
     }
 
     override fun toJson(): JsonObject {
@@ -71,5 +71,5 @@ class MovingAverageConverter(private val millis: Long) : DataPointConverter() {
         return obj
     }
 
-    override fun toString() = "Moving Average ($millis ms)"
+    override fun toString() = "Moving Mean ($millis ms)"
 }

@@ -1,8 +1,6 @@
 package org.stevenlowes.project.gui.dataexplorer.converters
 
-import com.google.gson.JsonElement
 import com.google.gson.JsonObject
-import java.time.LocalDateTime
 
 abstract class DataPointConverter: (Pair<Long, Double>?) -> Pair<Long, Double>?{
     abstract fun clear()
@@ -13,7 +11,7 @@ abstract class DataPointConverter: (Pair<Long, Double>?) -> Pair<Long, Double>?{
             return when(json["Type"].asString){
                 AbsConverter::class.simpleName -> AbsConverter()
                 GradientConverter::class.simpleName -> GradientConverter()
-                MovingAverageConverter::class.simpleName -> MovingAverageConverter(json["Millis"].asLong)
+                MovingMeanConverter::class.simpleName -> MovingMeanConverter(json["Millis"].asLong)
                 else -> throw NotImplementedError("Unknown Converter Type")
             }
         }

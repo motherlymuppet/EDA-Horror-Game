@@ -8,6 +8,7 @@ import javafx.scene.chart.XYChart
 import javafx.scene.control.SelectionMode
 import javafx.scene.layout.*
 import javafx.scene.text.Font
+import org.stevenlowes.project.gui.chart.DataLabel
 import org.stevenlowes.project.gui.chart.GsrChart
 import org.stevenlowes.project.gui.dataexplorer.converters.ConverterInput
 import org.stevenlowes.project.gui.dataexplorer.converters.DataPointConverter
@@ -19,12 +20,14 @@ class DataExplorerView(
         private val rawData: List<Pair<Long, Double>>,
         chartTitle: String? = null,
         chartDescription: String? = null,
-        dataPointConverters: List<DataPointConverter> = listOf()
+        dataPointConverters: List<DataPointConverter> = listOf(),
+        labels: List<DataLabel>
                       ) : View() {
 
     private val titleInputProperty = SimpleStringProperty(chartTitle ?: "")
     private val descriptionInputProperty = SimpleStringProperty(chartDescription ?: "")
     private val mutableConverters = FXCollections.observableArrayList<DataPointConverter>(dataPointConverters)
+    private val labels = FXCollections.observableArrayList<DataLabel>(labels)
 
     val chart: GsrChart = GsrChart()
 
@@ -34,7 +37,7 @@ class DataExplorerView(
         disableDelete()
 
         whenSaved {
-            DataScreenshot.screenshot(rawData, titleInputProperty.get(), descriptionInputProperty.get(), mutableConverters.toList())
+            DataScreenshot.screenshot(rawData, titleInputProperty.get(), descriptionInputProperty.get(), mutableConverters.toList(), labels)
         }
 
         render()
@@ -44,8 +47,11 @@ class DataExplorerView(
     private fun render() {
         chart.title = titleInputProperty.get()
         val data = applyConverters(rawData, mutableConverters)
-        chart.series.clear()
+
+        chart.clear()
+
         chart.series.addAll(data.map { XYChart.Data(it.first as Number, it.second as Number) })
+        chart.addAll(labels)
     }
 
     companion object {
@@ -86,7 +92,7 @@ class DataExplorerView(
                                 val convertersList = listview(mutableConverters) {
                                     vgrow = Priority.ALWAYS
 
-                                    prefHeightProperty().bind(Bindings.size(itemsProperty().get()).multiply(24));
+                                    prefHeightProperty().bind(Bindings.size(itemsProperty().get()).multiply(24).add(24))
                                     selectionModel.selectionMode = SelectionMode.SINGLE
                                     placeholder = label("No Converters Added")
 

@@ -1,27 +1,36 @@
+@file:Suppress("NestedLambdaShadowedImplicitParameter")
+
 package org.stevenlowes.project.gui.chart
 
 import javafx.beans.InvalidationListener
 import javafx.collections.FXCollections
-import javafx.collections.ListChangeListener
 import javafx.collections.ObservableList
-import javafx.scene.chart.LineChart
 import javafx.scene.chart.NumberAxis
 import javafx.scene.chart.XYChart
 import javafx.scene.layout.Priority
 import tornadofx.*
+import java.lang.Math.round
 import java.time.ZoneOffset
 
-open class GsrChart(val autoLowerBound: AutoLowerBound = AutoLowerBound.AUTOMATIC, val series: ObservableList<XYChart.Data<Number, Number>> = FXCollections.observableArrayList<XYChart.Data<Number, Number>>()) : LineChart<Number, Number>(
-        NumberAxis(),
-        NumberAxis(),
-        FXCollections.observableArrayList(XYChart.Series(SERIES_NAME, series))){
+open class GsrChart(val autoLowerBound: AutoLowerBound = AutoLowerBound.AUTOMATIC,
+                    val series: ObservableList<XYChart.Data<Number, Number>> = FXCollections.observableArrayList<XYChart.Data<Number, Number>>(),
+                    labels: List<DataLabel> = listOf()) :
+        LabelledLineChart(
+                NumberAxis(),
+                NumberAxis(),
+                XYChart.Series(SERIES_NAME, series),
+                labels) {
 
     companion object {
-        val ZONE_OFFSET = ZoneOffset.ofHours(-1)
+        val ZONE_OFFSET = ZoneOffset.UTC
         val timeConverter = ChartTimeConverter(ZONE_OFFSET)
         private const val SERIES_NAME = "Relaxation over Time"
         private const val X_LABEL = "Time"
         private const val Y_LABEL = "Relaxation"
+    }
+
+    private fun round1000(number: Number): Double{
+        return (round(number.toDouble() / 1000) * 1000).toDouble()
     }
 
     init {
@@ -34,19 +43,29 @@ open class GsrChart(val autoLowerBound: AutoLowerBound = AutoLowerBound.AUTOMATI
         xAxis.isForceZeroInRange = false
 
         series.addListener(InvalidationListener {
-            if(series.isNotEmpty()){
-                if(autoLowerBound == AutoLowerBound.AUTOMATIC){
+            if (series.isNotEmpty()) {
+                xAxis.upperBound = series.last().xValue.toDouble()
+
+                if (autoLowerBound == AutoLowerBound.AUTOMATIC) {
                     xAxis.lowerBound = series.first().xValue.toDouble()
                 }
-                xAxis.upperBound = series.last().xValue.toDouble()
-                xAxis.tickUnit = (xAxis.upperBound - xAxis.lowerBound)/10
+                else if(autoLowerBound == AutoLowerBound.FIVE_MINUTES){
+                    xAxis.lowerBound = xAxis.upperBound - (5*60*1000)
+                }
+
+                xAxis.tickUnit = (xAxis.upperBound - xAxis.lowerBound) / 10
+
+                val yValues = series.asSequence().filter { it.xValue.toDouble() >= xAxis.lowerBound && it.xValue.toDouble() <= xAxis.upperBound }.map { it.yValue.toDouble() }.toList()
+                yAxis.lowerBound = round1000(yValues.min()!! - 1000)
+                yAxis.upperBound = round1000(yValues.max()!! + 1000)
+                yAxis.tickUnit = round1000((yAxis.upperBound - yAxis.lowerBound) / 10)
             }
         })
 
         series.invalidate()
 
         yAxis.label = Y_LABEL
-        yAxis.isAutoRanging = true
+        yAxis.isAutoRanging = false
         yAxis.isForceZeroInRange = false
 
         isLegendVisible = false

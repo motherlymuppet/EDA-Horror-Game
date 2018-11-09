@@ -4,12 +4,21 @@ import javafx.geometry.Pos
 import org.stevenlowes.project.gui.datacollection.DataCollectionView
 import org.stevenlowes.project.gui.datascreenshot.DataScreenshot
 import org.stevenlowes.project.gui.songnearness.SongNearnessView
+import org.stevenlowes.project.gui.util.PortSelector
 import tornadofx.*
 
 class MainMenu: View("Main Menu"){
     override val root = vbox(spacing = 8, alignment = Pos.CENTER) {
         button("Data Collection") {
-            action { workspace.dock<DataCollectionView>()}
+            action {
+                if(DataCollectionView.port == null){
+                    DataCollectionView.port = PortSelector.getPort()
+                }
+
+                if(DataCollectionView.port != null){
+                    workspace.dock<DataCollectionView>()
+                }
+            }
         }
 
         button("Load Saved Data") {
