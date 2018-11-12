@@ -20,7 +20,7 @@ fun main(args: Array<String>){
 
 fun main(args: Array<String>){
     var last: Int? = null
-    Serial("COM4") {reading ->
+    Serial {reading ->
         last = reading
     }
 

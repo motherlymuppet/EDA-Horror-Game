@@ -15,7 +15,7 @@ import javafx.stage.FileChooser
 import org.stevenlowes.project.gui.chart.DataLabel
 import org.stevenlowes.project.gui.chart.GsrChart
 import org.stevenlowes.project.gui.dataexplorer.DataExplorerView
-import org.stevenlowes.project.gui.dataexplorer.converters.DataPointConverter
+import org.stevenlowes.project.gui.dataexplorer.transformers.AbstractTransformer
 import org.stevenlowes.project.png.Png
 import tornadofx.*
 import java.io.File
@@ -39,7 +39,7 @@ class DataScreenshot {
         fun screenshot(series: List<Pair<Long, Double>>,
                        chartTitle: String,
                        chartDescription: String,
-                       chartConverters: List<DataPointConverter>,
+                       chartConverters: List<AbstractTransformer>,
                        labels: List<DataLabel>,
                        path: String? = null) {
             val file =
@@ -64,11 +64,11 @@ class DataScreenshot {
                                  rawData: List<Pair<Long, Double>>,
                                  chartTitle: String,
                                  chartDescription: String,
-                                 chartConverters: List<DataPointConverter>,
+                                 chartConverters: List<AbstractTransformer>,
                                  labels: List<DataLabel>) {
             val data = DataExplorerView.applyConverters(rawData, chartConverters)
             val chart = GsrChart(series = FXCollections.observableArrayList(
-                    data.map { (time, value) -> XYChart.Data(time as Number, value as Number) }))
+                    data.map { datapoint -> XYChart.Data(datapoint.xValue as Number, datapoint.yValue as Number) }))
 
             Scene(chart, WIDTH, HEIGHT, true, SceneAntialiasing.BALANCED)
 
@@ -102,6 +102,7 @@ class DataScreenshot {
                 val labelJson = JsonObject()
                 labelJson.addProperty("Millis", label.x)
                 labelJson.addProperty("Text", label.text)
+                labelsJson.add(labelJson)
             }
             rootJson.add("Labels", labelsJson)
 
@@ -137,7 +138,7 @@ class DataScreenshot {
 
             val converterArray = json["Converters"].asJsonArray
             val dataPointConverters = converterArray.map {
-                DataPointConverter.fromJson(it as JsonObject)
+                AbstractTransformer.fromJson(it as JsonObject)
             }
 
             val dataArray = json["Data"].asJsonArray

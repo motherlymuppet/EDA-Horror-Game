@@ -1,10 +1,8 @@
-package org.stevenlowes.project.gui.dataexplorer.converters
+package org.stevenlowes.project.gui.dataexplorer.transformers
 
 import com.google.gson.JsonObject
-import java.time.Duration
-import java.time.LocalDateTime
 
-class GradientConverter: DataPointConverter(){
+class GradientTransformer: AbstractTransformer(){
     var last: Pair<Long, Double>? = null
 
     override fun invoke(pair: Pair<Long, Double>?): Pair<Long, Double>? {

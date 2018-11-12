@@ -3,6 +3,7 @@ package org.stevenlowes.project.gui.dataexplorer
 import javafx.beans.binding.Bindings
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
+import javafx.collections.ObservableList
 import javafx.geometry.Pos
 import javafx.scene.chart.XYChart
 import javafx.scene.control.SelectionMode
@@ -10,24 +11,29 @@ import javafx.scene.layout.*
 import javafx.scene.text.Font
 import org.stevenlowes.project.gui.chart.DataLabel
 import org.stevenlowes.project.gui.chart.GsrChart
-import org.stevenlowes.project.gui.dataexplorer.converters.ConverterInput
-import org.stevenlowes.project.gui.dataexplorer.converters.DataPointConverter
+import org.stevenlowes.project.gui.dataexplorer.transformers.TransformerInput
+import org.stevenlowes.project.gui.dataexplorer.transformers.AbstractTransformer
 import org.stevenlowes.project.gui.datascreenshot.DataScreenshot
 import org.stevenlowes.project.gui.util.RearrangableCell
 import tornadofx.*
+import java.util.*
 
 class DataExplorerView(
         private val rawData: List<Pair<Long, Double>>,
         chartTitle: String? = null,
         chartDescription: String? = null,
-        dataPointConverters: List<DataPointConverter> = listOf(),
+        abstractTransformers: List<AbstractTransformer> = listOf(),
         labels: List<DataLabel>
                       ) : View() {
 
+    constructor(chart: GsrChart): this(rawData = chart.series.map { it.xValue.toLong() to it.yValue.toDouble() }, labels = chart.labels)
+
     private val titleInputProperty = SimpleStringProperty(chartTitle ?: "")
     private val descriptionInputProperty = SimpleStringProperty(chartDescription ?: "")
-    private val mutableConverters = FXCollections.observableArrayList<DataPointConverter>(dataPointConverters)
+    private val mutableConverters = FXCollections.observableArrayList<AbstractTransformer>(abstractTransformers)
     private val labels = FXCollections.observableArrayList<DataLabel>(labels)
+
+    private var chartData = applyConverters(rawData, mutableConverters)
 
     val chart: GsrChart = GsrChart()
 
@@ -46,22 +52,21 @@ class DataExplorerView(
     @Suppress("UNCHECKED_CAST")
     private fun render() {
         chart.title = titleInputProperty.get()
-        val data = applyConverters(rawData, mutableConverters)
+        chartData = applyConverters(rawData, mutableConverters)
 
         chart.clear()
-
-        chart.series.addAll(data.map { XYChart.Data(it.first as Number, it.second as Number) })
-        chart.addAll(labels)
+        chart.series.addAll(chartData)
+        chart.addAllLabels(labels)
     }
 
     companion object {
-        fun applyConverters(rawData: List<Pair<Long, Double>>, converters: List<DataPointConverter>): List<Pair<Long, Double>> {
+        fun applyConverters(rawData: List<Pair<Long, Double>>, converters: List<AbstractTransformer>): ObservableList<XYChart.Data<Number, Number>> {
             converters.forEach { it.clear() }
             var data = rawData
             for (converter in converters) {
                 data = data.mapNotNull { converter(it) }
             }
-            return data
+            return FXCollections.observableArrayList(data.map { XYChart.Data(it.first as Number, it.second as Number) })
         }
     }
 
@@ -114,7 +119,7 @@ class DataExplorerView(
                                         text = "+"
                                         font = Font(font.name, 24.0)
                                         action {
-                                            val toAdd = ConverterInput().getInput()
+                                            val toAdd = TransformerInput.getInput(chartData)
                                             if (toAdd != null) {
                                                 mutableConverters.add(toAdd)
                                                 render()

@@ -13,10 +13,9 @@ class ChartTimeConverter(private val zoneOffset: ZoneOffset): StringConverter<Nu
     }
 
     fun toTime(millis: Number): LocalDateTime{
-        val millis = millis.toLong()
-        val seconds = millis / 1000
-        val dateTime = LocalDateTime.ofEpochSecond(seconds, ((millis % 1000) * 1000 * 1000).toInt(), zoneOffset)
-        return dateTime
+        val longMillis = millis.toLong()
+        val seconds = longMillis / 1000
+        return LocalDateTime.ofEpochSecond(seconds, ((longMillis % 1000) * 1000 * 1000).toInt(), zoneOffset)
     }
 
     fun fromTime(time: LocalDateTime) = (time.toEpochSecond(zoneOffset) * 1000) + (time.nano / (1000 * 1000))

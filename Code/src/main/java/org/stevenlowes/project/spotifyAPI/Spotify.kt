@@ -4,25 +4,24 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import com.wrapper.spotify.SpotifyApi
 import com.wrapper.spotify.model_objects.miscellaneous.AudioAnalysis
-import com.wrapper.spotify.model_objects.specification.AudioFeatures
-import com.wrapper.spotify.model_objects.specification.Track
+import com.wrapper.spotify.model_objects.specification.*
 import tornadofx.*
 import java.util.*
 
 class Spotify {
     companion object {
-        private val playlistId = "4IvDNhvA1GDggmipuHqrvZ"
+        private val bodgePlaylistId = "4IvDNhvA1GDggmipuHqrvZ"
 
         val api: SpotifyApi = SpotifyApi.builder()
                 .setClientId(SpotifyAuth.clientId)
                 .setClientSecret(SpotifyAuth.clientSecret)
                 .setRedirectUri(SpotifyAuth.redirectUri).build()
 
-        fun play(id: String, onFinish: () -> Unit = {}) {
-            val playlist = api.getPlaylist(playlistId).build().execute()
+        fun play(id: String, maxLengthMs: Long? = null, onFinish: () -> Unit = {}) {
+            val playlist = api.getPlaylist(bodgePlaylistId).build().execute()
 
-            api.addTracksToPlaylist(playlistId, arrayOf("spotify:track:$id")).build().execute()
-            api.skipUsersPlaybackToNextTrack().build().execute()
+            api.addTracksToPlaylist(bodgePlaylistId, arrayOf("spotify:track:$id")).build().execute()
+            api.skipUsersPlaybackToNextTrack().build().executeAsync<String>()
 
             val startPlayTime = System.currentTimeMillis()
             val endPlayTime = startPlayTime + getTrack(id).durationMs
@@ -35,11 +34,12 @@ class Spotify {
                         array.add(track)
                     }
 
-            api.removeTracksFromPlaylist(playlistId, array).build().execute()
+            api.removeTracksFromPlaylist(bodgePlaylistId, array).build().executeAsync<String>()
 
             val timer = Timer()
             val task = object : TimerTask() {
                 override fun run() {
+                    api.pauseUsersPlayback().build().executeAsync<String>()
                     onFinish()
                 }
             }
@@ -47,7 +47,9 @@ class Spotify {
             val now = System.currentTimeMillis()
             val sleepFor = endPlayTime - now
 
-            timer.schedule(task, sleepFor)
+            val actualDelay = Math.min(sleepFor, maxLengthMs ?: Long.MAX_VALUE)
+
+            timer.schedule(task, actualDelay)
         }
 
         fun seekToPercent(percent: Double){
@@ -80,7 +82,18 @@ class Spotify {
             val id = songLink.substringAfterLast("/track/").take(22)
             return getAnalysedTrack(id)
         }
+
+        fun getPlaylists(): List<PlaylistSimplified> {
+            val user = api.currentUsersProfile.build().execute()
+            return api.getListOfUsersPlaylists(user.id).build().execute().items.toList()
+        }
+
+        fun getPlaylist(playlistId: String): List<PlaylistTrack>{
+            return api.getPlaylist(playlistId).build().execute().tracks.items.toList()
+        }
+
+        fun pause(){
+            api.pauseUsersPlayback().build().executeAsync<String>()
+        }
     }
 }
-
-class SpotifyModel : ItemViewModel<Spotify>() {}

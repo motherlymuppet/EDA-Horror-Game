@@ -3,20 +3,32 @@ package org.stevenlowes.project.gui
 import javafx.geometry.Pos
 import org.stevenlowes.project.gui.datacollection.DataCollectionView
 import org.stevenlowes.project.gui.datascreenshot.DataScreenshot
+import org.stevenlowes.project.gui.inputmodals.ListInput
+import org.stevenlowes.project.gui.playlistdatacollection.PlaylistDataCollector
 import org.stevenlowes.project.gui.songnearness.SongNearnessView
-import org.stevenlowes.project.gui.util.PortSelector
+import org.stevenlowes.project.serialreader.Serial
+import org.stevenlowes.project.spotifyAPI.Spotify
 import tornadofx.*
 
 class MainMenu: View("Main Menu"){
     override val root = vbox(spacing = 8, alignment = Pos.CENTER) {
         button("Data Collection") {
             action {
-                if(DataCollectionView.port == null){
-                    DataCollectionView.port = PortSelector.getPort()
-                }
-
-                if(DataCollectionView.port != null){
+                Serial.withValidPort {
                     workspace.dock<DataCollectionView>()
+                }
+            }
+        }
+
+        button("Playlist Data Collection"){
+            action{
+                Serial.withValidPort {
+                    val playlists = Spotify.getPlaylists()
+                    val simplePlaylist = ListInput(playlists) {it.name}.getInput()
+                    if(simplePlaylist != null){
+                        PlaylistDataCollector.tracks = Spotify.getPlaylist(simplePlaylist.id)
+                        workspace.dock<PlaylistDataCollector>()
+                    }
                 }
             }
         }

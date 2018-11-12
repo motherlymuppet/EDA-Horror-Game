@@ -1,8 +1,8 @@
-package org.stevenlowes.project.gui.dataexplorer.converters
+package org.stevenlowes.project.gui.dataexplorer.transformers
 
 import com.google.gson.JsonObject
 
-class DestructionConverter(val keepEvery: Int) : DataPointConverter() {
+class DestructionTransformer(val keepEvery: Int) : AbstractTransformer() {
     var num = -1
 
     override fun invoke(pair: Pair<Long, Double>?): Pair<Long, Double>? {
@@ -15,11 +15,14 @@ class DestructionConverter(val keepEvery: Int) : DataPointConverter() {
         }
     }
 
-    override fun clear() {}
+    override fun clear() {
+        num = -1
+    }
 
     override fun toJson(): JsonObject {
         val obj = JsonObject()
         obj.addProperty("Type", javaClass.simpleName)
+        obj.addProperty("KeepEvery", keepEvery)
         return obj
     }
 

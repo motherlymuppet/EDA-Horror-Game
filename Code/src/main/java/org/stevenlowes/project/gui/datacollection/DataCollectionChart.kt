@@ -9,12 +9,13 @@ import org.stevenlowes.project.serialreader.Serial
 import tornadofx.*
 import java.util.concurrent.ConcurrentLinkedQueue
 
-class DataCollectionChart(port: CommPortIdentifier,
-                          autoLowerBound: AutoLowerBound = AutoLowerBound.AUTOMATIC) : GsrChart(autoLowerBound) {
-    private var paused = false
+class DataCollectionChart(autoLowerBound: AutoLowerBound = AutoLowerBound.AUTOMATIC) : GsrChart(autoLowerBound) {
+    var paused = false
+        private set
+
     private val buffer = ConcurrentLinkedQueue<XYChart.Data<Number, Number>>()
 
-    private var serial = Serial(port) { reading ->
+    private var serial = Serial { reading ->
         runAsync {
             if (!paused) {
                 buffer(System.currentTimeMillis(), reading)
@@ -52,7 +53,7 @@ class DataCollectionChart(port: CommPortIdentifier,
     }
 
     private fun prepareTimeline() {
-        // Every frame to take any data from queue and add to chart
+        // Every frame to take any data from queue and addLabel to chart
         object : AnimationTimer() {
             override fun handle(now: Long) {
                 emptyBuffer()

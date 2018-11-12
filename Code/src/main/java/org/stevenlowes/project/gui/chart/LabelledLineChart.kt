@@ -4,6 +4,7 @@ import javafx.collections.FXCollections
 import javafx.scene.chart.LineChart
 import javafx.scene.chart.NumberAxis
 import javafx.scene.chart.XYChart
+import tornadofx.*
 
 open class LabelledLineChart(xAxis: NumberAxis,
                              yAxis: NumberAxis,
@@ -28,12 +29,15 @@ open class LabelledLineChart(xAxis: NumberAxis,
 
     val labels get() = dataLabels.dataLabels.toList()
 
-    fun add(text: String, x: Number) {
+    fun addLabel(text: String, x: Number = series.data.last().xValue) {
         val label = DataLabel(text, x)
-        dataLabels.add(label)
+
+        runAsync {} ui {
+            dataLabels.add(label)
+        }
     }
 
-    fun addAll(labels: Iterable<DataLabel>){
+    fun addAllLabels(labels: Iterable<DataLabel>){
         dataLabels.addAll(labels)
     }
 

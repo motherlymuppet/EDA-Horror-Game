@@ -1,9 +1,8 @@
-package org.stevenlowes.project.gui.dataexplorer.converters
+package org.stevenlowes.project.gui.dataexplorer.transformers
 
 import com.google.gson.JsonObject
-import java.lang.Math.max
 
-class MovingMedianConverter(private val millis: Long) : DataPointConverter() {
+class MovingMedianTransformer(private val millis: Long) : AbstractTransformer() {
     val values = mutableListOf<Pair<Long, Double>>()
 
     override fun clear() {

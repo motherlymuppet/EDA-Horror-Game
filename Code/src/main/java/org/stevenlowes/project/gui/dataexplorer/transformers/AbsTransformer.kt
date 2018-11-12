@@ -1,10 +1,9 @@
-package org.stevenlowes.project.gui.dataexplorer.converters
+package org.stevenlowes.project.gui.dataexplorer.transformers
 
 import com.google.gson.JsonObject
-import java.time.LocalDateTime
 import kotlin.math.abs
 
-class AbsConverter: DataPointConverter(){
+class AbsTransformer: AbstractTransformer(){
     override fun invoke(pair: Pair<Long, Double>?): Pair<Long, Double>? {
         pair ?: return null
         val value = pair.second
