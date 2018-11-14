@@ -23,10 +23,7 @@ class MainMenu: View("Main Menu"){
         button("Playlist Data Collection"){
             action{
                 Serial.withValidPort {
-                    val playlists = Spotify.getPlaylists()
-                    val simplePlaylist = ListInput(playlists) {it.name}.getInput()
-                    if(simplePlaylist != null){
-                        PlaylistDataCollector.tracks = Spotify.getPlaylist(simplePlaylist.id)
+                    if(PlaylistDataCollectorConfig().show()){
                         workspace.dock<PlaylistDataCollector>()
                     }
                 }

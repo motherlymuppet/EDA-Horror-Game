@@ -1,8 +1,6 @@
 package org.stevenlowes.project.gui.playlistdatacollection
 
-import com.sun.xml.internal.txw2.output.DataWriter
 import com.wrapper.spotify.model_objects.specification.PlaylistTrack
-import gnu.io.CommPortIdentifier
 import javafx.beans.property.SimpleStringProperty
 import javafx.geometry.Pos
 import org.stevenlowes.project.gui.chart.AutoLowerBound
@@ -17,7 +15,9 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
     private var playlistIdx = 0
 
     companion object {
-        lateinit var tracks: List<PlaylistTrack>
+        var tracks: List<PlaylistTrack> = listOf()
+        var playTime: Int? = null
+        var restTime: Int = 0
     }
 
     init {
@@ -41,11 +41,9 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
         disableRefresh()
     }
 
-    private val maxLength: Int? = 10
-
     private fun play(){
         runAsync {
-            Thread.sleep(10 * 1000)
+            Thread.sleep(restTime * 1000L)
             val track = tracks[playlistIdx].track
             chart.addLabel("Start: ${track.name}")
 
@@ -53,7 +51,7 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
                 currentlyPlaying.set(track.name)
             }
 
-            val maxLengthMs = if(maxLength == null) null else maxLength * 1000L
+            val maxLengthMs = if(playTime == null) null else playTime!! * 1000L
             Spotify.play(track.id, maxLengthMs) {
                 chart.addLabel("End")
                 playlistIdx++
