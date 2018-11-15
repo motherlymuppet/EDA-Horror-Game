@@ -29,7 +29,7 @@ open class GsrChart(val autoLowerBound: AutoLowerBound = AutoLowerBound.AUTOMATI
         private const val Y_LABEL = "Relaxation"
     }
 
-    private fun round1000(number: Number): Double{
+    private fun round1000(number: Number): Double {
         return (round(number.toDouble() / 1000) * 1000).toDouble()
     }
 
@@ -49,8 +49,8 @@ open class GsrChart(val autoLowerBound: AutoLowerBound = AutoLowerBound.AUTOMATI
                 if (autoLowerBound == AutoLowerBound.AUTOMATIC) {
                     xAxis.lowerBound = series.first().xValue.toDouble()
                 }
-                else if(autoLowerBound == AutoLowerBound.FIVE_MINUTES){
-                    xAxis.lowerBound = xAxis.upperBound - (5*60*1000)
+                else if (autoLowerBound == AutoLowerBound.FIVE_MINUTES) {
+                    xAxis.lowerBound = xAxis.upperBound - (5 * 60 * 1000)
                 }
 
                 xAxis.tickUnit = (xAxis.upperBound - xAxis.lowerBound) / 10
@@ -80,5 +80,13 @@ open class GsrChart(val autoLowerBound: AutoLowerBound = AutoLowerBound.AUTOMATI
 
     override fun getYAxis(): NumberAxis {
         return super.getYAxis() as NumberAxis
+    }
+
+    fun addData(data: List<Pair<Long, Double>>) {
+        series.addAll(
+                data.map { (time, reading) ->
+                    XYChart.Data<Number, Number>(time, reading)
+                }
+                     )
     }
 }

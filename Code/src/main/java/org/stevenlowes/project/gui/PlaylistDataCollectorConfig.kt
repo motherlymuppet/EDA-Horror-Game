@@ -75,7 +75,7 @@ class PlaylistDataCollectorConfig: Fragment() {
         }
     }
 
-    fun show(): Boolean {
+    fun configure(): Boolean {
         set = false
         openModal(block = true)
         if(set){

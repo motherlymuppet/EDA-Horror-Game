@@ -41,7 +41,7 @@ open class LabelledLineChart(xAxis: NumberAxis,
         dataLabels.addAll(labels)
     }
 
-    fun clear() {
+    open fun clear() {
         series.data.clear()
         dataLabels.clear()
     }

@@ -3,18 +3,16 @@ package org.stevenlowes.project.gui
 import javafx.geometry.Pos
 import org.stevenlowes.project.gui.datacollection.DataCollectionView
 import org.stevenlowes.project.gui.datascreenshot.DataScreenshot
-import org.stevenlowes.project.gui.inputmodals.ListInput
 import org.stevenlowes.project.gui.playlistdatacollection.PlaylistDataCollector
 import org.stevenlowes.project.gui.songnearness.SongNearnessView
 import org.stevenlowes.project.serialreader.Serial
-import org.stevenlowes.project.spotifyAPI.Spotify
 import tornadofx.*
 
 class MainMenu: View("Main Menu"){
     override val root = vbox(spacing = 8, alignment = Pos.CENTER) {
         button("Data Collection") {
             action {
-                Serial.withValidPort {
+                Serial.withValidSerial {
                     workspace.dock<DataCollectionView>()
                 }
             }
@@ -22,8 +20,8 @@ class MainMenu: View("Main Menu"){
 
         button("Playlist Data Collection"){
             action{
-                Serial.withValidPort {
-                    if(PlaylistDataCollectorConfig().show()){
+                Serial.withValidSerial {
+                    if(PlaylistDataCollectorConfig().configure()){
                         workspace.dock<PlaylistDataCollector>()
                     }
                 }

@@ -6,6 +6,7 @@ import javafx.geometry.Pos
 import org.stevenlowes.project.gui.chart.AutoLowerBound
 import org.stevenlowes.project.gui.datacollection.DataCollectionChart
 import org.stevenlowes.project.gui.dataexplorer.DataExplorerView
+import org.stevenlowes.project.serialreader.SERIAL
 import org.stevenlowes.project.spotifyAPI.Spotify
 import tornadofx.*
 
@@ -99,7 +100,7 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
                     }?.show()
                 }
 
-                if(playlistIdx < tracks.size && !chart.paused) {
+                if(playlistIdx < tracks.size){
                     play()
                 }
                 else{

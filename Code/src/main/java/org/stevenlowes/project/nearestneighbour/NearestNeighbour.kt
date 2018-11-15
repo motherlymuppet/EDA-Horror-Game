@@ -126,7 +126,7 @@ class NearestNeighbour {
                     "salsa",
                     "samba",
                     "sertanejo",
-                    "show-tunes",
+                    "configure-tunes",
                     "singer-songwriter",
                     "ska",
                     "sleep",
