@@ -140,7 +140,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.stevenlowes.project.gui.MainApp</mainClass>
+                            <mainClass>org.stevenlowes.project.spotifyAPI.scrapers.AnalysisRipperKt</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

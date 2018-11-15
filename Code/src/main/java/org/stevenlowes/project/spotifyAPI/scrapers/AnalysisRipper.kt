@@ -10,6 +10,7 @@ import org.stevenlowes.project.spotifyAPI.AnalysedTrack
 import org.stevenlowes.project.spotifyAPI.Spotify
 import org.stevenlowes.project.spotifyAPI.SpotifyAuth
 import java.io.*
+import java.lang.Exception
 import java.util.concurrent.ExecutionException
 
 fun String.id(): String = substringBefore(" ")
@@ -74,8 +75,10 @@ class AnalysisRipper {
         fun getAnalysisString(track: AnalysedTrack) = getAnalysisString(track.features, track.analysis)
 
         fun getAnalysisString(features: AudioFeatures, analysis: AudioAnalysis): String {
-            val featureString = FeatureRipper.getFeatureString(features) ?: throw IllegalArgumentException("Feature String was null")
-            val analysisString = AnalysisRipper.getAnalysisString(featureString, analysis) ?: throw IllegalArgumentException("Analysis String was null")
+            val featureString = FeatureRipper.getFeatureString(features)
+                    ?: throw IllegalArgumentException("Feature String was null")
+            val analysisString = AnalysisRipper.getAnalysisString(featureString, analysis)
+                    ?: throw IllegalArgumentException("Analysis String was null")
             return analysisString
         }
 
@@ -110,7 +113,7 @@ class AnalysisRipper {
     }
 }
 
-class RetrySequence<T>(private val underlying: Iterator<T>): Sequence<T>{
+class RetrySequence<T>(private val underlying: Iterator<T>) : Sequence<T> {
     private val retryList = mutableListOf<T>()
 
     override fun iterator(): Iterator<T> {
@@ -121,10 +124,10 @@ class RetrySequence<T>(private val underlying: Iterator<T>): Sequence<T>{
 
             @Synchronized
             override fun next(): T {
-                return if(retryList.isEmpty()){
+                return if (retryList.isEmpty()) {
                     underlying.next()
                 }
-                else{
+                else {
                     val first = retryList.first()
                     retryList.removeAt(0)
                     return first
@@ -133,7 +136,7 @@ class RetrySequence<T>(private val underlying: Iterator<T>): Sequence<T>{
         }
     }
 
-    fun retry(value: T){
+    fun retry(value: T) {
         retryList.add(value)
     }
 }
@@ -156,12 +159,17 @@ class Runner(private val doneCount: Incrementer,
              private val analysisFile: Writer,
              private val simultaneousPages: Int) : Runnable {
     override fun run() {
+        var count = 0
         var done = false
         while (!done) {
             try {
                 var sleep = false
 
-                SpotifyAuth.refreshAuth()
+                count++
+                if (count % 1000 == 0) {
+                    SpotifyAuth.refreshAuth()
+                }
+
                 val futures = (1..simultaneousPages).mapNotNull {
                     //For each page
                     val featureString = featureStringSequence.firstOrNull()
@@ -217,9 +225,10 @@ class Runner(private val doneCount: Incrementer,
                     Thread.sleep(1000)
                 }
             }
-            catch(e: NoHttpResponseException){
+            catch (e: Exception) {
                 //Internet Broken
-                Thread.sleep(60*1000)
+                println("Analysis Exception: ${e.message}")
+                Thread.sleep(60 * 1000)
             }
         }
     }
