@@ -12,6 +12,7 @@ import org.stevenlowes.project.spotifyAPI.SpotifyAuth
 import java.io.*
 import java.lang.Exception
 import java.util.concurrent.ExecutionException
+import kotlin.system.measureTimeMillis
 
 fun String.id(): String = substringBefore(" ")
 
@@ -235,10 +236,10 @@ class Runner(private val doneCount: Incrementer,
 }
 
 fun main(args: Array<String>) {
-    val t1 = System.currentTimeMillis()
-    val simultaneousPages = args.getOrNull(0)?.toInt() ?: 1
-    AnalysisRipper.runRipper(simultaneousPages)
-    val t2 = System.currentTimeMillis()
-    val t = t2 - t1
+    SpotifyAuth.refreshAuth()
+    val t = measureTimeMillis {
+        val simultaneousPages = args.getOrNull(0)?.toInt() ?: 1
+        AnalysisRipper.runRipper(simultaneousPages)
+    }
     println(t.toDouble() / 1000)
 }
