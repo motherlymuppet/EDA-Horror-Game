@@ -44,5 +44,5 @@ class MovingMedianTransformer(private val millis: Long) : AbstractTransformer() 
         return obj
     }
 
-    override fun toString() = "Moving Median ($millis ms)"
+    override fun toString() = "Moving Median (${millis/1000} secs)"
 }

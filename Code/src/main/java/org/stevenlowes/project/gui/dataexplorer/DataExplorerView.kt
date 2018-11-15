@@ -1,6 +1,10 @@
 package org.stevenlowes.project.gui.dataexplorer
 
+import javafx.beans.InvalidationListener
+import javafx.beans.Observable
 import javafx.beans.binding.Bindings
+import javafx.beans.property.Property
+import javafx.beans.property.SimpleBooleanProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
@@ -32,6 +36,7 @@ class DataExplorerView(
     private val descriptionInputProperty = SimpleStringProperty(chartDescription ?: "")
     private val mutableConverters = FXCollections.observableArrayList<AbstractTransformer>(abstractTransformers)
     private val labels = FXCollections.observableArrayList<DataLabel>(labels)
+    private val autoRender = SimpleBooleanProperty(true)
 
     private var chartData = applyConverters(rawData, mutableConverters)
 
@@ -70,7 +75,6 @@ class DataExplorerView(
         }
     }
 
-
     override val root = hbox {
         //Controls
         vbox {
@@ -81,6 +85,7 @@ class DataExplorerView(
                         text = "Title:"
                         textfield {
                             bind(titleInputProperty)
+                            titleInputProperty.addListener(InvalidationListener { autorender() })
                         }
                     }
 
@@ -102,7 +107,19 @@ class DataExplorerView(
                                     placeholder = label("No Converters Added")
 
                                     setCellFactory { _ -> RearrangableCell { it?.toString() ?: "Null" } }
+
+                                    onDoubleClick {
+                                        val index = selectionModel.selectedIndex
+                                        if(index >= 0) {
+                                            val replacement = TransformerInput.getInput(chartData)
+                                            if (replacement != null) {
+                                                mutableConverters[index] = replacement
+                                            }
+                                        }
+                                    }
                                 }
+
+                                mutableConverters.addListener(InvalidationListener { autorender() })
 
                                 hbox(4, Pos.CENTER) {
                                     button {
@@ -111,7 +128,6 @@ class DataExplorerView(
                                         action {
                                             val selected = convertersList.selectedItem
                                             mutableConverters.remove(selected)
-                                            render()
                                         }
                                     }
 
@@ -122,7 +138,6 @@ class DataExplorerView(
                                             val toAdd = TransformerInput.getInput(chartData)
                                             if (toAdd != null) {
                                                 mutableConverters.add(toAdd)
-                                                render()
                                             }
                                         }
                                     }
@@ -132,17 +147,29 @@ class DataExplorerView(
                     }
                 }
 
-                button {
-                    alignment = Pos.CENTER
-                    text = "Render"
-                    isFillWidth = true
-                    action {
-                        render()
+                hbox(16, Pos.CENTER) {
+                    checkbox("AutoRender", autoRender){
+                        setOnAction {
+                            autorender()
+                        }
+                    }
+                    button {
+                        text = "Render"
+                        isFillWidth = true
+                        action {
+                            render()
+                        }
                     }
                 }
             }
         }
 
         add(chart)
+    }
+
+    private fun autorender() {
+        if(autoRender.get()){
+            render()
+        }
     }
 }

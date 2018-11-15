@@ -8,7 +8,7 @@ class XFilterTransformer(min: Number?, max: Number?): AbstractTransformer(){
     private val min = min?.toLong()
     private val max = max?.toLong()
     private val minTime = if(min == null) null else GsrChart.timeConverter.toTime(min)
-    private val maxTime = if(min == null) null else GsrChart.timeConverter.toTime(min)
+    private val maxTime = if(max == null) null else GsrChart.timeConverter.toTime(max)
     private val formatter = DateTimeFormatter.ofPattern("EEE HH:mm:ss")
 
 

@@ -154,9 +154,13 @@ class TransformerInput private constructor(series: ObservableList<XYChart.Data<N
                                         override fun fromString(string: String?) = throw NotImplementedError()
                                     }
 
-                                    label(yFilterMin.asObject(), converter = stringConverter)
+                                    textfield(yFilterMin){
+                                        enableWhen(enableYFilterMin)
+                                    }
                                     label(" - ")
-                                    label(yFilterMax.asObject(), converter = stringConverter)
+                                    textfield(yFilterMax){
+                                        enableWhen(enableYFilterMax)
+                                    }
                                 }
                             }
                         }

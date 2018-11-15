@@ -2,6 +2,8 @@ package org.stevenlowes.project.gui.dataexplorer.transformers
 
 import com.google.gson.JsonObject
 import kotlin.math.abs
+import kotlin.math.roundToInt
+import kotlin.math.roundToLong
 
 class YFilterTransformer(min: Number?, max: Number?): AbstractTransformer(){
     private val min = min?.toDouble()
@@ -28,5 +30,5 @@ class YFilterTransformer(min: Number?, max: Number?): AbstractTransformer(){
         return obj
     }
 
-    override fun toString() = "Y Filter: $min to $max"
+    override fun toString() = "Y Filter: ${min?.roundToLong()} to ${max?.roundToLong()}"
 }
