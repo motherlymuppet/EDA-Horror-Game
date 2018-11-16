@@ -21,7 +21,8 @@ class Spotify {
             val playlist = api.getPlaylist(bodgePlaylistId).build().execute()
 
             api.addTracksToPlaylist(bodgePlaylistId, arrayOf("spotify:track:$id")).build().execute()
-            api.skipUsersPlaybackToNextTrack().build().executeAsync<String>()
+            api.skipUsersPlaybackToNextTrack().build().execute()
+            api.startResumeUsersPlayback().build().execute()
 
             val startPlayTime = System.currentTimeMillis()
             val endPlayTime = startPlayTime + getTrack(id).durationMs
@@ -34,12 +35,12 @@ class Spotify {
                         array.add(track)
                     }
 
-            api.removeTracksFromPlaylist(bodgePlaylistId, array).build().executeAsync<String>()
+            api.removeTracksFromPlaylist(bodgePlaylistId, array).build().execute()
 
             val timer = Timer()
             val task = object : TimerTask() {
                 override fun run() {
-                    api.pauseUsersPlayback().build().executeAsync<String>()
+                    api.pauseUsersPlayback().build().execute()
                     onFinish()
                 }
             }

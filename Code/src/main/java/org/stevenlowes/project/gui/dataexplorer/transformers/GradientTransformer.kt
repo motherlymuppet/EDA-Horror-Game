@@ -1,11 +1,12 @@
 package org.stevenlowes.project.gui.dataexplorer.transformers
 
 import com.google.gson.JsonObject
+import org.stevenlowes.project.gui.chart.DataLabel
 
 class GradientTransformer: AbstractTransformer(){
     var last: Pair<Long, Double>? = null
 
-    override fun invoke(pair: Pair<Long, Double>?): Pair<Long, Double>? {
+    override fun invoke(labels: List<DataLabel>, pair: Pair<Long, Double>?): Pair<Long, Double>? {
         pair ?: return null
 
         val prev = last

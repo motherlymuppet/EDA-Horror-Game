@@ -1,6 +1,7 @@
 package org.stevenlowes.project.gui.dataexplorer.transformers
 
 import com.google.gson.JsonObject
+import org.stevenlowes.project.gui.chart.DataLabel
 
 class MovingMedianTransformer(private val millis: Long) : AbstractTransformer() {
     val values = mutableListOf<Pair<Long, Double>>()
@@ -9,18 +10,10 @@ class MovingMedianTransformer(private val millis: Long) : AbstractTransformer() 
         values.clear()
     }
 
-    override fun invoke(pair: Pair<Long, Double>?): Pair<Long, Double>? {
+    override fun invoke(labels: List<DataLabel>, pair: Pair<Long, Double>?): Pair<Long, Double>? {
         pair ?: return null
 
-        if(pair.second == Double.NEGATIVE_INFINITY || pair.second == Double.POSITIVE_INFINITY){
-            println("Error")
-        }
-
         values.add(pair)
-
-        if(values.size < 3){
-            return null
-        }
 
         val showFrom = pair.first - millis
 
@@ -31,10 +24,12 @@ class MovingMedianTransformer(private val millis: Long) : AbstractTransformer() 
             }
         }
 
-        val sorted = values.sortedBy { it.first }
-        val median = sorted[sorted.size/2]
+        if(values.size < 3){
+            return null
+        }
 
-        return median
+        val sorted = values.sortedBy { it.first }
+        return sorted[sorted.size/2]
     }
 
     override fun toJson(): JsonObject {

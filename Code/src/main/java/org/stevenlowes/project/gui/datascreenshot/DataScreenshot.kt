@@ -66,7 +66,7 @@ class DataScreenshot {
                                  chartDescription: String,
                                  chartConverters: List<AbstractTransformer>,
                                  labels: List<DataLabel>) {
-            val data = DataExplorerView.applyConverters(rawData, chartConverters)
+            val data = DataExplorerView.applyConverters(rawData, labels, chartConverters)
             val chart = GsrChart(series = FXCollections.observableArrayList(
                     data.map { datapoint -> XYChart.Data(datapoint.xValue as Number, datapoint.yValue as Number) }))
 

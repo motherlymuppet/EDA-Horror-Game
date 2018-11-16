@@ -4,6 +4,7 @@ import javafx.geometry.Pos
 import org.stevenlowes.project.gui.datacollection.DataCollectionView
 import org.stevenlowes.project.gui.datascreenshot.DataScreenshot
 import org.stevenlowes.project.gui.playlistdatacollection.PlaylistDataCollector
+import org.stevenlowes.project.gui.playlistdatacollection.PlaylistDataCollectorConfig
 import org.stevenlowes.project.gui.songnearness.SongNearnessView
 import org.stevenlowes.project.serialreader.Serial
 import tornadofx.*

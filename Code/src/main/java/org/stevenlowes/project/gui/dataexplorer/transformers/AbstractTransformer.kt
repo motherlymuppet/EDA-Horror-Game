@@ -1,8 +1,9 @@
 package org.stevenlowes.project.gui.dataexplorer.transformers
 
 import com.google.gson.JsonObject
+import org.stevenlowes.project.gui.chart.DataLabel
 
-abstract class AbstractTransformer: (Pair<Long, Double>?) -> Pair<Long, Double>?{
+abstract class AbstractTransformer: (List<DataLabel>, Pair<Long, Double>?) -> Pair<Long, Double>?{
     abstract fun clear()
 
     abstract fun toJson(): JsonObject
@@ -16,6 +17,7 @@ abstract class AbstractTransformer: (Pair<Long, Double>?) -> Pair<Long, Double>?
                 MovingMedianTransformer::class.simpleName -> MovingMedianTransformer(json["Millis"].asLong)
                 XFilterTransformer::class.simpleName -> XFilterTransformer(json["Min"].asLong, json["Max"].asLong)
                 YFilterTransformer::class.simpleName -> YFilterTransformer(json["Min"].asDouble, json["Max"].asDouble)
+                LabelPauseTransformer::class.simpleName -> LabelPauseTransformer()
                 else -> throw NotImplementedError("Unknown Converter Type")
             }
         }

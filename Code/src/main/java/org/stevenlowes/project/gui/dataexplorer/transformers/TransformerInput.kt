@@ -43,7 +43,8 @@ class TransformerInput private constructor(series: ObservableList<XYChart.Data<N
             DestructionTransformer::class,
             MovingMedianTransformer::class,
             YFilterTransformer::class,
-            XFilterTransformer::class)
+            XFilterTransformer::class,
+            LabelPauseTransformer::class)
 
     init {
         if (series.isNotEmpty()) {
@@ -147,13 +148,6 @@ class TransformerInput private constructor(series: ObservableList<XYChart.Data<N
                                 }
 
                                 hbox {
-                                    val stringConverter: StringConverter<in Double> = object : StringConverter<Double>() {
-                                        override fun toString(value: Double?) = value?.roundToLong()?.toString()
-                                                ?: "None"
-
-                                        override fun fromString(string: String?) = throw NotImplementedError()
-                                    }
-
                                     textfield(yFilterMin){
                                         enableWhen(enableYFilterMin)
                                     }
@@ -207,6 +201,7 @@ class TransformerInput private constructor(series: ObservableList<XYChart.Data<N
             DestructionTransformer::class -> getDestructionTransformer()
             XFilterTransformer::class -> getXFilterTransformer()
             YFilterTransformer::class -> getYFilterTransformer()
+            LabelPauseTransformer::class -> getLabelPauseTransformer()
             else -> null
         }
     }
@@ -223,6 +218,7 @@ class TransformerInput private constructor(series: ObservableList<XYChart.Data<N
         return YFilterTransformer(yMin, yMax)
     }
 
+    private fun getLabelPauseTransformer() = LabelPauseTransformer()
     private fun getDestructionTransformer() = DestructionTransformer(destructionKeepEvery.get())
     private fun getMovingMedianTransformer() = MovingMedianTransformer((movingMedianSecs.get() * 1000).toLong())
     private fun getMovingMeanTransformer() = MovingMeanTransformer((movingMeanSecs.get() * 1000).toLong())

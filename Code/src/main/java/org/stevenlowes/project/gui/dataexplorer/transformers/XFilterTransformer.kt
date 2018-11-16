@@ -1,6 +1,7 @@
 package org.stevenlowes.project.gui.dataexplorer.transformers
 
 import com.google.gson.JsonObject
+import org.stevenlowes.project.gui.chart.DataLabel
 import org.stevenlowes.project.gui.chart.GsrChart
 import java.time.format.DateTimeFormatter
 
@@ -12,7 +13,7 @@ class XFilterTransformer(min: Number?, max: Number?): AbstractTransformer(){
     private val formatter = DateTimeFormatter.ofPattern("EEE HH:mm:ss")
 
 
-    override fun invoke(pair: Pair<Long, Double>?): Pair<Long, Double>? {
+    override fun invoke(labels: List<DataLabel>, pair: Pair<Long, Double>?): Pair<Long, Double>? {
         pair ?: return null
         if(min != null && min > pair.first){
             return null

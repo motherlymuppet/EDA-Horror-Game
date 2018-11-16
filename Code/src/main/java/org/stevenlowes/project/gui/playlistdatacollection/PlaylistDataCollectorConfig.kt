@@ -1,4 +1,4 @@
-package org.stevenlowes.project.gui
+package org.stevenlowes.project.gui.playlistdatacollection
 
 import com.wrapper.spotify.model_objects.specification.PlaylistSimplified
 import javafx.beans.property.SimpleBooleanProperty

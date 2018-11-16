@@ -33,6 +33,10 @@ class DataLabel constructor(labelText: String,
     fun layout(xAxis: NumberAxis, yAxis: NumberAxis, yConverter: (Number) -> Number?) {
         displayX = xAxis.getDisplayPosition(x)
         val y = yConverter(x)
+
+        node.isVisible = y != null
+        y ?: return
+
         displayY = yAxis.getDisplayPosition(y)
         layoutText()
     }

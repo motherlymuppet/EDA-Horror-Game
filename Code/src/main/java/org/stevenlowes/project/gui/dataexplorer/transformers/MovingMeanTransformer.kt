@@ -1,6 +1,7 @@
 package org.stevenlowes.project.gui.dataexplorer.transformers
 
 import com.google.gson.JsonObject
+import org.stevenlowes.project.gui.chart.DataLabel
 import java.lang.Math.max
 
 class MovingMeanTransformer(private val millis: Long) : AbstractTransformer() {
@@ -10,18 +11,10 @@ class MovingMeanTransformer(private val millis: Long) : AbstractTransformer() {
         values.clear()
     }
 
-    override fun invoke(pair: Pair<Long, Double>?): Pair<Long, Double>? {
+    override fun invoke(labels: List<DataLabel>, pair: Pair<Long, Double>?): Pair<Long, Double>? {
         pair ?: return null
 
-        if(pair.second == Double.NEGATIVE_INFINITY || pair.second == Double.POSITIVE_INFINITY){
-            println("Error")
-        }
-
         values.add(pair)
-
-        if(values.size < 3){
-            return null
-        }
 
         val showFrom = pair.first - millis
 
@@ -30,6 +23,10 @@ class MovingMeanTransformer(private val millis: Long) : AbstractTransformer() {
             (0..deleteTo).forEach { _ ->
                 values.removeAt(0)
             }
+        }
+
+        if(values.size < 3){
+            return null
         }
 
         val first = values[0]

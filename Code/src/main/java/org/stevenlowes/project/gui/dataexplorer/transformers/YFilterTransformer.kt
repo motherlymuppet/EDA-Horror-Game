@@ -1,6 +1,7 @@
 package org.stevenlowes.project.gui.dataexplorer.transformers
 
 import com.google.gson.JsonObject
+import org.stevenlowes.project.gui.chart.DataLabel
 import kotlin.math.abs
 import kotlin.math.roundToInt
 import kotlin.math.roundToLong
@@ -9,7 +10,7 @@ class YFilterTransformer(min: Number?, max: Number?): AbstractTransformer(){
     private val min = min?.toDouble()
     private val max = max?.toDouble()
 
-    override fun invoke(pair: Pair<Long, Double>?): Pair<Long, Double>? {
+    override fun invoke(labels: List<DataLabel>, pair: Pair<Long, Double>?): Pair<Long, Double>? {
         pair ?: return null
         if(min != null && min > pair.second){
             return null
