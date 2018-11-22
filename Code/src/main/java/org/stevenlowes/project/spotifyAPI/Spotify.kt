@@ -5,22 +5,21 @@ import com.google.gson.JsonObject
 import com.wrapper.spotify.SpotifyApi
 import com.wrapper.spotify.model_objects.miscellaneous.AudioAnalysis
 import com.wrapper.spotify.model_objects.specification.*
-import tornadofx.*
 import java.util.*
 
 class Spotify {
     companion object {
-        private val bodgePlaylistId = "4IvDNhvA1GDggmipuHqrvZ"
-
         val api: SpotifyApi = SpotifyApi.builder()
                 .setClientId(SpotifyAuth.clientId)
                 .setClientSecret(SpotifyAuth.clientSecret)
                 .setRedirectUri(SpotifyAuth.redirectUri).build()
 
-        fun play(id: String, maxLengthMs: Long? = null, onFinish: () -> Unit = {}) {
-            val playlist = api.getPlaylist(bodgePlaylistId).build().execute()
+        val playlistId = "4IvDNhvA1GDggmipuHqrvZ"
 
-            api.addTracksToPlaylist(bodgePlaylistId, arrayOf("spotify:track:$id")).build().execute()
+        fun play(id: String, maxLengthMs: Long? = null, onFinish: () -> Unit = {}) {
+            val playlist: Playlist by lazy { api.getPlaylist(playlistId).build().execute() }
+
+            api.addTracksToPlaylist(playlist.id, arrayOf("spotify:track:$id")).build().execute()
             api.skipUsersPlaybackToNextTrack().build().execute()
             api.startResumeUsersPlayback().build().execute()
 
@@ -34,8 +33,7 @@ class Spotify {
                         track.addProperty("uri", "spotify:track:${it.track.id}")
                         array.add(track)
                     }
-
-            api.removeTracksFromPlaylist(bodgePlaylistId, array).build().execute()
+            api.removeTracksFromPlaylist(playlist.id, array).build().execute()
 
             val timer = Timer()
             val task = object : TimerTask() {
@@ -53,9 +51,9 @@ class Spotify {
             timer.schedule(task, actualDelay)
         }
 
-        fun seekToPercent(percent: Double){
+        fun seekToPercent(percent: Double) {
             val track = currentlyPlaying()
-            api.seekToPositionInCurrentlyPlayingTrack((track.durationMs*percent).toInt()).build().execute()
+            api.seekToPositionInCurrentlyPlayingTrack((track.durationMs * percent).toInt()).build().execute()
         }
 
         fun currentlyPlaying(): Track {
@@ -89,11 +87,11 @@ class Spotify {
             return api.getListOfUsersPlaylists(user.id).build().execute().items.toList()
         }
 
-        fun getPlaylist(playlistId: String): List<PlaylistTrack>{
+        fun getPlaylist(playlistId: String): List<PlaylistTrack> {
             return api.getPlaylist(playlistId).build().execute().tracks.items.toList()
         }
 
-        fun pause(){
+        fun pause() {
             api.pauseUsersPlayback().build().executeAsync<String>()
         }
     }

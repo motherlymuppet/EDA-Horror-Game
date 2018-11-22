@@ -13,7 +13,7 @@ class LabelPauseTransformer : AbstractTransformer() {
                 ?: return pair
 
         validLabels.filter { it.x.toLong() > mostRecentPause.x.toLong() && it.text.startsWith("Start") }.minBy { it.x.toLong() }
-                ?: return null
+                ?: return pair.first to 0.0
 
         return pair
     }

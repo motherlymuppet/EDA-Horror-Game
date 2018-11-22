@@ -16,7 +16,7 @@ class SpotifyAuth {
 
         init {
             val api = Spotify.api
-            api.refreshToken = "AQAWfv5b1CtSHj7cIgzJlP_j366ekYg5hIDGg-nJsmZb0BfUcrbP6BYiJS4iCEft0GsreSDBq5twWmVGWpp23i-idf5n4kqY0gAc6O5JHowbvfIjys3-u3qHt_04DmdZxkLcpA"
+            api.refreshToken = "AQBw35jIyp69ZwpBcz98U22ZbUiPsbVukR6EHgM3oFKSmrZLcTgqmQHAPR9IusYbPAu9ToFo-pBQLXqcRpUu5vcZGY4Jl8nBsb2UJ0RG8SQvjNrzS44RxdZdYoYuG7mhtAcHBA"
         }
 
         private fun printAuthURI() {

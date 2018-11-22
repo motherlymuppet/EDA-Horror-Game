@@ -4,7 +4,7 @@ import com.google.gson.JsonObject
 import org.stevenlowes.project.gui.chart.DataLabel
 
 class MovingMedianTransformer(private val millis: Long) : AbstractTransformer() {
-    val values = mutableListOf<Pair<Long, Double>>()
+    private val values = mutableListOf<Pair<Long, Double>>()
 
     override fun clear() {
         values.clear()

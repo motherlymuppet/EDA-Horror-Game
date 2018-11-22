@@ -6,7 +6,6 @@ import javafx.geometry.Pos
 import org.stevenlowes.project.gui.chart.AutoLowerBound
 import org.stevenlowes.project.gui.datacollection.DataCollectionChart
 import org.stevenlowes.project.gui.dataexplorer.DataExplorerView
-import org.stevenlowes.project.serialreader.SERIAL
 import org.stevenlowes.project.spotifyAPI.Spotify
 import tornadofx.*
 
@@ -44,8 +43,10 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
 
     private fun play(){
         runAsync {
-            Thread.sleep(restTime * 1000L)
             val track = tracks[playlistIdx].track
+
+            Thread.sleep(restTime * 1000L)
+
             chart.addLabel("Start: ${track.name}")
 
             ui {
