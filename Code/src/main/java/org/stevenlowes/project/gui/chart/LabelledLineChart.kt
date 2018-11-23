@@ -37,16 +37,18 @@ open class LabelledLineChart(xAxis: NumberAxis,
 
     val labels get() = dataLabels.dataLabels.toList()
 
-    fun addLabel(text: String, x: Number = series.data.last().xValue) {
-        val label = DataLabel(text, x)
+    fun addLabel(text: String, x: Number? = series.data.lastOrNull()?.xValue) {
+        x ?: return
 
         runAsync {} ui {
-            dataLabels.add(label)
+            dataLabels.add(DataLabel(text, x))
         }
     }
 
     fun addAllLabels(labels: Iterable<DataLabel>){
-        dataLabels.addAll(labels)
+        runAsync {} ui {
+            dataLabels.addAll(labels)
+        }
     }
 
     open fun clear() {
