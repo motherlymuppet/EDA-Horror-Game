@@ -67,6 +67,11 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
                             text = "Very Relaxing"
                             action {
                                 chart.addLabel("Very Relaxing")
+                                if (playlistIdx < tracks.size) {
+                                    runAsync {} ui {
+                                        workspace.dock(DataExplorerView(chart))
+                                    }
+                                }
                                 close()
                             }
                         }
@@ -74,6 +79,11 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
                             text = "Relaxing"
                             action {
                                 chart.addLabel("Relaxing")
+                                if (playlistIdx < tracks.size) {
+                                    runAsync {} ui {
+                                        workspace.dock(DataExplorerView(chart))
+                                    }
+                                }
                                 close()
                             }
                         }
@@ -81,6 +91,11 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
                             text = "Neutral"
                             action {
                                 chart.addLabel("Neutral")
+                                if (playlistIdx < tracks.size) {
+                                    runAsync {} ui {
+                                        workspace.dock(DataExplorerView(chart))
+                                    }
+                                }
                                 close()
                             }
                         }
@@ -88,6 +103,11 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
                             text = "Stressful"
                             action {
                                 chart.addLabel("Stressful")
+                                if (playlistIdx < tracks.size) {
+                                    runAsync {} ui {
+                                        workspace.dock(DataExplorerView(chart))
+                                    }
+                                }
                                 close()
                             }
                         }
@@ -95,6 +115,11 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
                             text = "Very Stressful"
                             action {
                                 chart.addLabel("Very Stressful")
+                                if (playlistIdx < tracks.size) {
+                                    runAsync {} ui {
+                                        workspace.dock(DataExplorerView(chart))
+                                    }
+                                }
                                 close()
                             }
                         }
@@ -103,9 +128,6 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
 
                 if(playlistIdx < tracks.size){
                     play()
-                }
-                else{
-                    workspace.dock(DataExplorerView(chart))
                 }
             }
         }
