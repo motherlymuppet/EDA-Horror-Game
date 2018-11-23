@@ -20,6 +20,14 @@ open class LabelledLineChart(xAxis: NumberAxis,
         series.data.firstOrNull { it.xValue.toDouble() >= x.toDouble() }?.yValue
     }
 
+    var labelSize: Int
+        get() {
+            return dataLabels.fontSize
+        }
+        set(newValue) {
+            dataLabels.fontSize = newValue
+        }
+
     private val dataLabels: DataLabels = DataLabels(
             xAxis,
             yAxis,

@@ -14,7 +14,8 @@ class DataLabels(private val xAxis: NumberAxis,
                  labels: List<DataLabel>) {
     private val plotContent: Group
     private val group = Group()
-    val dataLabels = FXCollections.observableArrayList<DataLabel>(labels)
+    val dataLabels: ObservableList<DataLabel> = FXCollections.observableArrayList<DataLabel>(labels)
+    var fontSize: Int = 24
 
     init {
         val plotArea = chartChildren[1] as Group
@@ -57,6 +58,6 @@ class DataLabels(private val xAxis: NumberAxis,
     }
 
     fun layout() {
-        dataLabels.forEach { it.layout(xAxis, yAxis, yConverter) }
+        dataLabels.forEach { it.layout(fontSize, xAxis, yAxis, yConverter) }
     }
 }

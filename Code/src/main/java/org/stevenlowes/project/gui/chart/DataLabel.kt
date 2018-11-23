@@ -2,7 +2,6 @@ package org.stevenlowes.project.gui.chart
 
 import javafx.geometry.Pos
 import javafx.scene.chart.NumberAxis
-import javafx.scene.chart.XYChart
 import javafx.scene.control.Label
 import javafx.scene.text.Font
 import javafx.scene.text.FontWeight
@@ -22,15 +21,15 @@ class DataLabel constructor(labelText: String,
     }
 
     init {
-        val family = node.font.family
-        node.font = Font.font(family, FontWeight.BOLD, 24.0)
-
         text = labelText
         this.node.widthProperty().addListener { _ -> layoutText() }
         this.node.heightProperty().addListener { _ -> layoutText() }
     }
 
-    fun layout(xAxis: NumberAxis, yAxis: NumberAxis, yConverter: (Number) -> Number?) {
+    fun layout(fontSize: Int, xAxis: NumberAxis, yAxis: NumberAxis, yConverter: (Number) -> Number?) {
+        val family = node.font.family
+        node.font = Font.font(family, FontWeight.BOLD, fontSize.toDouble())
+
         displayX = xAxis.getDisplayPosition(x)
         val y = yConverter(x)
 
