@@ -9,8 +9,7 @@ class MainApp : App(Workspace::class) {
         super.start(stage)
         stage.width = 1280.0
         stage.height = 720.0
-        SpotifyAuth.refreshAuth()
-
+        runAsync { SpotifyAuth.refreshAuth() }
     }
 
     override fun onBeforeShow(view: UIComponent) {
