@@ -45,8 +45,9 @@ open class LabelledLineChart(xAxis: NumberAxis,
         }
     }
 
-    fun addAllLabels(labels: Iterable<DataLabel>){
+    fun replaceAllLabels(labels: Iterable<DataLabel>) {
         runAsync {} ui {
+            dataLabels.clear()
             dataLabels.addAll(labels)
         }
     }

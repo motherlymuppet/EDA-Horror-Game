@@ -25,8 +25,12 @@ class MovingMeanTransformer(private val millis: Long) : AbstractTransformer() {
             }
         }
 
-        if(values.size < 3){
+        if (values.isEmpty()) {
             return null
+        }
+
+        if (values.size == 1) {
+            return values.first()
         }
 
         val first = values[0]

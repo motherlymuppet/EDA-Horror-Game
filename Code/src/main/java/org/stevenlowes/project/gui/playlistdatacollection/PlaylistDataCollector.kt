@@ -58,6 +58,8 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
                 chart.addLabel("End")
                 playlistIdx++
 
+                val done = playlistIdx == tracks.size - 1
+
                 ui {
                     dialog {
                         label {
@@ -67,7 +69,7 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
                             text = "Very Relaxing"
                             action {
                                 chart.addLabel("Very Relaxing")
-                                if (playlistIdx < tracks.size) {
+                                if (done) {
                                     runAsync {} ui {
                                         workspace.dock(DataExplorerView(chart))
                                     }
@@ -79,7 +81,7 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
                             text = "Relaxing"
                             action {
                                 chart.addLabel("Relaxing")
-                                if (playlistIdx < tracks.size) {
+                                if (done) {
                                     runAsync {} ui {
                                         workspace.dock(DataExplorerView(chart))
                                     }
@@ -91,7 +93,7 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
                             text = "Neutral"
                             action {
                                 chart.addLabel("Neutral")
-                                if (playlistIdx < tracks.size) {
+                                if (done) {
                                     runAsync {} ui {
                                         workspace.dock(DataExplorerView(chart))
                                     }
@@ -103,7 +105,7 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
                             text = "Stressful"
                             action {
                                 chart.addLabel("Stressful")
-                                if (playlistIdx < tracks.size) {
+                                if (done) {
                                     runAsync {} ui {
                                         workspace.dock(DataExplorerView(chart))
                                     }
@@ -115,7 +117,7 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
                             text = "Very Stressful"
                             action {
                                 chart.addLabel("Very Stressful")
-                                if (playlistIdx < tracks.size) {
+                                if (done) {
                                     runAsync {} ui {
                                         workspace.dock(DataExplorerView(chart))
                                     }

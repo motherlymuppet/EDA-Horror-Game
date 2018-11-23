@@ -76,7 +76,7 @@ class DataExplorerView(
 
         chart.clear()
         chart.series.addAll(chartData)
-        chart.addAllLabels(labels)
+        chart.replaceAllLabels(labels)
     }
 
     companion object {
