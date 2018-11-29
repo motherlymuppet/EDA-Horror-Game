@@ -45,6 +45,11 @@ class Serial private constructor(port: CommPortIdentifier) : SerialPortEventList
     override fun serialEvent(oEvent: SerialPortEvent) {
         if (oEvent.eventType == SerialPortEvent.DATA_AVAILABLE) {
             val number = input.readLine().toDouble()
+
+            if (number < 1000) {
+                return
+            }
+
             if (started) {
                 if (!paused) {
                     readings.add(System.currentTimeMillis() to number)

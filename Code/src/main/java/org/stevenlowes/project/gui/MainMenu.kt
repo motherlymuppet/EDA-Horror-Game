@@ -3,6 +3,7 @@ package org.stevenlowes.project.gui
 import javafx.geometry.Pos
 import org.stevenlowes.project.gui.datacollection.DataCollectionView
 import org.stevenlowes.project.gui.datascreenshot.DataScreenshot
+import org.stevenlowes.project.gui.nearnessdatacollector.NearnessDataCollector
 import org.stevenlowes.project.gui.playlistdatacollection.PlaylistDataCollector
 import org.stevenlowes.project.gui.playlistdatacollection.PlaylistDataCollectorConfig
 import org.stevenlowes.project.gui.songnearness.SongNearnessView
@@ -25,6 +26,16 @@ class MainMenu: View("Main Menu"){
                     if(PlaylistDataCollectorConfig().configure()){
                         workspace.dock<PlaylistDataCollector>()
                     }
+                }
+            }
+        }
+
+        button("Nearness Data Collection") {
+            action {
+                Serial.withValidSerial {
+                    NearnessDataCollector.playTime = 15
+                    NearnessDataCollector.restTime = 0
+                    workspace.dock<NearnessDataCollector>()
                 }
             }
         }
