@@ -5,6 +5,8 @@ import javafx.scene.chart.NumberAxis
 import javafx.scene.control.Label
 import javafx.scene.text.Font
 import javafx.scene.text.FontWeight
+import kotlin.math.max
+import kotlin.math.min
 
 class DataLabel constructor(labelText: String,
                             val x: Number,
@@ -31,11 +33,15 @@ class DataLabel constructor(labelText: String,
         node.font = Font.font(family, FontWeight.BOLD, fontSize.toDouble())
 
         displayX = xAxis.getDisplayPosition(x)
-        val y = yConverter(x)
+        var y = yConverter(x)?.toDouble()
 
         node.isVisible = y != null
         y ?: return
 
+        val yRange = yAxis.upperBound - yAxis.lowerBound
+        val yBuffer = yRange * 0.05
+        y = min(y, yAxis.upperBound - yBuffer)
+        y = max(y, yAxis.lowerBound + yBuffer)
         displayY = yAxis.getDisplayPosition(y)
         layoutText()
     }

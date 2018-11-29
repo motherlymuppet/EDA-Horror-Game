@@ -56,9 +56,9 @@ open class GsrChart(val autoLowerBound: AutoLowerBound = AutoLowerBound.AUTOMATI
                 xAxis.tickUnit = (xAxis.upperBound - xAxis.lowerBound) / 10
 
                 val yValues = series.asSequence().filter { it.xValue.toDouble() >= xAxis.lowerBound && it.xValue.toDouble() <= xAxis.upperBound }.map { it.yValue.toDouble() }.toList()
-                yAxis.lowerBound = round1000(yValues.min()!! - 1000)
-                yAxis.upperBound = round1000(yValues.max()!! + 1000)
-                yAxis.tickUnit = round1000((yAxis.upperBound - yAxis.lowerBound) / 10)
+                yAxis.lowerBound = yValues.min()!!
+                yAxis.upperBound = yValues.max()!!
+                yAxis.tickUnit = yAxis.upperBound - (yAxis.lowerBound / 10)
             }
         })
 

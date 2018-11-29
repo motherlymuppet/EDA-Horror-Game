@@ -1,6 +1,7 @@
 package org.stevenlowes.project.gui.playlistdatacollection
 
 import com.wrapper.spotify.model_objects.specification.PlaylistTrack
+import javafx.beans.property.SimpleIntegerProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.geometry.Pos
 import org.stevenlowes.project.gui.chart.AutoLowerBound
@@ -41,6 +42,8 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
         disableRefresh()
     }
 
+    private val relaxingProp = SimpleIntegerProperty(50)
+
     private fun play(){
         runAsync {
             val track = tracks[playlistIdx].track
@@ -65,58 +68,13 @@ class PlaylistDataCollector : View("Playlist Data Collection") {
                         label {
                             text = "How Relaxing was that Song?"
                         }
-                        button {
-                            text = "Very Relaxing"
-                            action {
-                                chart.addLabel("Very Relaxing")
-                                if (done) {
-                                    runAsync {} ui {
-                                        workspace.dock(DataExplorerView(chart))
-                                    }
-                                }
-                                close()
-                            }
+                        slider(0..100){
+                            bind(relaxingProp)
                         }
                         button {
-                            text = "Relaxing"
+                            text = "Submit"
                             action {
-                                chart.addLabel("Relaxing")
-                                if (done) {
-                                    runAsync {} ui {
-                                        workspace.dock(DataExplorerView(chart))
-                                    }
-                                }
-                                close()
-                            }
-                        }
-                        button {
-                            text = "Neutral"
-                            action {
-                                chart.addLabel("Neutral")
-                                if (done) {
-                                    runAsync {} ui {
-                                        workspace.dock(DataExplorerView(chart))
-                                    }
-                                }
-                                close()
-                            }
-                        }
-                        button {
-                            text = "Stressful"
-                            action {
-                                chart.addLabel("Stressful")
-                                if (done) {
-                                    runAsync {} ui {
-                                        workspace.dock(DataExplorerView(chart))
-                                    }
-                                }
-                                close()
-                            }
-                        }
-                        button {
-                            text = "Very Stressful"
-                            action {
-                                chart.addLabel("Very Stressful")
+                                chart.addLabel("${relaxingProp.get()}%")
                                 if (done) {
                                     runAsync {} ui {
                                         workspace.dock(DataExplorerView(chart))

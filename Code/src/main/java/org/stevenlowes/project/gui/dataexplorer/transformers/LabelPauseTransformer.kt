@@ -12,8 +12,11 @@ class LabelPauseTransformer : AbstractTransformer() {
         val mostRecentPause = validLabels.filter { it.text.startsWith("End") }.maxBy { it.x.toLong() }
                 ?: return pair
 
-        validLabels.filter { it.x.toLong() > mostRecentPause.x.toLong() && it.text.startsWith("Start") }.minBy { it.x.toLong() }
-                ?: return pair.first to 0.0
+        validLabels.filter {
+                    it.x.toLong() > mostRecentPause.x.toLong() &&
+                    it.x.toLong() <= pair.first - 60*1000 && //Wait at least 60 seconds after the most recent pause
+                    it.text.startsWith("Start")
+        }.minBy { it.x.toLong() } ?: return pair.first to 0.0
 
         return pair
     }

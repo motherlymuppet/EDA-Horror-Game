@@ -19,7 +19,7 @@ class MovingMeanTransformer(private val millis: Long) : AbstractTransformer() {
         val showFrom = pair.first - millis
 
         val deleteTo = values.indexOfFirst { (time, _) -> time > showFrom } - 1
-        if(deleteTo != -2){
+        if(deleteTo >= 0){
             (0..deleteTo).forEach { _ ->
                 values.removeAt(0)
             }
@@ -48,15 +48,14 @@ class MovingMeanTransformer(private val millis: Long) : AbstractTransformer() {
 
         values[0] = realFirstTime to realFirstValue
 
+        val duration: Double = values.last().first.toDouble() - max(showFrom, values.first().first)
 
-        val sum = values.zipWithNext { (currTime, currValue), (nextTime, nextValue) ->
-            val timeDelta = nextTime - currTime
+        val mean = values.zipWithNext { (currTime, currValue), (nextTime, nextValue) ->
+            val timeDelta: Double = (nextTime - currTime).toDouble()
+            val relevance: Double = timeDelta / duration
             val averageValue = (nextValue + currValue) / 2
-            return@zipWithNext timeDelta * averageValue
+            return@zipWithNext relevance * averageValue
         }.sum()
-
-        val duration = values.last().first - max(showFrom, values.first().first)
-        val mean = sum / duration
 
         if(mean == Double.NEGATIVE_INFINITY){
             println("Error")

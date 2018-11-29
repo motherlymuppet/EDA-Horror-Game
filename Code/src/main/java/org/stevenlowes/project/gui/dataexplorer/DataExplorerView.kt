@@ -37,6 +37,7 @@ class DataExplorerView(
     private val labels = FXCollections.observableArrayList<DataLabel>(labels)
     private val shouldAutoRender = SimpleBooleanProperty(true)
     private val showLabels = SimpleBooleanProperty(true)
+    private val hideStartEnd = SimpleBooleanProperty(true)
     private val labelFontSize = SimpleIntegerProperty(24)
 
     private var chartData = applyConverters(rawData, labels, mutableConverters)
@@ -65,18 +66,25 @@ class DataExplorerView(
 
         chart.labelSize = labelFontSize.get()
 
-        val labels = if (showLabels.get()) {
-            labels
-        }
-        else {
-            listOf<DataLabel>().observable()
-        }
+        runAsync {
+            chartData = applyConverters(rawData, labels, mutableConverters)
+        } ui {
+            val labels = if (showLabels.get()) {
+                if(hideStartEnd.get()) {
+                    labels
+                }
+                else{
+                    labels.filterNot { it.text.startsWith("Start:") || it.text == "End" }
+                }
+            }
+            else {
+                listOf<DataLabel>().observable()
+            }
 
-        chartData = applyConverters(rawData, labels, mutableConverters)
-
-        chart.clear()
-        chart.series.addAll(chartData)
-        chart.replaceAllLabels(labels)
+            chart.clear()
+            chart.series.addAll(chartData)
+            chart.replaceAllLabels(labels)
+        }
     }
 
     companion object {
@@ -117,6 +125,14 @@ class DataExplorerView(
                 fieldset("Labels") {
                     field("Enable Labels") {
                         checkbox("Show", showLabels) {
+                            setOnAction {
+                                autoRender()
+                            }
+                        }
+                    }
+
+                    field("Hide Start/End Labels"){
+                        checkbox("Hide", hideStartEnd){
                             setOnAction {
                                 autoRender()
                             }

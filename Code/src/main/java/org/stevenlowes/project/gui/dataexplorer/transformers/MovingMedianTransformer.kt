@@ -18,7 +18,7 @@ class MovingMedianTransformer(private val millis: Long) : AbstractTransformer() 
         val showFrom = pair.first - millis
 
         val deleteTo = values.indexOfFirst { (time, _) -> time > showFrom } - 1
-        if(deleteTo != -2){
+        if(deleteTo >= 0){
             (0..deleteTo).forEach { _ ->
                 values.removeAt(0)
             }
@@ -28,8 +28,8 @@ class MovingMedianTransformer(private val millis: Long) : AbstractTransformer() 
             return null
         }
 
-        val sorted = values.sortedBy { it.first }
-        return sorted[sorted.size/2]
+        val sorted = values.sortedBy { it.second }
+        return pair.first to sorted[sorted.size/2].second
     }
 
     override fun toJson(): JsonObject {
