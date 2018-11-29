@@ -4,7 +4,10 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import com.wrapper.spotify.SpotifyApi
 import com.wrapper.spotify.model_objects.miscellaneous.AudioAnalysis
-import com.wrapper.spotify.model_objects.specification.*
+import com.wrapper.spotify.model_objects.specification.AudioFeatures
+import com.wrapper.spotify.model_objects.specification.PlaylistSimplified
+import com.wrapper.spotify.model_objects.specification.PlaylistTrack
+import com.wrapper.spotify.model_objects.specification.Track
 import java.util.*
 
 class Spotify {
@@ -14,26 +17,44 @@ class Spotify {
                 .setClientSecret(SpotifyAuth.clientSecret)
                 .setRedirectUri(SpotifyAuth.redirectUri).build()
 
-        val playlistId = "4IvDNhvA1GDggmipuHqrvZ"
+        private const val bodgePlaylistId = "4IvDNhvA1GDggmipuHqrvZ"
 
         fun play(id: String, maxLengthMs: Long? = null, onFinish: () -> Unit = {}) {
-            val playlist: Playlist by lazy { api.getPlaylist(playlistId).build().execute() }
+            var success = false
+            var startPlayTime: Long? = null
+            while (!success) {
+                try {
+                    val playlist = api.getPlaylist(bodgePlaylistId).build().execute()
+                    api.addTracksToPlaylist(playlist.id, arrayOf("spotify:track:$id")).build().execute()
+                    Thread.sleep(500)
+                    api.skipUsersPlaybackToNextTrack().build().execute()
+                    Thread.sleep(500)
+                    api.startResumeUsersPlayback().build().execute()
+                    Thread.sleep(500)
+                    success = true
+                    startPlayTime = System.currentTimeMillis()
+                }
+                catch (ex: Exception) {
+                    println("Exception in spotify play ${ex.message}")
+                }
+                finally {
+                    val playing = api.usersCurrentlyPlayingTrack.build().execute()
+                    val playlist = api.getPlaylist(bodgePlaylistId).build().execute()
 
-            api.addTracksToPlaylist(playlist.id, arrayOf("spotify:track:$id")).build().execute()
-            api.skipUsersPlaybackToNextTrack().build().execute()
-            api.startResumeUsersPlayback().build().execute()
+                    val array = JsonArray()
+                    playlist.tracks.items
+                            .filter { it.track.id != playing.item.id }
+                            .forEach {
+                                val track = JsonObject()
+                                track.addProperty("uri", "spotify:track:${it.track.id}")
+                                array.add(track)
+                            }
+                    api.removeTracksFromPlaylist(playlist.id, array).build().execute()
+                    Thread.sleep(500)
+                }
+            }
 
-            val startPlayTime = System.currentTimeMillis()
-            val endPlayTime = startPlayTime + getTrack(id).durationMs
-
-            val array = JsonArray()
-            playlist.tracks.items
-                    .forEach {
-                        val track = JsonObject()
-                        track.addProperty("uri", "spotify:track:${it.track.id}")
-                        array.add(track)
-                    }
-            api.removeTracksFromPlaylist(playlist.id, array).build().execute()
+            val endPlayTime = startPlayTime!! + getTrack(id).durationMs
 
             val timer = Timer()
             val task = object : TimerTask() {
@@ -95,4 +116,9 @@ class Spotify {
             api.pauseUsersPlayback().build().executeAsync<String>()
         }
     }
+}
+
+fun main(args: Array<String>) {
+    SpotifyAuth.refreshAuth()
+    Spotify.play("73W6szqFleS0znx2Y7V0BZ")
 }

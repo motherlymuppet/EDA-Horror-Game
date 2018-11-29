@@ -7,6 +7,8 @@ import java.io.FileWriter
 class Filter {
     companion object {
         fun apply() {
+            println("Applying filter")
+
             BufferedReader(FileReader("analysedData.txt")).useLines { seq ->
                 FileWriter("filteredData.txt").use { writer ->
                     seq.filter { line ->
@@ -33,6 +35,10 @@ class Filter {
                             return@filter false
                         }
 
+                        if (values[3] < -55) { // Loudness
+                            return@filter false
+                        }
+
                         if (values[11] >= 5 * 60 * 1000) { //Duration
                             return@filter false
                         }
@@ -41,10 +47,16 @@ class Filter {
                             return@filter false
                         }
 
+                        if (values.count { it == 0f } > 4) { //Probably not music
+                            return@filter false
+                        }
+
                         return@filter true
                     }.forEach { writer.write("$it\n") }
                 }
             }
+
+            println("Done applying filter")
         }
     }
 }
