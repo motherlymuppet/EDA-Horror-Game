@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "edahorror",
+  "name": "EDA Horror Mod",
+  "description": "Uses EDA Data to trigger horror events",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Steven Lowes"],
+  "credits": "",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
