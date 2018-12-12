@@ -1,0 +1,12 @@
+-Basic
+* Detect Tension
+* Measure Scariness of known event
+
+-Intermediate
+* Automatically scare player at opportune times
+* Explore different strategies for scaring player
+	* Scare more when tense?
+	* Scare less when getting less of a reaction?
+
+-Advanced
+* Visualise which parts of a map are scary/tense

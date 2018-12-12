@@ -42,11 +42,16 @@ repositories {
     maven{
         url "http://maven.shadowfacts.net/"
     }
+    maven{
+        url "https://nexus.arcsmed.at/content/repositories/homer.core/"
+    }
 }
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    compile group: "net.shadowfacts", name: "Forgelin", version: "1.6.0"
+    compile "net.shadowfacts:Forgelin:1.6.0"
+
+    compile group: 'org.openmuc', name: 'jrxtx', version: '1.0.1'
 
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
