@@ -8,7 +8,7 @@ import java.util.*
 
 
 class Lightning private constructor() : Event {
-    private val delayPer: Long = 20
+    private val delayPer: Long = 100
     companion object {
         val obj = Lightning()
     }
