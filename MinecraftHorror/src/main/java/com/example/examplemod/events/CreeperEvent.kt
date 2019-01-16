@@ -1,6 +1,7 @@
 package com.example.examplemod.events
 
 import com.example.examplemod.MyMod
+import com.example.examplemod.WriteDataTask
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.util.ResourceLocation
 import net.minecraft.util.SoundCategory
@@ -39,6 +40,7 @@ class CreeperEvent() : Event {
 
         val timeMs = 1500L
         MyMod.timer.schedule(RemoveCreeperTask(), timeMs)
+        WriteDataTask.run()
     }
 
     private class RemoveCreeperTask : TimerTask() {

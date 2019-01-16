@@ -1,0 +1,16 @@
+[
+{
+  "modid": "edahorror",
+  "name": "EDA Horror Mod",
+  "description": "Uses EDA Data to trigger horror events",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Steven Lowes"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
