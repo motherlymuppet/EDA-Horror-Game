@@ -1,11 +1,12 @@
 package com.example.examplemod
 
-import com.example.examplemod.Mod.MODID
-import com.example.examplemod.Mod.NAME
-import com.example.examplemod.Mod.VERSION
+import com.example.examplemod.MyMod.MODID
+import com.example.examplemod.MyMod.NAME
+import com.example.examplemod.MyMod.VERSION
 import com.example.examplemod.events.Lightning
 import com.example.examplemod.events.TestCommands
 import com.example.examplemod.serial.Serial
+import com.example.examplemod.setup.CreeperCommand
 import com.example.examplemod.setup.GameSetup
 import com.example.examplemod.setup.StartCommand
 import com.example.examplemod.setup.StopCommand
@@ -25,9 +26,9 @@ import java.util.*
 
 @Mod.EventBusSubscriber(modid = MODID)
 @Mod(modid = MODID, name = NAME, version = VERSION, modLanguageAdapter = "net.shadowfacts.forgelin.KotlinAdapter")
-object Mod {
+object MyMod {
     const val MODID = "edahorror"
-    const val NAME = "EDA Horror Mod"
+    const val NAME = "EDA Horror MyMod"
     const val VERSION = "1.0.0"
     val timer = Timer()
 
@@ -51,6 +52,7 @@ object Mod {
     fun serverLoad(event: FMLServerStartingEvent){
         event.registerServerCommand(StartCommand())
         event.registerServerCommand(StopCommand())
+        event.registerServerCommand(CreeperCommand())
         TestCommands.eventCommands.forEach {
             event.registerServerCommand(it)
         }

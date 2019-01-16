@@ -51,10 +51,11 @@ class Serial constructor(port: CommPortIdentifier, seconds: Long?) : SerialPortE
     }
 
     fun gradient(ms: Long): Double?{
-        val end = mutableData.lastOrNull() ?: return null
+        val data = data
+        val end = data.lastOrNull() ?: return null
 
         val startTime = end.first - ms
-        val start = mutableData.firstOrNull { (time, _) -> time >  startTime} ?: return null
+        val start = data.firstOrNull { (time, _) -> time >  startTime} ?: return null
 
         val valueDelta = end.second - start.second
         val timeDelta = end.first - start.first

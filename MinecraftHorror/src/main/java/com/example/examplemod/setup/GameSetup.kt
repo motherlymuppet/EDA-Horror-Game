@@ -1,9 +1,7 @@
 package com.example.examplemod.setup
 
-import com.example.examplemod.Mod
+import com.example.examplemod.MyMod
 import net.minecraft.client.Minecraft
-import net.minecraft.client.settings.GameSettings
-import net.minecraft.client.settings.KeyBinding
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
@@ -11,7 +9,6 @@ import net.minecraft.potion.Potion
 import net.minecraft.potion.PotionEffect
 import net.minecraft.util.NonNullList
 import net.minecraft.world.EnumDifficulty
-import java.util.*
 
 object GameSetup {
     private var enabled = false
@@ -19,7 +16,7 @@ object GameSetup {
     fun start(player: EntityPlayer) {
         if (!enabled) {
             enabled = true
-            Mod.logger.info("Horror Start")
+            MyMod.logger.info("Horror Start")
             blind(player)
             slow(player)
             Minecraft.getMinecraft().gameSettings.saveOptions()
@@ -66,7 +63,7 @@ object GameSetup {
     fun stop(player: EntityPlayer) {
         if (enabled) {
             enabled = false
-            Mod.logger.info("Horror End")
+            MyMod.logger.info("Horror End")
             removePotions(player)
             revertGameSettings(player)
         }
