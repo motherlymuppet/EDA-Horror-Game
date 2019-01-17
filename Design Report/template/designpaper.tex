@@ -1,0 +1,179 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{times}
+\usepackage{durhampaper}
+\usepackage{harvard}
+
+\citationmode{abbr}
+\bibliographystyle{agsm}
+
+\title{Tailoring Horror Games by Integrating Bodily Sensors}
+\author{David Budgen}
+\student{Steven Lowes}
+\supervisor{Magnus Bordewich}
+\degree{BSc Computer Science}
+
+\date{2019-01-25}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+%These instructions give you guidelines for preparing the design paper.  DO NOT change any settings, such as margins and font sizes.  Just use this as a template and modify the contents into your design paper.  Do not cite references in the abstract.
+
+%The abstract must be a Structured Abstract with the headings {\bf Context/Background}, {\bf Aims}, {\bf Method}, and {\bf Proposed Solution}.  This section should not be no longer than a page, and having no more than two or three sentences under each heading is advised.
+
+\subsection{Context/Background}
+	
+\textbf{Context/Background}
+	\begin{itemize}
+		\item Horror games are a large industry
+		\item People become thrilled by being scared
+		\item Games currently are a one-size fits all approach - Compare to non-game horror things? Haunted house etc? Do they tailor it to the individual
+		\item People are different, and respond differently to being scared
+	\end{itemize}
+
+\textbf{Aims}
+	\begin{itemize}
+		\item Implement and test a system which alters the frequency (and type?) of scary events in a horror game based on feedback from bodily sensors
+	\end{itemize}
+
+\textbf{Method}
+	\begin{itemize}
+		\item A simple horror environment will be created in the game minecraft.
+		\item Jump scares can be triggered programmatically.
+		\item Create an adaptive method for scaring users which uses information from GSR sensor
+		\item Compare this "adaptive" method to two naive solutions (random scare placement and even spread)
+	\end{itemize}
+
+\textbf{Proposed Solution}
+	\begin{itemize}
+			\item After a jump scare, data from the GSR sensor can be examined to determine how scared the player was
+			\item If the player is not as scared, allow more time between jump scares
+			\item If the player is very scared, increase frequency of scares
+	\end{itemize}
+
+\end{abstract}
+
+\begin{keywords}
+Galvanic Skin Response, Electrodermal Activity, Human-Computer Interaction, Video Games
+\end{keywords}
+
+\section{Introduction}
+%This section briefly introduces the project, the research question you are addressing.  Do not change the font sizes or line spacing in order to put in more text.
+
+%Note that the whole report, including the references, should not be longer than 12 pages in length (there is no penalty for short papers if the required content is included). There should be at least 5 referenced papers.
+
+	\begin{itemize}
+		\item Horror industry
+		\begin{itemize}
+			\item Examine horror industry, size, especially gaming
+			\item Comment on lack of tailoring to the individual
+			\item Compare with tailored scare experiences
+			\item Maybe there is some research on this
+		\end{itemize}
+	
+		\item GSR
+		\begin{itemize}
+			\item Explain the mechanism of GSR
+			\item Response time, average curve + recovery
+			\item Explain cause, size of effect that is needed to cause a response
+			\item Talk about other uses
+			\item What kind of things is it best at measuring
+		\end{itemize}
+	\end{itemize}
+
+\subsection{Project Aim}
+\begin{itemize}
+	\item Do users enjoy playing a horror game more when its scares are tailored based on feedback from bodily sensors? Is galvanic skin response sufficient to understand a user's response to a scare?
+\end{itemize}
+
+\subsection{Deliverables}
+\begin{enumerate}
+	\item Minimum Deliverables
+	\begin{itemize}
+		\item Create an immersive game environment in which you can control events such as the arrival of new enemies and their location.
+		\item Create a system for tracking the user EDA measurements and game events simultaneously.
+		\item Create a standardised game setting for users to play through and record EDA measurements as they progress. Record some user experiences.
+		\item Determine what game events trigger responses and select events to use in next deliverables.
+	\end{itemize}
+	
+	\item Intermediate Deliverables
+	\begin{itemize}
+		\item Analyse data from users and try to determine: susceptibility to expected new shock events, e.g. underlying tension or delay since last event.
+		\item Create one or more adaptive systems for triggering events at moments of maximum impact.
+		\item Create a (null hypothesis) system for random generation of events.
+	\end{itemize}
+	
+	\item Advanced Deliverables
+	\begin{itemize}
+		\item Conduct a user study to determine whether the adaptive systems give a better user experience than the random system.
+		\item Revise the adaptive system based upon empirical evidence obtained.
+	\end{itemize}
+\end{enumerate}
+
+\section{Design}
+
+%This section presents the proposed solutions of the problems in detail. The design details should all be placed in this section. You may create a number of subsections, each focusing on one issue.
+
+%This section should be up to 8 pages in length.
+
+%The rest of this section shows the formats of subsections as well as some general formatting information.  You should also consult the Word template.
+
+%The font used for the main text should be Times New Roman (Times) and the font size should be 12.  The first line of all paragraphs should be indented by 0.25in, except for the first paragraph of each section, subsection, subsubsection etc. (the paragraph immediately after the header) where no indentation is needed.
+
+%In general, figures and tables should not appear before they are cited.  Place figure captions below the figures; place table titles above the tables.  If your figure has two parts, for example, include the labels ``(a)'' and ``(b)'' as part of the artwork.  Please verify that figures and tables you mention in the text actually exist.  make sure that all tables and figures are numbered as shown in Table \ref{units} and Figure 1.
+
+%sort out your own preferred means of inserting figures
+
+\subsection{Requirements}
+
+	\begin{itemize}
+		\item Functional Requirements
+		\item Nonfunctional Requirements
+	\end{itemize}
+
+\subsection{In-Game Environment}
+The environment will be a haunted house. Users will be given the goal of finding a number of items throughout the house, but they will not be able to reasonably complete the task within the time. This just ensures that the users have a purpose and continue to explore the environment
+
+\subsection{Jump Scares}
+Describe the jump scare briefly, show a screenshot from the game and explain the sound
+
+Show some GSR data from a jump scare?
+
+\subsection{Implementation}
+
+\subsubsection{Choice of Game}
+The game Minecraft was chosen due to its comprehensive modding api, cross-platform compatibility, customisability, and ease of use when it comes to creating environments.
+
+\subsubsection{Hardware}
+What arduino, what sensor
+
+What code is the arduino running?
+
+How is communication happenning? (serial + jrxtx library)
+
+\subsubsection{Choice of Language}
+The language Kotlin was chosen due to my familiarity with it, and its interoperability with java, which Minecraft and its modding api use. Kotlin also allows code to be written more succinctly with less boilerplate to improve productivity and expressiveness.
+
+\subsection{Evaluation}
+Success will be measured based on a combination of data from the sensors, and players self reported enjoyment + scaredness on a 10-point scale.
+
+\subsubsection{Controls}
+Each user will play the game once. Repeat playthroughs are not reasonable as it is expected that the game will become less scary after one playthrough. Each adaptive-method playthrough will be matched with some naive method playthroughs to control for the number of scares and total playtime. (Adaptive algorithm will have a differing number of scares each time, and for each adaptive run-through we'll do one of each naive method pre-set to have the same number of scares)
+
+Playthroughs are anticipated to last around 10 minutes (will be predetermined) and contain around 10 scares (will be determined based on the adaptive algorithm).
+
+\subsection{References}
+
+%The list of cited references should appear at the end of the report, ordered alphabetically by the surnames of the first authors.  The default style for references cited in the main text is the  Harvard (author, date) format.  When citing a section in a book, please give the relevant page numbers, as in \cite[p293]{budgen}.  When citing, where there are either one or two authors, use the names, but if there are more than two, give the first one and use ``et al.'' as in  , except where this would be ambiguous, in which case use all author names.
+
+%You need to give all authors' names in each reference.  Do not use ``et al.'' unless there are more than five authors.  Papers that have not been published should be cited as ``unpublished'' \cite{euther}.  Papers that have been submitted or accepted for publication should be cited as ``submitted for publication'' as in \cite{futher} .  You can also cite using just the year when the author's name appears in the text, as in ``but according to Futher \citeyear{futher}, we \dots''.  Where an authors has more than one publication in a year, add `a', `b' etc. after the year.
+
+	\begin{itemize}
+		\item
+	\end{itemize}
+
+\bibliography{projectpaper}
+
+\end{document}
