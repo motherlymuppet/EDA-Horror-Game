@@ -35,22 +35,26 @@
 
 \textbf{Aims}
 	\begin{itemize}
-		\item Implement and test a system which alters the frequency (and type?) of scary events in a horror game based on feedback from bodily sensors
+		\item Project aims to see whether bodily sensors can improve a user's horror game experience by reading their reactions from the data and adjusting game play accordingly.
 	\end{itemize}
 
 \textbf{Method}
+	\begin{itemize}
+		\item A system will be created which constantly reads from bodily sensors while the user is playing a game
+		\item The rate and timing of scares will be adjusted based on the data 
+		\item Different ways of adjusting the rate and timing based on data will be explored.
+	\end{itemize}
+
+\textbf{Proposed Solution}
 	\begin{itemize}
 		\item A simple horror environment will be created in the game minecraft.
 		\item Jump scares can be triggered programmatically.
 		\item Create an adaptive method for scaring users which uses information from GSR sensor
 		\item Compare this "adaptive" method to two naive solutions (random scare placement and even spread)
-	\end{itemize}
-
-\textbf{Proposed Solution}
-	\begin{itemize}
-			\item After a jump scare, data from the GSR sensor can be examined to determine how scared the player was
-			\item If the player is not as scared, allow more time between jump scares
-			\item If the player is very scared, increase frequency of scares
+		\item After a jump scare, data from the GSR sensor can be examined to determine how scared the player was
+		\item If the player is not as scared, allow more time between jump scares
+		\item If the player is very scared, increase frequency of scares
+		\item User tests will be performed
 	\end{itemize}
 
 \end{abstract}
@@ -73,44 +77,40 @@ Galvanic Skin Response, Electrodermal Activity, Human-Computer Interaction, Vide
 			\item Maybe there is some research on this
 		\end{itemize}
 	
-		\item GSR
+		\item Bodily Sensors
+		
+		\item The game minecraft
+		
+		\item Project Purpose
 		\begin{itemize}
-			\item Explain the mechanism of GSR
-			\item Response time, average curve + recovery
-			\item Explain cause, size of effect that is needed to cause a response
-			\item Talk about other uses
-			\item What kind of things is it best at measuring
+			\item Do users enjoy playing a horror game more when its scares are tailored based on feedback from bodily sensors? Is galvanic skin response sufficient to understand a user's response to a scare?
 		\end{itemize}
+		
+		\item Deliverables
+		\begin{enumerate}
+			\item Minimum Deliverables
+			\begin{itemize}
+				\item Create an immersive game environment in which you can control events such as the arrival of new enemies and their location.
+				\item Create a system for tracking the user EDA measurements and game events simultaneously.
+				\item Create a standardised game setting for users to play through and record EDA measurements as they progress. Record some user experiences.
+				\item Determine what game events trigger responses and select events to use in next deliverables.
+			\end{itemize}
+			
+			\item Intermediate Deliverables
+			\begin{itemize}
+				\item Analyse data from users and try to determine: susceptibility to expected new shock events, e.g. underlying tension or delay since last event.
+				\item Create one or more adaptive systems for triggering events at moments of maximum impact.
+				\item Create a (null hypothesis) system for random generation of events.
+			\end{itemize}
+			
+			\item Advanced Deliverables
+			\begin{itemize}
+				\item Conduct a user study to determine whether the adaptive systems give a better user experience than the random system.
+				\item Revise the adaptive system based upon empirical evidence obtained.
+			\end{itemize}
+		\end{enumerate}
+		
 	\end{itemize}
-
-\subsection{Project Aim}
-\begin{itemize}
-	\item Do users enjoy playing a horror game more when its scares are tailored based on feedback from bodily sensors? Is galvanic skin response sufficient to understand a user's response to a scare?
-\end{itemize}
-
-\subsection{Deliverables}
-\begin{enumerate}
-	\item Minimum Deliverables
-	\begin{itemize}
-		\item Create an immersive game environment in which you can control events such as the arrival of new enemies and their location.
-		\item Create a system for tracking the user EDA measurements and game events simultaneously.
-		\item Create a standardised game setting for users to play through and record EDA measurements as they progress. Record some user experiences.
-		\item Determine what game events trigger responses and select events to use in next deliverables.
-	\end{itemize}
-	
-	\item Intermediate Deliverables
-	\begin{itemize}
-		\item Analyse data from users and try to determine: susceptibility to expected new shock events, e.g. underlying tension or delay since last event.
-		\item Create one or more adaptive systems for triggering events at moments of maximum impact.
-		\item Create a (null hypothesis) system for random generation of events.
-	\end{itemize}
-	
-	\item Advanced Deliverables
-	\begin{itemize}
-		\item Conduct a user study to determine whether the adaptive systems give a better user experience than the random system.
-		\item Revise the adaptive system based upon empirical evidence obtained.
-	\end{itemize}
-\end{enumerate}
 
 \section{Design}
 
@@ -133,6 +133,15 @@ Galvanic Skin Response, Electrodermal Activity, Human-Computer Interaction, Vide
 		\item Nonfunctional Requirements
 	\end{itemize}
 
+\subsection{Galvanic Skin Response}
+\begin{itemize}
+	\item Explain the mechanism of GSR
+	\item Response time, average curve + recovery
+	\item Explain cause, size of effect that is needed to cause a response
+	\item Talk about other uses
+	\item What kind of things is it best at measuring
+\end{itemize}
+
 \subsection{In-Game Environment}
 The environment will be a haunted house. Users will be given the goal of finding a number of items throughout the house, but they will not be able to reasonably complete the task within the time. This just ensures that the users have a purpose and continue to explore the environment
 
@@ -141,28 +150,33 @@ Describe the jump scare briefly, show a screenshot from the game and explain the
 
 Show some GSR data from a jump scare?
 
-\subsection{Implementation}
-
 \subsubsection{Choice of Game}
-The game Minecraft was chosen due to its comprehensive modding api, cross-platform compatibility, customisability, and ease of use when it comes to creating environments.
+The game Minecraft was chosen due to its comprehensive modding api, cross-platform compatibility, customisability, and ease of use when it comes to creating environments. The modding api, called `forge' is community-maintained, but incredibly complete and mature, having originally been created x years ago (CITE).
 
-\subsubsection{Hardware}
+\subsubsection{System Architecture}
 What arduino, what sensor
 
 What code is the arduino running?
 
 How is communication happenning? (serial + jrxtx library)
 
-\subsubsection{Choice of Language}
+Talk about data buffer, how gsr is intepreted, that the system just sets a timer until the next scare and it's not based on the environment whatsoever.
+
 The language Kotlin was chosen due to my familiarity with it, and its interoperability with java, which Minecraft and its modding api use. Kotlin also allows code to be written more succinctly with less boilerplate to improve productivity and expressiveness.
 
-\subsection{Evaluation}
+\subsection{User Study}
+Talk about number of participants, length of participation, whether they play more than once
+
 Success will be measured based on a combination of data from the sensors, and players self reported enjoyment + scaredness on a 10-point scale.
 
-\subsubsection{Controls}
 Each user will play the game once. Repeat playthroughs are not reasonable as it is expected that the game will become less scary after one playthrough. Each adaptive-method playthrough will be matched with some naive method playthroughs to control for the number of scares and total playtime. (Adaptive algorithm will have a differing number of scares each time, and for each adaptive run-through we'll do one of each naive method pre-set to have the same number of scares)
 
 Playthroughs are anticipated to last around 10 minutes (will be predetermined) and contain around 10 scares (will be determined based on the adaptive algorithm).
+
+\subsection{Future Ideas}
+Add heartbeat sensor
+
+Add multiple kinds of scares, tailor to what scares individuals rather than just rate + timing, i.e. spiders for people scared on them
 
 \subsection{References}
 
