@@ -23,40 +23,17 @@
 
 %The abstract must be a Structured Abstract with the headings {\bf Context/Background}, {\bf Aims}, {\bf Method}, and {\bf Proposed Solution}.  This section should not be no longer than a page, and having no more than two or three sentences under each heading is advised.
 
-\subsection{Context/Background}
-	
 \textbf{Context/Background}
-	\begin{itemize}
-		\item Horror games are a large industry
-		\item People become thrilled by being scared
-		\item Games currently are a one-size fits all approach - Compare to non-game horror things? Haunted house etc? Do they tailor it to the individual
-		\item People are different, and respond differently to being scared
-	\end{itemize}
+Horror games are a large industry, with thousands of games and hundreds of millions of copies owned. Players are thrilled by experiencing fear in a safe and secure environment. However, each player reacts differently and the one-size-fits-all approach can prove constricting for players.
 
 \textbf{Aims}
-	\begin{itemize}
-		\item Project aims to see whether bodily sensors can improve a user's horror game experience by reading their reactions from the data and adjusting game play accordingly.
-	\end{itemize}
+The project aims to explore how bodily sensors can be integrated into horror games to improve the user's experience by adjusting gameplay based on data readings. A secondary aim of the project is that jump-scares can be triggered without pre-existing knowledge of the environment that the player is in, or the stage of the play-through that they are at. This will make gameplay more dynamic and reduce the difficulty of creating new environments.
 
 \textbf{Method}
-	\begin{itemize}
-		\item A system will be created which constantly reads from bodily sensors while the user is playing a game
-		\item The rate and timing of scares will be adjusted based on the data 
-		\item Different ways of adjusting the rate and timing based on data will be explored.
-	\end{itemize}
+A simple horror game with the ability to read data from sensors will be created. The rate and timing of scares will be adjusted based on the sensor readings. Different ways of adjusting the rate and timing of scares will be explored and measured in a user study. The dynamic methods will be compared to `static' methods which are not based on the sensor readings.
 
 \textbf{Proposed Solution}
-	\begin{itemize}
-		\item A simple horror environment will be created in the game minecraft.
-		\item Jump scares can be triggered programmatically.
-		\item Create an adaptive method for scaring users which uses information from GSR sensor
-		\item Compare this "adaptive" method to two naive solutions (random scare placement and even spread)
-		\item After a jump scare, data from the GSR sensor can be examined to determine how scared the player was
-		\item If the player is not as scared, allow more time between jump scares
-		\item If the player is very scared, increase frequency of scares
-		\item User tests will be performed
-	\end{itemize}
-
+The game Minecraft will be modified using the community-made `Forge' modding api. The modifications will add a jump-scare which can be triggered programmatically. After a jump-scare is activated, the mod will read data from a galvaniv skin response sensor and allow more time between scares if it believes that the user is becoming desensitized. This adaptive method will be compared to two `static' methods - one which scares at random intervals, and one with scares at regular intervals.
 \end{abstract}
 
 \begin{keywords}
@@ -76,6 +53,7 @@ Galvanic Skin Response, Electrodermal Activity, Human-Computer Interaction, Vide
 			\item Compare with tailored scare experiences
 			\item Maybe there is some research on this
 		\end{itemize}
+	Horror games are a large industry, with over 2000 unique titles on steam and almost 500 million copies owned /cite{horrorSteamSpy}
 	
 		\item Bodily Sensors
 		
@@ -114,7 +92,7 @@ Galvanic Skin Response, Electrodermal Activity, Human-Computer Interaction, Vide
 
 \section{Design}
 
-%This section presents the proposed solutions of the problems in detail. The design details should all be placed in this section. You may create a number of subsections, each focusing on one issue.
+%This section presents the prohttps://steamspy.com/tag/horrorposed solutions of the problems in detail. The design details should all be placed in this section. You may create a number of subsections, each focusing on one issue.
 
 %This section should be up to 8 pages in length.
 
