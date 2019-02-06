@@ -2,7 +2,9 @@ package com.stevenlowes.edahorror.setup
 
 import com.stevenlowes.edahorror.ModController
 import net.minecraft.client.Minecraft
+import net.minecraft.client.entity.EntityPlayerSP
 import net.minecraft.entity.player.EntityPlayer
+import net.minecraft.entity.player.EntityPlayerMP
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.potion.Potion
@@ -16,11 +18,13 @@ object GameSetup {
     fun start(player: EntityPlayer) {
         if (!enabled) {
             enabled = true
-            ModController.logger.info("Horror Start")
-            blind(player)
             slow(player)
+            ModController.server.playerList.addOp(player.gameProfile)
             Minecraft.getMinecraft().gameSettings.saveOptions()
             useGameSettings(player)
+
+            ModController.server.setDifficultyForAllWorlds(EnumDifficulty.PEACEFUL)
+            ModController.logger.info("Horror Start")
         }
     }
 
@@ -41,6 +45,7 @@ object GameSetup {
         settings.keyBindDrop.keyCode = 0
         settings.keyBindSprint.keyCode = 0
         settings.gammaSetting = 0f
+        settings.chatVisibility = EntityPlayer.EnumChatVisibility.HIDDEN
 
         inventory.clear()
         inventory.addAll(player.inventory.mainInventory)
@@ -64,12 +69,10 @@ object GameSetup {
         if (enabled) {
             enabled = false
             ModController.logger.info("Horror End")
-            removePotions(player)
+            player.clearActivePotions()
             revertGameSettings(player)
         }
     }
-
-
 
     private fun revertGameSettings(player: EntityPlayer) {
         Minecraft.getMinecraft().gameSettings.loadOptions()
@@ -95,11 +98,5 @@ object GameSetup {
         val potion = Potion.getPotionById(2)!!
         val potionEffect = PotionEffect(potion, Int.MAX_VALUE, 1, true, false)
         player.addPotionEffect(potionEffect)
-    }
-
-    private fun removePotions(player: EntityPlayer) {
-        while(player.activePotionEffects.isNotEmpty()){
-            player.removePotionEffect(player.activePotionEffects.first().potion)
-        }
     }
 }

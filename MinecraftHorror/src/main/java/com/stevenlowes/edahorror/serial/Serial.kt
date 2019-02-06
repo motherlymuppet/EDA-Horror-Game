@@ -50,17 +50,36 @@ class Serial constructor(port: CommPortIdentifier, seconds: Long?) : SerialPortE
         }
     }
 
-    fun gradient(ms: Long): Double?{
+    private fun recentData(ms: Long): List<Pair<Long, Double>>?{
         val data = data
-        val end = data.lastOrNull() ?: return null
+        val startTime = (data.lastOrNull() ?: return null).first - ms
+        return data.subList(data.indexOfFirst { (time, _) -> time >= startTime }, data.size-1)
+    }
 
-        val startTime = end.first - ms
-        val start = data.firstOrNull { (time, _) -> time >  startTime} ?: return null
+    fun gradient(ms: Long): Double?{
+        val data = recentData(ms) ?: return null
+        val end = data.last()
+        val start = data.first()
 
         val valueDelta = end.second - start.second
         val timeDelta = end.first - start.first
         val gradient = valueDelta / timeDelta
         return gradient
+    }
+
+    fun swing(ms: Long): Double?{
+        val data = recentData(ms) ?: return null
+        val max = data.maxBy { it.second }!!
+        val min = data.minBy { it.second }!!
+        val swing = max.second - min.second
+        return if(min.first < max.first){
+            //Return a negative number if the EDA increased during the swing
+            -swing
+        }
+        else{
+            //Return a positive number if the EDA decreased during the swing
+            swing
+        }
     }
 
     override fun close() {

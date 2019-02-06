@@ -10,9 +10,15 @@ import com.stevenlowes.edahorror.setup.CreeperCommand
 import com.stevenlowes.edahorror.setup.GameSetup
 import com.stevenlowes.edahorror.setup.StartCommand
 import com.stevenlowes.edahorror.setup.StopCommand
+import com.stevenlowes.edahorror.storyteller.EDAStoryTeller
+import com.stevenlowes.edahorror.storyteller.RandomStoryTeller
+import com.stevenlowes.edahorror.storyteller.StoryTeller
 import gnu.io.CommPortIdentifier
 import net.minecraft.client.Minecraft
 import net.minecraft.entity.player.EntityPlayer
+import net.minecraft.potion.Potion
+import net.minecraft.potion.PotionEffect
+import net.minecraft.server.MinecraftServer
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
@@ -31,6 +37,14 @@ object ModController {
     const val NAME = "EDA Horror ModController"
     const val VERSION = "1.0.0"
     val timer = Timer()
+    val rand = Random()
+    lateinit var storyTeller: StoryTeller
+    lateinit var server: MinecraftServer
+
+    private fun createStoryTeller(){
+        //storyTeller = RandomStoryTeller(10, 600)
+        storyTeller = EDAStoryTeller(600)
+    }
 
     lateinit var logger: Logger
         private set
@@ -57,6 +71,7 @@ object ModController {
         TestCommands.eventCommands.forEach {
             event.registerServerCommand(it)
         }
+        server = event.server
     }
 
     @EventHandler
@@ -65,21 +80,32 @@ object ModController {
         GameSetup.stop(player)
     }
 
-    private var dropping = false
+    var started = false
 
     @SubscribeEvent
     @JvmStatic
     fun onPlayerTick(event: TickEvent.PlayerTickEvent) {
         val player = event.player
 
-        val gradient = serial.gradient(500) ?: return
+        if(!started){
+            started = true
+            GameSetup.start(player)
+            createStoryTeller()
+        }
 
-        if(gradient < -1.5 && !dropping){
-            dropping = true
-            Lightning.obj.call(player)
-        }
-        else if(gradient > 0.5 && dropping){
-            dropping = false
-        }
+        storyTeller.tick(player)
+
+        val potion = Potion.getPotionById(15)!!
+        val potionEffect = PotionEffect(potion, 15, -2, true, false)
+        player.addPotionEffect(potionEffect)
+        player.world.worldTime = 20 * 1000
+    }
+
+    fun runAfter(millis: Long, func: () -> Unit){
+        timer.schedule(object: TimerTask(){
+            override fun run() {
+                func()
+            }
+        }, millis)
     }
 }

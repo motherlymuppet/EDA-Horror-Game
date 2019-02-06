@@ -3,9 +3,6 @@ package com.stevenlowes.edahorror.events
 import com.stevenlowes.edahorror.ModController
 import com.stevenlowes.edahorror.WriteDataTask
 import net.minecraft.entity.player.EntityPlayer
-import net.minecraft.util.ResourceLocation
-import net.minecraft.util.SoundCategory
-import net.minecraft.util.SoundEvent
 import java.util.*
 
 class CreeperEvent() : Event {
@@ -30,12 +27,10 @@ class CreeperEvent() : Event {
                            )
 
         sounds.forEach {
-            player.world.playSound(null,
-                                   player.position,
-                                   SoundEvent.REGISTRY.getObject(ResourceLocation(it.first.first))!!,
-                                   SoundCategory.HOSTILE,
-                                   it.first.second,
-                                   it.second)
+            ModController.server.commandManager.executeCommand(
+                    ModController.server,
+                    "/playsound ${it.first.first} hostile @a ${player.posX} ${player.posY} ${player.posZ} ${it.first.second} ${it.second}"
+                                                              )
         }
 
         val timeMs = 1500L
