@@ -3,18 +3,18 @@ package com.stevenlowes.edahorror
 import com.stevenlowes.edahorror.ModController.MODID
 import com.stevenlowes.edahorror.ModController.NAME
 import com.stevenlowes.edahorror.ModController.VERSION
-import com.stevenlowes.edahorror.events.Lightning
+import com.stevenlowes.edahorror.data.Mouse
 import com.stevenlowes.edahorror.events.TestCommands
-import com.stevenlowes.edahorror.serial.Serial
+import com.stevenlowes.edahorror.data.Serial
 import com.stevenlowes.edahorror.setup.CreeperCommand
 import com.stevenlowes.edahorror.setup.GameSetup
 import com.stevenlowes.edahorror.setup.StartCommand
 import com.stevenlowes.edahorror.setup.StopCommand
 import com.stevenlowes.edahorror.storyteller.EDAStoryTeller
-import com.stevenlowes.edahorror.storyteller.RandomStoryTeller
 import com.stevenlowes.edahorror.storyteller.StoryTeller
 import gnu.io.CommPortIdentifier
 import net.minecraft.client.Minecraft
+import net.minecraft.client.audio.SoundRegistry
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.potion.Potion
 import net.minecraft.potion.PotionEffect
@@ -51,6 +51,8 @@ object ModController {
     lateinit var serial: Serial
         private set
 
+    val mouse: Mouse = Mouse(Consts.dataSeconds)
+
     @EventHandler
     fun preInit(event: FMLPreInitializationEvent) {
         logger = event.modLog
@@ -59,7 +61,7 @@ object ModController {
     @EventHandler
     fun init(event: FMLInitializationEvent) {
         serial = Serial(CommPortIdentifier.getPortIdentifier(
-                "COM4"), 120)
+                "COM4"), Consts.dataSeconds)
         Runtime.getRuntime().addShutdownHook(Thread(Runnable { serial.close() }))
     }
 
@@ -68,6 +70,7 @@ object ModController {
         event.registerServerCommand(StartCommand())
         event.registerServerCommand(StopCommand())
         event.registerServerCommand(CreeperCommand())
+        Minecraft.getMinecraft().soundHandler
         TestCommands.eventCommands.forEach {
             event.registerServerCommand(it)
         }
@@ -80,25 +83,22 @@ object ModController {
         GameSetup.stop(player)
     }
 
-    var started = false
+    var running = false
 
     @SubscribeEvent
     @JvmStatic
     fun onPlayerTick(event: TickEvent.PlayerTickEvent) {
         val player = event.player
+        mouse.addData(player.cameraPitch, player.cameraYaw)
 
-        if(!started){
-            started = true
-            GameSetup.start(player)
-            createStoryTeller()
+        if(running){
+            storyTeller.tick(player)
+
+            val potion = Potion.getPotionById(15)!!
+            val potionEffect = PotionEffect(potion, 15, -2, true, false)
+            player.addPotionEffect(potionEffect)
+            player.world.worldTime = 20 * 1000
         }
-
-        storyTeller.tick(player)
-
-        val potion = Potion.getPotionById(15)!!
-        val potionEffect = PotionEffect(potion, 15, -2, true, false)
-        player.addPotionEffect(potionEffect)
-        player.world.worldTime = 20 * 1000
     }
 
     fun runAfter(millis: Long, func: () -> Unit){
@@ -107,5 +107,15 @@ object ModController {
                 func()
             }
         }, millis)
+    }
+
+    fun start() {
+        createStoryTeller()
+        running = true
+    }
+
+    fun stop(player: EntityPlayer) {
+        storyTeller.stop(player)
+        running = false
     }
 }

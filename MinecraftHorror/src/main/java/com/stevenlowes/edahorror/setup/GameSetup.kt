@@ -2,14 +2,14 @@ package com.stevenlowes.edahorror.setup
 
 import com.stevenlowes.edahorror.ModController
 import net.minecraft.client.Minecraft
-import net.minecraft.client.entity.EntityPlayerSP
+import net.minecraft.client.audio.PositionedSoundRecord
 import net.minecraft.entity.player.EntityPlayer
-import net.minecraft.entity.player.EntityPlayerMP
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.potion.Potion
 import net.minecraft.potion.PotionEffect
 import net.minecraft.util.NonNullList
+import net.minecraft.util.ResourceLocation
 import net.minecraft.world.EnumDifficulty
 
 object GameSetup {
@@ -23,8 +23,11 @@ object GameSetup {
             Minecraft.getMinecraft().gameSettings.saveOptions()
             useGameSettings(player)
 
+            Minecraft.getMinecraft().soundHandler.playSound(Music())
+
             ModController.server.setDifficultyForAllWorlds(EnumDifficulty.PEACEFUL)
             ModController.logger.info("Horror Start")
+            ModController.start()
         }
     }
 
@@ -71,6 +74,7 @@ object GameSetup {
             ModController.logger.info("Horror End")
             player.clearActivePotions()
             revertGameSettings(player)
+            ModController.stop(player)
         }
     }
 

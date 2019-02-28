@@ -1,0 +1,11 @@
+{
+  "horror_music": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "edahorror:music/horror",
+        "stream": true
+      }
+    ]
+  }
+}

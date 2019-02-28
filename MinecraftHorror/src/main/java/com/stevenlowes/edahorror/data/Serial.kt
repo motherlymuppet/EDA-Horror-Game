@@ -1,4 +1,4 @@
-package com.stevenlowes.edahorror.serial
+package com.stevenlowes.edahorror.data
 
 import gnu.io.CommPortIdentifier
 import gnu.io.SerialPort
