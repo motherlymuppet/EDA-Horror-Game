@@ -8,10 +8,9 @@ import java.io.BufferedReader
 import java.io.Closeable
 import java.io.InputStreamReader
 
-class Serial constructor(port: CommPortIdentifier, seconds: Long?) : SerialPortEventListener, Closeable {
+class Serial constructor(port: CommPortIdentifier) : SerialPortEventListener, Closeable {
 
     private val serialPort: SerialPort
-    private val ms = seconds?.times(1000)
 
     private val input: BufferedReader
     private val mutableData = mutableListOf<Pair<Long, Double>>()
@@ -40,24 +39,17 @@ class Serial constructor(port: CommPortIdentifier, seconds: Long?) : SerialPortE
 
             val now = System.currentTimeMillis()
             mutableData.add(now to number)
-
-            if(ms != null) {
-                val startTime = now - (ms)
-                while (mutableData.first().first < startTime) {
-                    mutableData.removeAt(0)
-                }
-            }
         }
     }
 
-    private fun recentData(ms: Long): List<Pair<Long, Double>>?{
+    fun recentData(ms: Long): List<Pair<Long, Double>>{
         val data = data
-        val startTime = (data.lastOrNull() ?: return null).first - ms
+        val startTime = data.last().first - ms
         return data.subList(data.indexOfFirst { (time, _) -> time >= startTime }, data.size-1)
     }
 
     fun gradient(ms: Long): Double?{
-        val data = recentData(ms) ?: return null
+        val data = recentData(ms)
         val end = data.last()
         val start = data.first()
 
@@ -68,7 +60,7 @@ class Serial constructor(port: CommPortIdentifier, seconds: Long?) : SerialPortE
     }
 
     fun swing(ms: Long): Double?{
-        val data = recentData(ms) ?: return null
+        val data = recentData(ms)
         val max = data.maxBy { it.second }!!
         val min = data.minBy { it.second }!!
         val swing = max.second - min.second

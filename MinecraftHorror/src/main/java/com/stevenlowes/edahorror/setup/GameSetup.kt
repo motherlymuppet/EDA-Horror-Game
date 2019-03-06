@@ -1,6 +1,7 @@
 package com.stevenlowes.edahorror.setup
 
 import com.stevenlowes.edahorror.ModController
+import com.stevenlowes.edahorror.WriteDataTask
 import net.minecraft.client.Minecraft
 import net.minecraft.client.audio.PositionedSoundRecord
 import net.minecraft.entity.player.EntityPlayer
@@ -11,6 +12,7 @@ import net.minecraft.potion.PotionEffect
 import net.minecraft.util.NonNullList
 import net.minecraft.util.ResourceLocation
 import net.minecraft.world.EnumDifficulty
+import net.minecraft.world.GameType
 
 object GameSetup {
     private var enabled = false
@@ -22,12 +24,14 @@ object GameSetup {
             ModController.server.playerList.addOp(player.gameProfile)
             Minecraft.getMinecraft().gameSettings.saveOptions()
             useGameSettings(player)
+            player.setGameType(GameType.ADVENTURE)
 
             Minecraft.getMinecraft().soundHandler.playSound(Music())
 
             ModController.server.setDifficultyForAllWorlds(EnumDifficulty.PEACEFUL)
             ModController.logger.info("Horror Start")
             ModController.start()
+            ModController.eventData.addData("Start")
         }
     }
 
@@ -40,11 +44,11 @@ object GameSetup {
     private fun useGameSettings(player: EntityPlayer) {
         val settings = Minecraft.getMinecraft().gameSettings
         settings.difficulty = EnumDifficulty.PEACEFUL
-        settings.renderDistanceChunks = 2
+        settings.renderDistanceChunks = 3
         settings.limitFramerate = 240
         settings.fovSetting = 90f
         settings.autoJump = false
-        settings.keyBindInventory.keyCode = 0
+        //settings.keyBindInventory.keyCode = 0
         settings.keyBindDrop.keyCode = 0
         settings.keyBindSprint.keyCode = 0
         settings.gammaSetting = 0f
@@ -53,8 +57,8 @@ object GameSetup {
         inventory.clear()
         inventory.addAll(player.inventory.mainInventory)
 
-        (9..35).forEach {
-            player.inventory.mainInventory[it] = ItemStack(Item.getItemById(166), 1)
+        (0..35).forEach {
+            player.inventory.mainInventory[it] = ItemStack.EMPTY
         }
 
         prevHealth = player.health
@@ -75,6 +79,8 @@ object GameSetup {
             player.clearActivePotions()
             revertGameSettings(player)
             ModController.stop(player)
+            ModController.eventData.addData("Stop")
+            WriteDataTask.run()
         }
     }
 

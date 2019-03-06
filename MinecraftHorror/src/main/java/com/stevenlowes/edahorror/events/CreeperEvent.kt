@@ -5,7 +5,7 @@ import com.stevenlowes.edahorror.WriteDataTask
 import net.minecraft.entity.player.EntityPlayer
 import java.util.*
 
-class CreeperEvent() : Event {
+class CreeperEvent : Event {
     companion object {
         val obj = CreeperEvent()
     }
@@ -35,7 +35,7 @@ class CreeperEvent() : Event {
 
         val timeMs = 1500L
         ModController.timer.schedule(RemoveCreeperTask(), timeMs)
-        WriteDataTask.run("Creeper")
+        ModController.eventData.addData("Creeper")
     }
 
     private class RemoveCreeperTask : TimerTask() {
