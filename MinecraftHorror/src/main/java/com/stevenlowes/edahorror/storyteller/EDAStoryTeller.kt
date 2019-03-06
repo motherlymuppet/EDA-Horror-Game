@@ -21,6 +21,7 @@ class EDAStoryTeller(gameTimeSecs: Int) : StoryTeller(gameTimeSecs) {
         val scareTime = nextScare ?: return
 
         if (t > scareTime) {
+            nextScare = null
             CreeperEvent.obj.call(player)
 
             ModController.runAfter(measurementDelay) {
@@ -58,7 +59,7 @@ class EDAStoryTeller(gameTimeSecs: Int) : StoryTeller(gameTimeSecs) {
         private const val measurementDelay = 5 * 1000L
     }
 
-    private fun randomDelay() : Double = ModController.rand.nextDouble() * 30 * 1000
+    private fun randomDelay() : Double = (20 + ModController.rand.nextDouble() * 10) * 1000
 }
 
 private fun List<Double>.stdDevs(): Double{

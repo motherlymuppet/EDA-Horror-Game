@@ -48,7 +48,7 @@ object ModController {
     private fun createStoryTeller() {
 
         //CHANGE THIS LINE
-        val method = StoryTellerType.REPEAT
+        val method = StoryTellerType.EDA
 
         val time = 600
         when (method) {
@@ -73,7 +73,8 @@ object ModController {
     @EventHandler
     fun init(event: FMLInitializationEvent) {
         serial = Serial(CommPortIdentifier.getPortIdentifier(
-                "COM4"))
+                //"COM4"))
+                "/dev/ttyS80"))
         Runtime.getRuntime().addShutdownHook(Thread(Runnable { serial.close() }))
         makeWorldCopy()
     }
@@ -122,7 +123,7 @@ object ModController {
     @JvmStatic
     fun onPlayerTick(event: TickEvent.PlayerTickEvent) {
         val player = event.player
-        MOUSE_DATA.addData(player.cameraPitch, player.cameraYaw)
+        MOUSE_DATA.addData(player.pitchYaw.x, player.pitchYaw.y)
 
         if (!started) {
             started = true

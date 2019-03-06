@@ -1,0 +1,25 @@
+Instructions for participant:
+
+You will be placed in a haunted house environment.
+Your job is to find all 16 coloured wool in the house.
+The wool is placed inside chests, 1 per chest.
+Not all chests contain wool.
+Don't worry if you can't find all the wool in 10 minutes, it is intentionally hard.
+If you do manage to find all of the wool, continue to explore the house until you are told to stop.
+
+At various points during the test a jump-scare will occur. They have no impact on the gameplay.
+You will be wearing a sensor on your fingers which measures your response to these jump-scares.
+You will also be wearing headphones to listen to the game sound. Spooky music will be playing.
+
+Your playtest will last 10 minutes, after which a message will appear on the screen informing you that the test is complete.
+
+The controls for the game are as follows:
+W           = move forwards
+A           = move left
+S           = move backwards
+D           = move right
+Space       = jump
+Left-click  = used to move wool into your inventory
+Right-click = open/close doors and chests
+
+Talk to the researcher if you have any issues or concerns.
