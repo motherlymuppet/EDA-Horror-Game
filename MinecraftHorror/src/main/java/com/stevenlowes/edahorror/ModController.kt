@@ -140,6 +140,9 @@ object ModController {
 
             //Make it always daytime
             player.world.worldTime = 20 * 1000
+
+            //Make the player invulnerable
+            player.health = 20f
         }
     }
 
