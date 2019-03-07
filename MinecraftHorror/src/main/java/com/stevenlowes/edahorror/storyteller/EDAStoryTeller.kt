@@ -42,7 +42,7 @@ class EDAStoryTeller(gameTimeSecs: Int) : StoryTeller(gameTimeSecs) {
                     val stdDevsAboveMean = (swing - mean)/stdDev
                     val multiplier = Math.exp(-0.366 * stdDevsAboveMean)
                     val clamped = min(max(multiplier, 0.33), 3.0)
-                    delay *= clamped
+                    delay = min(max(delay * clamped, 7.0), 100.0)
                     nextScare = System.currentTimeMillis() + delay
 
                     ModController.logger.info("Avg: $mean")
