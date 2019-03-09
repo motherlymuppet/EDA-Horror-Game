@@ -21,5 +21,6 @@ D           = move right
 Space       = jump
 Left-click  = used to move wool into your inventory
 Right-click = open/close doors and chests
+E           = Exit chest inventory
 
 Talk to the researcher if you have any issues or concerns.

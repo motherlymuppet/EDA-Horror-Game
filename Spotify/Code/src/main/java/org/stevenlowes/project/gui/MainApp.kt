@@ -1,5 +1,6 @@
 package org.stevenlowes.project.gui
 
+import javafx.application.Application
 import javafx.stage.Stage
 import org.stevenlowes.project.spotifyAPI.DataContainer
 import org.stevenlowes.project.spotifyAPI.SpotifyAuth
@@ -22,4 +23,8 @@ class MainApp : App(Workspace::class) {
     override fun onBeforeShow(view: UIComponent) {
         workspace.dock<MainMenu>()
     }
+}
+
+fun main(args: Array<String>){
+    Application.launch(MainApp::class.java, *args)
 }

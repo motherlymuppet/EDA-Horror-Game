@@ -1,5 +1,6 @@
 package com.stevenlowes.edahorror.setup
 
+import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException
 import net.minecraft.client.audio.*
 import net.minecraft.util.ResourceLocation
 import net.minecraft.util.SoundCategory
@@ -7,19 +8,14 @@ import net.minecraft.util.SoundCategory
 class Music : ISound{
     private var sound: Sound? = null
     private val resource = ResourceLocation("edahorror:horror_music")
-    private var soundEvent: SoundEventAccessor? = null
+    private lateinit var soundEvent: SoundEventAccessor
 
     override fun createAccessor(handler: SoundHandler): SoundEventAccessor? {
-        this.soundEvent = handler.getAccessor(resource)
+        soundEvent = handler.getAccessor(resource) ?: throw ValueException("Music missing")
 
-        if (this.soundEvent == null) {
-            this.sound = SoundHandler.MISSING_SOUND
-        }
-        else {
-            this.sound = this.soundEvent!!.cloneEntry()
-        }
+        sound = this.soundEvent.cloneEntry()
 
-        return this.soundEvent
+        return soundEvent
     }
 
     override fun getXPosF() = 0f

@@ -47,6 +47,7 @@ object GameSetup {
         settings.renderDistanceChunks = 3
         settings.limitFramerate = 240
         settings.fovSetting = 90f
+        settings.mouseSensitivity = 0.25f
         settings.autoJump = false
         //settings.keyBindInventory.keyCode = 0
         settings.keyBindDrop.keyCode = 0

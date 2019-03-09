@@ -47,7 +47,7 @@ object ModController {
 
     private fun createStoryTeller() {
 
-        //CHANGE THIS LINE
+        //TODO CHANGE THIS LINE
         val method = StoryTellerType.EDA
 
         val time = 600
@@ -73,6 +73,7 @@ object ModController {
     @EventHandler
     fun init(event: FMLInitializationEvent) {
         serial = Serial(CommPortIdentifier.getPortIdentifier(
+                //TODO this line gets changed too
                 //"COM4"))
                 "/dev/ttyS80"))
         Runtime.getRuntime().addShutdownHook(Thread(Runnable { serial.close() }))
@@ -84,7 +85,7 @@ object ModController {
         event.registerServerCommand(StartCommand())
         event.registerServerCommand(StopCommand())
         event.registerServerCommand(CreeperCommand())
-        Minecraft.getMinecraft().soundHandler
+        //Minecraft.getMinecraft().soundHandler
         TestCommands.eventCommands.forEach {
             event.registerServerCommand(it)
         }
