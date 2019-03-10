@@ -1,10 +1,10 @@
 package com.stevenlowes.edahorror.data
 
-class MouseData constructor(){
+class MouseData {
     private val mutableData = mutableListOf<Pair<Long, Angle>>()
     val data: List<Pair<Long, Angle>> get() = mutableData.toList()
 
-    fun addData(pitch: Float, yaw: Float){
+    fun addData(pitch: Float, yaw: Float) {
         val now = System.currentTimeMillis()
         mutableData.add(now to Angle(pitch, yaw))
     }
