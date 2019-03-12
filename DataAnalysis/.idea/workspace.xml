@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f95d6e59-1ac5-490f-b3ee-3dcfa0fa8440" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Config.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/MainApp.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/MainMenu.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/SingleEDA.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Visualisation.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Angle.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Participant.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/ParticipantRegistry.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/PlayTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/PlayTestLoader.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/StoryTeller.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/DataLabel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/DataLabels.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/LabelledLineChart.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/config/splash.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/config/splash.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-1.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-2.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-3.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-4.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-5.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/ops.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/ops.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/options.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/options.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/advancements/def15adf-07af-3672-a35b-fe69f139863f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/data/villages.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/data/villages.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/level.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/level.dat_old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/playerdata/def15adf-07af-3672-a35b-fe69f139863f.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-1.-2.mca" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-1.-2.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-2.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-2.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-2.-2.mca" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-2.-2.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/session.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/session.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/stats/def15adf-07af-3672-a35b-fe69f139863f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/usercache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/usernamecache.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/usernamecache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/src/main/java/com/stevenlowes/edahorror/Consts.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/src/main/java/com/stevenlowes/edahorror/ModController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/src/main/java/com/stevenlowes/edahorror/ModController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../minecraftdata/Spreadsheet.ods" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/PlayTestLoader.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+              <folding>
+                <element signature="e#46#191#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/MainApp.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+              <folding>
+                <element signature="e#46#215#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/MainMenu.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+              <folding>
+                <element signature="e#46#176#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Config.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Visualisation.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+              <folding>
+                <element signature="e#61#168#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/SingleEDA.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+              <folding>
+                <element signature="e#61#168#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/ArrayList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="281" selection-start-line="281" selection-end-line="281" />
+              <folding>
+                <element signature="e#10388#10389#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/DataLabel.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/DataLabels.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+              <folding>
+                <element signature="e#46#242#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/LabelledLineChart.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="727">
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
+              <folding>
+                <element signature="e#46#335#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Enum" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin File" />
+        <option value="Kotlin Object" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/dataanalysis/Angle.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/dataanalysis/PlaytestType.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/dataanalysis/Loader.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/dataanalysis/Participant.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/dataanalysis/ParticipantRegistry.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/dataanalysis/PlayTestLoader.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/dataanalysis/PlayTest.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/dataanalysis/main.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/dataanalysis/gui/LabelledLineChart.kt" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/MainApp.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/main.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/PlayTestLoader.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/Extractors/SeriesExtractor.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/visualisation.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/SingleParticipant.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Visualisation.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/LabelledLineChart.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/DataLabel.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/DataLabels.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/SingleEDA.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Config.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/MainMenu.kt" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="2576" />
+    <option name="height" value="1416" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="DataAnalysis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataAnalysis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataAnalysis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataAnalysis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataAnalysis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataAnalysis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataAnalysis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataAnalysis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataAnalysis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataAnalysis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="analysis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataAnalysis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataAnalysis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="analysis" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataAnalysis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataAnalysis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="analysis" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="visualisations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataAnalysis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataAnalysis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="analysis" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataAnalysis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataAnalysis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="analysis" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552357577464" />
+    <property name="last_opened_file_path" value="C:/Program Files/Java/jdk1.8.0_181/bin/jvisualvm.exe" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="org.stevenlowes.project.dataanalysis.data" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Backups\Steven-3rdYrProject\DataAnalysis\src\main\java\org\stevenlowes\project\dataanalysis\gui" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Kotlin.org.stevenlowes.project.analysis.app.MainAppKt">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="org.stevenlowes.project.analysis.MainKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <module name="DataAnalysis" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="org.stevenlowes.project.analysis.MainKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="org.stevenlowes.project.analysis.app.MainAppKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <module name="DataAnalysis" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="org.stevenlowes.project.analysis.app.MainAppKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.org.stevenlowes.project.analysis.app.MainAppKt" />
+        <item itemvalue="Kotlin.org.stevenlowes.project.analysis.MainKt" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f95d6e59-1ac5-490f-b3ee-3dcfa0fa8440" name="Default Changelist" comment="" />
+      <created>1552341465236</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1552341465236</updated>
+      <workItem from="1552341468480" duration="11640000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="11640000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="Capture Tool" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Statistic" />
+      <window_info anchor="bottom" id="Run with VisualVM" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Messages" weight="0.32969603" />
+      <window_info anchor="bottom" id="Debug with VisualVM" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32969603" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32969603" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.3694466" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/main.kt</url>
+          <line>10</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>group.children</expression-string>
+        <language-id>kotlin</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>node.isVisible</expression-string>
+        <language-id>kotlin</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Angle.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="52" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/StoryTeller.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/ParticipantRegistry.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Participant.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/PlayTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+          <folding>
+            <element signature="e#46#227#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/main.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding>
+            <element signature="e#46#198#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/PlayTestLoader.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding>
+            <element signature="e#46#191#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="281" selection-start-line="281" selection-end-line="281" />
+          <folding>
+            <element signature="e#10388#10389#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/LabelledLineChart.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="727">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#46#335#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/DataLabel.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/DataLabels.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+          <folding>
+            <element signature="e#46#242#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/SingleEDA.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+          <folding>
+            <element signature="e#61#168#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Visualisation.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding>
+            <element signature="e#61#168#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/MainApp.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#46#215#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Config.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/MainMenu.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#46#176#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

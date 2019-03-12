@@ -48,7 +48,7 @@ object ModController {
     private fun createStoryTeller() {
 
         //TODO CHANGE THIS LINE
-        val method = StoryTellerType.REPEAT
+        val method = StoryTellerType.EDA
 
         val time = 600
         when (method) {
