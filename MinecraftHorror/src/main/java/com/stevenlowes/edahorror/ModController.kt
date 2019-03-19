@@ -74,8 +74,8 @@ object ModController {
     fun init(event: FMLInitializationEvent) {
         serial = Serial(CommPortIdentifier.getPortIdentifier(
                 //TODO this line gets changed too
-                "COM4"))
-                //"/dev/ttyS80"))
+                //"COM4"))
+                "/dev/ttyS80"))
         Runtime.getRuntime().addShutdownHook(Thread(Runnable { serial.close() }))
         makeWorldCopy()
     }
