@@ -4,12 +4,12 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 
-data class PlayTest(
+data class Playtest(
     val participant: Participant,
-    val storyTeller: StoryTeller,
+    val storyteller: Storyteller,
     val lengthMs: Long,
     val mouseData: Map<Long, Angle>,
-    val edaData: Map<Long, Int>,
+    val edaData: Map<Long, Double>,
     val scares: List<Long>
 ) {
     constructor(participant: Participant, json: JsonElement) : this(
@@ -50,8 +50,8 @@ data class PlayTest(
     ) : this(
         participant,
 
-        //StoryTeller
-        StoryTeller.from(storyTeller),
+        //Storyteller
+        Storyteller.from(storyTeller),
 
         //End time
         eventData.last().asJsonObject["time"].asLong - timeOffset,
@@ -77,7 +77,7 @@ data class PlayTest(
             val epochTime = json["time"].asLong
             val offsetTime = epochTime - timeOffset
 
-            val edaValue = json["value"].asDouble.toInt()
+            val edaValue = json["value"].asDouble
 
             return@map offsetTime to edaValue
         }.toMap(),

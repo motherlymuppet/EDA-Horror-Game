@@ -1,10 +1,12 @@
 package org.stevenlowes.project.analysis.app.visualisations
 
-import org.stevenlowes.project.analysis.data.PlayTest
+import org.stevenlowes.project.analysis.app.visualisations.datatransforms.transformDestructor
+import org.stevenlowes.project.analysis.data.Playtest
 import org.stevenlowes.project.analysis.gui.DataLabel
 
-class SingleEDA(playtest: PlayTest): Visualisation{
-    private val series = playtest.edaData.mapValues { it.value.toDouble() }
+class SingleEDA(playtest: Playtest): Visualisation{
+    private val series = playtest.edaData
+        .transformDestructor(5000)
 
     override val data: List<Map<Long, Double>> = listOf(series)
 

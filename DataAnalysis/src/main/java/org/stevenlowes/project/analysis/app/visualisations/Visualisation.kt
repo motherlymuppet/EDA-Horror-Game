@@ -1,6 +1,5 @@
 package org.stevenlowes.project.analysis.app.visualisations
 
-import org.stevenlowes.project.analysis.data.PlayTest
 import org.stevenlowes.project.analysis.gui.DataLabel
 
 interface Visualisation {

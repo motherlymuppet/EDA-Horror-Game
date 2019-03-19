@@ -5,9 +5,9 @@ import com.google.gson.JsonParser
 import java.io.File
 import java.io.FileReader
 
-object PlayTestLoader {
+object PlaytestLoader {
     private fun load(registry: ParticipantRegistry, file: File) =
-        PlayTest(registry[file.nameWithoutExtension.toInt()]!!, readJson(file))
+        Playtest(registry[file.nameWithoutExtension.toInt()]!!, readJson(file))
 
     private fun readJson(file: File): JsonElement = JsonParser().parse(FileReader(file))
 
