@@ -2,65 +2,98 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f95d6e59-1ac5-490f-b3ee-3dcfa0fa8440" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Series.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Eda.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/EdaAfterAllScare.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/EdaAfterCalibrationScare.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/EdaAfterScareAroundMin.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/EdaAfterTestScare.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/NormaliseRelativeTransform.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/StartAtMinTransform.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAnalysis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DataAnalysis.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Config.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Config.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/Config.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/UtilKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/UtilKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/AverageEDA.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/AverageEDA.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/AverageEdaAfterScare.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/AverageEdaAfterScare.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/ComboVisualisation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/ComboVisualisation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/EdaAfterScare.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/EdaAfterScare.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/MouseMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/MouseMovement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/MouseMovementAfterScare.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/MouseMovementAfterScare.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/SingleEDA.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/SingleEDA.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/Visualisation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/Visualisation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AngleDeltaTransformKt$transformAngleDelta$$inlined$sortedBy$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AngleDeltaTransformKt$transformAngleDelta$$inlined$sortedBy$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AngleDeltaTransformKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AngleDeltaTransformKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransformKt$interpolateForKeys$$inlined$sortedBy$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransformKt$interpolateForKeys$$inlined$sortedBy$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransformKt$interpolateForKeys$overIndices$1$over$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransformKt$interpolateForKeys$overIndices$1$over$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransformKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransformKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/DestructorTransformKt$transformDestructor$keepKeys$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/DestructorTransformKt$transformDestructor$keepKeys$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/DestructorTransformKt$transformDestructor$keepKeys$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/DestructorTransformKt$transformDestructor$keepKeys$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/DestructorTransformKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/DestructorTransformKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/GradientTransformKt$transformGraident$$inlined$sortedBy$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/GradientTransformKt$transformGraident$$inlined$sortedBy$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/GradientTransformKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/GradientTransformKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/NormaliseTransformKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/NormaliseTransformKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/OverlapFilterKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/OverlapFilterKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/SplitTransformKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/SplitTransformKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/StartAtZeroTransformKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/StartAtZeroTransformKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/PlayTest$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/PlayTest$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/PlayTest$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/PlayTest$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/PlayTest$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/PlayTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/PlayTestLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/StoryTeller$Companion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/StoryTeller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Util.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Util.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AfterScares.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AverageAfterScare.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AverageEDA.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/ComboVisualisation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/ComboVisualisation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/MouseMovement.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/MouseMovementAfterScare.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/SingleEDA.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Visualisation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Visualisation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AngleDeltaTransform.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransform.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransform.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/DestructorTransform.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/DestructorTransform.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/GradientTransform.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/GradientTransform.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/NormaliseTransform.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/NormaliseAbsoluteTransform.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/OverlapFilter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/OverlapFilter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/SplitTransform.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/SplitTransform.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/StartAtZeroTransform.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/StartAtZeroTransform.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Playtest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Playtest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/LabelledLineChart.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/LabelledLineChart.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/DataAnalysis.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/Config.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/UtilKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/AverageEDA.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/AverageEdaAfterScare.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/ComboVisualisation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/EdaAfterScare.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/MouseMovement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/MouseMovementAfterScare.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/SingleEDA.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/Visualisation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AngleDeltaTransformKt$transformAngleDelta$$inlined$sortedBy$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AngleDeltaTransformKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransformKt$interpolateForKeys$$inlined$sortedBy$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransformKt$interpolateForKeys$overIndices$1$over$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransformKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/DestructorTransformKt$transformDestructor$keepKeys$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/DestructorTransformKt$transformDestructor$keepKeys$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/DestructorTransformKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/GradientTransformKt$transformGraident$$inlined$sortedBy$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/GradientTransformKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/NormaliseTransformKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/OverlapFilterKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/SplitTransformKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/visualisations/datatransforms/StartAtZeroTransformKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/Playtest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/Playtest$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/Playtest$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/Playtest$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/Playtest$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/Playtest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/gui/LabelledLineChart.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/gui/LabelledLineChartKt.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/Repeat.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/Repeat.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/config/splash.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/config/splash.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/2019-03-20-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/2019-03-20-1.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/2019-03-20-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/2019-03-20-2.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/2019-03-20-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/2019-03-20-3.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/2019-03-20-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/2019-03-20-4.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/2019-03-20-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/2019-03-20-5.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/2019-03-20-6.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/2019-03-20-6.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/2019-03-20-7.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/2019-03-20-7.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-1.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-2.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-3.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-4.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-5.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/ops.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/ops.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/advancements/64579c2e-a410-37b0-995d-5aa98a8b0304.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/options.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/options.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/advancements/e10ba356-0952-343e-8ccb-a3b6e69bf75e.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/data/villages.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/data/villages.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/level.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/level.dat_old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/playerdata/64579c2e-a410-37b0-995d-5aa98a8b0304.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/playerdata/e10ba356-0952-343e-8ccb-a3b6e69bf75e.dat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-1.-1.mca" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-1.-2.mca" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-1.-2.mca" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-2.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-2.-1.mca" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-2.-2.mca" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-2.-2.mca" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/session.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/session.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/stats/64579c2e-a410-37b0-995d-5aa98a8b0304.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/stats/e10ba356-0952-343e-8ccb-a3b6e69bf75e.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/usercache.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/usernamecache.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/usernamecache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/src/main/java/com/stevenlowes/edahorror/ModController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/src/main/java/com/stevenlowes/edahorror/ModController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../minecraftdata/.~lock.Spreadsheet.csv#" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../minecraftdata/Spreadsheet.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../minecraftdata/Spreadsheet.csv" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -74,14 +107,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AverageAfterScare.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AverageAfterScare.kt">
+      <file leaf-file-name="NormaliseRelativeTransform.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/NormaliseRelativeTransform.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+            <state relative-caret-position="60">
+              <caret line="7" column="69" selection-start-line="7" selection-start-column="69" selection-end-line="7" selection-end-column="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OverlapFilter.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/OverlapFilter.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="67" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
               <folding>
-                <element signature="e#61#297#0" expanded="true" />
+                <element signature="e#76#183#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Config.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Config.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="28" column="77" selection-start-line="28" selection-start-column="77" selection-end-line="28" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartAtMinTransform.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/StartAtMinTransform.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="62" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NormaliseAbsoluteTransform.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/NormaliseAbsoluteTransform.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="7" column="69" selection-start-line="7" selection-start-column="69" selection-end-line="7" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -89,50 +158,50 @@
       <file leaf-file-name="Visualisation.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Visualisation.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+            <state relative-caret-position="180">
+              <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SingleEDA.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/SingleEDA.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Config.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Config.kt">
+      <file leaf-file-name="LabelledLineChart.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/LabelledLineChart.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="13" column="50" lean-forward="true" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
+              <caret line="22" column="119" selection-start-line="22" selection-start-column="119" selection-end-line="22" selection-end-column="119" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AverageTransform.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransform.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="15" column="64" lean-forward="true" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
               <folding>
-                <element signature="e#42#182#0" expanded="true" />
+                <element signature="e#76#280#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainMenu.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/MainMenu.kt">
+      <file leaf-file-name="Series.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Series.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="120">
+              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
               <folding>
-                <element signature="e#46#176#0" expanded="true" />
+                <element signature="e#42#189#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FX.kt" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/no/tornado/tornadofx/1.7.17/tornadofx-1.7.17-sources.jar!/tornadofx/FX.kt">
+      <file leaf-file-name="LineChart.class" pinned="false" current-in-tab="false">
+        <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/jfxrt.jar!/javafx/scene/chart/LineChart.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5565">
-              <caret line="407" selection-start-line="407" selection-end-line="407" />
+            <state relative-caret-position="202">
+              <caret line="89" column="11" selection-start-line="89" selection-start-column="11" selection-end-line="89" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -149,15 +218,21 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Map&lt;Long, Double&gt;</find>
+      <find>typeali</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>Series</replace>
+    </replaceStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/dataanalysis/Angle.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/dataanalysis/PlaytestType.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/dataanalysis/Loader.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/dataanalysis/Participant.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/dataanalysis/ParticipantRegistry.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/dataanalysis/PlayTestLoader.kt" />
@@ -171,32 +246,44 @@
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/Extractors/SeriesExtractor.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/visualisation.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/SingleParticipant.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Visualisation.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/LabelledLineChart.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/DataLabel.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/DataLabels.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/MainMenu.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/Average.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/ScoreTransform.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransform.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/InnerDataTransform.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/OverlapTransform.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/NormaliseTransform.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Playtest.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/SingleEDA.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AverageEDA.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/StartAtZeroTransform.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/SplitTransform.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/ComboVisualisation.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AverageAfterScare.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Util.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/GradientTransform.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AngleDeltaTransform.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/MouseMovement.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/DestructorTransform.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/MouseMovementAfterScare.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AfterScares.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AfterScare.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AverageAfterScare.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/SingleEDA.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/MouseMovement.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/MouseMovementAfterScare.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/EdaAfterScare.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Util.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Playtest.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Eda.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/ComboVisualisation.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/SplitTransform.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/StartAtZeroTransform.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/EdaAfterCalibrationScare.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/EdaAfterTestScare.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/EdaAfterAllScare.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/EdaAfterScareAroundMin.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Config.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AngleDeltaTransform.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/DestructorTransform.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/GradientTransform.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/NormaliseAbsoluteTransform.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/NormaliseRelativeTransform.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/OverlapFilter.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/StartAtMinTransform.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Series.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Visualisation.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/LabelledLineChart.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransform.kt" />
       </list>
     </option>
   </component>
@@ -217,9 +304,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="1294" />
-    <option name="height" value="1407" />
+    <option name="x" value="265" />
+    <option name="y" value="127" />
+    <option name="width" value="1284" />
+    <option name="height" value="789" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -227,6 +315,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -313,11 +402,14 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="dataanalysis" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552861581033" />
@@ -338,6 +430,7 @@
       <recent name="org.stevenlowes.project.analysis.app.visualisations.datatransforms" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms" />
       <recent name="E:\Backups\Steven-3rdYrProject\DataAnalysis\src\main\java\org\stevenlowes\project\analysis\app\visualisations" />
       <recent name="E:\Backups\Steven-3rdYrProject\DataAnalysis\src\main\java\org\stevenlowes\project\dataanalysis\gui" />
     </key>
@@ -464,12 +557,15 @@
       <workItem from="1552341468480" duration="43083000" />
       <workItem from="1553007040949" duration="146000" />
       <workItem from="1553081252085" duration="533000" />
-      <workItem from="1553082011371" duration="375000" />
+      <workItem from="1553082011371" duration="929000" />
+      <workItem from="1553083597420" duration="4770000" />
+      <workItem from="1553091189567" duration="11104000" />
+      <workItem from="1553173327066" duration="11009000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44137000" />
+    <option name="totallyTimeSpent" value="71574000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -477,37 +573,37 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.4711279" weight="0.32910052" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.46735024" weight="0.32910052" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5121425" side_tool="true" visible="true" weight="0.32910052" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.48623854" side_tool="true" weight="0.36931217" />
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48785752" visible="true" weight="0.32910052" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48461953" weight="0.39576718" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24986508" />
+      <window_info anchor="bottom" id="Statistic" order="7" sideWeight="0.49960256" weight="0.32969603" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49960256" weight="0.32910052" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48251194" weight="0.3694466" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.51376146" weight="0.36931217" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Statistic" order="7" sideWeight="0.49960256" weight="0.32969603" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Debug with VisualVM" order="7" />
       <window_info anchor="bottom" id="Run with VisualVM" order="7" sideWeight="0.49841017" weight="0.32969603" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" id="Maven" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Debug with VisualVM" order="7" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49960256" weight="0.32969603" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,113 +621,71 @@
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AngleDeltaTransform.kt</url>
-          <line>26</line>
-          <properties />
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
       </breakpoints>
+      <option name="time" value="42" />
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JetRunConfigurationType">
+        <watch expression="keys.min()" language="kotlin" />
+        <watch expression="keys.max()" language="kotlin" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>(ang2.yaw - ang1.yaw) % 180</expression-string>
+        <expression-string>keys.max()</expression-string>
         <language-id>kotlin</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>this</expression-string>
+        <expression-string>keys.min()</expression-string>
         <language-id>kotlin</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>$receiver</expression-string>
+        <expression-string>keys.mim()</expression-string>
         <language-id>kotlin</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>group.children</expression-string>
+        <expression-string>min()</expression-string>
         <language-id>kotlin</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>node.isVisible</expression-string>
+        <expression-string>file.nameWithoutExtension.toInt()</expression-string>
+        <language-id>kotlin</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>file.nameWithoutExtension.toInt()]!!</expression-string>
+        <language-id>kotlin</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>playtest.edaData.keys.last()</expression-string>
+        <language-id>kotlin</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>playtest.edaData</expression-string>
+        <language-id>kotlin</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>playtest.edaData.last</expression-string>
+        <language-id>kotlin</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>playtest.edaData.last()</expression-string>
         <language-id>kotlin</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/SingleEDA.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Config.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-          <folding>
-            <element signature="e#42#182#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/MainMenu.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#46#176#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/no/tornado/tornadofx/1.7.17/tornadofx-1.7.17-sources.jar!/tornadofx/FX.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6105">
-          <caret line="407" selection-start-line="407" selection-end-line="407" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AverageAfterScare.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-          <folding>
-            <element signature="e#61#297#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Visualisation.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/SingleEDA.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/MainMenu.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#46#176#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/no/tornado/tornadofx/1.7.17/tornadofx-1.7.17-sources.jar!/tornadofx/FX.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5565">
@@ -643,22 +697,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="11" column="115" lean-forward="true" selection-start-line="11" selection-start-column="115" selection-end-line="11" selection-end-column="115" />
-          <folding>
-            <element signature="e#42#182#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AverageAfterScare.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-          <folding>
-            <element signature="e#61#297#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AverageAfterScare.kt" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Visualisation.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -666,7 +708,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/SingleEDA.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Eda.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
@@ -694,9 +736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#42#182#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -731,24 +770,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/main.kt" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/ArrayList.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/DataLabel.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/DataLabels.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/LabelledLineChart.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="20" column="11" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -770,19 +795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Playtest.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/OverlapFilter.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/NormaliseTransform.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/StartAtZeroTransform.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/SplitTransform.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/ComboVisualisation.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/GradientTransform.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AverageEDA.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransform.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AngleDeltaTransform.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/PlaytestLoader.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/MouseMovement.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Util.kt" />
     <entry file="jar://$MAVEN_REPOSITORY$/no/tornado/tornadofx/1.7.17/tornadofx-1.7.17-sources.jar!/tornadofx/FX.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5565">
@@ -790,8 +802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/DestructorTransform.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/MouseMovementAfterScare.kt" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/MainMenu.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -802,37 +812,221 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AverageAfterScare.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/DataLabel.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AverageAfterScare.kt" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AverageEDA.kt" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/MouseMovementAfterScare.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/PlaytestLoader.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/security/AccessController.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Playtest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-858">
+          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
           <folding>
-            <element signature="e#61#297#0" expanded="true" />
+            <element signature="e#47#195#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AfterScares.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Visualisation.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Eda.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+        <state relative-caret-position="105">
+          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/SingleEDA.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/SplitTransform.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="150">
+          <caret line="10" column="71" selection-start-line="10" selection-start-column="71" selection-end-line="10" selection-end-column="71" />
+          <folding>
+            <element signature="e#76#183#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/StartAtZeroTransform.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/EdaAfterCalibrationScare.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/EdaAfterTestScare.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="16" column="64" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/EdaAfterAllScare.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="28" column="46" lean-forward="true" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/EdaAfterScareAroundMin.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="46" column="42" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/MouseMovement.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AngleDeltaTransform.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/ComboVisualisation.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Util.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="1" lean-forward="true" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/DestructorTransform.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          <folding>
+            <element signature="e#76#145#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/GradientTransform.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+          <folding>
+            <element signature="e#76#169#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/NormaliseAbsoluteTransform.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="69" selection-start-line="7" selection-start-column="69" selection-end-line="7" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/NormaliseRelativeTransform.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="69" selection-start-line="7" selection-start-column="69" selection-end-line="7" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/OverlapFilter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="67" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
+          <folding>
+            <element signature="e#76#183#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/StartAtMinTransform.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="62" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/jfxrt.jar!/javafx/scene/chart/LineChart.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="89" column="11" selection-start-line="89" selection-start-column="11" selection-end-line="89" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Series.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+          <folding>
+            <element signature="e#42#189#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Config.kt">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="28" column="77" selection-start-line="28" selection-start-column="77" selection-end-line="28" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/LabelledLineChart.kt">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="13" column="50" lean-forward="true" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
+          <caret line="22" column="119" selection-start-line="22" selection-start-column="119" selection-end-line="22" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Visualisation.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransform.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="64" lean-forward="true" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
           <folding>
-            <element signature="e#42#182#0" expanded="true" />
+            <element signature="e#76#280#0" expanded="true" />
           </folding>
         </state>
       </provider>

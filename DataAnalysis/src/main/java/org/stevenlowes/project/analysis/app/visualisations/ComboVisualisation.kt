@@ -1,11 +1,10 @@
 package org.stevenlowes.project.analysis.app.visualisations
 
-import org.stevenlowes.project.analysis.gui.DataLabel
+import org.stevenlowes.project.analysis.Series
 
 class ComboVisualisation(vararg visualisations: Visualisation): Visualisation{
-    override val data: List<Map<Long, Double>> = visualisations.flatMap { it.data }
-    override val labels: List<DataLabel> = visualisations.flatMap { it.labels }
-    override val title: String = "Combo"
-    override val xLabel: String = "X"
-    override val yLabel: String = "Y"
+    override val series: List<Series> = visualisations.flatMap { it.series }
+    override val title: String = visualisations.first().title
+    override val xLabel: String = visualisations.first().xLabel
+    override val yLabel: String = visualisations.first().yLabel
 }

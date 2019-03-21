@@ -20,7 +20,9 @@ fun <K, V> interpolate(desiredKey: K, p1: Pair<K, V>, p2: Pair<K, V>): Double? w
     val yStart = start.second.toDouble()
     val yEnd = end.second.toDouble()
     val yDelta = yEnd - yStart
-    return yStart + (yDelta * fraction)
+    val desiredValue = yStart + (yDelta * fraction)
+
+    return desiredValue
 }
 
 operator fun <K, V : Number> Map<K, V>.times(multiplicand: Double) =
@@ -29,14 +31,14 @@ operator fun <K, V : Number> Map<K, V>.times(multiplicand: Double) =
 fun <T : Comparable<T>> min(vararg elements: T) = elements.min()
 fun <T : Comparable<T>> max(vararg elements: T) = elements.max()
 
-fun Map<Long, Double>.getValueInterpolate(key: Long): Double? {
+fun <K> Map<K, Double>.getValueInterpolate(key: K): Double? where K : kotlin.Number, K : kotlin.Comparable<K> {
     val p1 = filter { it.key <= key }.maxBy { it.key }?.toPair() ?: return null
-    val p2 = filter { it.key > key }.minBy { it.key }?.toPair() ?: return null
+    val p2 = filter { it.key >= key }.minBy { it.key }?.toPair() ?: return null
     val interpolate = interpolate(key, p1, p2)
     return interpolate
 }
 
-fun Map<Long, Double>.plusValueInterpolate(key: Long): Map<Long, Double> {
+fun <K> Map<K, Double>.plusValueInterpolate(key: K): Map<K, Double> where K : kotlin.Number, K : kotlin.Comparable<K> {
     val p1 = filter { it.key <= key }.maxBy { it.key }?.toPair() ?: return this
     val p2 = filter { it.key > key }.minBy { it.key }?.toPair() ?: return this
     val interpolate = interpolate(key, p1, p2) ?: return this
@@ -44,3 +46,17 @@ fun Map<Long, Double>.plusValueInterpolate(key: Long): Map<Long, Double> {
 }
 
 fun Double.square() = this * this
+
+fun List<Double>.stdDev(): Double {
+    val mean = average()
+    val sd = fold(0.0) { accumulator, next -> accumulator + (next - mean).square() }
+    if(sd == 0.0){
+        return 0.0
+    }
+    return Math.sqrt(sd / size - 1)
+}
+
+fun <K: Comparable<K>, V> Map<K, V>.firstValueAfter(x: K): V{
+    val xKey = keys.filter { it > x }.min()!!
+    return getValue(xKey)
+}

@@ -1,5 +1,6 @@
 package org.stevenlowes.project.analysis.app.visualisations.datatransforms
 
+import org.stevenlowes.project.analysis.Series
 import org.stevenlowes.project.analysis.plusValueInterpolate
 
 fun List<Map<Long, Double>>.filterOverlap(): List<Map<Long, Double>>{

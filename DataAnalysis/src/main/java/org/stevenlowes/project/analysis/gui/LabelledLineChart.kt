@@ -4,7 +4,9 @@ import javafx.scene.chart.LineChart
 import javafx.scene.chart.NumberAxis
 import javafx.scene.chart.XYChart
 import javafx.scene.layout.Priority
+import org.stevenlowes.project.analysis.Series
 import org.stevenlowes.project.analysis.app.visualisations.Visualisation
+import org.stevenlowes.project.analysis.app.visualisations.datatransforms.transformDestructor
 import tornadofx.hgrow
 import tornadofx.observable
 import tornadofx.vgrow
@@ -13,8 +15,8 @@ class LabelledLineChart(vis: Visualisation) :
     LineChart<Number, Number>(
         NumberAxis(),
         NumberAxis(),
-        vis.data.map { map ->
-            map.toSeries()
+        vis.series.map { series ->
+            series.toXYSeries()
         }.observable()
     ) {
 
@@ -48,10 +50,3 @@ class LabelledLineChart(vis: Visualisation) :
         this.dataLabels.layout()
     }
 }
-
-private fun Map<Long, Double>.toSeries(): XYChart.Series<Number, Number> =
-    XYChart.Series<Number, Number>(
-        map { (x, y) ->
-            XYChart.Data<Number, Number>(x, y)
-        }.observable()
-    )

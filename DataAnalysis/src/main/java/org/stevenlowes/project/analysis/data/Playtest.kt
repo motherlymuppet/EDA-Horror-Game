@@ -3,6 +3,7 @@ package org.stevenlowes.project.analysis.data
 import com.google.gson.JsonArray
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
+import org.stevenlowes.project.analysis.Series
 
 data class Playtest(
     val participant: Participant,
@@ -70,7 +71,7 @@ data class Playtest(
             return@map offsetTime to angle
         }.toMap(),
 
-        //EDA Data
+        //Eda Data
         edaData.asSequence().map {
             val json = it.asJsonObject
 
@@ -95,6 +96,8 @@ data class Playtest(
         }
             .filter { it.second == "Creeper" }
             .map { it.first }
+            .distinct()
+            //.filter { it < eventData.last().asJsonObject["time"].asLong - timeOffset - 10_000 } //TODO remove
             .toList()
     )
 }
