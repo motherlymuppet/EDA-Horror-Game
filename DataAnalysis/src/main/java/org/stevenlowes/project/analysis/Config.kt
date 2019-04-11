@@ -14,7 +14,7 @@ object Config {
     private const val spreadsheetPath = "/home/steven/repos/Steven-3rdYrProject/minecraftdata/Spreadsheet.csv"
     private const val participantDataPath = "/home/steven/repos/Steven-3rdYrProject/minecraftdata/Participant Data"
 
-    private val playtests = PlaytestLoader.loadAll(
+    val playtests = PlaytestLoader.loadAll(
         File(spreadsheetPath),
         File(participantDataPath)
     )
@@ -23,10 +23,6 @@ object Config {
     private val control = playtests.filter { it.participant.pair != null }
 
     val visualisation: Visualisation =
-        //Eda(playtests.filter { it.participant.id in listOf(11,23) }).normaliseAbs()
-
         EdaAfterScareAroundMin(intervention, 10.0, 5.0) {_,_ -> Color.RED}.normaliseAbs().averageWithError() +
-                EdaAfterScareAroundMin(control, 10.0, 5.0) {_,_ -> Color.BLUE}.normaliseAbs().averageWithError()
-
-
+        EdaAfterScareAroundMin(control, 10.0, 5.0) {_,_ -> Color.BLUE}.normaliseAbs().averageWithError()
 }
