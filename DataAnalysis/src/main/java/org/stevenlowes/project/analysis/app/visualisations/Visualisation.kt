@@ -1,5 +1,6 @@
 package org.stevenlowes.project.analysis.app.visualisations
 
+import javafx.scene.paint.Color
 import org.stevenlowes.project.analysis.Series
 import org.stevenlowes.project.analysis.app.visualisations.datatransforms.*
 import org.stevenlowes.project.analysis.gui.DataLabel
@@ -14,11 +15,17 @@ interface Visualisation {
     val labels: List<DataLabel> get() = series.flatMap { it.labels }
 
     fun overlap() = generateVis { it.filterOverlap() }
-    fun average() = generateVis { it.transformAverage().wrapWithList() }
-    fun averageWithError() = generateVis { it.transformAverageWithError() }
-    fun median() = generateVis { it.transformMedian().wrapWithList() }
-    fun normaliseAbs() = generateVis {it.map { it.transformNormaliseAbsolute() } }
-    fun normaliseRel() = generateVis {it.map { it.transformNormaliseRelative() } }
+    fun average(newName: String? = null, color: Color? = null) =
+        generateVis { it.transformAverage(newName, color).wrapWithList() }
+
+    fun averageWithError(newName: String? = null, color: Color? = null, errorColor: Color? = null) =
+        generateVis { it.transformAverageWithError(newName, color, errorColor) }
+
+    fun median(newName: String? = null, color: Color? = null) =
+        generateVis { it.transformMedian(newName, color).wrapWithList() }
+
+    fun normaliseAbs() = generateVis { it.transformNormaliseAbsolute() }
+    fun normaliseRel() = generateVis { it.transformNormaliseRelative() }
 
     fun mapSeries(func: (Series) -> Series) = generateVis { it.map(func) }
 

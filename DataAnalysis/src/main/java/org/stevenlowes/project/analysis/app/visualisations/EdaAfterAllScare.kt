@@ -2,27 +2,23 @@ package org.stevenlowes.project.analysis.app.visualisations
 
 import javafx.scene.paint.Color
 import org.stevenlowes.project.analysis.Series
-import org.stevenlowes.project.analysis.app.visualisations.datatransforms.transformNormaliseRelative
-import org.stevenlowes.project.analysis.app.visualisations.datatransforms.transformSplit
-import org.stevenlowes.project.analysis.app.visualisations.datatransforms.transformStartAtMin
 import org.stevenlowes.project.analysis.app.visualisations.datatransforms.transformStartAtZero
 import org.stevenlowes.project.analysis.data.Playtest
-import org.stevenlowes.project.analysis.gui.DataLabel
+import org.stevenlowes.project.analysis.nullIfNull
 
-class EdaAfterAllScare(playtests: List<Playtest>, lengthAfterScareSecs: Double, colorFunc: (Playtest, Long) -> Color) : Visualisation {
+class EdaAfterAllScare(playtests: List<Playtest>, lengthAfterScareSecs: Double, colorFunc: ((Playtest, Long) -> Color)? = null) : Visualisation {
     override val series: List<Series> = playtests.flatMap { playtest ->
         playtest.scares.map { scare ->
             val lengthAfterScareMs = (lengthAfterScareSecs * 1000).toLong()
             Series(
                 "Participant ID ${playtest.participant.id} Scare @ $scare",
-                colorFunc(playtest, scare),
+                colorFunc?.invoke(playtest, scare),
                 playtest.edaData
                     .filter { (time, _) ->
                         time in scare..(scare + lengthAfterScareMs)
-                    }
-                    .transformStartAtZero(),
-                labels = emptyList()
-            )
+                    },
+                emptyList()
+            ).transformStartAtZero()
         }
     }
 

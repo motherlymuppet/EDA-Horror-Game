@@ -1,5 +1,8 @@
 package org.stevenlowes.project.analysis
 
+import javafx.scene.paint.Color
+import org.stevenlowes.project.analysis.gui.DataLabel
+
 fun <T> T.wrapWithList() = listOf(this)
 
 fun <K, V> interpolate(desiredKey: K, p1: Pair<K, V>, p2: Pair<K, V>): Double? where K : Number, K : Comparable<K>, V : Number, V: Comparable<V> {
@@ -60,3 +63,39 @@ fun <K: Comparable<K>, V> Map<K, V>.firstValueAfter(x: K): V{
     val xKey = keys.filter { it > x }.min()!!
     return getValue(xKey)
 }
+
+fun <T : Comparable<T>> List<T>.median(): T {
+    return sorted()[size / 2]
+}
+
+fun <T> List<T>.first(startIndex: Int, predicate: (T) -> Boolean): T? {
+    (startIndex until size).forEach {
+        val value = get(it)
+        if (predicate(value)) return value
+    }
+    return null
+}
+
+fun List<DataLabel>.mapX(func: (DataLabel) -> Long): List<DataLabel> = map { label ->
+    DataLabel(
+        label.text,
+        func(label),
+        label.y,
+        label.textAnchor
+    )
+}
+
+fun List<DataLabel>.mapY(func: (DataLabel) -> Double): List<DataLabel> = map { label ->
+    DataLabel(
+        label.text,
+        label.x,
+        func(label),
+        label.textAnchor
+    )
+}
+
+val Color.hex: String get() = String.format("#%02x%02x%02x", (red * 255).toInt(), (green * 255).toInt(), (blue * 255).toInt())
+
+val <A,S> ((A) -> S)?.nullIfNull get(): (A) -> S? = { a -> this?.invoke(a) }
+val <A,B,S> ((A, B) -> S)?.nullIfNull get(): (A, B) -> S? = { a, b -> this?.invoke(a, b) }
+val <A,B,C,S> ((A, B, C) -> S)?.nullIfNull get(): (A, B, C) -> S? = { a, b , c -> this?.invoke(a, b, c) }

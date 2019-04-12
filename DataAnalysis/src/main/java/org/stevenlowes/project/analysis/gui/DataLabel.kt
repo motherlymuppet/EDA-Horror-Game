@@ -7,12 +7,12 @@ import javafx.scene.text.Font
 import javafx.scene.text.FontWeight
 
 class DataLabel constructor(
-    labelText: String,
-    private val x: Long,
-    private val y: Double,
-    private val textAnchor: Pos = Pos.CENTER
+    val text: String,
+    val x: Long,
+    val y: Double,
+    val textAnchor: Pos = Pos.CENTER
 ) {
-    val node = Label(labelText)
+    val node = Label(text)
 
     fun layout(fontSize: Int, xAxis: NumberAxis, yAxis: NumberAxis) {
         val family = node.font.family

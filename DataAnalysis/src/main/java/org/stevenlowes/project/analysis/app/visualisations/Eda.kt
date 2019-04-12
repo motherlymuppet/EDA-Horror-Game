@@ -5,12 +5,13 @@ import org.stevenlowes.project.analysis.Series
 import org.stevenlowes.project.analysis.data.Playtest
 import org.stevenlowes.project.analysis.firstValueAfter
 import org.stevenlowes.project.analysis.gui.DataLabel
+import org.stevenlowes.project.analysis.nullIfNull
 
-class Eda(playtests: List<Playtest>, colorFunc: (Playtest) -> Color) : Visualisation {
+class Eda(playtests: List<Playtest>, colorFunc: ((Playtest) -> Color)? = null) : Visualisation {
     override val series: List<Series> = playtests.map { playtest ->
         Series(
             "Participant ${playtest.participant.id} EDA",
-            colorFunc(playtest),
+            colorFunc?.invoke(playtest),
             playtest.edaData,
             playtest.edaData.run {
                 playtest.scares.map { x -> DataLabel("Scare", x, firstValueAfter(x)) }

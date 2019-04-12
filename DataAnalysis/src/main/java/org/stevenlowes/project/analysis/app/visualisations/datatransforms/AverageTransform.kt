@@ -1,13 +1,11 @@
 package org.stevenlowes.project.analysis.app.visualisations.datatransforms
 
 import javafx.scene.paint.Color
-import org.stevenlowes.project.analysis.Series
-import org.stevenlowes.project.analysis.interpolate
-import org.stevenlowes.project.analysis.stdDev
+import org.stevenlowes.project.analysis.*
 import java.lang.Math.sqrt
 
-fun List<Series>.transformAverage(newName: String, color: Color): Series = Series(
-    newName,
+fun List<Series>.transformAverage(newName: String? = null, color: Color? = null): Series = Series(
+    newName ?: first().name + " (Avg)",
     color,
     map { it.data }.run {
         val newKeys = this.flatMap { it.keys }.distinct().sorted()
@@ -19,47 +17,63 @@ fun List<Series>.transformAverage(newName: String, color: Color): Series = Serie
     emptyList()
 )
 
-fun List<Series>.transformAverageWithError(newName: String, color: Color, errorColor: Color): List<Series> {
+fun List<Series>.transformAverageWithError(
+    newName: String? = null,
+    color: Color? = null,
+    errorColor: Color? = null
+): List<Series> {
     val newKeys = flatMap { it.data.keys }.distinct().sorted()
     val seriesValues = map { series -> series.data.interpolateForKeys(newKeys) }
     val lines = newKeys.map { key ->
         val values = seriesValues.mapNotNull { it[key] }
         val mean = values.average()
         val stdDev = values.stdDev()
-        val error = stdDev/sqrt(values.size.toDouble())
+        val error = stdDev / sqrt(values.size.toDouble())
         return@map key to Pair(mean, error)
     }
 
-    val mean = lines.map { it.first to it.second.first }
-    val errors = lines.map { it.first to it.second.second }
+    val mean = lines.map { it.first to it.second.first }.toMap()
+    val errors = lines.map { it.first to it.second.second }.toMap()
 
-    val meanSeries = Series(
-        newName, color, mean.toMap(),
+    val baseName = newName ?: first().name
+
+    val meanSeries = Series(baseName, color, mean, emptyList())
+    val lowError = Series(
+        "$baseName (Low Error)",
+        errorColor,
+        mean.mapValues { (key, value) ->
+            value - errors.getValue(key)
+        },
+        emptyList()
+    )
+    val highError = Series(
+        "$baseName (High Error)",
+        errorColor,
+        mean.mapValues { (key, value) ->
+            value + errors.getValue(key)
+        },
+        emptyList()
     )
 
-    listOf(
-        mean.toMap(),
-        mean.zip(errors).map { it.first.first to it.first.second + it. }
-    )
-
-
-
-    return multipleMaps
+    return listOf(lowError, meanSeries, highError)
 }
 
-fun <K,V> List<Map<K, V>>.transformMedian(): Map<K, Double> where K : Comparable<K>, K: Number, V: Comparable<V>, V: Number{
-    val newKeys = flatMap { it.keys }.distinct().sorted()
-    val seriesValues = map { series -> series.interpolateForKeys(newKeys) }
-    return newKeys.map { key ->
+fun List<Series>.transformMedian(newName: String? = null, color: Color? = null): Series {
+    val newKeys = flatMap { it.data.keys }.distinct().sorted()
+    val seriesValues = map { series -> series.data.interpolateForKeys(newKeys) }
+    val newData = newKeys.map { key ->
         key to seriesValues.mapNotNull { it[key] }.median()
     }.toMap()
+
+    return Series(
+        newName ?: first().name,
+        color,
+        newData,
+        emptyList()
+    )
 }
 
-private fun <T : Comparable<T>> List<T>.median(): T {
-    return sorted()[size / 2]
-}
-
-private fun <K, V> Map<K, V>.interpolateForKeys(keys: List<K>): Map<K, Double> where K : Comparable<K>, K: Number, V: Number, V:Comparable<V>{
+private fun <K, V> Map<K, V>.interpolateForKeys(keys: List<K>): Map<K, Double> where K : Comparable<K>, K : Number, V : Number, V : Comparable<V> {
     val sorted = toList().sortedBy { it.first }
     val indexed = sorted.withIndex().toList()
     var index = 0
@@ -94,12 +108,4 @@ private fun <K, V> Map<K, V>.interpolateForKeys(keys: List<K>): Map<K, Double> w
     }.toMap()
 
     return interpolated
-}
-
-private fun <T> List<T>.first(startIndex: Int, predicate: (T) -> Boolean): T? {
-    (startIndex until size).forEach {
-        val value = get(it)
-        if (predicate(value)) return value
-    }
-    return null
 }
