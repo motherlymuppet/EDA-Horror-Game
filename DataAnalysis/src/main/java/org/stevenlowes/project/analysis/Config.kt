@@ -17,7 +17,7 @@ object Config {
 
     const val showLegend = true
 
-    private val playtests = PlaytestLoader.loadAll(
+    val playtests = PlaytestLoader.loadAll(
         File(spreadsheetPath),
         File(participantDataPath)
     )
@@ -26,7 +26,6 @@ object Config {
     private val control = playtests.filter { it.participant.pair != null }
 
     val visualisation: Visualisation =
-        Eda(playtests).normaliseAbs().overlap()
-
-
+        EdaAfterScareAroundMin(intervention, 10.0, 5.0) {_,_ -> Color.RED}.normaliseAbs().averageWithError() +
+        EdaAfterScareAroundMin(control, 10.0, 5.0) {_,_ -> Color.BLUE}.normaliseAbs().averageWithError()
 }

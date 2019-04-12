@@ -1,10 +1,14 @@
 package org.stevenlowes.project.analysis
 
+import com.google.gson.JsonArray
+import com.google.gson.JsonObject
+import com.google.gson.stream.JsonWriter
 import javafx.application.Platform
 import javafx.scene.chart.XYChart
 import javafx.scene.paint.Color
 import org.stevenlowes.project.analysis.gui.DataLabel
 import tornadofx.observable
+import java.io.FileWriter
 
 data class Series(val name: String, val color: Color?, val data: Map<Long, Double>, val labels: List<DataLabel>) {
     val xySeries: XYChart.Series<Number, Number> by lazy {
@@ -36,4 +40,20 @@ data class Series(val name: String, val color: Color?, val data: Map<Long, Doubl
     fun withColor(color: Color?) = Series(name, color, data, labels)
     fun withData(data: Map<Long, Double>) = Series(name, color, data, labels)
     fun withLabels(labels: List<DataLabel>) = Series(name, color, data, labels)
+
+    fun writeJson(){
+        val array = JsonArray()
+        data.map { (time, value) ->
+            val obj = JsonObject()
+            obj.addProperty("time", time)
+            obj.addProperty("value", value)
+            return@map obj
+        }.forEach {obj ->
+            array.add(obj)
+        }
+
+        FileWriter(name).use {
+            it.write(array.toString())
+        }
+    }
 }
