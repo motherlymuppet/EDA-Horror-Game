@@ -31,3 +31,7 @@ Spotify/Code/analysedData.txt
 Spotify/Code/stdDevConfig.txt
 Spotify/Code/processedData.txt
 Spotify/Code/data.txt
+.idea/
+DataAnalysis/target/
+R analysis/All.txt
+R analysis/Test.R

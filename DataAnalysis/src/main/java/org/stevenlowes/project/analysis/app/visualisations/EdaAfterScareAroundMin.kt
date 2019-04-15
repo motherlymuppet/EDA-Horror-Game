@@ -8,8 +8,8 @@ import org.stevenlowes.project.analysis.plusValueInterpolate
 
 class EdaAfterScareAroundMin(
     playtests: List<Playtest>,
-    allowableWaitForTrough: Double,
-    lengthAroundTrough: Double,
+    allowableWaitForTrough: Double = 10.0,
+    lengthAroundTrough: Double = 5.0,
     colorFunc: ((Playtest, Long) -> Color)? = null
 ) :
     Visualisation {

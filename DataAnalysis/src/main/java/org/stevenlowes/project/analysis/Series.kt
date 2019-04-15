@@ -6,11 +6,15 @@ import com.google.gson.stream.JsonWriter
 import javafx.application.Platform
 import javafx.scene.chart.XYChart
 import javafx.scene.paint.Color
+import jdk.nashorn.internal.ir.annotations.Ignore
 import org.stevenlowes.project.analysis.gui.DataLabel
 import tornadofx.observable
 import java.io.FileWriter
 
-data class Series(val name: String, val color: Color?, val data: Map<Long, Double>, val labels: List<DataLabel>) {
+class Series(val name: String,
+             @Transient val color: Color?,
+             val data: Map<Long, Double>,
+             val labels: List<DataLabel>) {
     val xySeries: XYChart.Series<Number, Number> by lazy {
         val series = XYChart.Series<Number, Number>(
             destructedData.map { (x, y) ->

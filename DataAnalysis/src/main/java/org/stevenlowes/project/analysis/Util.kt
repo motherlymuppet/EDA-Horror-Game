@@ -2,6 +2,7 @@ package org.stevenlowes.project.analysis
 
 import javafx.scene.paint.Color
 import org.stevenlowes.project.analysis.gui.DataLabel
+import java.io.FileWriter
 
 fun <T> T.wrapWithList() = listOf(this)
 
@@ -99,3 +100,10 @@ val Color.hex: String get() = String.format("#%02x%02x%02x", (red * 255).toInt()
 val <A,S> ((A) -> S)?.nullIfNull get(): (A) -> S? = { a -> this?.invoke(a) }
 val <A,B,S> ((A, B) -> S)?.nullIfNull get(): (A, B) -> S? = { a, b -> this?.invoke(a, b) }
 val <A,B,C,S> ((A, B, C) -> S)?.nullIfNull get(): (A, B, C) -> S? = { a, b , c -> this?.invoke(a, b, c) }
+
+fun Any.saveJson(name: String){
+    val json = Config.gson.toJson(this)
+    FileWriter("$name.txt").use {
+        it.write(json)
+    }
+}

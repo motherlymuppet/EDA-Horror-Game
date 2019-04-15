@@ -1,0 +1,10 @@
+Overall EDA comparison between the two groups
+Histogram for 2 groups:
+	Scaredness
+	Enjoyment
+	Timing
+	Number of scares
+
+Compare average response to a scare
+Compare response over time
+Compare response between control and intervention groups

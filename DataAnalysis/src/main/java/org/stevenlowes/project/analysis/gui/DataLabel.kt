@@ -5,12 +5,13 @@ import javafx.scene.chart.NumberAxis
 import javafx.scene.control.Label
 import javafx.scene.text.Font
 import javafx.scene.text.FontWeight
+import jdk.nashorn.internal.ir.annotations.Ignore
 
 class DataLabel constructor(
     val text: String,
     val x: Long,
     val y: Double,
-    val textAnchor: Pos = Pos.CENTER
+    @Transient val textAnchor: Pos = Pos.CENTER
 ) {
     val node = Label(text)
 
