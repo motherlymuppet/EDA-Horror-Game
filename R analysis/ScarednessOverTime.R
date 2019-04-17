@@ -143,7 +143,7 @@ zooRange = function(zoo){
   
   zooBeforeMin = filterZooByIndex(zoo, minX, xOfMinY)
   maxY = zooBeforeMin %>% reduce(max)
-  drop = maxY / minY
+  drop = maxY - minY
   
   list(scare = minX, drop = drop) %>% return
 }

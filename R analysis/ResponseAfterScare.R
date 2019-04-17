@@ -171,7 +171,7 @@ getSeries = function(data, zoos, newX, length){
   series = map2(series, scares, filterRanges) %>% flatten
   series = filterOverrunning(series)
   series = map(series, normaliseX)
-  series = map(series, normaliseYRel)
+  series = map(series, normaliseYAbs)
   
   newX = getAllX(series)
   series = interpolate(series, newX)

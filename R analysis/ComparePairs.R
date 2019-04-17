@@ -13,7 +13,6 @@ loadJson = function() {
 }
 
 data = loadJson()
-data = data %>% discard(~.x$participant$id == 21)
 
 intervention = data %>% keep( ~ .x$storyteller == "EDA")
 control = data %>% keep( ~ .x$storyteller == "REPEAT")

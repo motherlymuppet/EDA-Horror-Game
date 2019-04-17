@@ -182,7 +182,7 @@ getSeries = function(data, zoos, newX){
   series = map2(series, ranges, filterRanges) %>% flatten
   series = filterOverrunning(series)
   series = map(series, normaliseX)
-  series = map(series, normaliseYRel)
+  series = map(series, normaliseYAbs)
   
   series = interpolate(series, getAllX(series))
   series = aggregateZoos(series, meanAndStdErr)
