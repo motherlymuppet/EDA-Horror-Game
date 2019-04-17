@@ -1,0 +1,16 @@
+\documentclass{article}
+
+\begin{document}
+
+<<echo=F>>=
+opts_chunk$set(echo=F, message=F, warning=F)
+@
+
+\Sexpr{source("Setup.R")}
+
+<<summary_plot, fig.width=4, fig.height=4, fig.align='center'>>=
+plot(rnorm(10), rnorm(10))
+@
+
+
+\end{document}

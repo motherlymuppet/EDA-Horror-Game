@@ -12,11 +12,11 @@ import java.io.File
 
 object Config {
     val gson = GsonBuilder().serializeNulls().create()
-    private const val spreadsheetPath = "E:/Backups/Steven-3rdYrProject/minecraftdata/Spreadsheet.csv"
-    private const val participantDataPath = "E:/Backups/Steven-3rdYrProject/minecraftdata/Participant Data"
+    //private const val spreadsheetPath = "E:/Backups/Steven-3rdYrProject/minecraftdata/Spreadsheet.csv"
+    //private const val participantDataPath = "E:/Backups/Steven-3rdYrProject/minecraftdata/Participant Data"
 
-    //private const val spreadsheetPath = "/home/steven/repos/Steven-3rdYrProject/minecraftdata/Spreadsheet.csv"
-    //private const val participantDataPath = "/home/steven/repos/Steven-3rdYrProject/minecraftdata/Participant Data"
+    private const val spreadsheetPath = "/home/steven/repos/Steven-3rdYrProject/minecraftdata/Spreadsheet.csv"
+    private const val participantDataPath = "/home/steven/repos/Steven-3rdYrProject/minecraftdata/Participant Data"
 
     const val showLegend = true
 

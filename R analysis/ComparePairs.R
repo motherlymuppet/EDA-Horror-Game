@@ -3,13 +3,12 @@ rm(list = ls())
 library("rjson")
 library("purrr")
 library("dplyr")
-library("rlist")
-library("grDevices")
 library("zoo")
 library("plotrix")
+library("ggplot2")
 
 loadJson = function() {
-  fromJSON(file = "E:/Backups/Steven-3rdYrProject/R analysis/All.txt")
+  fromJSON(file = "All.txt")
 }
 
 data = loadJson()
@@ -205,12 +204,11 @@ series = map2(iSeries,cSeries,~zoo(coredata(.x)-coredata(.y),index(.x)))
 
 s1 = aggregateZoos(series, meanAndStdErr)
 
-s1 %>% makePlot(main = "Intervention vs Control",
-                 xlab = "TimeMs",
-                 ylab = "EDA")
-
-s1[2] %>% plotLines
-s1[c(1,3)] %>% plotLines(lty = "dashed")
-
-lines(c(0,1e4), c(0, 0), lty = "dotted", col = "grey")
-#lines(c(6e5,6e5), c(-1e10, 1e10), lty = "dashed")
+ggplot(s1[[2]], aes(x = index(s1[[2]]))) +
+  geom_line(y = coredata(s1[[2]])) +
+  geom_line(y = coredata(s1[[1]]), linetype = "dashed") +
+  geom_line(y = coredata(s1[[3]]), linetype = "dashed") +
+  geom_ribbon(aes(ymin = s1[[1]], ymax = s1[[3]]), alpha=2/10) +
+  labs(title = "Title", x = "Time After Scare (ms)", y = "Difference between groups") +
+  theme_classic() +
+  theme(plot.title = element_text(hjust = 0.5), )
