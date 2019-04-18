@@ -1,48 +1,30 @@
-allScares = data %>% getScareRanges(length) %>% flatten %>% flatten
-newX = c(cZoos, iZoos) %>% getAllX %>% append(0) %>% append(6e5) %>% append(allScares)
-
-meanAndStdErr = function(vec){
-  stdErr = std.error(vec)
-  avg = mean(vec)
-  vals = c(avg-stdErr, avg, avg+stdErr)
-  return(vals)
-}
-
-getSeries = function(data, zoos, newX, length){
-  scares = data %>% getScareRanges(length)
+getSeries = function(scares){
+  scares = flatten(scares)
+  scares = map(scares, normaliseX)
+  scares = map(scares, normaliseYAbs)
   
-  series = interpolate(zoos, newX)
-  series = map2(series, scares, filterRanges) %>% flatten
-  series = filterOverrunning(series)
-  series = map(series, normaliseX)
-  series = map(series, normaliseYAbs)
-  
-  newX = getAllX(series)
-  series = interpolate(series, newX)
-  series = aggregateZoos(series, meanAndStdErr)
+  allX = getAllX(scares)
+  scares = interpolate(scares, allX)
+  series = aggregateZoos(scares, meanAndStdErr)
   return(series)
 }
 
-iSeries = getSeries(intervention, iZoos, newX, length)
-cSeries = getSeries(control, cZoos, newX, length)
+iSeries = getSeries(iScares)
+cSeries = getSeries(cScares)
 
-all = c(iSeries, cSeries)
+allAes = aes(x = iSeries$mean %>% index)
 
-all %>% makePlot(main = "EDA of both groups (Relative)",
-                                 xlab = "TimeMs",
-                                 ylab = "EDA")
+chart = chartDefault + allAes +
+  scale_x_continuous(name = "Time after Scare (s)", label = number_format(scale = 1e-3), breaks = seq(0,1e4,len=11)) +
+  
+  geom_line(aes(y = iSeries$mean %>% coredata, colour="Intervention")) +
+  geom_ribbon(aes(ymin = iSeries$lowError, ymax = iSeries$highError, fill="Intervention"), alpha=2/10) +
+  
+  geom_line(aes(y = cSeries$mean %>% coredata, colour="Control")) +
+  geom_ribbon(aes(ymin = cSeries$lowError, ymax = cSeries$highError, fill="Control"), alpha=2/10) +
+  
+  labs(title = "Average Reaction after Scare", y = "Change in EDA")
 
-iSeries[2] %>% plotLines(col = "red", lty = "solid")
-iSeries[c(1,3)] %>% plotLines(col = "red", lty = "dotted")
+print(chart)
 
-cSeries[2] %>% plotLines(col = "blue", lty = "solid")
-cSeries[c(1,3)] %>% plotLines(col = "blue", lty = "dotted")
-
-#lines(c(0,0), c(-1e10, 1e10), lty = "dashed")
-#lines(c(6e5,6e5), c(-1e10, 1e10), lty = "dashed")
-
-legend(
-  "bottomleft",
-  legend = c("Control (Mean)", "Intervention (Mean)"),
-  fill = c("blue", "red")
-)
+rm(iSeries, cSeries, allAes, getSeries, chart)

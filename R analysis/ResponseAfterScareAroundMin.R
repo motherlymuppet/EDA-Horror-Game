@@ -1,4 +1,3 @@
-
 getSeries = function(zoos, scares){
   windowRadius = lengthAfterScare/2
   
@@ -14,28 +13,27 @@ getSeries = function(zoos, scares){
   allX = getAllX(scares)
   scares = interpolate(scares, allX)
   scares = aggregateZoos(scares, meanAndStdErr)
+  
+  scares = scares %>% map(~addX(.x, -windowRadius))
   return(scares)
 }
 
 iSeries = getSeries(iZoos, iScares)
 cSeries = getSeries(cZoos, cScares)
-series = c(iSeries, cSeries)
-
-#Plot
 
 allAes = aes(x = iSeries$mean %>% index)
 
-chartDefault + allAes +
-  scale_x_continuous(name = "Time after Scare (s)", label = number_format(scale = 1e-3), breaks = seq(0,1e4,len=10)) +
+chart = chartDefault + allAes +
+  scale_x_continuous(name = "Time after Scare Min Point (s)", label = number_format(scale = 1e-3), breaks = seq(-5e3,5e3,len=11)) +
   
-  geom_line(y = iSeries$mean %>% coredata, colour=interventionColour) +
-  geom_ribbon(aes(ymin = iSeries$lowError, ymax = iSeries$highError), alpha=2/10, fill=interventionColour) +
+  geom_line(aes(y = iSeries$mean %>% coredata, colour="Intervention")) +
+  geom_ribbon(aes(ymin = iSeries$lowError, ymax = iSeries$highError, fill="Intervention"), alpha=2/10) +
   
-  geom_line(y = cSeries$mean %>% coredata, colour=controlColour) +
-  geom_ribbon(aes(ymin = cSeries$lowError, ymax = cSeries$highError), alpha=2/10, fill=controlColour) +
+  geom_line(aes(y = cSeries$mean %>% coredata, colour="Control")) +
+  geom_ribbon(aes(ymin = cSeries$lowError, ymax = cSeries$highError, fill="Control"), alpha=2/10) +
   
-  labs(title = "Average Reaction after Scare", y = "Change in EDA")
-  
+  labs(title = "Average Reaction around Scare min point", y = "Change in EDA")
 
+print(chart)
 
-#rm(iSeries, cSeries, series, allAes)
+rm(iSeries, cSeries, allAes, getSeries, chart)

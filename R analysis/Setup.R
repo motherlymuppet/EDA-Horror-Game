@@ -1,12 +1,13 @@
-rm(list = ls())
-
-library("rjson")
 data = fromJSON(file = "All.txt")
 
-library("purrr")
-library("dplyr")
 intervention = data %>% keep( ~ .x$storyteller == "EDA")
 control = data %>% keep( ~ .x$storyteller == "REPEAT")
+
+#Sort
+interventionIds = intervention %>% map(~.x$participant$id) %>% as.numeric
+controlPairs = control %>% map(~.x$participant$pair) %>% as.numeric
+control = control[order(match(controlPairs, interventionIds))]
+rm(interventionIds, controlPairs)
 
 start = 0
 end = 6e5
@@ -29,7 +30,7 @@ toZoo = function(edaData) {
 
 
 
-library("zoo")
+
 cZoos = control %>% mapCol("edaData") %>% map(toZoo)
 iZoos = intervention %>% mapCol("edaData") %>% map(toZoo)
 
@@ -147,6 +148,12 @@ normaliseX = function(zoo){
   return(zoo)
 }
 
+# Subtract all x values by the first x value
+addX = function(zoo, add){
+  index(zoo) = index(zoo) + add
+  return(zoo)
+}
+
 xOfMinY = function(zoo){
   idx = which.min(zoo)
   x = index(zoo)[[idx]]
@@ -166,7 +173,6 @@ aggregateZoos = function(zoos, func) {
   return(data)
 }
 
-library("plotrix")
 meanAndStdErr = function(vec){
   err = std.error(vec)
   avg = mean(vec)
@@ -174,13 +180,27 @@ meanAndStdErr = function(vec){
   return(vals)
 }
 
-interventionColour = "red"
-controlColour = "blue"
+interventionColor = "#1b9e77"
+controlColor = "#7570b3"
 
-library(ggplot2)
-library(scales)
+mainColor = controlColor
+altColor = interventionColor
+
 chartDefault = ggplot() +
+  scale_colour_manual(
+    name = "Group",
+    values = c('Intervention' = interventionColor,'Control' = controlColor),
+    breaks = c('Intervention', 'Control')
+  ) +
+  scale_fill_manual(
+    name = "Group",
+    values = c('Intervention' = interventionColor,'Control' = controlColor),
+    breaks = c('Intervention', 'Control')
+  ) +
   theme_classic() +
-  theme(plot.title = element_text(hjust = 0.5))
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    legend.position = "bottom"
+    )
 
 rm(data, mapCol, toZoo, getScares)

@@ -3,14 +3,64 @@
 \begin{document}
 
 <<echo=F>>=
-opts_chunk$set(echo=F, message=F, warning=F)
+opts_chunk$set(echo=F, message=F, warning=F, autodep = T, cache=F, fig.width=6, fig.height=6, fig.align='center')
 @
 
-\Sexpr{source("Setup.R")}
+<<Setup>>=
+source("Clear.R")
 
-<<summary_plot, fig.width=4, fig.height=4, fig.align='center'>>=
-plot(rnorm(10), rnorm(10))
+library("rjson")
+library("purrr")
+library("dplyr")
+library("zoo")
+library("plotrix")
+library("ggplot2")
+library("scales")
+
+source("Setup.R")
 @
+
+<<ExampleEDA>>=
+source("ExampleEDA.R")
+@
+
+<<ScarednessOverTimeCalibration>>=
+source("ScarednessOverTimeCalibration.R")
+@
+
+<<ScarednessOverTime>>=
+source("ScarednessOverTime.R")
+@
+
+<<ResponseAfterScareAroundMin>>=
+source("ResponseAfterScareAroundMin.R")
+@
+
+<<ResponseAfterScare>>=
+source("ResponseAfterScare.R")
+@
+
+<<ComparePairs>>=
+source("ComparePairs.R")
+@
+
+<<ParticipantScaredness>>=
+source("ParticipantScaredness.R")
+@
+
+<<ParticipantEnjoyment>>=
+source("ParticipantEnjoyment.R")
+@
+
+<<ParticipantTiming>>=
+source("ParticipantTiming.R")
+@
+
+<<ScareHistogram>>=
+source("ScareHistogram.R")
+@
+
+
 
 
 \end{document}
