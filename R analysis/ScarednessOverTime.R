@@ -40,16 +40,13 @@ chart = chartDefault +
   geom_point(aes(x = iSeries$x, y = iSeries$y, colour = "Intervention"), shape = 4)+
   geom_point(aes(x = cSeries$x, y = cSeries$y, colour = "Control"), shape = 4)+
   
-  geom_line(aes(x = ilm$x, y = ilm$line, color = "Intervention")) +
-  geom_ribbon(aes(ilm$x, ymin = ilm$lower, ymax = ilm$higher, fill="Intervention"), alpha=2/10) +
+  stat_smooth(aes(x=iSeries$x, y=iSeries$y), method="lm", col=interventionColor, fill=interventionColor, n=1e3) +
+  stat_smooth(aes(x=cSeries$x, y=cSeries$y), method="lm", col=controlColor, fill=controlColor, n=1e3) +
   
-  geom_line(aes(x = clm$x, y = clm$line, color = "Control")) +
-  geom_ribbon(aes(x = clm$x, ymin = clm$lower, ymax = clm$higher, fill="Control"), alpha=2/10) +
-  
-  geom_segment(aes(x = 1e5, xend = 1e5, y = 0, yend = 5e4), linetype = "dashed")
+  geom_segment(aes(x = 1e5, xend = 1e5, y = 0, yend = 5e4), linetype = "dashed") +
   
   
-  labs(title = "Difference between groups", y = "Difference in EDA between groups")
+  labs(title = "Difference between groups")
   
 print(chart)
 
