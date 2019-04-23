@@ -1,0 +1,15 @@
+Setup	addX	aggregateZoos	altColor	chartDefault	control	controlColor	cScares	cScareTimes	cZoos	end	filterManyOverrunning	filterOverrunning	getAllX	getScareRanges	getZooValue	interpolate	intervention	interventionColor	iScares	iScareTimes	iZoos	lengthAfterScare	mainColor	makeRanges	manyZooWindows	meanAndStdErr	normaliseX	normaliseYAbs	normaliseYRel	start	xOfMinY	zooWindow	zooWindows
+ExampleEDA	participant
+ScarednessOverTimeCalibration	
+ScarednessOverTime	
+ResponseAfterScareAroundMin	
+ResponseAfterScare	
+ComparePairs	
+ParticipantScaredness	
+ParticipantEnjoyment	
+ParticipantTiming	
+ScareHistogram	fill
+ScareFrequency	tab
+StartingEda	c	chart	group	i	y
+unnamed-chunk-2	
+unnamed-chunk-3	chart	scareCount

@@ -1,13 +1,18 @@
-\documentclass{article}
+\documentclass[10pt, a4paper]{article}
+
+\usepackage{multicol}
+\usepackage[margin = 0.5in]{geometry}
 
 \begin{document}
 
+\pagenumbering{gobble}
+
 <<echo=F>>=
-opts_chunk$set(echo=F, message=F, warning=F, autodep = T, cache=F, fig.width=6, fig.height=6, fig.align='center')
+opts_chunk$set(echo=F, message=F, warning=F, autodep = T, cache=T, fig.width=2, fig.height=2, fig.align='center')
 @
 
 <<Setup>>=
-source("Clear.R")
+source("Scripts/Clear.R")
 
 library("rjson")
 library("purrr")
@@ -17,50 +22,61 @@ library("plotrix")
 library("ggplot2")
 library("scales")
 
-source("Setup.R")
+source("Scripts/Setup.R")
 @
 
+\section{}
+
+\begin{multicols}{2}
+
 <<ExampleEDA>>=
-source("ExampleEDA.R")
+source("Scripts/ExampleEDA.R")
 @
 
 <<ScarednessOverTimeCalibration>>=
-source("ScarednessOverTimeCalibration.R")
+source("Scripts/ScarednessOverTimeCalibration.R")
 @
 
 <<ScarednessOverTime>>=
-source("ScarednessOverTime.R")
+source("Scripts/ScarednessOverTime.R")
 @
 
 <<ResponseAfterScareAroundMin>>=
-source("ResponseAfterScareAroundMin.R")
+source("Scripts/ResponseAfterScareAroundMin.R")
 @
 
 <<ResponseAfterScare>>=
-source("ResponseAfterScare.R")
+source("Scripts/ResponseAfterScare.R")
 @
 
 <<ComparePairs>>=
-source("ComparePairs.R")
+source("Scripts/ComparePairs.R")
 @
 
 <<ParticipantScaredness>>=
-source("ParticipantScaredness.R")
+source("Scripts/ParticipantScaredness.R")
 @
 
 <<ParticipantEnjoyment>>=
-source("ParticipantEnjoyment.R")
+source("Scripts/ParticipantEnjoyment.R")
 @
 
 <<ParticipantTiming>>=
-source("ParticipantTiming.R")
+source("Scripts/ParticipantTiming.R")
 @
 
 <<ScareHistogram>>=
-source("ScareHistogram.R")
+source("Scripts/ScareHistogram.R")
 @
 
+<<ScareFrequency>>=
+source("Scripts/ScareFrequency.R")
+@
 
+<<StartingEda>>=
+source("Scripts/StartingEda.R")
+@
 
+\end{multicols}
 
 \end{document}

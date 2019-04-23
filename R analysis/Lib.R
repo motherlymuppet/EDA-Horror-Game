@@ -1,7 +1,0 @@
-library("rjson")
-library("purrr")
-library("dplyr")
-library("zoo")
-library("plotrix")
-library("ggplot2")
-library("scales")
