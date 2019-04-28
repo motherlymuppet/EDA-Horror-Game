@@ -186,6 +186,22 @@ meanAndStdErr = function(vec){
   return(vals)
 }
 
+pValue = function (modelobject) {
+  if (class(modelobject) != "lm") stop("Not an object of class 'lm' ")
+  f <- summary(modelobject)$fstatistic
+  p <- pf(f[1],f[2],f[3],lower.tail=F)
+  attributes(p) <- NULL
+  return(p)
+}
+
+rSq = function (model){
+  summary(model)$r.squared %>% return
+}
+
+gradient = function (model){
+  model %>% coef %>% .[[2]] %>% return
+}
+
 interventionColor = "#1b9e77"
 controlColor = "#7570b3"
 
@@ -203,10 +219,14 @@ chartDefault = ggplot() +
     values = c('Intervention' = interventionColor,'Control' = controlColor),
     breaks = c('Intervention', 'Control')
   ) +
-  theme_classic() +
+  theme_classic(base_family = "serif") +
   theme(
     plot.title = element_text(hjust = 0.5),
-    legend.position = "bottom"
+    legend.position = "bottom",
+    #legend.margin=margin(rep(0,4)),
+    legend.box.margin = margin(t = -12, b = -6)
     )
+
+update_geom_defaults("text", list(family = "serif"))
 
 rm(data, mapCol, toZoo, getScares)

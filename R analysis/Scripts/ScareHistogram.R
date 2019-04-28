@@ -25,9 +25,9 @@ chart = chartDefault +
     values = c('Calibration' = controlColor,'Test' = interventionColor),
     breaks = c('Calibration', 'Test')
   ) +
-  geom_histogram(aes(x = scareTimes, fill = fill), binwidth = 30e3) + 
+  geom_histogram(aes(x = scareTimes, fill = fill), binwidth = 30e3) +
   scale_x_continuous(name = "Time (s)", label = number_format(scale = 1e-3), breaks = seq(start,end,len=11)) + 
-  labs(title = "Scare Distribution", fill = "Scare Type")
+  labs(y = "Frequency", fill = "Scare Type")
 
 print(chart)
 

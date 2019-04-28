@@ -15,8 +15,8 @@ fill = c(
 
 chart = chartDefault + 
   geom_bar(aes(x = x, group = group, fill = fill), position = position_dodge2(width = 0.9, preserve = "single")) +
-  scale_x_discrete("Answer", lim = c(2:5), labels = c("Too Few", "About Right", "Too Many", "Far Too Many")) +
-  labs(title = "How was the frequency of jump scares?", y = "Frequency", fill = "Group")
+  scale_x_discrete("Response", lim = c(2:5), labels = c("Too Few", "About Right", "Too Many", "Far Too Many")) +
+  labs(y = "Frequency", fill = "Group")
 
 print(chart)
 rm(iTiming, cTiming, chart, fill, group, x)

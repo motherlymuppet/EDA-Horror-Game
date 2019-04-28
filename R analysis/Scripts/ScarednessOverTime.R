@@ -35,19 +35,16 @@ clm = model(cSeries)
 
 chart = chartDefault +
   scale_x_continuous(name = "Time (s)", label = number_format(scale = 1e-3), breaks = seq(start,end,len=11)) +
-  scale_y_continuous(name = "EDA Drop (thousand)", label = number_format(scale = 1e-3), limits = c(0, 5e4)) +
+  scale_y_continuous(name = bquote('EDA Drop '~(10^3)), label = number_format(scale = 1e-3), limits = c(0, 5e4)) +
   
   geom_point(aes(x = iSeries$x, y = iSeries$y, colour = "Intervention"), shape = 4)+
   geom_point(aes(x = cSeries$x, y = cSeries$y, colour = "Control"), shape = 4)+
   
   stat_smooth(aes(x=iSeries$x, y=iSeries$y), method="lm", col=interventionColor, fill=interventionColor, n=1e3) +
-  stat_smooth(aes(x=cSeries$x, y=cSeries$y), method="lm", col=controlColor, fill=controlColor, n=1e3) +
-  
-  geom_segment(aes(x = 1e5, xend = 1e5, y = 0, yend = 5e4), linetype = "dashed") +
-  
-  
-  labs(title = "Difference between groups")
+  stat_smooth(aes(x=cSeries$x, y=cSeries$y), method="lm", col=controlColor, fill=controlColor, n=1e3)
   
 print(chart)
 
+interventionRegression = ilm$model
+controlRegression = clm$model
 rm(ilm, clm, model, iSeries, cSeries, getSeries, zooRange, chart)

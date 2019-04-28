@@ -15,8 +15,8 @@ fill = c(
 
 chart = chartDefault + 
   geom_bar(aes(x = x, group = group, fill = fill), position = position_dodge2(width = 0.9, preserve = "single")) +
-  scale_x_discrete("Answer", lim = c(4:10)) +
-  labs(title = "On a scale of 1-10, how much did you enjoy that as a game?", y = "Frequency", fill = "Group")
+  scale_x_discrete("Response", lim = c(4:10)) +
+  labs(y = "Frequency", fill = "Group")
 
 print(chart)
 rm(iEnjoyment, cEnjoyment, chart, fill, x, group)

@@ -13,7 +13,6 @@ zooRange = function(zoo){
 }
 
 getSeries = function(scares){
-  scares = scares %>% map(~head(.x, 3))
   scares = flatten(scares)
   ranges = scares %>% map(zooRange) %>% map(~list(x = .x$scare, y = .x$drop))
   ranges %>% transpose %>% map(as.numeric) %>% return
@@ -34,9 +33,9 @@ model = function(series){
 ilm = model(iSeries)
 clm = model(cSeries)
 
-chart = chartDefault + #allAes +
-  scale_x_continuous(name = "Time (s)", label = number_format(scale = 1e-3)) +
-  scale_y_continuous(name = "EDA Drop (thousand)", label = number_format(scale = 1e-3)) +
+chart = chartDefault +
+  scale_x_continuous(name = "Time (s)", label = number_format(scale = 1e-3), breaks = seq(start,end,len=11)) +
+  scale_y_continuous(name = bquote('EDA Drop '~(10^3)), label = number_format(scale = 1e-3), limits = c(0, 5e4)) +
   
   geom_point(aes(x = iSeries$x, y = iSeries$y, colour = "Intervention"), shape = 4)+
   geom_point(aes(x = cSeries$x, y = cSeries$y, colour = "Control"), shape = 4)+
@@ -44,8 +43,10 @@ chart = chartDefault + #allAes +
   stat_smooth(aes(x=iSeries$x, y=iSeries$y), method="lm", col=interventionColor, fill=interventionColor, n=1e3) +
   stat_smooth(aes(x=cSeries$x, y=cSeries$y), method="lm", col=controlColor, fill=controlColor, n=1e3) +
 
-  labs(title = "Calibration Scares Only", y = "Difference in EDA between groups")
-
+  coord_cartesian(ylim=c(0, 15e3))
+  
 print(chart)
 
+interventionRegression = ilm$model
+controlRegression = clm$model
 rm(ilm, clm, model, iSeries, cSeries, getSeries, zooRange, chart)
