@@ -88,7 +88,7 @@ options(digits=3)
 \end{abstract}
 
 \begin{keywords}
-Put a few keywords here.
+Biometrics, Biosensors, Electrodermal Activity, Human-Computer Interaction, Video Games, Horror
 \end{keywords}
 
 \section{Introduction}
@@ -96,14 +96,40 @@ Put a few keywords here.
 
 %Note that the whole report, including the references, should not be longer than 20 pages in length.  The system will not accept any report longer than 20 pages.  It should be noted that not all the details of the work carried out in the project can be represented in 20 pages.  It is therefore vital that the Project Log book be kept up to date as this will be used as supplementary material when the project paper is marked.  There should be between 10 and 20 referenced papers---references to Web based pages should be less than 10\%.
 
-This study will explore whether users show any preference between a horror game where jump scares are randomly allocated and the same game where jump scares are tailored based on biometric feedback. An extensive user study will be conducted and the results analysed to explore the difference in self-reported user enjoyment and data gathered from biometrics measuring how scared the users were.
+This project will explore whether users show any preference between a horror game where jump scares are randomly allocated and the same game where the timing of jump scares is algoritmically tailored based on biometric feedback. A user study will be conducted and the results analysed to explore the difference in self-reported user enjoyment and data gathered from biometrics measuring how scared the users were.
 
-This work could act as a launching point for other games integrating the use of sensors. With smartwatches becoming increasingly ubiquitous, in the future many games could access the sensors in those smartwatches to adjust gameplay. Sensor-enabled gameplay adjustment could be applied to other forms of entertainment. For example, action games could integrate biometrics by enabling slow-motion after detecting high-adrenaline moments. Games could further integrate biometrics as a central mechanic, i.e. in order to continue through the game you must learn to control your body's semi-autonomous responses. This tight integration of biometrics would allow for a new paradigm in computer entertainment.
+An electro-dermal activity (EDA) sensor will be used to measure the user's stress response throughout the playtest.
 
 Ultimately, this work aims to validate that the use of biometrics can lead to an improved gameplay experience, utilising horror games as the most ideal scenario during this exploratory phase.
 
+\begin{enumerate}
+	\item Minimum Deliverables
+	\begin{itemize}
+		\item Create an immersive game environment in which you can control events such as the arrival of new enemies and their location.
+		\item Create a system for tracking the user EDA measurements and game events simultaneously.
+		\item Create a standardised game setting for users to play through and record EDA measurements as they progress. Record some user experiences.
+		\item Determine what game events trigger responses and select events to use in the next deliverables.
+	\end{itemize}
+	
+	\item Intermediate Deliverables
+	\begin{itemize}
+		\item Analyse data from users and try to determine susceptibility to expected new shock events, e.g. underlying tension or delay since last event.
+		\item Create one or more Biometric systems for triggering events at moments of maximum impact.
+		\item Create a (null hypothesis) system for random generation of events.
+	\end{itemize}
+	
+	\item Advanced Deliverables
+	\begin{itemize}
+		\item Conduct a user study to determine whether the Biometric algorithm gives a better user experience than the Random algorithm.
+		\item Revise the Biometric algorithm based upon empirical evidence obtained.
+	\end{itemize}
+\end{enumerate}
+
 \subsection{Prior Work}
-The original plan for this project was to explore the use of EDA to find relaxing music. By representing songs as 14-dimensional vectors, where each component of the vector was a high-level quality of the song such as `acousticness' or `danceability', the problem could be treated as an AI search problem. Each song can be assigned a fitness based on how relaxing a user finds it when listening to it. The problem becomes to simply explore the 14-dimensional space of all songs and find the song with highest fitness.
+The original plan for this project was to explore the use of EDA to find relaxing music.
+By representing songs as 14-dimensional vectors, where each component of the vector was a high-level quality of the song such as `acousticness' or `danceability', searching for the most relaxing song could be treated as an AI search problem, searching for the area of that space with the highest fitness.
+Each song can be assigned a fitness based on how relaxing a user finds it when listening to it.
+The problem becomes to simply explore the 14-dimensional space of all songs and find the song with highest fitness.
 
 However, there were two problems which meant that this project was entirely infeasible. Firstly, calculating the fitness of a song took the length of the song to do, since a human needed to listen to the song. To find a near-optimal solution in the dataset of 25 million songs that was used would take thousands of songs, which would mean weeks of music listening.
 
