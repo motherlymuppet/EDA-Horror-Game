@@ -118,13 +118,18 @@ Biometrics, Electro-dermal Activity, Human-Computer Interaction, Video Games, Ho
 %TODO redraft results
 %TODO redraft conclusion
 %TODO redraft solution: implementation, software engineering
+%TODO analysis
 
 \section{Introduction}
 %This section briefly introduces the general project background, the research question you are addressing, and the project objectives.  It should be between 2 to 3 pages in length.  Do not change the font sizes or line spacing in order to put in more text.
 
 %Note that the whole report, including the references, should not be longer than 20 pages in length.  The system will not accept any report longer than 20 pages.  It should be noted that not all the details of the work carried out in the project can be represented in 20 pages.  It is therefore vital that the Project Log book be kept up to date as this will be used as supplementary material when the project paper is marked.  There should be between 10 and 20 referenced papers---references to Web based pages should be less than 10\%.
 
-%TODO significance of study
+Horror games are a large industry, with thousands of games and hundreds of millions of copies owned.
+Players are thrilled by experiencing fear in a safe and secure environment.
+However, each player reacts differently and the one-size-fits-all approach can prove constricting for players.
+While the one-size-fits-all approach can be very enjoyable, it requires the developers of the game to anticipate where the scares will be most successful, and program them accordingly.
+This is time-consuming and prone to error.
 
 This project explores the feasibility and benefits of algorithmically tailoring a horror game's jump scares based on the biometric feedback to previous scares.
 A simple horror game with the ability to read data from a electro-dermal activity (EDA) sensor was created.
@@ -132,19 +137,15 @@ The EDA sensor measures the stress response of the player after each jump scare.
 A user study was conducted and the results analysed to explore whether tailoring the scares to the individual player is more effective than using pre-determined timings.
 Success will be discussed in terms of self-reported enjoyment and data gathered from the biometrics measuring fear.
 
-Horror games are a large industry, with thousands of games and hundreds of millions of copies owned.
-Players are thrilled by experiencing fear in a safe and secure environment.
-However, each player reacts differently and the one-size-fits-all approach can prove constricting for players.
-While the one-size-fits-all approach can be very effective, it requires the developers of the game to anticipate where the scares will be most effective, and program them accordingly.
-This is time-consuming and prone to error.
-
 %TODO tell if it's successful
-This project, if successful, would improve the player's experience by tailoring the scares to them specifically and improving the `re-playability' of the game by providing a different experience each time.
-In addition, it would simplify the process of creating horror games by removing the need to manually program the jump scare timings, allowing developers to spend more time on other parts of the game with the confidence that the jump scares would be timed correctly automatically.
+This project, aims to improve the player's experience by tailoring scares to the individual.
+This will lead to increased `re-playability' of the game by providing a varying experience.
+In addition, it aims to simplify the process of creating horror games by removing the need to manually program the jump scare timings.
 
 \subsection{Research Aims}
+\label{sec:Objectives}
 
-As outlined above, the funamental research question is: `\emph{can biometric sensors be used to tailor the timing of scares in a horror game to improve the user experience?}'. To answer this question, the following research objectives must be completed:
+As outlined above, the fundamental research question is: \emph{Can biometric sensors be used to tailor the timing of scares in a horror game to improve the user experience?}. To answer this question, the following research objectives must be completed:
 
 \begin{enumerate}
 	\item Minimum Objectives
@@ -159,8 +160,8 @@ As outlined above, the funamental research question is: `\emph{can biometric sen
 	\item Intermediate Objectives
 	\begin{enumerate}
 		\item Analyse data from users and try to determine susceptibility to expected new shock events, e.g. underlying tension or delay since last event.
-		\item Create one or more Biometric systems for triggering events at moments of maximum impact.
-		\item Create a (null hypothesis) system for random generation of events.
+		\item Create one or more algorithms using biometric data which trigger events at moments of maximum impact.
+		\item Create a (null hypothesis) algorithm for random generation of events.
 	\end{enumerate}
 	
 	\item Advanced Objectives
@@ -179,24 +180,24 @@ It recommends further research to confirm its results before integration into co
 %TODO mini conclusion. Refer to the results.
 
 \subsection{Initial Work}
-\label{sec:Prior}
+\label{sec:Initial}
 
 Originally, this project aimed to explore the use of EDA in searching for music that relaxed an individual.
 Representing songs as 14-dimensional vectors, where each component of the vector was a high-level quality of the song such as `acousticness' or `danceability', we could treat searching for the most relaxing song as an AI search problem.
 Each song's fitness was determined by playing the song to the user and measuring how relaxed they were, where more relaxing songs had higher fitness.
-The problem becomes to simply find the area of the continuous 14-dimensional space with the highest fitness.
-Traditional techniques like hill climbing or simulated annealing could be used.
+This reduces the problem to searching a continuous 14-dimensional space for the point with the highest fitness.
+Traditional AI search techniques such as hill climbing or simulated annealing can be used.
 
 However, multiple issues meant that this music-based problem was infeasible.
-Firstly, it took the entire song's length to calculate its fitness, since the user needed to listen to it.
+Firstly, calculating the fitness of a point required playing a song to the user in full.
 Finding a near-optimal solution from a dataset of 25 million songs would take thousands of tests, meaning weeks of non-stop music listening.
 
-Additionally, EDA was a terrible choice for finding relaxing music.
+Additionally, EDA was an inappropriate measure for measuring relaxedness as a result of music.
 EDA changes are linked to sudden increases in arousal, meaning it was difficult to measure low arousal, since that meant looking for the absence of an EDA change.
 It was also difficult to determine which reactions were caused by the song and which were caused by the user daydreaming or seeing something.
 
 Making matters worse, EDA tends to drift over time, causing measurements to be thrown off by changes in the room's temperature or how hungry the user was.
-In comparison, jump scares are an instantaneous stimulus, and any system need only look at a 10-second period after the stimulus, so the recording length is short enough that this is a non-issue.
+In comparison, jump scares are an instantaneous stimulus, and any algorithm need only look at a 10-second period after the stimulus, so the recording length is short enough that this is a non-issue.
 
 Realising these limitations led the project to explore horror games instead.
 By controlling the stimulus directly by triggering jump scares, we know to expect an increase in EDA.
@@ -205,21 +206,33 @@ The music-based project is not flawed at its core, and could still prove interes
 
 \section{Related Work}
 
-This project will discuss the previous research and studies that are relevant to the project.
+This section will discuss the previous research and studies that are relevant to the project.
 There is little academic research on tailoring horror games to individuals, and none that uses EDA to do so.
-Therefore, this section will begin by examining the academic resources most related to this project, before moving to less academic resources which more closely relate to the intended study.
+Therefore, this section will begin by examining the few academic sources available, before moving to non-academic sources which more closely relate to the study.
 
-\subsection{EDA}
+\subsection{Measuring Stress}
 Physiological arousal is a measure of how alert the body is.
 It can be caused by intense emotion, shock, or surprise, and is strongly linked to the `fight or flight' reflex.
 When experiencing high arousal, the body's blood pressure and heart rate increases, readying the body to respond to a stimulus \citep[pp. 162--167]{arousal}.
+
+When the body is becoming more aroused, it leads to an increase in electro-dermal activity (EDA).
+EDA is a measure of how much the body is sweating, and is measured by testing the resistance between two electrodes.
+When the participant experiences high EDA, the resistance between the electrodes decreases \citep[pp. 2--3]{eda}.
+GSR (galvanic skin response) is a synonymous (though outdated) term for EDA, which is notably used in the name of the EDA sensor that the user study uses. %TODO SHIT
+
+EDA is used in many applications, including as part of the polygraph (lie-detector) test, where it can detect the physiological arousal caused by lying and being afraid of the repercussions of doing so \citep{polygraph}.
+It is also used by the `Church of Scientology' to guide therapy in removing any negative associations from words and concepts, a controversial technique known as `auditing' \citep[p.32]{auditing}.
+
+An EDA response consists of a sharp drop in resistance, over a period of {\raise.17ex\hbox{$\scriptstyle\sim$}}1s, when arousal passes a certain threshold (the size of the drop correlates with the extent of the arousal), followed by an asymptotic increase in resistance back to a high base value, with a half-life of {\raise.17ex\hbox{$\scriptstyle\sim$}}10s.
+The initial drop occurs 1-3 seconds after the stimulus.
+That high base value is rarely reached because arousal varies frequently even without any explicit stimulus, so the EDA response happens quite often \citep{edaAnalysis}.
 
 An example of the data collected from a user who is playing a horror game is provided in \vref{fig:ExampleEda}.
 The rate of increase is relatively linear, with sharp decreases when a fight-or-flight reaction is triggered by the jump-scares.
 Some drops in EDA are not caused by jump scares, such as the large drop between the final two scares.
 These drops could be caused by the user seeing or thinking about something which caused them to become more alert.
 These random drops are why it is important that we know when to expect a reaction, as it allows for the stimulus and reaction to be linked.
-Attempting infer a stimulus from a reaction, as in the proposed prior work in \vref{sec:Prior}, is difficult and error-prone.
+Attempting infer a stimulus from a reaction, as in the initial work in \vref{sec:Initial}, is difficult and error-prone.
 
 \begin{figure}[htb]
 	<<ExampleEda, fig.width = "\\textwidth", fig.height = 2>>=
@@ -229,62 +242,54 @@ Attempting infer a stimulus from a reaction, as in the proposed prior work in \v
 	\label{fig:ExampleEda}
 \end{figure}
 
-When the body is becoming more aroused, it leads to an increase in electro-dermal activity (EDA).
-EDA is a measure of how much the body is sweating, and is measured by testing the resistance between two electrodes.
-When the participant experiences high EDA, the resistance between the electrodes decreases \citep[pp. 2--3]{eda}.
-GSR (galvanic skin response) is a synonymous (though outdated) term for EDA, which is notably used in the name of the EDA sensor that the system uses.
-
-EDA is used in many applications, including as part of the polygraph (lie-detector) test, where it can detect the physiological arousal caused by lying and being afraid of the repercussions of doing so \citep{polygraph}.
-It is also used by the `Church of Scientology' to guide therapy in removing any negative associations from words and concepts, a controversial technique known as `auditing' \citep[p.32]{auditing}.
-
-The EDA response consists of a sharp drop in resistance, over a period of {\raise.17ex\hbox{$\scriptstyle\sim$}}1s, when arousal passes a certain threshold (the size of the drop correlates with the extent of the arousal), followed by an asymptotic increase in resistance back to a high base value, with a half-life of {\raise.17ex\hbox{$\scriptstyle\sim$}}10s.
-The initial drop occurs 1-3 seconds after the stimulus.
-That high base value is rarely reached because arousal varies frequently even without any explicit stimulus, so the EDA response happens quite often \citep{edaAnalysis}.
-
 \subsection{Biometrics}
+%TODO explain how biometrics are used - we use to measure EDA
+
+Biometrics are%TODO define, cite, examples of sensors, examples of use
+
 Biometrics are becoming increasingly ubiquitous.
 67\% of smartphones include a fingerprint scanner \citep{fingerprint}, and 141 million smartwatches were sold in 2018 \citep{smartwatches}, nearly all of which are constantly taking heart-rate measurements.
-
 Consumers are increasingly becoming accustomed to the fact that wearable tech and biometrics can be used to improve their user experience.
 Despite this, biometrics have seen little use in the entertainment industry.
 
-As biometrics become more accepted and more integrated, they will allow for a new step in human-computer interfacing.
-Just as the inclusion of a fingerprint sensor allowed smartphones to identify their user autonomously, integrated sensors will allow applications to get immediate feedback without the user having to switch contexts and give a rating.
-This means that they can iteratively improve without user or developer intervention.
-Eventually, these biometrics will extend to the point of brain-computer interfacing, where the program can adjust to the individual tastes and preferences of the user without having to test the available options individually.
-
 \subsection{Horror Games}
+
+%TODO horror game design
 
 %Focus on the prior work by other people in the horror games bit instead of horror games in general - the bit about other attempts at tailoring are the most interesting
 
-The horror games industry is huge, with over 2000 unique titles on steam and almost 500 million copies owned \citep{horrorSteamSpy}.
+The horror games industry is huge, with over 2000 unique titles on the digital games platform \emph{Steam} and almost 500 million copies owned \citep{horrorSteamSpy}.
 The vast majority of these games present the same experience to all players, though there have been experiments in tailoring the games to the individual.
 Games such as  \emph{Nevermind} \citep{nevermind}, and \emph{Bring to Light} \citep{bringtolight} both allow the use of heart-rate monitors to adjust gameplay.
 
 The use of heart rate monitors in these games is not ideal, but makes sense for a mass-market game as heart rate sensors are some of the most widely available biometric sensors.
-Heart rate sensors are limited as they struggle to show the immediate response to a scare.
+The effectiveness of heart rate sensors is limited by slow response times, leading to an inability to show the immediate response caused by a scare.
 They can tell how scared a person is, but not how scared an individual event made them.
 In contrast, this project will use EDA sensors which can detect changes on the order of milliseconds, making them an ideal feedback mechanism in a horror game \citep{edaAnalysis}.
 
-Horror games are perfect for measuring with biometrics, as we have a defined event which we know will cause a large reaction, and we can use the sensors to measure the response to that known event.
+The horror genre is an ideal first candidate for integrating biometrics into games.
+Since the game triggers scares, we have a defined event which we expect to cause a large reaction, and can use biometrics to measure the response to that known event.
 This is similar to with a lie detector - we have an event (a person answering a question) and we want to see whether it caused a response.
 This is much simpler than trying to detect stress over a long period as the timing of the known stimulus can be used to predict a change in biometrics.
 
+%TODO conclude lit, relate to project
+
 \section{Solution}
 
-The system that was designed and implemented will be discussed in three subsections, each analysing a different part of development.
-The \emph{Algorithm} section discusses the system from a purely theoretical perspective, exploring the high-level decisions such as how to adjust scare timings.
+A game was designed and implemented to solve to achieve the objectives set out in \cref{sec:Objectives}.
+It will be discussed in three subsections, each analysing a different part of its design and development.
+The \emph{Biometric Algorithm} section discusses the game from a theoretical perspective, exploring the high-level decisions such as how to adjust scare timings.
 The \emph{Implementation} section discusses the low-level choices made such as the design choices made when creating the scare, and how data was saved.
-The \emph{Software Engineering Design} section discusses the processes used when creating the system, and the choices made to ensure that the system was maintainable and easily extensible.
+The \emph{Software Engineering Design} section discusses the processes used when creating the game, and the choices made to ensure that the game was maintainable and easily extensible.
 
-\subsection{Algorithm}
+\subsection{Biometric Algorithm}
 
-Preliminary testing and experimentation showed that frequent scares caused participants to become desensitised and have much weaker reactions.
+Preliminary testing and experimentation was performed during the work described in \vref{sec:Initial}.
+This testing demonstrated that increasing the frequency of stimuli caused participants' reactions to become weaker, as the participants became desensitised to the stimuli.
 Based on this testing, an algorithm was devised to adjust the timing of jump scares in the horror game.
 It aims to prevent users from becoming desensitised by lengthening the delay between scares when the user's reactions become weaker, and shortening the delays when the user reacts more strongly.
 Since every user has a different baseline reaction to the scares, the algorithm adjusts its expectations based on a calibration phase.
-The first three scares of each playtest are used to calibrate the algorithm, adjusting its expectations of the user's mean response and the variance in their responses.
-These first scares happen randomly, 20-30 seconds apart.
+The playtest begins with a calibration phase which adjusts the algorithm's expectations of the user's mean response and variance in their responses.
 
 \begin{wrapfigure}{r}{0.5\linewidth}
 	\vspace{-10pt}
@@ -303,7 +308,7 @@ See \vref{fig:ExampleScare} for a real example of when the peak and max values a
 
 %TODO put me in a box bby
 \begin{center}
-	\textbf{The Algorithm}
+	\textbf{Procedure}
 \end{center}
 
 \begin{enumerate}
@@ -343,14 +348,12 @@ See \vref{fig:ExampleScare} for a real example of when the peak and max values a
   \end{subfigure}
 \end{figure}
 	
-	\item Multiply the delay by the factor and clamp it to below 100 seconds.%
-	\footnote{
-		This was done to maintain a sufficiently high scare rate to increase the amount of data available, and might not be necessary if the algorithm was implemented in a real game.
-	}
+	\item Multiply the delay by the factor.
 \end{enumerate}
 
-The delay is not calculated until 10 seconds after the scare.
-The delay cannot begin until this point, which means that the real time between scares is between 10 and 110 seconds.
+\subsection{Null Hypothesis Algorithm}
+The null hypothesis algorithm simply receives a list of times as a parameter and scares the user whenever the current time is equal to one of the times in the list.
+Determining the list of times to pass to the null hypothesis algorithm is left as an implementation detail, and is discussed in significant detail later.%TODO NICER
 
 \subsection{Implementation}
 
@@ -388,23 +391,31 @@ The delay cannot begin until this point, which means that the real time between 
 	\draw [->] (-1.75,1.5) node (v1) {} circle (0.5);
 	\draw [->] (v1) edge (v6);
 	\end{tikzpicture}
-	\caption{System Architecture}
+	\caption{Game Architecture}
 	\label{fig:Architecture}
 	\vspace{-15pt}
 \end{wrapfigure}
 
-\vref{fig:Architecture} shows the hardware and software architecture of the system that was implemented.
+\vref{fig:Architecture} shows the hardware and software architecture of the game that was implemented.
 An Arduino Uno was used to read from the EDA sensor.
 To reduce the noise in the data and to reduce the volume of data recorded, it takes 10 readings and sums them, then reports the sum value.
-This still results in frequent data, producing one reading every 5-10 ms.
+This maintains a sufficiently high data rate, producing one reading every 5--10 ms.
 The Arduino operates in an infinite loop, sending readings to the computer using serial over USB.
 
-The horror game itself was created as a mod for the game Minecraft.
-This meant that the game's implementation was simplified, using Minecraft as a game engine and its mature open-source modding API, forge, to implement custom functionality.
+The horror game was created as a mod for the game Minecraft.
+This simplified the process of creating the game, using Minecraft as a game engine and its mature open-source modding API, Forge, to implement custom functionality.
+
+The first three scares of each playtest are used as the calibration phase.
+These first scares happen randomly, 20-30 seconds apart.
+The delay produced by the algorithm was automatically clamped to between 0 and 100 seconds.
+This was done to maintain a sufficiently high scare rate and increase the amount of data available, and might not be necessary if the algorithm was implemented in a real game.
+The delay is not calculated until 10 seconds after the scare.
+The delay cannot begin until this point, which means that in practice, the time between scares is from 10 to 110 seconds.
+
 Originally, there was concern surrounding the difficulty of creating a game scary enough that the user's shock would produce a measurable response from the sensor.
 However, the sensor is incredibly sensitive.
-Even when the user was expecting it, a screen with the word `boo' written on it was enough to get a recognisable response.
-This meant that the final jump scare, a scary monster face and loud noise, generated a suitably large effect that could easily be measured and analysed.
+%Even when the user was expecting it, a screen with the word `boo' written on it was enough to get a recognisable response.
+This meant that it was trivial to design a scare which generated a suitably large effect that could easily be measured and analysed.
 
 \begin{wrapfigure}{r}{0.4\linewidth}
 	\vspace{-10pt}
@@ -418,9 +429,8 @@ This meant that the final jump scare, a scary monster face and loud noise, gener
 The final jump scare is shown in \vref{fig:JumpScare}.
 A `creeper' face appears large on the screen, taking up most of the user's field of view.
 The creeper is a monster in Minecraft and has a reasonably scary appearance.
-At the same time, a loud noise plays \footnote{A video of the jump scare, with sound, is available at \url{https://www.youtube.com/watch?v=kKKoTZelk3k}}.
-The noise consists of many in-game noises pitch-shifted and played simultaneously.
-It has many low frequencies and some high-pitched scream-like sounds.
+At the same time, a loud noise plays consisting of many in-game noises pitch-shifted and played simultaneously.\footnote{A video of the jump scare, with sound, is available at \url{https://www.youtube.com/watch?v=kKKoTZelk3k}}
+It has many low frequencies and some high-pitched scream-like sounds, which can help evoke a sense of fear. %TODO CITE
 
 The jump scare poses no threat to the player in-game.
 Any implementation where the jump scare poses a threat necessarily means that good timing of the jump scare requires environmental knowledge.
@@ -457,29 +467,31 @@ At that point, the jump scares stopped and the data was saved.
 \end{figure}
 
 
-Data from the sensor is recorded for the entire duration of the test, to allow for more flexibility during analysis.
+Data from the sensor is recorded for the whole test, allowing more flexibility during analysis.
 Playtest start and end times are recorded, in addition to the exact timings of the scares.
 When the test ends, all data is saved to a JSON file.
 These JSON files are used in the \emph{null hypothesis algorithm} for the control group, which simply replicates the scare timings from the data file provided.
 
 \subsection{Software Engineering Design}
 Minecraft and Forge are both written in Java, meaning that the choice of language was limited to those able to compile to JVM bytecode.
-Of the many options, the language Kotlin was chosen for the system.
-The language released in 2011 \cite{kotlinRelease}, and was given first-class support as an Android development language by Google in 2017 \cite{googleKotlin}.
+Of the many options, the language Kotlin was chosen for the game.
+The language was released in 2011 \citep{kotlinRelease}, and was given first-class support as an Android development language by Google in 2017 \citep{googleKotlin}.
 Compared with Java, it is much more expressive and pragmatic, reducing the amount of boilerplate code that must be written to solve a problem.
-Kotlin reduces the incidence of common bugs such as null-pointer exceptions by employing nullable types and improving support for functional programming, which was used throughout the system when handling lists and collections.
+Kotlin reduces the incidence of common bugs such as null-pointer exceptions by employing nullable types and improving support for functional programming, which was used throughout the game when handling lists and collections.
 
 The Forge modding API abstracts from the real-time nature of a game to an event-based architecture.
-The implemented system maintains this style, using an event-based architecture throughout.
+The implemented game maintains this style, using an event-based architecture throughout.
 Each game tick, which equates to 20 times per second, the API runs the code provided to it.
 
+\subsubsection{Serial Code}
 The Serial code is encapsulated in a separate class.
 The Serial code uses the \verb|jrxtx| serial library, which is programmed via pluggable event handlers.
 The Serial class attaches its event handler to the library.
 This means that every time the library triggers a Serial Event, the Serial class retrieves the serial value and current time, adding them to a large buffer.
-The Serial class contains a method to retrieve the last $x$ seconds of data, which is used extensively throughout the rest of the system.
+The Serial class contains a method to retrieve the last $x$ seconds of data, which is used extensively throughout the rest of the game.
 
-The system is implemented such that it has two interchangeable \emph{storytellers}.
+\subsubsection{Storytellers}
+The game is implemented such that it has two interchangeable \emph{storytellers}.
 These storytellers filter the game tick events and determine which ones should trigger a jump scare.
 There is one storyteller for the tailoring algorithm and one for the null hypothesis algorithm.
 
@@ -499,21 +511,22 @@ No timer is set since no analysis occurs.
 Both storytellers extend from a base storyteller superclass which terminates the playtest after 10 minutes, displaying \emph{Test Complete} on the screen.
 This triggers the data export, which serialises the data to JSON.
 
-The development of the system followed a mostly waterfall design philosophy, with some agile elements.
-Systems that are used in experiments are distinct from most software projects, as the software cannot be changed or updated in any meaningful way once the experiment has began, to preserve the internal validity of the experiment.
-Therefore, the system needed to be completed before the experiment began.
+\subsubsection{Development Process}
+The development of the game mostly followed a waterfall development philosophy, with some agile elements.
+Programs that are used in experiments are distinct from most software projects, as the software cannot be changed or updated in any meaningful way once the experiment has began, to preserve the internal validity of the experiment.
+Therefore, the game needed to be completed before the experiment began.
 However, elements of the agile process were used during the design phase, including repeatedly creating prototype systems and incrementally improving them.
-Once the specification for the final system was decided, there was no additional user feedback before the experiment began.
-This hybrid approach to software development was the most appropriate for the system, as it allowed flexibility when there were many unknowns, and allowed a fixed system to be used once the experiment began.
+Once the specification for the final algorithm and game was decided, there was no additional user feedback before the experiment began.
+This hybrid approach to software development was the most appropriate for the game, as it allowed flexibility when there were many unknowns, and allowed a fixed game to be used once the experiment began.
 A more agile process could have been used, and would have been beneficial, but would have meant running multiple pre-tests, using up participants who could have instead participated in the final experiment.
 This would have been ideal, but was infeasible given the limited time and resources available.
 
-In total, the system used for the experiment comprises of 949 lines of code across 21 classes.
+In total, the game created for the experiment comprises of 949 lines of code across 21 classes.
 
 \section{Experimental Study}
 
 This section will discuss the user study that was performed.
-Its null hypothesis was: `\emph{There is no difference between using the algorithm to tailor jump scare timings to the individual player and using a pre-determined set of timings}'.
+Its null hypothesis was: \emph{There is no difference between using the algorithm to tailor jump scare timings to the individual player and using a pre-determined set of timings}.
 The alternative hypothesis was simply that there is a difference between the two groups.
 
 Participants were put into one of two groups:
@@ -522,7 +535,9 @@ Participants were put into one of two groups:
 	\item The control group (C-group) played the game with jump scare timings pre-determined before they started playing
 \end{enumerate}
 
-Many controls were put in place in addition to those mentioned in the previous section.
+In addition to the environment, music, and scares being controlled, many other experimental controls were put in place to improve the reliability of the experimental study.
+
+\subsubsection{Controlling for Reported Fear}
 
 \begin{wrapfigure}{r}{0.5\linewidth}
 \vspace{-10pt}
@@ -534,10 +549,12 @@ Many controls were put in place in addition to those mentioned in the previous s
 \end{wrapfigure}
 
 We expect that participants who are more scared of the horror genre will have stronger reactions to the jump scare.
-Participants were then paired such that both in the pairing gave the same answer.
-One of the participants in the pair was assigned to the I-group, and the other to the C-group.
-This is known as stratified sampling \citep[p. 178]{stratification}, and means that the distribution in self-reported fear between the two groups is identical, seen in \vref{fig:ParticipantScaredness}.
+Participant pairings were created such that both participants in a pair self-reported the same level of fear for horror games.
+One participant in the pair was assigned to the I-group, and the other to the C-group.
+This is known as stratified sampling \citep[p. 178]{stratification}, and means that the distribution in self-reported fear between the two groups is identical (see in \vref{fig:ParticipantScaredness}).
 This stratified sampling controls for participants' self-reported fear, preventing one group from containing more stoic participants than the other, which would have skewed the results.
+
+\subsubsection{Controlling for Scare Frequency}
 
 \begin{wrapfigure}{r}{0.5\linewidth}
 \vspace{-10pt}
@@ -548,13 +565,15 @@ This stratified sampling controls for participants' self-reported fear, preventi
 	\label{fig:ParticipantScares}
 \end{wrapfigure}
 
-We expect participants that are shown more jump scares to be more desensitised.
+We also expect participants that are shown more jump scares to be more desensitised.
 To control for this, each pairing made previously was shown the same number of scares.
 Since the scare timing algorithm cannot target a certain number of scares, the I-group participants of each pair were tested first.
 When the C-group participants were tested, each person was shown the same number of scares as their partner.
 This means that each group has the same distribution of scare frequencies, shown in \vref{fig:ParticipantScares}.
 
-The timing of a scare affects the strength of the user's reaction to it.
+\subsubsection{Controlling for `Quality' of Scare Timings}
+
+We hypothesise that the timing of a scare affects the strength of the user's reaction to it.
 A number of strategies were considered when creating the null hypothesis algorithm.
 Originally, the scares were going to be spread evenly across the playtest, but that meant that participants learned to expect a scare, which unfairly biased the results against the null hypothesis algorithm.
 This belies that a set of scare timings have an inherent `quality' to them, unrelated to whether the scares were tailored to an individual.
@@ -562,27 +581,31 @@ To ensure that this underlying `quality' of timing was the same between the two 
 This means that the timings were based on the participant's partner's response to the scare, not theirs.
 
 The study originally aimed to test 50 participants.
-Due to practical issues, only 26 participants were tested.
-Of those, 2 participants were excluded from analysis as their EDA went below zero and the sensor stopped working, corrupting the data.
+Due to time limitations and difficulty accessing sufficient participants, only 26 were tested.
+Of those, two participants were excluded from analysis as their EDA went below zero and the sensor stopped working, corrupting the data.
 Of the remaining 24 participants, 12 were allocated to each group.
-After 21 participants, Easter break was arriving and people would start to leave Durham, meaning that finding additional participants would become impossible.
-At that point participation was limited to those who could complete a pair that only had its I-group participant.
-Prospective participants were not told what answer was needed on the self-reported fear question.
+After 21 participants had been tested, access to participants decreased due to university vacations, meaning that finding additional participants would become impossible.
+From this point, participation was limited to only those who could complete a pre-existing pair.
+Prospective participants were not told what answer was needed on the self-reported fear question in order to be approved to participate.
 
 \subsection{Ethics}
+Ethical approval was granted in accordance with Durham University Computer Science Department ethical guidelines.
+The project was deemed low-risk and did not require approval from the ethics committee.
 Participants signed an informed consent form which explained what the study entailed and the experimental setting.
-Harm was prevented by allowing participants to ask questions, see the jump scare, and drop out freely.
-Confidentiality was achieved by using participant IDs and only linking ID to name in the consent forms, which were securely destroyed after the experiment was complete.
+Psychological harm was prevented by allowing participants to ask questions, see the jump scare prior to testing, and drop out freely.
+Physical harm was unlikely enough that no special considerations were necessary.
+Confidentiality was achieved through the use of participant IDs and only linking ID to name in the consent forms, which were securely destroyed after the experiment was complete.
 Data was stored on a password-protected device and only published if the participants signed the voluntary data release.
 The voluntary data release was signed by all participants, and as such the raw data has been released into the public domain.
 Previous research has not covered this topic, meaning that the outcome of the experiment was uncertain, and there were no ethical concerns surrounding wasting participant time to confirm an already known outcome.
 
 \subsection{Threats to Validity}
 \label{sec:Validity}
+A threat to validity occurs when the conditions of an experiment are imperfect in such a way that the results could be attributable to alternative causes.
 The threats to the validity of the study will be analysed using the framework described in \citet[pp. 5--6]{validity}.
 
 \subsubsection{Internal Validity}
-The internal validity concerns whether the experiment is successfully measuring the effect that it tries to measure. Some factors affecting interval validity will be discussed:
+The internal validity concerns whether the experiment is successfully measuring the effect that it aims to measure. Some factors affecting interval validity will be discussed:
 
 \textbf{Maturation} --- When the measured variable is a function of time and there is a difference in time between the testing of the two groups.
 Since in each pair the intervention group participant is tested first, the intervention group tests on average happened before the control group tests.
@@ -597,9 +620,10 @@ The experiment was only single-blind, but as most data was recorded automaticall
 
 \textbf{Attrition} --- When the risk of people dropping out / being excluded is a function of the dependent variable.
 This risk is present in two ways.
-If people are very scared, their EDA will drop more (dependent variable), and those people will also be more likely to drop out.
-Therefore if one group is much scarier the result won't show as clearly as some will drop out over being too scared.
-This risk had no impact as nobody dropped out once starting the playtest.
+If a participant is very scared, they will be more likely to drop out.
+Participants who drop out will therefore be biased towards those who found the playtest effective at scaring them.
+If one algorithm is much scarier the result won't show as clearly as some would drop out due to being too scared.
+This risk had no impact as nobody dropped out once starting the playtest
 
 Two participants were excluded because their skin resistance was so low that the sensor broke.
 At first, this appears like a serious attrition risk.
@@ -607,23 +631,23 @@ However, the low skin resistance was not due to a large drop, but due to their n
 This means that the attrition was caused by factors unrelated to the experiment.
 Therefore, attrition threats are minimal.
 
-\textbf{Selection of Subjects} --- When the two groups are not comparable.
-Much of this was controlled for using stratification during sampling.
+\textbf{Selection of Subjects} --- When the two groups have different characteristics and those characteristics affect the dependent variable.
+Much of this was controlled for using stratification during sampling, where we controlled for participants' self-reported fear.
 However, the I-group and C-group participants likely differed, since the participants were assigned to groups chronologically.
 Since the I-group participants were in general found earlier than the C-group participants, the I-group participants will be closer friends with the researcher, as participants were naturally selected based on availability.
 This threat could be reduced by sampling participants randomly, getting an initial expression of interest and a self-reported fear rating, then assigning groups and performing tests.
 This was planned originally, but found to be infeasible due to the increased attrition rates of having a two-phase sampling strategy.
 
-Additionally, participants begin the playtest with different EDA levels.
+Additionally, participants begin the playtest with different EDA levels, and on average the starting EDA of the two groups differs (see \vref{fig:startingEda}.
 As higher EDA leads to larger drops as a result of the same stimulus, this makes it harder to compare between the groups.
-There is a difference in starting EDA between the groups, seen in \vref{fig:StartingEda}.
+This threat is one of the project's most significant threats.
 
 \begin{wrapfigure}{r}{0.5\linewidth}
 \vspace{-10pt}
 	<<StartingEda>>=
 	source("Scripts/StartingEda.R")
 	@
-	\caption{Initial EDA differs between groups}
+	\caption{Initial EDA per group}
 	\label{fig:StartingEda}
 \end{wrapfigure}
 
@@ -644,8 +668,8 @@ These factors were not recorded and therefore it is impossible to investigate an
 
 \textbf{Data Vandalism} --- When the data is intentionally corrupted by the participants.
 There is a slim chance of intentional data vandalism.
-Participants could lie about how scared they were, but if we plot a scatter graph as in \vref{fig:ReportedScaredness}, we don't see any clear evidence of lying.
-People generally follow the regression line, but with a wide variance.
+Participants could lie about how scared they were, but in \vref{fig:ReportedScaredness} we see no clear evidence of lying.
+The data generally follows the regression line, but with a wide variance.
 A few clear anomalies could indicate data vandalism, but this wide variance instead suggests that people are inaccurate when judging their fear.
 Participants could train themselves to change their EDA at will, usually done to beat a lie-detector test.
 That would be hard to detect, by design, but nobody showed any prior knowledge of EDA or GSR.
@@ -653,7 +677,7 @@ It's hard to rule this out but it's a very niche skill and the chance of someone
 
 \subsubsection{External Validity}
 The external validity concerns whether the experiment is generalisable to the population.
-Two factors impacted the external validity.
+Two factors impacted the external validity of the user study.
 
 \textbf{Interaction effects of selection biases and the experimental variable} --- When the sample is not representative of the population and reacts differently.
 The majority of participants were young, male, and many of them were computer scientists.
@@ -668,81 +692,15 @@ Limiting the test to a simple game was necessary in this first experiment to con
 \section{Results}
 
 This section will state the results from the user study and provide visualisations of the data.
-Analysis of the data and its implications can be found in \vref{sec:Analysis}.
-
-\subsection{User Self-Reported Statistics}
-We begin by examining the results of the questions asked to participants after their playtest was completed, before moving on to analyse the raw data from the sensor.
-
-Participants were asked how much they enjoyed their time playing the game.
-The answers given by each group are presented in \vref{fig:ParticipantEnjoyment}.
-In general, participants in the intervention group enjoyed the game less than those in the control group.
-
-\begin{figure}[htb]
-  \centering
-  \begin{subfigure}[t]{.49\linewidth}
-    <<ParticipantEnjoyment>>=
-  	source("Scripts/ParticipantEnjoyment.R")
-  	@
-  	\caption{Distribution of Responses}
-  \end{subfigure}
-  \begin{subfigure}[t]{.49\linewidth}
-    <<ParticipantEnjoymentBoxPlot>>=
-  	source("Scripts/ParticipantEnjoymentBoxPlot.R")
-  	@
-  	\caption{Comparison between Groups}
-  \end{subfigure}
-  \caption{On a scale of 1-10, how much did you enjoy that as a game?}
-  \label{fig:ParticipantEnjoyment}
-\end{figure}
-
-\begin{wrapfigure}{r}{0.5\linewidth}
-\vspace{-10pt}
-	<<ScareHistogram>>=
-	source("Scripts/ScareHistogram.R")
-	@
-	\caption{Scare Frequency over Time}
-	\label{fig:ScareHistogram}
-\end{wrapfigure}
-
-Participants were asked to rate the frequency of the jump scares from "Far Too Few" to "Far Too Many" jump scares.
-The answers given by each group are presented in \vref{fig:ParticipantTiming}.
-Most participants felt there were too many jump scares.
-Their feeling is backed up by the scare timing histogram in \vref{fig:ScareHistogram}, which shows that the algorithm generally decreased the frequency of jump scares over time.
-
-The control group felt marginally more strongly that there were too many scares.
-Since the two groups had identical scare timings, this was not the result of any difference in the real frequency between the groups.
-Therefore, this suggests that the scares were badly timed for the control group, making them more aware of the scares and making the scares less immersive.
-
-\cref{fig:ParticipantTimingRegression} shows a statistically significant correlation between the real frequency of scares and the participants' perceived scare frequency.
-This indicates that participants are accurately assessing the frequency of jump scares and that we are not just seeing trends in random data.
-
-\begin{figure}[htb]
-  \centering
-  \begin{subfigure}[t]{.49\linewidth}
-    <<ParticipantTiming>>=
-		source("Scripts/ParticipantTiming.R")
-		@
-		\caption{Distribution of Responses}
-  \end{subfigure}
-  \begin{subfigure}[t]{.49\linewidth}
-    <<ScareFrequency>>=
-		source("Scripts/ScareFrequency.R")
-		@
-  	\caption{Actual vs Perceived frequency}
-  	\label{fig:ParticipantTimingRegression}
-  \end{subfigure}
-  \caption{How was the frequency of jump scares?}
-  \label{fig:ParticipantTiming}
-\end{figure}
 
 \subsection{Emprical Data}
 We will now discuss the data recorded from the EDA sensor.
 For context, the raw data from the sensor is shown in \vref{fig:RawData}.
-This has already been normalised so that the playtest starts at $x=0$.
-The actual data records wallclock time for each measurement as well as wallclock time for when the playtest starts, which we used to normalise the data.
+The data shown has already been normalised from \emph{wallclock time} to \emph{time after playtest start}.
 
-This data requires significant cleanup before it is ready to be analysed.
-The data was recorded in full so that the relevant parts could be extracted during analysis --- so as to not make any analysis decisions pre-emptively.
+This data evidently required significant cleanup before it is ready to be analysed.
+The decision was made to record all data in full, rather than pre-emptively deciding to only record some of the EDA data.
+This came at the expense of additional storage space and computation time, but meant that no analysis decisions were made pre-emptively.
 
 The drop is calculated using the 10 seconds after each scare.
 \vref{fig:PerGroupScares} shows the data after filtering to just the 10 seconds after each scare and colouring the lines based on which group the participant is in.
@@ -768,13 +726,13 @@ Lines with a larger vertical drop generally indicate a person that was more scar
 	\label{fig:Data}
 \end{figure}
 
-By normalising all of these scares to start at $x,y = 0$, and taking the mean of each group's lines, we can see each group's average scare.
+By normalising all of these scares to start at $(0,0)$, and taking the mean of each group's lines, we can see each group's average scare.
 We can also calculate a standard error margin around these means.
 When doing this, we filter out the first 3 scares for each participant as the algorithm hasn't kicked in so they're essentially both control groups.
-\vref{fig:ResponseAfterScare} shows the average scare for each group and the difference between the two groups.
-The two groups are significantly different, with participants in the intervention group seeing their EDA fall for longer and to a lower trough value.
+The average scare of the two groups differs significantly, with participants in the intervention group seeing their EDA fall for longer and to a lower trough value (see \vref{fig:ResponseAfterScare}.
 The intervention group also takes longer to recover, with the two lines still being separated by more than the margin of error after 10 seconds.
 Additionally, the intervention group reacts slightly quicker than the control group, with the EDA starting to drop slightly earlier than it does for the control group.
+The same trend can be seen in \vref{fig:ResponseAfterScareRel}, which controls for starting EDA by plotting a relative drop instead of an absolute drop.
 
 \begin{figure}[htb]
   \centering
@@ -831,18 +789,21 @@ This indicates that the timing algorithm prevents the intervention group from be
 		<<ScarednessOverTimeCrop>>=
 		source("Scripts/ScarednessOverTimeCrop.R")
 		@
-		\caption{Cropped}
+		\caption{Zoomed to show trends}
 	\end{subfigure}
 	\caption{Scaredness over Time}
 	\label{fig:ScarednessOverTime}
 \end{figure}
 
-\begin{wraptable}{r}{0.6\linewidth}
-  \caption{Relevant statistics for the Regressions}
-  \label{tab:RegressionTable}
-  <<RegressionTable>>=
-  source("Scripts/RegressionTable.R")
-  @
+\begin{wraptable}{r}{0.5\linewidth}
+	\vspace{-10pt}
+    \caption{Relevant statistics for the Regressions}
+    \label{tab:RegressionTable}
+    \begin{footnotesize}
+		<<RegressionTable>>=
+		source("Scripts/RegressionTable.R")
+		@
+	\end{footnotesize}
 \end{wraptable}
 
 \vref{tab:RegressionTable} shows the relevant statistics of the two regressions.
@@ -854,45 +815,78 @@ The gradient indicates that for each second played, a participant in the control
 In comparison, the P-Value of the intervention group is above 50\%, indicating that it's likely there is no correlation between time played and scaredness in the intervention group.
 Even if there was a correlation, the gradient is positive indicating that participants actually become more scared over time.
 
-\subsection{Analysis}
+\subsection{User Self-Reported Measures}
+We begin by examining the results of the questions asked to participants after their playtest was completed, before moving on to analyse the raw data from the sensor.
+
+Participants were asked how much they enjoyed their time playing the game.
+The answers given by each group are presented in \vref{fig:ParticipantEnjoyment}.
+In general, participants in the intervention group enjoyed the game less than those in the control group.
+
+\begin{figure}[htb]
+	\centering
+	\begin{subfigure}[t]{.49\linewidth}
+		<<ParticipantEnjoyment>>=
+		source("Scripts/ParticipantEnjoyment.R")
+		@
+		\caption{Distribution of Responses}
+	\end{subfigure}
+	\begin{subfigure}[t]{.49\linewidth}
+		<<ParticipantEnjoymentBoxPlot>>=
+		source("Scripts/ParticipantEnjoymentBoxPlot.R")
+		@
+		\caption{Comparison between Groups}
+	\end{subfigure}
+	\caption{On a scale of 1-10, how much did you enjoy that as a game?}
+	\label{fig:ParticipantEnjoyment}
+\end{figure}
+
+\begin{wrapfigure}{r}{0.5\linewidth}
+	\vspace{-10pt}
+	<<ScareHistogram>>=
+	source("Scripts/ScareHistogram.R")
+	@
+	\caption{Scare Frequency over Time}
+	\label{fig:ScareHistogram}
+\end{wrapfigure}
+
+Participants were asked to rate the frequency of the jump scares from "Far Too Few" to "Far Too Many" jump scares.
+The answers given by each group are presented in \vref{fig:ParticipantTiming}.
+Most participants felt there were too many jump scares.
+Their feeling is backed up by the scare timing histogram in \vref{fig:ScareHistogram}, which shows that the algorithm generally decreased the frequency of jump scares over time.
+
+The control group felt marginally more strongly that there were too many scares.
+Since the two groups had identical scare timings, this was not the result of any difference in the real frequency between the groups.
+Therefore, this suggests that the scares were badly timed for the control group, making them more aware of the scares and making the scares less immersive.
+
+\cref{fig:ParticipantTimingRegression} shows a statistically significant correlation between the real frequency of scares and the participants' perceived scare frequency.
+This indicates that participants are accurately assessing the frequency of jump scares and that we are not just seeing trends in random data.
+Since we can confirm that the participant timing responses are correct, the other user reported data such as self-reported enjoyment is more likely to be valid.
+
+\begin{figure}[htb]
+	\centering
+	\begin{subfigure}[t]{.49\linewidth}
+		<<ParticipantTiming>>=
+		source("Scripts/ParticipantTiming.R")
+		@
+		\caption{Distribution of Responses}
+	\end{subfigure}
+	\begin{subfigure}[t]{.49\linewidth}
+		<<ScareFrequency>>=
+		source("Scripts/ScareFrequency.R")
+		@
+		\caption{Actual vs Perceived frequency}
+		\label{fig:ParticipantTimingRegression}
+	\end{subfigure}
+	\caption{How was the frequency of jump scares?}
+	\label{fig:ParticipantTiming}
+\end{figure}
+
+\section{Analysis}
 \label{sec:Analysis}
 %Section introduction
 
 This section will explore the results in terms of their validity and generalisability.
 The potential impact on commerical games and further research will be considered.
-
-\subsection{User Self-Reported Statistics}
-There is a slight difference in participant enjoyment between groups, as seen in \vref{fig:ParticipantEnjoyment}.
-Since the difference is small, it could be random noise caused by the small sample size.
-Or it could be due to biases in the sampling as discussed earlier.
-Additionally, only one question about enjoyment was asked in the post-test questionnaire, and no demographic data was recorded, so we can't drill down to look into what could be causing a difference between groups.
-Finally, the participants aren't the target audience for a horror game, as enjoying horror games wasn't a requirement to take part.
-Further study to explore whether the algorithm improves enjoyment in horror-game players would be warranted.
-It seems suspect that a horror game (that's not very scary to begin with) can become more scary but less enjoyable just by changing the timings.
-Intuitively, those should be correlated.
-This runs counter to intuition, which means it would be interesting to study further, but it's a small difference in a study with a small sample size, so it could easily just be random chance.
-The use of a 10-point scale increases the effect of randomness.
-
-There's a very marginal difference between groups when it comes to the perceived frequency of jump scares, as seen in \vref{fig:ParticipantTiming}.
-It's fairly reassuring that the groups are so similar, seeing as they had the exact same timings, and that's what they were supposed to be rating.
-This could be interesting to investigate further, and with a larger sample size you could say conclusively that there is a difference between groups.
-If there is a difference between groups, this could be the beginning of further research into the perceived frequency of jump scares based on good vs bad timing.
-As a purely theoretical excercise about the perception of horror games, there would be no requirement to use an algorithm.
-You could just have a person manually trigger the jump scares at good times.
-Would be interesting to control the number of jump scares but not the timing, then compare good vs bad timing and see how people rate the scare frequency.
-
-\vref{fig:ScareHistogram} shows that the algorithm decreased the number of scares over time.
-This suggests that the initial scare frequency was too high.
-The intial scare frequency has a scare happening every 20-30 seconds, meaning 20-30 scares over the 10-minute playthrough.
-This number was chosen to get the calibration tests over with quickly to maximise the amount of test data (since the first 3 scares are just for calibration and the algorithm hasn't kicked in).
-However, participants found 20-30 scares in a playtest far too high.
-Figure (b) in \cref{fig:ParticipantTiming} shows that around 10 scares is the ideal number.
-Changing the starting frequency to around 1 scare per minute would result in a more ideal number of scares.
-This would intuitively make the game more immersive and scarier.
-That's not really necessary - the sensor is sufficiently sensitive to detect small changes.
-Therefore the benefit of more data outweighs the downside of having a less scary game due to having too many scares.
-A more well-funded study could perform longer tests with a more appropriate scare frequency and get slightly better data.
-I don't think the high scare frequency invalidates any of the data.
 
 \subsection{Empirical Data}
 
@@ -903,8 +897,8 @@ However, the intervention group also starts at a higher EDA, so their drops will
 The intervention group also does not recover faster.
 Due to the mechanics of EDA, a shock produces sweat which takes time to evaporate before the EDA can recover.
 The fact that the intervention and control groups recover at almost the same speed lends itself to the validity of the data, as opposed to an error in the measurement.
-I think the intervention group probably was more scared than the control group.
-A bigger study with many more participants would be far better at judging this - as they could get a better sample and control for starting EDA.
+The intervention group was more scared than the control group, and this is likely to generalise since the margin was fairly wide and remained when examining both the absolute and relative drop .
+A largery study with a bigger sample and tighter control for initial EDA would be better equipped to determine which effects are generalisable.
 
 In \vref{fig:ResponseAfterScareRel}, we look at the relative drop instead.
 This completely removes the effect of higher EDA having larger drops.
@@ -920,8 +914,41 @@ It would be good to conduct more research and ask the participants how scared th
 The two groups have almost identical reactions to the first jump scares, before the algorithm starts.
 In the control group, there's a strong downwards trend over time, with participants becoming bored of the jump scares and not reacting nearly as much.
 Meanwhile, in the intervention group there is no such trend.
-More importantly, since we are not comparing the groups to each other but to themselves at an earlier time, the issues of different starting eda between groups is not relevant.
+More importantly, since we are not comparing the groups to each other but to themselves at an earlier time, the issues of different starting EDA between groups is not relevant.
 Although a longer test would be needed to confirm it, this chart strongly suggests that the algorithm will improve the longevity of a horror game, and allow players to play for longer before becoming desensitised to the scares.
+
+\subsection{User Self-Reported Measures}
+There is a slight difference in participant enjoyment between groups, as seen in \vref{fig:ParticipantEnjoyment}.
+Since the difference is small, it could be random noise caused by the small sample size.
+Alternatively, it could be due to biases in the sampling as discussed earlier.
+Additionally, only one question about enjoyment was asked in the post-test questionnaire, and no demographic data was recorded, so we can't drill down to look into what could be causing a difference between groups.
+Finally, the participants aren't the target audience for a horror game, as enjoying horror games wasn't a requirement to take part.
+Further study to explore whether the algorithm improves enjoyment in horror-game players would be warranted.
+It seems suspect that a horror game (that's not very scary to begin with) can become more scary but less enjoyable just by changing the timings.
+Intuitively, those should be correlated.
+This runs counter to intuition, which means it would be interesting to study further, but it's a small difference in a study with a small sample size, so it could easily just be random chance.
+The use of a 10-point scale increases the effect of randomness.
+
+The results show a very marginal difference between groups when it comes to the perceived frequency of jump scares (\vref{fig:ParticipantTiming}).
+It's fairly reassuring that the groups are so similar, seeing as they had the exact same timings, and that's what they were supposed to be rating.
+This could be interesting to investigate further, and with a larger sample size you could say conclusively that there is a difference between groups.
+If there is a difference between groups, this could be the beginning of further research into the perceived frequency of jump scares based on good vs bad timing.
+As a purely theoretical excercise about the perception of horror games, there would be no requirement to use an algorithm.
+You could just have a person manually trigger the jump scares at good times.
+Would be interesting to control the number of jump scares but not the timing, then compare timing and see how people rate the scare frequency.
+
+\vref{fig:ScareHistogram} shows that the algorithm decreased the number of scares over time.
+This suggests that the initial scare frequency was too high.
+The intial scare frequency has a scare happening every 20-30 seconds, meaning 20-30 scares over the 10-minute playthrough.
+This number was chosen to get the calibration tests over with quickly to maximise the amount of test data since the first 3 scares are just for calibration and the algorithm hasn't kicked in.
+However, participants found 20-30 scares in a playtest far too high.
+Figure (b) in \cref{fig:ParticipantTiming} shows that around 10 scares is the ideal number.
+Changing the starting frequency to around 1 scare per minute would result in a more ideal number of scares.
+This would intuitively make the game more immersive and scarier.
+That's not really necessary - the sensor is sufficiently sensitive to detect small changes.
+Therefore the benefit of more data outweighs the downside of having a less scary game due to having too many scares.
+A more well-funded study could perform longer tests with a more appropriate scare frequency and get slightly better data.
+I don't think the high scare frequency invalidates any of the data.
 
 \section{Conclusions}
 
@@ -930,10 +957,10 @@ The algorithm increased scare frequency when the player had an above-average rea
 The `average reaction' is determined per-participant, using a 3-scare calibration period at the start of a playtest.
 
 Almost all research objectives were successfully completed.
-All minimum objectives were completed --- a hanted house environment was created for players to explore, and their EDA was tracked while doing so.
-The jump scare was created based on preliminary user testing, and due to the high sensitivity of the sensor, could be made less scary than otherwise necessary, making the game more accessibly to players who rarely engage with the horror genre.
+All minimum objectives were completed --- a haunted house environment was created for players to explore, and their EDA was tracked while doing so.
+The jump scare was created based on preliminary user testing, and due to the high sensitivity of the sensor, could be made less scary than otherwise necessary, making the game more accessible to players who rarely engage with the horror genre.
 Data from users is continuously analysed and future scares are timed based on delay since previous scares and the effectiveness of previous scares.
-A null hypothesis algorithm was created which scared users on the same schedule as a previous player, as opposed to algorithmically tailoring the timings to the player.
+A null hypothesis algorithm was created which scared users on the same schedule as a previous player in the intervention group, as opposed to algorithmically tailoring the timings to the player.
 A user study was conducted, which will be discussed in great detail below.
 The algorithm was not revised based on the user study due to lack of time and infeasibility of gathering a second sample of users who had not already played the game.
 
@@ -945,7 +972,7 @@ The main weaknesses of this study were the small sample size ($n=24$) and that i
 Initial EDA was significantly higher in the intervention group, which means that the same scaredness would cause a larger absolute drop in EDA and a smaller relative drop in EDA.
 
 The intervention group reported that the game was slightly less enjoyable and that scares were marginally less frequent compared to the control group.
-The small sample size and small effect size mean that no conclusions can be made about the intervention's effect on enjoyableness or perceived scare frequency.
+The small sample size and numerous threats to internal validity mean that no conclusions can be made about the intervention's effect on enjoyableness or perceived scare frequency.
 
 The intervention group had a larger reaction on average, whether looking at the absolute or relative change in EDA.
 By both measures, the two groups were more than the margin of error apart, strongly suggesting that the algorithm is effective in making players more scared.
@@ -954,18 +981,18 @@ The fact that both absolute and relative drops were bigger suggests that this is
 The intervention group's scaredness did not decrease over time ($P = \Sexpr{signif(pValue(interventionRegression), 3)}$).
 The control group's scaredness decreased over time ($P = \Sexpr{signif(pValue(controlRegression), 3)}$).
 Since we are comparing each group to itself at an earlier time, initial EDA has no effect.
-We can conclude the the algorithm was successful at preventing players from becoming desensitised to the scares.
+We can conclude that the algorithm was successful at preventing players from becoming desensitised to the scares.
 
-The validity of these two results is questionable, due to a number of environmental factors that were not controlled for.
+The validity of the study's results is questionable, due to a number of environmental factors that were not controlled for.
 The user study was conducted across multiple locations, and some participants had been drinking alcohol, though none were noticeably drunk.
-Some environments were more distracting than others, and the distractions can cause changes in EDA.
-As a side effect of controlling for particpants' self-reported fear, the participants were not assigned to groups randomly but instead chronologically.
+Some environments were more distracting than others, and the distractions may have caused changes in EDA.
+As a side effect of controlling for participants' self-reported fear, the participants were not assigned to groups randomly but instead chronologically.
 
-I would recommend further research into this algorithm and the use of EDA for tailoring horror games, as this study provides promising preliminary results.
+Further research into this algorithm and the use of EDA for tailoring horror games is recommended, as this study provides promising preliminary results.
 Future research should conduct all tests in a controlled environment without distractions.
 Additionally, a larger sample size should be gathered, which will help to get a more equal distribution of initial EDA between groups.
 When gathering the sample, participants should be asked to register interest and self-report their fear of horror games, before being randomly assigned to groups.
-This would probably require some incentive to participate to reduce participant attrition after the initial expression of interest.
+This may require an incentive to participate to reduce participant attrition after the initial expression of interest.
 Additionally, the research should explore if the algorithm prevents desensitisation over longer periods, as this study only tested each participant for 10 minutes.
 Showing this would be necessary to recommend incorporating the algorithm into commercial games, as players can play for hours at a time and expect the game to remain scary throughout.
 
