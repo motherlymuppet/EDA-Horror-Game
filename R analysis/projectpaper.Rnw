@@ -31,7 +31,7 @@
 %\citationmode{abbr}
 \bibliographystyle{agsm}
 
-\title{Tailoring Horror Games with Biometrics}
+\title{Tailoring Horror Games with Biosignals}
 \author{} % leave; your name goes into \student{}
 \student{S.H. Lowes}
 \supervisor{M.J.R. Bordewich}
@@ -62,6 +62,8 @@
 \hyphenpenalty=10000
 \hbadness=10000
 
+\renewcommand{\bibsection}{}
+
 \begin{document}
 
 <<PreSetup, echo=F>>=
@@ -86,7 +88,7 @@ source("Scripts/Setup.R")
 @
 
 \maketitle
-
+%TODO
 \begin{abstract}
 %These instructions give you guidelines for preparing the final paper.  DO NOT change any settings, such as margins and font sizes.  Just use this as a template and modify the contents into your final paper.  Do not cite references in the abstract.
 
@@ -100,7 +102,7 @@ source("Scripts/Setup.R")
 
 \textbf{Results}
 
-%This study finds that participants are more scared on average when the timing of the scares is tailored based on biometric data than when scares are triggered randomly.
+%This study finds that participants are more scared on average when the timing of the scares is tailored based on biosignal data than when scares are triggered randomly.
 %It also finds that when scares are tailored, participant reactions do not change in size over time.
 %When scares are triggered randomly, participants become significantly desensitised over time.
 %This study has significant threats to its validity, including that initial EDA values were on average higher in the intervention group than in the control group.
@@ -110,16 +112,8 @@ source("Scripts/Setup.R")
 \end{abstract}
 
 \begin{keywords}
-Biometrics, Electro-dermal Activity, Human-Computer Interaction, Video Games, Horror
+Biosignals, electrodermal Activity, Video Games, Horror
 \end{keywords}
-
-%TODO abstract
-%TODO finish intro
-%TODO do lit review
-%TODO redraft results
-%TODO redraft conclusion
-%TODO redraft solution: implementation, software engineering
-%TODO analysis
 
 \section{Introduction}
 \label{sec:Intro}
@@ -133,11 +127,16 @@ However, each player reacts differently and the one-size-fits-all approach can p
 While the one-size-fits-all approach can be very enjoyable, it requires the developers of the game to anticipate where the scares will be most successful, and program them accordingly.
 This is time-consuming and prone to error.
 
-This project explores the feasibility and benefits of algorithmically tailoring a horror game's jump scares based on the biometric feedback to previous scares.
-A simple horror game with the ability to read data from a electro-dermal activity (EDA) sensor was created.
+The horror genre is an ideal candidate for integrating biosignals into games.
+Since the game triggers scares, we have a defined event which we expect to cause a large reaction, and can use a sensor to measure the response to that known event.
+This is similar to with a lie detector - we have an event (a person answering a question) and we want to see whether it caused a response.
+This is much simpler than trying to detect stress over a long period as the timing of the known stimulus can be used to predict a change in biosignals.
+
+This project explores the feasibility and benefits of algorithmically tailoring a horror game's jump scares based on the feedback to previous scares.
+A simple horror game with the ability to read data from a electrodermal activity (EDA) sensor was created.
 The EDA sensor measures the stress response of the player after each jump scare.
 A user study was conducted and the results analysed to explore whether tailoring the scares to the individual player is more effective than using pre-determined timings.
-Success will be discussed in terms of self-reported enjoyment and data gathered from the biometrics measuring fear.
+Success will be discussed in terms of self-reported enjoyment and data gathered from the biosignal measuring fear.
 
 This project, aims to improve the player's experience by tailoring scares to the individual.
 This will lead to increased `re-playability' of the game by providing a varying experience.
@@ -147,7 +146,7 @@ The project's success will be measured in terms of its ability to make horror ga
 \subsection{Research Aims}
 \label{sec:Objectives}
 
-As outlined above, the fundamental research question is: \emph{Can biometric sensors be used to tailor the timing of scares in a horror game to improve the user experience?}. To answer this question, the following research objectives must be completed:
+As outlined above, the fundamental research question is: \emph{Can biosignals be used to tailor the timing of scares in a horror game to improve the user experience?}. To answer this question, the following research objectives must be completed:
 
 \begin{enumerate}
 	\item Minimum Objectives
@@ -162,18 +161,18 @@ As outlined above, the fundamental research question is: \emph{Can biometric sen
 	\item Intermediate Objectives
 	\begin{enumerate}
 		\item Analyse data from users and try to determine susceptibility to expected new shock events, e.g. underlying tension or delay since last event.
-		\item Create one or more algorithms using biometric data which trigger events at moments of maximum impact.
+		\item Create one or more algorithms using biosignal data which trigger events at moments of maximum impact.
 		\item Create a \emph{null hypothesis algorithm} for random generation of events.
 	\end{enumerate}
 	
 	\item Advanced Objectives
 	\begin{enumerate}
-		\item Conduct a user study to determine whether the Biometric algorithm gives a better user experience than the Random algorithm.
-		\item Revise the Biometric algorithm based upon empirical evidence obtained.
+		\item Conduct a user study to determine whether the Dynamic algorithm gives a better user experience than the null hypothesis algorithm.
+		\item Revise the Dynamic algorithm based upon empirical evidence obtained.
 	\end{enumerate}
 \end{enumerate}
 
-Addressing these objectives, this paper discusses how scares were tailored based on biometric data and the design of the experimental study.
+Addressing these objectives, this paper discusses how scares were tailored based on bionsensor data and the design of the experimental study.
 It concludes that a tailored approach leads to stronger reactions to scares and prevents participants from becoming desensitised over time.
 
 It recommends further research to confirm its results before integration into commercial games.
@@ -211,140 +210,75 @@ Therefore, this section will begin by examining academic sources in areas relate
 
 
 \subsection{Fear and the Horror Genre}
-
-\subsubsection{Success of Genre}
 Horror as a part of popular culture has no clear beginning, and was even popular in Ancient Greece \citep{jackson81}.
 The horror genre is consistently one of the most successful and profitable genres \citep{prince04}.
 In one survey conducted in the Netherlands by \citet{johansen13}, 79\% of participants said they enjoyed horror films.
 Horror games began to appear in the early 1980s, with simple survival horror games such as \emph{Nostromo} \citep{szczepaniak14}.
 
-\subsubsection{Why Fear is Enjoyable}
 Horror as a genre relies on \emph{the paradox of tragedy} --- the appeal of art that triggers negative emotions \citep{smuts09}.
 \cite{freud19} argues that we enjoy horror \emph{despite} the negative emotions caused, as it allows us to indulge in infantile and repressed murderous desires.
 More modern scholars instead consider horror in terms of the central nervous system and evolutionary psychology.
 It is argued that horror is designed to trigger `ancient and deeply conserved defence mechanisms in the brain', and that humans have adapted to enjoy `negative emotions at high levels of intensity within a safe context' \citep[p. 4]{clasen17}.
 
-
-\subsubsection{Scare Timing}
-The timing and pace of scares is important to make them scarier.
+The timing and pace of scares is important to maximise their effect.
 There is little research into the ideal timing of jump-scares, but the literature suggests that they should be triggered when the audience `is made to feel that nothing is about to happen' \citep{draven13}.
-However, it warns that jump-scares can be `scatter[ed] liberally thoughout the film to the point where it becomes almost numbing' \citep{rosenberg10}.
+However, \cite{rosenberg10} warns that jump-scares can be `scatter[ed] liberally thoughout the film to the point where it becomes almost numbing'.
 This reveals that there is a need to pace jump-scares to prevent users from becoming desensitised, or `numb'.
 
 
 \subsection{Game Design}
-\subsubsection{Tailoring Games to Individuals}
-The vast majority of these games present the same experience to all players, though there have been experiments in tailoring the games to the individual.
-
-%adjustable difficulty
-\subsubsection{Frameworks for Designing Horror Games}
-\subsubsection{What People Like in Games}
-%replayability
-
-
-\subsection{Biometrics}
-%discuss general
-
-\subsubsection{EDA}
-%include exampleEda graph
-
-\subsubsection{Wearable Tech}
-\subsubsection{HCI}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{Measuring Stress}
-Physiological arousal is a measure of how alert the body is.
-It can be caused by intense emotion, shock, or surprise, and is strongly linked to the `fight or flight' reflex.
-When experiencing high arousal, the body's blood pressure and heart rate increases, readying the body to respond to a stimulus \citep[pp. 162--167]{arousal}.
-
-When the body is becoming more aroused, it leads to an increase in electro-dermal activity (EDA).
-EDA is a measure of how much the body is sweating, and is measured by testing the resistance between two electrodes.
-When the participant experiences high EDA, the resistance between the electrodes decreases \citep[pp. 2--3]{eda}.
-GSR (galvanic skin response) is a synonymous (though outdated) term for EDA, which is notably used in the name of the EDA sensor that the user study uses.
-
-EDA is used in many applications, including as part of the polygraph (lie-detector) test, where it can detect the physiological arousal caused by lying and being afraid of the repercussions of doing so \citep{polygraph}.
+The vast majority of games present the same experience to all players, or at most allow players to manually configure the game by changing settings.
+Games which use biofeedback to affect the user experience are known as `Affective Games' \citep{gilleade05}.
+These biofeedback mechanics can be categorised based on whether they assist the user during difficult sections, challenge the user by adapting the difficulty, or affect the player's emotions.
+This project fits into the last of these categories.
+
+So far, affective games usually focus on adapting the difficulty of the game.
+These systems are known as `dynamic difficulty adjustment' (DDA) systems, and they have been successfully implemented to improve the user enjoyment of the game \citep{silva17}.
+\citet{stein18} showed that using biosignals instead of in-game heuristics could produce a more accurate and enjoyable DDA system.
+Rarely, horror games support the use of heart-rate monitors to tailor gameplay.
+Examples include \emph{Nevermind} \citep{nevermind}, and \emph{Bring to Light} \citep{bringtolight}.
+In both instances, the games could be played without the sensor.
+
+The use of heart rate monitors in these games is not ideal, but makes sense for a mass-market game as heart rate sensors are some of the most widely available biosignals.
+The effectiveness of heart rate sensors is limited by slow response times and noisy data, leading to an inability to show the immediate response caused by a scare \citep{azarbarzin14}.
+They can tell how scared a person is, but not how scared an individual event made them.
+In contrast, this project will use EDA sensors which can detect changes on the order of milliseconds, making them an ideal feedback mechanism in a horror game.
+
+\citet{nogueira2016} used a number of biosignals to adapt a horror game.
+It demonstrated that participants preferred versions of the game with biofeedback, though it is not clear why.
+The project changed allowed the biofeedback to change a number of independent variables simultaneously, including the level design, asset generation, and event generation.
+This meant that the effect of each aspect of the biofeedback was unclear.
+This project will only allow the biosignals to control event generation, to gain a clearer picture on its benefits.
+
+There exist a number of frameworks for guiding the design of horror games.
+\citet{habel14} introduces the idea of `agency mechanics', suggesting that a horror game should `manage the oscillation between autonomy and control'.
+In a horror game that uses predominantly jump-scares, the loss of control is represented by the scare and the autonomy by the periods of calm between scares.
+This project aims to tailor the oscillation between autonomy and control on an individual level.
+
+\subsection{Biosignals}
+Biosignals are simply any signal in living beings that are time-varying and can be continuously measured.
+Biosignals are used to infer human emotion and mental state by directly measuring the electrical effects of the heart, brain, and skin \citep{van09}.
+Valve and Sony, who together control most of the gaming ecosystem, have both experimented with integrating biosignal sensors into their games and controllers \citep{ambinder11, loveridge2013}.
+
+This project will focus on the use of `Electrodermal activity' (EDA).
+EDA, which goes under many other names including the `Galvanic Skin Response' (GSR) and `Skin Conductance Response' (SCR), measures how the electrical resistance of the skin changes.
+The study of EDA is very mature, first being discovered in 1849.
+This means that the effect is well-understood and the literature is in agreement as to its nature.
+As such, we will use \citet{boucsein12} as our only resource on EDA as it provides an incredibly in-depth and easily understandable look at the mechanics of EDA.
+It is probably the only resource on EDA you will ever need.
+
+EDA measures the electrical resistance of the skin.
+When the body becomes more alert, the sympathetic nervous system causes slight sweating all of the body.
+This means that by passing a small current through the body and measuring its resistance, we can determine how alert the person is.
+
+EDA is used in many applications, including as part of the polygraph (lie detector) test, where it can detect the alertness caused by lying and being afraid of the repercussions of doing so \citep{polygraph}.
 It is also used by the `Church of Scientology' to guide therapy in removing any negative associations from words and concepts, a controversial technique known as `auditing' \citep[p.32]{auditing}.
 
 An EDA response consists of a sharp drop in resistance, over a period of {\raise.17ex\hbox{$\scriptstyle\sim$}}1s, when arousal passes a certain threshold (the size of the drop correlates with the extent of the arousal), followed by an asymptotic increase in resistance back to a high base value, with a half-life of {\raise.17ex\hbox{$\scriptstyle\sim$}}10s.
 The initial drop occurs 1-3 seconds after the stimulus.
-That high base value is rarely reached because arousal varies frequently even without any explicit stimulus, so the EDA response happens quite often \citep{edaAnalysis}.
+That high base value is rarely reached because arousal varies frequently even without any explicit stimulus, so the EDA response happens quite often.
 
-An example of the data collected from a user who is playing a horror game is provided in \vref{fig:ExampleEda}.
+A visual example of data collected from a user who is playing a horror game is provided in \vref{fig:ExampleEda}.
 The rate of increase is relatively linear, with sharp decreases when a fight-or-flight reaction is triggered by the jump-scares.
 Some drops in EDA are not caused by jump scares, such as the large drop between the final two scares.
 These drops could be caused by the user seeing or thinking about something which caused them to become more alert.
@@ -358,34 +292,6 @@ Attempting infer a stimulus from a reaction, as in the initial work in \vref{sec
 	\caption{The EDA data of one participant}
 	\label{fig:ExampleEda}
 \end{figure}
-
-\subsection{Biometrics}
-%TODO explain how biometrics are used - we use to measure EDA
-
-Biometrics are%TODO define, cite, examples of sensors, examples of use
-
-Biometrics are becoming increasingly ubiquitous.
-67\% of smartphones include a fingerprint scanner \citep{fingerprint}, and 141 million smartwatches were sold in 2018 \citep{smartwatches}, nearly all of which are constantly taking heart-rate measurements.
-Consumers are increasingly becoming accustomed to the fact that wearable tech and biometrics can be used to improve their user experience.
-Despite this, biometrics have seen little use in the entertainment industry.
-
-\subsection{Horror Games}
-
-%TODO horror game design
-
-%Focus on the prior work by other people in the horror games bit instead of horror games in general - the bit about other attempts at tailoring are the most interesting
-
-Games such as  \emph{Nevermind} \citep{nevermind}, and \emph{Bring to Light} \citep{bringtolight} both allow the use of heart-rate monitors to adjust gameplay.
-
-The use of heart rate monitors in these games is not ideal, but makes sense for a mass-market game as heart rate sensors are some of the most widely available biometric sensors.
-The effectiveness of heart rate sensors is limited by slow response times, leading to an inability to show the immediate response caused by a scare.
-They can tell how scared a person is, but not how scared an individual event made them.
-In contrast, this project will use EDA sensors which can detect changes on the order of milliseconds, making them an ideal feedback mechanism in a horror game \citep{edaAnalysis}.
-
-The horror genre is an ideal first candidate for integrating biometrics into games.
-Since the game triggers scares, we have a defined event which we expect to cause a large reaction, and can use biometrics to measure the response to that known event.
-This is similar to with a lie detector - we have an event (a person answering a question) and we want to see whether it caused a response.
-This is much simpler than trying to detect stress over a long period as the timing of the known stimulus can be used to predict a change in biometrics.
 
 %TODO conclude lit, relate to project i.e. This literature review has established the context. Aditionally it has done xyz and from that my project will do abc.
 
@@ -432,8 +338,8 @@ See \vref{fig:ExampleScare} for a real example of when the peak and max values a
 	
 \begin{figure}[H]
   \centering
-    \begin{subfigure}[t]{.45\linewidth}
-  	\begin{minipage}{\textwidth}
+    \begin{subfigure}[t]{.45\textwidth}
+  	\begin{minipage}{\linewidth}
   		\begin{equation}
   		e^{-0.366 * \frac{d - \mu}{\sigma}}
   		\end{equation}
@@ -450,8 +356,8 @@ See \vref{fig:ExampleScare} for a real example of when the peak and max values a
   	\end{minipage}
   	\caption{Defined Mathematically}
   \end{subfigure}
-  \begin{subfigure}[t]{.45\linewidth}
-  	\begin{minipage}{\textwidth}
+  \begin{subfigure}[t]{.45\textwidth}
+  	\begin{minipage}{\linewidth}
 	    <<DelayFactor>>=
 		source("Scripts/DelayFactor.R")
 		@
@@ -651,7 +557,7 @@ Participants were put into one of two groups:
 
 In addition to the environment, music, and scares being controlled, many other experimental controls were put in place to improve the reliability of the experimental study.
 
-\subsubsection{Controlling for Reported Fear}
+\subsection{Controlling for Reported Fear}
 
 \begin{wrapfigure}{r}{0.5\linewidth}
 \vspace{-10pt}
@@ -668,7 +574,7 @@ One participant in the pair was assigned to the I-group, and the other to the C-
 This is known as stratified sampling \citep[p. 178]{stratification}, and means that the distribution in self-reported fear between the two groups is identical (see in \vref{fig:ParticipantScaredness}).
 This stratified sampling controls for participants' self-reported fear, preventing one group from containing more stoic participants than the other, which would have skewed the results.
 
-\subsubsection{Controlling for Scare Frequency}
+\subsection{Controlling for Scare Frequency}
 
 \begin{wrapfigure}{r}{0.5\linewidth}
 \vspace{-10pt}
@@ -685,7 +591,7 @@ Since the scare timing algorithm cannot target a certain number of scares, the I
 When the C-group participants were tested, each person was shown the same number of scares as their partner.
 This means that each group has the same distribution of scare frequencies, shown in \vref{fig:ParticipantScares}.
 
-\subsubsection{Controlling for Scare Pacing}
+\subsection{Controlling for Scare Pacing}
 
 We hypothesise that the timing of a scare affects the strength of the user's reaction to it.
 A number of strategies were considered when creating the null hypothesis algorithm.
@@ -910,14 +816,16 @@ This indicates that the timing algorithm prevents the intervention group from be
 	\label{fig:ScarednessOverTime}
 \end{figure}
 
-\begin{wraptable}{r}{0.5\linewidth}
+\begin{wraptable}{r}{0.45\linewidth}
 	\vspace{-10pt}
     \caption{Regression Statistics}
     \label{tab:RegressionTable}
     \begin{footnotesize}
-		<<RegressionTable>>=
-		source("Scripts/RegressionTable.R")
-		@
+    	\begin{center}
+			<<RegressionTable>>=
+			source("Scripts/RegressionTable.R")
+			@
+		\end{center}
 	\end{footnotesize}
 \end{wraptable}
 
