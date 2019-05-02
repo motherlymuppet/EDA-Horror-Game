@@ -55,12 +55,12 @@
 \setlength{\headheight}{14pt} 
 
 %TODO remove this
-\setlength{\parskip}{0.5\baselineskip}%
+%\setlength{\parskip}{0.5\baselineskip}%
 
-\tolerance=1 %don't use hyphens
-\emergencystretch=\maxdimen
-\hyphenpenalty=10000
-\hbadness=10000
+%\tolerance=1 %don't use hyphens
+%\emergencystretch=\maxdimen
+%\hyphenpenalty=10000
+%\hbadness=10000
 
 \renewcommand{\bibsection}{}
 
@@ -204,15 +204,13 @@ The music-based project is not flawed at its core, and could still prove interes
 
 \section{Related Work}
 
-This section will discuss the previous research and studies that are relevant to the project.
-There is little academic research on tailoring horror games to individuals, and none that uses EDA to do so.
-Therefore, this section will begin by examining academic sources in areas related to this topic, before moving to non-academic sources which more closely relate to the study.
+This section will discuss the previous research that is relevant to the project. %TODO talk about the topics that I discuss
 
 
 \subsection{Fear and the Horror Genre}
-Horror as a part of popular culture has no clear beginning, and was even popular in Ancient Greece \citep{jackson81}.
+Horror as a part of popular culture has no clear origin, and was even popular in Ancient Greece \citep{jackson81}.
 The horror genre is consistently one of the most successful and profitable genres \citep{prince04}.
-In one survey conducted in the Netherlands by \citet{johansen13}, 79\% of participants said they enjoyed horror films.
+In one survey, 79\% of participants said they enjoyed horror films by \citep{johansen13}.
 Horror games began to appear in the early 1980s, with simple survival horror games such as \emph{Nostromo} \citep{szczepaniak14}.
 
 Horror as a genre relies on \emph{the paradox of tragedy} --- the appeal of art that triggers negative emotions \citep{smuts09}.
@@ -220,10 +218,10 @@ Horror as a genre relies on \emph{the paradox of tragedy} --- the appeal of art 
 More modern scholars instead consider horror in terms of the central nervous system and evolutionary psychology.
 It is argued that horror is designed to trigger `ancient and deeply conserved defence mechanisms in the brain', and that humans have adapted to enjoy `negative emotions at high levels of intensity within a safe context' \citep[p. 4]{clasen17}.
 
-The timing and pace of scares is important to maximise their effect.
-There is little research into the ideal timing of jump-scares, but the literature suggests that they should be triggered when the audience `is made to feel that nothing is about to happen' \citep{draven13}.
-However, \cite{rosenberg10} warns that jump-scares can be `scatter[ed] liberally thoughout the film to the point where it becomes almost numbing'.
-This reveals that there is a need to pace jump-scares to prevent users from becoming desensitised, or `numb'.
+The timing and pace of scares must be tailored to maximise their effect.
+There is little research into the ideal timing of jump scares, but the literature suggests that they should be triggered when the audience `is made to feel that nothing is about to happen' \citep[p. 52]{draven13}.
+However, jump scares can be less effective if they are `scatter[ed] liberally thoughout the film to the point where it becomes almost numbing' \citep[p. 80]{rosenberg10}.
+This reveals that there is a need to pace jump scares to prevent users from becoming desensitised, or `numb'.
 
 
 \subsection{Game Design}
@@ -235,55 +233,56 @@ This project fits into the last of these categories.
 So far, affective games usually focus on adapting the difficulty of the game.
 These systems are known as `dynamic difficulty adjustment' (DDA) systems, and they have been successfully implemented to improve the user enjoyment of the game \citep{silva17}.
 \citet{stein18} showed that using biosignals instead of in-game heuristics could produce a more accurate and enjoyable DDA system.
-Rarely, horror games support the use of heart-rate monitors to tailor gameplay.
-Examples include \emph{Nevermind} \citep{nevermind}, and \emph{Bring to Light} \citep{bringtolight}.
+A few horror games support the use of heart-rate monitors to tailor gameplay, including \emph{Nevermind} \citep{nevermind}, and \emph{Bring to Light} \citep{bringtolight}.
 In both instances, the games could be played without the sensor.
 
-The use of heart rate monitors in these games is not ideal, but makes sense for a mass-market game as heart rate sensors are some of the most widely available biosignals.
+The use of heart rate monitors in these games is not ideal, but makes sense for a mass-market game because heart rate is the biosignal for which commercial sensors are the most widely available.
 The effectiveness of heart rate sensors is limited by slow response times and noisy data, leading to an inability to show the immediate response caused by a scare \citep{azarbarzin14}.
 They can tell how scared a person is, but not how scared an individual event made them.
 In contrast, this project will use EDA sensors which can detect changes on the order of milliseconds, making them an ideal feedback mechanism in a horror game.
 
 \citet{nogueira2016} used a number of biosignals to adapt a horror game.
 It demonstrated that participants preferred versions of the game with biofeedback, though it is not clear why.
-The project changed allowed the biofeedback to change a number of independent variables simultaneously, including the level design, asset generation, and event generation.
+The project allowed the biofeedback to change a number of independent variables simultaneously, including the level design, asset generation, and event generation.
 This meant that the effect of each aspect of the biofeedback was unclear.
-This project will only allow the biosignals to control event generation, to gain a clearer picture on its benefits.
+In this study, we will only allow the biosignals to control event generation, to gain a clearer picture on its benefits.
 
 There exist a number of frameworks for guiding the design of horror games.
-\citet{habel14} introduces the idea of `agency mechanics', suggesting that a horror game should `manage the oscillation between autonomy and control'.
-In a horror game that uses predominantly jump-scares, the loss of control is represented by the scare and the autonomy by the periods of calm between scares.
-This project aims to tailor the oscillation between autonomy and control on an individual level.
+\citet{habel14} introduce the idea of `agency mechanics', suggesting that a horror game should `manage the oscillation between autonomy and control' (p. 2).
+In a horror game that uses predominantly jump scares, the loss of control is represented by the scare, when the user experience is fixed.
+Autonomy is represented by the periods of calm between scares, when the user has the freedom to act as they wish.
+We aim to tailor the oscillation between autonomy and control on an individual level.
 
 \subsection{Biosignals}
-Biosignals are simply any signal in living beings that are time-varying and can be continuously measured.
+Biosignals are any signal in living beings that are time-varying and can be continuously measured.
 Biosignals are used to infer human emotion and mental state by directly measuring the electrical effects of the heart, brain, and skin \citep{van09}.
 Valve and Sony, who together control most of the gaming ecosystem, have both experimented with integrating biosignal sensors into their games and controllers \citep{ambinder11, loveridge2013}.
+This demonstrates the games industry's significant interest in the use of biosignals.
 
 This project will focus on the use of `Electrodermal activity' (EDA).
-EDA, which goes under many other names including the `Galvanic Skin Response' (GSR) and `Skin Conductance Response' (SCR), measures how the electrical resistance of the skin changes.
+EDA, which goes by many other names including the `Galvanic Skin Response' (GSR) and `Skin Conductance Response' (SCR), measures how the electrical resistance of the skin changes.
 The study of EDA is very mature, first being discovered in 1849.
 This means that the effect is well-understood and the literature is in agreement as to its nature.
-As such, we will use \citet{boucsein12} as our only resource on EDA as it provides an incredibly in-depth and easily understandable look at the mechanics of EDA.
-It is probably the only resource on EDA you will ever need.
+As such, we will use \citet{boucsein12} as our primary resource on EDA as it provides an incredibly in-depth and easily understandable look at the mechanics of EDA.
 
 EDA measures the electrical resistance of the skin.
-When the body becomes more alert, the sympathetic nervous system causes slight sweating all of the body.
+When the body becomes more alert, the sympathetic nervous system causes slight sweating over the body.
 This means that by passing a small current through the body and measuring its resistance, we can determine how alert the person is.
 
-EDA is used in many applications, including as part of the polygraph (lie detector) test, where it can detect the alertness caused by lying and being afraid of the repercussions of doing so \citep{polygraph}.
+EDA is used in many applications, including as part of the polygraph (lie detector) test, where it can detect the alertness caused by lying and the fear of repercussions from doing so \citep{polygraph}.
 It is also used by the `Church of Scientology' to guide therapy in removing any negative associations from words and concepts, a controversial technique known as `auditing' \citep[p.32]{auditing}.
 
-An EDA response consists of a sharp drop in resistance, over a period of {\raise.17ex\hbox{$\scriptstyle\sim$}}1s, when arousal passes a certain threshold (the size of the drop correlates with the extent of the arousal), followed by an asymptotic increase in resistance back to a high base value, with a half-life of {\raise.17ex\hbox{$\scriptstyle\sim$}}10s.
-The initial drop occurs 1-3 seconds after the stimulus.
-That high base value is rarely reached because arousal varies frequently even without any explicit stimulus, so the EDA response happens quite often.
+An EDA response consists of a sharp drop in resistance followed by an asymptotic increase back to a high base value.
+The drop takes place over a period of approximately one second, and the drop size correlates with the degree of altertness.
+It takes around 10 seconds for the EDA to recover to its original level.
+The initial drop occurs between one and three seconds after the stimulus.
+EDA is rarely static, and is continuously increasing or decreasing.
 
-A visual example of data collected from a user who is playing a horror game is provided in \vref{fig:ExampleEda}.
-The rate of increase is relatively linear, with sharp decreases when a fight-or-flight reaction is triggered by the jump-scares.
-Some drops in EDA are not caused by jump scares, such as the large drop between the final two scares.
-These drops could be caused by the user seeing or thinking about something which caused them to become more alert.
-These random drops are why it is important that we know when to expect a reaction, as it allows for the stimulus and reaction to be linked.
-Attempting infer a stimulus from a reaction, as in the initial work in \vref{sec:Initial}, is difficult and error-prone.
+A visual example of data collected from a horror game player is provided in \vref{fig:ExampleEda}.
+The rate of increase is relatively linear, with sharp drops after each jump scare.
+Some drops, such as the large drop between the final two scares, are caused by alternative factors like the user seeing or thinking about something which caused them to become more alert.
+These random drops mean it is necessary to know when to expect a reaction.
+Attempting to infer a stimulus from a reaction, as in the initial work in \vref{sec:Initial}, is difficult and error-prone.
 
 \begin{figure}[htb]
 	<<ExampleEda, fig.width = "\\textwidth", fig.height = 2>>=
@@ -327,48 +326,50 @@ The drop is the difference between the minimum EDA value seen (the \emph{trough}
 This is distinct from the real maximum seen, as we ignore any values after the trough.
 See \vref{fig:ExampleScare} for a real example of when the peak and max values are distinct.
 
+\begin{minipage}{\textwidth}
 \begin{tcolorbox}[colback=black!10, title=Procedure, sharp corners]
-
-\begin{enumerate}
-	\item 10 seconds after each scare, compute its drop.
-	Append to a list of drops.
-	\item If in the calibration phase, stop now.
-	\item Calculate the mean and standard deviation of the drop list, excluding the most recent scare.
-	\item Compute the delay factor:
 	
-\begin{figure}[H]
-  \centering
-    \begin{subfigure}[t]{.45\textwidth}
-  	\begin{minipage}{\linewidth}
-  		\begin{equation}
-  		e^{-0.366 * \frac{d - \mu}{\sigma}}
-  		\end{equation}
-  		
-  		where:
-  		
-  		$d$ is the most recent drop
-  		
-  		$\mu$ is the mean of previous drops
-  		
-  		$\sigma$ is the std. dev. of previous drops
-  		
-  		The delay factor is clamped to values between $\frac{1}{3}$ and $3$, to prevent anomalies causing huge changes.
-  	\end{minipage}
-  	\caption{Defined Mathematically}
-  \end{subfigure}
-  \begin{subfigure}[t]{.45\textwidth}
-  	\begin{minipage}{\linewidth}
-	    <<DelayFactor>>=
-		source("Scripts/DelayFactor.R")
-		@
-  	\end{minipage}
-  	\caption{Visual Representation}
-  \end{subfigure}
-\end{figure}
-	
-	\item Multiply the delay by the factor.
-\end{enumerate}
+	\begin{enumerate}
+		\item 10 seconds after each scare, compute its drop.
+		Append to a list of drops.
+		\item If in the calibration phase, stop now.
+		\item Calculate the mean and standard deviation of the drop list, excluding the most recent scare.
+		\item Compute the delay factor:
+		
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}[t]{.45\textwidth}
+				\begin{minipage}{\linewidth}
+					\begin{equation}
+					e^{-0.366 * \frac{d - \mu}{\sigma}}
+					\end{equation}
+					
+					where:
+					
+					$d$ is the most recent drop
+					
+					$\mu$ is the mean of previous drops
+					
+					$\sigma$ is the std. dev. of previous drops
+					
+					The delay factor is clamped to values between $\frac{1}{3}$ and $3$, to prevent anomalies causing huge changes.
+				\end{minipage}
+				\caption{Defined Mathematically}
+			\end{subfigure}
+			\begin{subfigure}[t]{.45\textwidth}
+				\begin{minipage}{\linewidth}
+					<<DelayFactor>>=
+					source("Scripts/DelayFactor.R")
+					@
+				\end{minipage}
+				\caption{Visual Representation}
+			\end{subfigure}
+		\end{figure}
+		
+		\item Multiply the delay by the factor.
+	\end{enumerate}
 \end{tcolorbox}
+\end{minipage}
 
 \subsection{Null Hypothesis Algorithm}
 The null hypothesis algorithm simply receives a list of times as a parameter and scares the user whenever the current time is equal to one of the times in the list.
@@ -557,10 +558,8 @@ Participants were put into one of two groups:
 
 In addition to the environment, music, and scares being controlled, many other experimental controls were put in place to improve the reliability of the experimental study.
 
-\subsection{Controlling for Reported Fear}
-
 \begin{wrapfigure}{r}{0.5\linewidth}
-\vspace{-10pt}
+	\vspace{-10pt}
 	<<ParticipantScaredness>>=
 	source("Scripts/ParticipantScaredness.R")
 	@
@@ -568,22 +567,25 @@ In addition to the environment, music, and scares being controlled, many other e
 	\label{fig:ParticipantScaredness}
 \end{wrapfigure}
 
+\subsection{Controlling for Reported Fear}
+
 We expect that participants who are more scared of the horror genre will have stronger reactions to the jump scare.
 Participant pairings were created such that both participants in a pair self-reported the same level of fear for horror games.
 One participant in the pair was assigned to the I-group, and the other to the C-group.
 This is known as stratified sampling \citep[p. 178]{stratification}, and means that the distribution in self-reported fear between the two groups is identical (see in \vref{fig:ParticipantScaredness}).
 This stratified sampling controls for participants' self-reported fear, preventing one group from containing more stoic participants than the other, which would have skewed the results.
 
-\subsection{Controlling for Scare Frequency}
-
 \begin{wrapfigure}{r}{0.5\linewidth}
-\vspace{-10pt}
+	\vspace{-10pt}
 	<<ParticipantScares>>=
 	source("Scripts/ParticipantScares.R")
 	@
 	\caption{Distribution of scare frequency}
 	\label{fig:ParticipantScares}
 \end{wrapfigure}
+
+
+\subsection{Controlling for Scare Frequency}
 
 We also expect participants that are shown more jump scares to be more desensitised.
 To control for this, each pairing made previously was shown the same number of scares.
@@ -787,7 +789,7 @@ The same trend can be seen in \vref{fig:ResponseAfterScareRel}, which controls f
 		@
 		\caption{Difference between Groups}
 	\end{subfigure}
-	\caption{Average Relative Response to a Jump-Scare}
+	\caption{Average Relative Response to a Jump Scare}
 	\label{fig:ResponseAfterScareRel}
 \end{figure}
 
@@ -1007,7 +1009,7 @@ As a side effect of controlling for participants' self-reported fear, the partic
 
 Almost all research objectives were successfully completed.
 All minimum objectives were completed --- a haunted house environment was created for players to explore, and their EDA was tracked while doing so.
-A jump-scare event was created which caused a measurable scare reaction in the player.
+A jump scare event was created which caused a measurable scare reaction in the player.
 All intermediate objectives were completed --- an algorithm was created which continuously analyses user data and times future scares are based on the effectiveness of previous scares.
 A null hypothesis algorithm was created which scared users on the same schedule as a previous player in the intervention group, as opposed to algorithmically tailoring the timings to the player.
 Only the first advance objective was completed --- a user study was conducted, the results of which will be discussed in great detail below.
