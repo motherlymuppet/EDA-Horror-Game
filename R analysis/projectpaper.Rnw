@@ -54,14 +54,6 @@
 
 \setlength{\headheight}{14pt} 
 
-%TODO remove this
-%\setlength{\parskip}{0.5\baselineskip}%
-
-%\tolerance=1 %don't use hyphens
-%\emergencystretch=\maxdimen
-%\hyphenpenalty=10000
-%\hbadness=10000
-
 \renewcommand{\bibsection}{}
 
 \begin{document}
@@ -88,31 +80,36 @@ source("Scripts/Setup.R")
 @
 
 \maketitle
-%TODO
 \begin{abstract}
 %These instructions give you guidelines for preparing the final paper.  DO NOT change any settings, such as margins and font sizes.  Just use this as a template and modify the contents into your final paper.  Do not cite references in the abstract.
 
 %The abstract must be a Structured Abstract with the headings {\bf Context/Background}, {\bf Aims}, {\bf Method}, {\bf Results}, and {\bf Conclusions}.  This section should not be longer than half of a page, and having no more than one or two sentences under each heading is advised.
 
 \textbf{Context/Background}
+The horror genre has consistently been one of the most popular genres of video game, thrilling players by allowing them to experience fear in a safe environment.
+However, each person reacts differently to scares and the one-size-fits-all experience can prove restrictive.
+Some experiments have attempted to use biofeedback to control the scares in horror games, but all have shown significant flaws in their approach or choice of sensor.
 
 \textbf{Aims}
+This project aims to answer the following research question:\emph{Can biosignals be used to tailor the timing of scares in a horror game to improve the user experience?}
+The user experience will be measured in terms of self-reported enjoyment, in addition to emprical data from the sensor indicating how effective each scare was.
+A secondary aim of the project is to simplify the development of horror games by removing the need to pre-program scare locations in an environment.
 
 \textbf{Method}
+A simple horror game will be created with the ability to read data from an electrodermal activity sensor.
+The rate and timing of scares will be adjusted based on the sensor data, and a user study will be conducted to explore whether the biofeedback improves the user experience.
+The algorithm will be compared to a control which does not use biofeedback.
 
 \textbf{Results}
-
-%This study finds that participants are more scared on average when the timing of the scares is tailored based on biosignal data than when scares are triggered randomly.
-%It also finds that when scares are tailored, participant reactions do not change in size over time.
-%When scares are triggered randomly, participants become significantly desensitised over time.
-%This study has significant threats to its validity, including that initial EDA values were on average higher in the intervention group than in the control group.
-%The study is unlikely to be generalisable as the game used is unrealistically simple and the sample is small ($n=24$) and unrepresentative, composed mostly of young, male, computer science students.
-%This study shows that further research is warranted but the threats to its validity means that a recommendation to industry cannot be made without further experiments.
+This study finds that participants are more scared on average when the timing of the scares is tailored based on biosignal data than when scares are triggered randomly.
+It also finds that biofeedback prevents participants from becoming desensitised to the scares over time.
+This study has significant threats to its validity, including that initial EDA values were on average higher in the intervention group than in the control group.
+This study shows that further research is warranted but the threats to its validity means that a recommendation to industry cannot be made without further experimentation.
 
 \end{abstract}
 
 \begin{keywords}
-Biosignals, electrodermal Activity, Video Games, Horror
+Biosignals, Electrodermal Activity, Video Games, Horror
 \end{keywords}
 
 \section{Introduction}
@@ -204,8 +201,8 @@ The music-based project is not flawed at its core, and could still prove interes
 
 \section{Related Work}
 
-This section will discuss the previous research that is relevant to the project. %TODO talk about the topics that I discuss
-
+This section will discuss the previous research that is relevant to the project. 
+The topics which make up the context for this project include fear and the horror genre, game design, and biosignals.
 
 \subsection{Fear and the Horror Genre}
 Horror as a part of popular culture has no clear origin, and was even popular in Ancient Greece \citep{jackson81}.
@@ -292,7 +289,8 @@ Attempting to infer a stimulus from a reaction, as in the initial work in \vref{
 	\label{fig:ExampleEda}
 \end{figure}
 
-%TODO conclude lit, relate to project i.e. This literature review has established the context. Aditionally it has done xyz and from that my project will do abc.
+This literature review has established the relevant context of the project.
+Using this as a basis, we will attempt to tailor horror games to individuals by adjusting the timing of jump scares.
 
 \section{Solution}
 
@@ -325,6 +323,8 @@ This is calculated by examining the EDA data for 10 seconds after the scare.
 The drop is the difference between the minimum EDA value seen (the \emph{trough}) and the maximum EDA value seen before the minimum (the \emph{peak}).
 This is distinct from the real maximum seen, as we ignore any values after the trough.
 See \vref{fig:ExampleScare} for a real example of when the peak and max values are distinct.
+
+\vspace{10pt}
 
 \begin{minipage}{\textwidth}
 \begin{tcolorbox}[colback=black!10, title=Procedure, sharp corners]
@@ -375,11 +375,7 @@ See \vref{fig:ExampleScare} for a real example of when the peak and max values a
 The null hypothesis algorithm simply receives a list of times as a parameter and scares the user whenever the current time is equal to one of the times in the list.
 Determining the list of times to pass to the null hypothesis algorithm is left as an implementation detail, and is discussed in significant detail later.
 
-\subsection{Implementation}
-
-%TODO consider flow of the subsec
-
-\begin{wrapfigure}{r}{0.5\linewidth}
+\begin{wrapfigure}{r}{0.35\linewidth}
 	\vspace{-10pt}
 	\centering
 	\begin{tikzpicture}
@@ -415,8 +411,10 @@ Determining the list of times to pass to the null hypothesis algorithm is left a
 	\end{tikzpicture}
 	\caption{Game Architecture}
 	\label{fig:Architecture}
-	\vspace{-15pt}
+	\vspace{-10pt}
 \end{wrapfigure}
+
+\subsection{Implementation}
 
 \vref{fig:Architecture} shows the hardware and software architecture of the game that was implemented.
 An Arduino Uno was used to read from the EDA sensor.
@@ -451,7 +449,7 @@ The final jump scare is shown in \vref{fig:JumpScare}.
 A `creeper' face appears large on the screen, taking up most of the user's field of view.
 The creeper is a monster in Minecraft and has a reasonably scary appearance.
 At the same time, a loud noise plays consisting of many in-game noises pitch-shifted and played simultaneously.\footnote{A video of the jump scare, with sound, is available at \url{https://www.youtube.com/watch?v=kKKoTZelk3k}}
-It has many low frequencies and some high-pitched scream-like sounds, which can help evoke a sense of fear. %TODO CITE
+It has many low frequencies and some high-pitched scream-like sounds, which can help evoke a sense of fear.
 
 The jump scare poses no threat to the player in-game.
 Any implementation where the jump scare poses a threat necessarily means that good timing of the jump scare requires environmental knowledge.
@@ -661,7 +659,7 @@ Since the I-group participants were in general found earlier than the C-group pa
 This threat could be reduced by sampling participants randomly, getting an initial expression of interest and a self-reported fear rating, then assigning groups and performing tests.
 This was planned originally, but found to be infeasible due to the increased attrition rates of having a two-phase sampling strategy.
 
-Additionally, participants begin the playtest with different EDA levels, and on average the starting EDA of the two groups differs (see \vref{fig:startingEda}.
+Additionally, participants begin the playtest with different EDA levels, and on average the starting EDA of the two groups differs (see \vref{fig:StartingEda}.
 As higher EDA leads to larger drops as a result of the same stimulus, this makes it harder to compare between the groups.
 This threat is one of the project's most significant threats.
 
@@ -818,10 +816,11 @@ This indicates that the timing algorithm prevents the intervention group from be
 	\label{fig:ScarednessOverTime}
 \end{figure}
 
-\begin{wraptable}{r}{0.45\linewidth}
-	\vspace{-10pt}
+\begin{wraptable}{r}{0.5\linewidth}
+	\vspace{-20pt}
     \caption{Regression Statistics}
     \label{tab:RegressionTable}
+	\vspace{-20pt}
     \begin{footnotesize}
     	\begin{center}
 			<<RegressionTable>>=
@@ -829,6 +828,7 @@ This indicates that the timing algorithm prevents the intervention group from be
 			@
 		\end{center}
 	\end{footnotesize}
+	\vspace{-20pt}
 \end{wraptable}
 
 \vref{tab:RegressionTable} shows the relevant statistics of the two regressions.
@@ -1038,6 +1038,6 @@ For developers, they would no longer need to manually program where each scare s
 For players, they would get to enjoy a scarier game, and would be able to play the game multiple times through without learning where the scares are and expecting them, massively improving replayability.
 
 
-\section{References} %TODO remove 2nd references header
+\section{References}
 \footnotesize\bibliography{projectpaper}
 \end{document}
