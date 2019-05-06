@@ -1,1 +1,0 @@
-2 participants went off the scale which broke the sensor so their data had to be discarded. 1 participant's data was ruined by running the software in the wrong environemnt so 2 programs were trying to access the serial device at the same time

@@ -45,7 +45,11 @@ class Serial constructor(port: CommPortIdentifier) : SerialPortEventListener, Cl
     fun recentData(ms: Long): List<Pair<Long, Double>>{
         val data = data
         val startTime = data.last().first - ms
-        return data.subList(data.indexOfFirst { (time, _) -> time >= startTime }, data.size-1)
+        return data.subList(
+                data.indexOfFirst { (time, _) ->
+                    time >= startTime
+                },
+                data.size - 1)
     }
 
     fun gradient(ms: Long): Double?{

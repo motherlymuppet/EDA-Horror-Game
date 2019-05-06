@@ -15,7 +15,7 @@ fill = c(
 
 chart = chartDefault + 
   geom_bar(aes(x = x, group = group, fill = fill), position = position_dodge2(width = 0.9, preserve = "single")) +
-  scale_x_discrete("Response", lim = c(2:5), labels = c("Too Few", "About Right", "Too Many", "Far Too Many")) +
+  scale_x_discrete("Perceived Scare Frequency", lim = c(2:5), labels = c("Too Few", "About Right", "Too Many", "Far Too Many")) +
   labs(y = "Frequency", fill = "Group")
 
 print(chart)

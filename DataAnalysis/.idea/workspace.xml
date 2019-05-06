@@ -3,41 +3,136 @@
   <component name="ChangeListManager">
     <list default="true" id="f95d6e59-1ac5-490f-b3ee-3dcfa0fa8440" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/Clear.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/ComparePairs.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/Doc.Rnw" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/Doc.Rnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAnalysis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DataAnalysis.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/MainApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/MainAppKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/app/MainMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/Angle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/Participant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/ParticipantRegistry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/PlaytestLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/Storyteller$Companion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/data/Storyteller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/gui/DataLabel$WhenMappings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/gui/DataLabel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/stevenlowes/project/analysis/gui/DataLabels.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Design Report/template/designpaper.blg" beforeDir="false" afterPath="$PROJECT_DIR$/../Design Report/template/designpaper.blg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Design Report/template/designpaper.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../Design Report/template/designpaper.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Design Report/template/designpaper.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../Design Report/template/designpaper.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/config/splash.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/config/splash.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-1.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-2.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-3.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-4.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/logs/debug-5.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/ops.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/ops.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/options.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/options.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/advancements/02006724-8599-3350-ba13-0c0625a51a5e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/advancements/dbef6173-b792-3041-821b-b11445f44ee8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/data/villages.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/data/villages.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/level.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/level.dat_old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/playerdata/02006724-8599-3350-ba13-0c0625a51a5e.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/playerdata/dbef6173-b792-3041-821b-b11445f44ee8.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-1.-2.mca" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-1.-2.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-2.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-2.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-2.-2.mca" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/region/r.-2.-2.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/session.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/session.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/stats/02006724-8599-3350-ba13-0c0625a51a5e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/saves/UseMe/stats/dbef6173-b792-3041-821b-b11445f44ee8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/usercache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/run/usernamecache.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/run/usernamecache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/src/main/java/com/stevenlowes/edahorror/ModController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/src/main/java/com/stevenlowes/edahorror/ModController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinecraftHorror/src/main/java/com/stevenlowes/edahorror/data/Serial.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../MinecraftHorror/src/main/java/com/stevenlowes/edahorror/data/Serial.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/.Rhistory" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/.Rhistory" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../R analysis/Doc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/Doc.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/Doc.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/Lib.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/ParticipantEnjoyment.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/ParticipantScaredness.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/ParticipantTiming.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/ResponseAfterScare.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/ResponseAfterScareAroundMin.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/ScareHistogram.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/ScarednessOverTime.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/ScarednessOverTimeCalibration.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/Setup.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/Smooth.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/StartingEDA.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/Test2.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/figure/ComparePairs-1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/figure/ComparePairs-1.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/Scripts/ExampleEDA.R" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/Scripts/ExampleEDA.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/Scripts/ExampleScare.R" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/Scripts/ExampleScare.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/Scripts/ParticipantEnjoyment.R" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/Scripts/ParticipantEnjoyment.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/Scripts/ParticipantEnjoymentBoxPlot.R" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/Scripts/ParticipantEnjoymentBoxPlot.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/Scripts/ParticipantScaredness.R" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/Scripts/ParticipantScaredness.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/Scripts/ParticipantScares.R" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/Scripts/ParticipantScares.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/Scripts/ParticipantTiming.R" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/Scripts/ParticipantTiming.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/Scripts/PerGroupScares.R" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/Scripts/PerGroupScares.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/Scripts/RawData.R" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/Scripts/RawData.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/Scripts/RegressionTable.R" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/Scripts/RegressionTable.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/Scripts/ReportedScaredness.R" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/Scripts/ReportedScaredness.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/Scripts/ResponseAfterScare.R" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/Scripts/ResponseAfterScare.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/Scripts/ScareFrequency.R" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/Scripts/ScareFrequency.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ComparePairs_d5bd078fd59067c9e4d513b19a4e1795.RData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ComparePairs_d5bd078fd59067c9e4d513b19a4e1795.rdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ComparePairs_d5bd078fd59067c9e4d513b19a4e1795.rdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ExampleEDA_aa8bb0103c7306a4099568da428f71bc.RData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ExampleEDA_aa8bb0103c7306a4099568da428f71bc.rdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ExampleEDA_aa8bb0103c7306a4099568da428f71bc.rdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ParticipantEnjoyment_57bd69ed1360a7d6496b715e780e058a.RData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ParticipantEnjoyment_57bd69ed1360a7d6496b715e780e058a.rdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ParticipantEnjoyment_57bd69ed1360a7d6496b715e780e058a.rdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ParticipantScaredness_bb974ee7b2af5f79beca3f600a05fbe4.RData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ParticipantScaredness_bb974ee7b2af5f79beca3f600a05fbe4.rdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ParticipantScaredness_bb974ee7b2af5f79beca3f600a05fbe4.rdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ParticipantTiming_44a3a48e30cb7fb78fa0e21602dd2258.RData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ParticipantTiming_44a3a48e30cb7fb78fa0e21602dd2258.rdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ParticipantTiming_44a3a48e30cb7fb78fa0e21602dd2258.rdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ResponseAfterScareAroundMin_e074140855f00ea6e90a8efba7df98b9.RData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ResponseAfterScareAroundMin_e074140855f00ea6e90a8efba7df98b9.rdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ResponseAfterScareAroundMin_e074140855f00ea6e90a8efba7df98b9.rdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ResponseAfterScare_88d1b7744ecf99b6e14057fb5711f1ef.RData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ResponseAfterScare_88d1b7744ecf99b6e14057fb5711f1ef.rdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ResponseAfterScare_88d1b7744ecf99b6e14057fb5711f1ef.rdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ScareFrequency_3ad12f0c125470863fbce8472e225030.RData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ScareFrequency_3ad12f0c125470863fbce8472e225030.rdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ScareFrequency_3ad12f0c125470863fbce8472e225030.rdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ScareHistogram_48dd06416d163c707d676883d501620b.RData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ScareHistogram_48dd06416d163c707d676883d501620b.rdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ScareHistogram_48dd06416d163c707d676883d501620b.rdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ScarednessOverTimeCalibration_a1fc078a0ed437935fe4ab610ee01659.RData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ScarednessOverTimeCalibration_a1fc078a0ed437935fe4ab610ee01659.rdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ScarednessOverTimeCalibration_a1fc078a0ed437935fe4ab610ee01659.rdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ScarednessOverTime_71e6a61789c8ca6628ca7bc0180f90fd.RData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ScarednessOverTime_71e6a61789c8ca6628ca7bc0180f90fd.rdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/ScarednessOverTime_71e6a61789c8ca6628ca7bc0180f90fd.rdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/Setup_1e02b0d9c8fbc5c668a6613e51655261.RData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/Setup_1e02b0d9c8fbc5c668a6613e51655261.rdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/Setup_1e02b0d9c8fbc5c668a6613e51655261.rdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/StartingEda_14dda53e3f05c5f9664a0c2731643b06.RData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/StartingEda_14dda53e3f05c5f9664a0c2731643b06.rdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/StartingEda_14dda53e3f05c5f9664a0c2731643b06.rdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/__globals" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/cache/__globals" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/__objects" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/cache/__objects" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/__packages" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/cache/__packages" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/unnamed-chunk-2_1800f54375bcf42e9cc233aa3fb0342c.RData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/unnamed-chunk-2_1800f54375bcf42e9cc233aa3fb0342c.rdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/unnamed-chunk-2_1800f54375bcf42e9cc233aa3fb0342c.rdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/unnamed-chunk-3_7a51de88a826cd1969044edd82ae75f9.RData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/unnamed-chunk-3_7a51de88a826cd1969044edd82ae75f9.rdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/cache/unnamed-chunk-3_7a51de88a826cd1969044edd82ae75f9.rdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/figure/ComparePairs-1.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../R analysis/figure/ExampleEDA-1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/figure/ExampleEDA-1.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../R analysis/figure/ParticipantEnjoyment-1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/figure/ParticipantEnjoyment-1.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../R analysis/figure/ParticipantScaredness-1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/figure/ParticipantScaredness-1.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../R analysis/figure/ParticipantTiming-1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/figure/ParticipantTiming-1.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../R analysis/figure/ResponseAfterScare-1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/figure/ResponseAfterScare-1.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/figure/ResponseAfterScareAroundMin-1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/figure/ResponseAfterScareAroundMin-1.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/figure/ResponseAfterScareAroundMin-1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/figure/ScareFrequency-1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/figure/ScareFrequency-1.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../R analysis/figure/ScareHistogram-1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/figure/ScareHistogram-1.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../R analysis/figure/ScarednessOverTime-1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/figure/ScarednessOverTime-1.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/figure/ScarednessOverTimeCalibration-1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/figure/ScarednessOverTimeCalibration-1.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/figure/unnamed-chunk-2-1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/figure/unnamed-chunk-2-1.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../R analysis/figure/unnamed-chunk-3-1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/figure/unnamed-chunk-3-1.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/figure/ScarednessOverTimeCalibration-1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/figure/StartingEda-1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/figure/StartingEda-1.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/figure/summary_plot-1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/figure/unnamed-chunk-2-1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/figure/unnamed-chunk-3-1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/projectpaper.Rnw" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/projectpaper.Rnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/projectpaper.bib" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/projectpaper.bib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/projectpaper.blg" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/projectpaper.blg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/projectpaper.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/projectpaper.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/projectpaper.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/projectpaper.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../R analysis/projectpaper.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../R analysis/projectpaper.tex" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,95 +140,98 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="OverlapFilter.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/OverlapFilter.kt">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Series.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+            <state relative-caret-position="85">
+              <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Export.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Playtest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
               <folding>
-                <element signature="e#76#183#0" expanded="true" />
+                <element signature="e#47#195#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Config.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Config.kt">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Participant.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+            <state relative-caret-position="85">
+              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/PlaytestLoader.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="52" column="21" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
+            <state relative-caret-position="204">
+              <caret line="15" column="102" selection-start-line="15" selection-start-column="102" selection-end-line="15" selection-end-column="102" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StartAtMinTransform.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/StartAtMinTransform.kt">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Storyteller.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+            <state relative-caret-position="34">
+              <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Visualisation.kt" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/ParticipantRegistry.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Visualisation.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="289">
+              <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LabelledLineChart.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/LabelledLineChart.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AverageTransform.kt" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransform.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+            <state relative-caret-position="595">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Export.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Export.kt">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Util.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainApp.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/MainApp.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Series.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Series.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+            <state relative-caret-position="867">
+              <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
+              <folding>
+                <element signature="e#42#153#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -154,7 +252,6 @@
     <findStrings>
       <find>Map&lt;Long, Double&gt;</find>
       <find>typeali</find>
-      <find>openjfx</find>
     </findStrings>
     <replaceStrings>
       <replace>Series</replace>
@@ -172,6 +269,7 @@
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/dataanalysis/PlayTest.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/dataanalysis/main.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/dataanalysis/gui/LabelledLineChart.kt" />
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/MainApp.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/main.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/PlayTestLoader.kt" />
@@ -204,6 +302,7 @@
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/EdaAfterTestScare.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/EdaAfterAllScare.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/EdaAfterScareAroundMin.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Config.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AngleDeltaTransform.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/DestructorTransform.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/GradientTransform.kt" />
@@ -215,22 +314,8 @@
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Visualisation.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/LabelledLineChart.kt" />
         <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransform.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Config.kt" />
-        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsFlowSettings">
-    <service-enabled>true</service-enabled>
-    <exe-path />
-    <other-services-enabled>true</other-services-enabled>
-    <auto-save>true</auto-save>
-  </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -239,35 +324,11 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="DataAnalysis" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="DataAnalysis" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="DataAnalysis" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="265" />
-    <option name="y" value="127" />
-    <option name="width" value="1274" />
-    <option name="height" value="789" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="2576" />
+    <option name="height" value="1416" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -275,9 +336,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -363,6 +421,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -372,14 +432,11 @@
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="dataanalysis" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552861581033" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MinecraftHorror" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556133906276" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -411,34 +468,22 @@
     </option>
   </component>
   <component name="RunManager" selected="Kotlin.org.stevenlowes.project.analysis.ExportKt">
-    <configuration default="true" type="Applet" factoryName="Applet">
+    <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method>
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method>
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-      <method>
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -451,6 +496,9 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.stevenlowes.project.analysis.ExportKt" />
       <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="org.stevenlowes.project.analysis.MainKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="DataAnalysis" />
@@ -461,6 +509,9 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.stevenlowes.project.analysis.MainKt" />
       <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="org.stevenlowes.project.analysis.app.MainAppKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="DataAnalysis" />
@@ -471,38 +522,25 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.stevenlowes.project.analysis.app.MainAppKt" />
       <option name="WORKING_DIRECTORY" />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <properties />
-      <listeners />
-      <method>
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+    <configuration default="true" type="TestNG">
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-      <method>
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -536,62 +574,57 @@
       <workItem from="1553083597420" duration="4770000" />
       <workItem from="1553091189567" duration="11104000" />
       <workItem from="1553173327066" duration="11009000" />
-      <workItem from="1555504544536" duration="231000" />
-      <workItem from="1555504802154" duration="79000" />
-      <workItem from="1555504909066" duration="2570000" />
-      <workItem from="1555507510685" duration="139000" />
-      <workItem from="1555507898566" duration="1425000" />
-      <workItem from="1556016482405" duration="621000" />
+      <workItem from="1556517577322" duration="1261000" />
+      <workItem from="1557151072312" duration="1197000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76639000" />
+    <option name="totallyTimeSpent" value="75087000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.48623854" side_tool="true" weight="0.36931217" />
-      <window_info anchor="right" id="Maven Projects" order="4" visible="true" weight="0.28170535" />
-      <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48461953" weight="0.39576718" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24284944" />
-      <window_info anchor="bottom" id="Statistic" order="7" sideWeight="0.49960256" weight="0.32969603" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2599364" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.51376146" weight="0.36931217" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.46735024" weight="0.32910052" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Debug with VisualVM" order="7" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Run with VisualVM" order="7" sideWeight="0.49841017" weight="0.32969603" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="right" id="Maven" order="3" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49960256" weight="0.32910052" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48461953" weight="0.3951676" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.51376146" weight="0.36931217" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.48623854" side_tool="true" weight="0.36931217" />
+      <window_info anchor="bottom" id="Statistic" order="9" sideWeight="0.49960256" weight="0.32969603" />
+      <window_info anchor="bottom" id="Run with VisualVM" order="10" sideWeight="0.49841017" weight="0.32969603" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.46735024" weight="0.32910052" />
+      <window_info anchor="bottom" id="Debug with VisualVM" order="15" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Maven Projects" order="9" />
+      <window_info anchor="right" id="R Packages" order="10" />
+      <window_info anchor="right" id="R Graphics" order="11" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -603,7 +636,6 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="44" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JetRunConfigurationType">
@@ -667,49 +699,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Config.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="115" lean-forward="true" selection-start-line="11" selection-start-column="115" selection-end-line="11" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AverageAfterScare.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Visualisation.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Eda.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/MainMenu.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/no/tornado/tornadofx/1.7.17/tornadofx-1.7.17-sources.jar!/tornadofx/FX.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5565">
-          <caret line="407" selection-start-line="407" selection-end-line="407" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Config.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Angle.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -717,18 +706,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Storyteller.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/ParticipantRegistry.kt">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Participant.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        <state relative-caret-position="765">
+          <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -749,6 +730,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/MainApp.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#46#215#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/no/tornado/tornadofx/1.7.17/tornadofx-1.7.17-sources.jar!/tornadofx/FX.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5565">
@@ -760,6 +751,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#46#176#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -773,21 +767,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AverageAfterScare.kt" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/AverageEDA.kt" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/MouseMovementAfterScare.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/PlaytestLoader.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/security/AccessController.class" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Playtest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-858">
-          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Eda.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -840,18 +820,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Util.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="1" lean-forward="true" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/DestructorTransform.kt" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/GradientTransform.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+          <folding>
+            <element signature="e#76#169#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -864,15 +840,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/NormaliseRelativeTransform.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="60">
+          <caret line="7" column="69" selection-start-line="7" selection-start-column="69" selection-end-line="7" selection-end-column="69" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/OverlapFilter.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+        <state relative-caret-position="75">
+          <caret line="5" column="67" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
           <folding>
             <element signature="e#76#183#0" expanded="true" />
           </folding>
@@ -882,144 +858,107 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/StartAtMinTransform.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+          <caret line="4" column="62" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/jfxrt.jar!/javafx/scene/chart/LineChart.class" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Series.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/gui/LabelledLineChart.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Visualisation.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransform.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/MainApp.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Export.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="52" column="21" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
+        <state relative-caret-position="195">
+          <caret line="22" column="119" selection-start-line="22" selection-start-column="119" selection-end-line="22" selection-end-column="119" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Config.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+        <state relative-caret-position="425">
+          <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Series.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Export.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Playtest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <folding>
+            <element signature="e#47#195#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Participant.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/ParticipantRegistry.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/Visualisation.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/app/visualisations/datatransforms/AverageTransform.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/Util.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
+          <folding>
+            <element signature="e#42#153#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/PlaytestLoader.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="102" selection-start-line="15" selection-start-column="102" selection-end-line="15" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/stevenlowes/project/analysis/data/Storyteller.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Kotlin</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>DataAnalysis</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>KotlinJavaRuntime</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

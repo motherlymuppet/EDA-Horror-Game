@@ -17,7 +17,7 @@ chart = chartDefault +
   scale_y_continuous(name = bquote('EDA '~(10^3)), label = number_format(scale = 1e-3)) +
   geom_point(aes(x = scareTimes, y = scareValues), color = "red", size = 3, stroke = 1.5, shape = 4) +
   geom_line(aes(x = x, y = y)) +
-  geom_text(aes(x = examplePos[[1]] + 3e4, y = examplePos[[2]], label = "= Scare"), color = "red")
+  geom_text(aes(x = examplePos[[1]], y = examplePos[[2]], label = "= Scare"), nudge_x = 4e4, color = "red")
 
 print(chart)
 

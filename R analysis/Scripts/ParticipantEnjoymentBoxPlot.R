@@ -12,7 +12,7 @@ chart = chartDefault +
   stat_boxplot(aes(x = group, y = y), geom ='errorbar', width = 0.3) +
   geom_boxplot(aes(x = group, y = y, fill = group)) +
   theme(legend.position = "none") +
-  labs(x = "Group", y = "Response")
+  labs(x = "Group", y = "Enjoyment")
 
 print(chart)
 

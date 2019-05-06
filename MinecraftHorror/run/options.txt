@@ -1,8 +1,8 @@
 version:1343
 invertYMouse:false
 mouseSensitivity:0.25
-fov:1.0
-gamma:0.41549295
+fov:0.5
+gamma:0.0
 saturation:0.0
 renderDistance:3
 guiScale:0
@@ -19,7 +19,7 @@ resourcePacks:[]
 incompatibleResourcePacks:[]
 lastServer:
 lang:en_us
-chatVisibility:0
+chatVisibility:2
 chatColors:true
 chatLinks:true
 chatLinksPrompt:true

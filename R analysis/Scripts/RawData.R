@@ -16,7 +16,7 @@ scareTimes = scares %>% flatten %>% map(~start(.x)) %>% as.numeric
 scareValues = scares %>% flatten %>% map(~.x[[1]]) %>% as.numeric
 
 chart = chartDefault +
-  scale_x_continuous(name = "Time (s)", label = number_format(scale = 1e-3))+#, breaks = seq(start,end,len=11)) +
+  scale_x_continuous(name = "Time After Playtest Start (s)", label = number_format(scale = 1e-3))+#, breaks = seq(start,end,len=11)) +
   scale_y_continuous(name = bquote('EDA '~(10^3)), label = number_format(scale = 1e-3)) +
   scale_color_viridis_c(aes(x = xs, y = ys, color = ids)) +
   geom_path(aes(x = xs, y = ys, color = ids, group = ids)) +
